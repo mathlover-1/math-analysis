@@ -1,0 +1,275 @@
+\ifdefined\BookMaster
+\def\BookEnd{}
+\else
+\documentclass[a4paper,12pt,fleqn,openany,twoside,fontset=windows]{ctexbook}
+\input{数学分析习题整理-导言.tex}
+\begin{document}
+\mainmatter
+\pagestyle{main}
+\setcounter{chapter}{2}
+\def\BookEnd{\end{document}}
+\fi
+
+\chapter{函数}
+
+\begin{ti}
+【题1】用覆盖定理证明零点存在性定理
+\end{ti}
+
+\textbf{证明}:给定连续函数$f,f(a)<0,f(b)>0,$ \\
+
+假设函数$f\text{在}[a,b]$上无零点,则对$\forall\,x_0\in[a,b],$由连续函数保号性, \\
+
+$\exists\,\delta_x>0,\;\text{s.t.}\,\forall\,x\in O_{\delta_x}(x_0)\cap[a,b],\text{都有}f(x)f(x_0)>0,$ \\
+
+又$\displaystyle\bigcup_{x\in[a,b]}O_{\delta_x}(x)\text{构成}[a,b]$的一个开覆盖,那么,由$Lebesgue$定理, \\
+
+$\exists\,\zeta>0,\;\text{s.t.}\,x',x''\in[a,b]\text{且}\left\lvert x'-x''\right\rvert<\zeta\text{时},x',x''\text{可被包在同一个}O_{\delta}(x)$里, \\
+
+在$[a,b]\text{中插入一系列点,连同端点一起,记为:}a=x_0<x_1<x_2<...<x_n=b,$ \\
+
+$\text{且满足}\left\lvert x_i-x_{i-1}\right\rvert<\zeta,\,i=1,2,...,n,$ \\
+
+由插入点的特点可知,$f(x_i)f(x_{i-1})>0\Longrightarrow f(a)f(b)>0,$矛盾.
+
+\begin{ti}
+【题2】设$f\in C[a,b),\{x_n\},\{y_n\}\subset[a,b),\,\,\text{满足}:$\\
+
+$\displaystyle\lim_{n\to\infty}x_n=\lim_{n\to\infty}y_n=b,\displaystyle\lim_{n\to\infty}f(x_n)=A<B=\lim_{n\to\infty}f(y_n)$ \\
+
+证明:$\forall\,\eta\in(A,B),\;\exists\,\{z_n\}\subset[a,b),\;\text{s.t.}\,\displaystyle\lim_{n\to\infty}z_n=b,\lim_{n\to\infty}f(z_n)=\eta$
+\end{ti}
+
+\textbf{证明}:取$\varepsilon=\min\{\eta-A,B-\eta\},\text{则}\exists\,N,$ \\
+
+$n>N\text{时},\,f(x_n)<A+\varepsilon=\eta,f(y_n)>B-\varepsilon=\eta,$ \\
+
+又$x_n,y_n\in[a,b),f\in C[a,b)$,由零点存在性定理, \\
+
+$\exists\,z_n\text{介于}x_n,y_n\text{之间},\text{且}f(z_n)=\eta,$ \\
+
+又由夹逼定理,可得$\displaystyle\lim_{n\to\infty}z_n=b.$
+
+\begin{ti}
+【题3】设$f$在$(a,b)$上一致连续,证明:存在两个有限的单侧极限$f(a^+),f(b^-)$
+\end{ti}
+
+\textbf{证明}:$\forall\,\varepsilon>0,\;\exists\,\delta>0,\;\text{s.t.}\,\left\lvert x'-x''\right\rvert<\delta\text{且}x',x''\in(a,b)\text{时},\left\lvert f(x')-f(x'')\right\rvert<\varepsilon,$ \\
+
+$\therefore\,x_1,x_2\in(a,a+\delta)\text{时},\left\lvert f(x_1)-f(x_2)\right\rvert<\varepsilon,$ \\
+
+由$Cauchy$收敛准则,$\displaystyle\lim_{x\to a^+}f(x)$存在且有限.同理$f(b^-)$有限,得证.
+
+\begin{ti}
+【题4】证明:$f(x)=x\sin{\dfrac{1}{x}}$在$(0,+\infty)$上一致连续
+\end{ti}
+
+\textbf{证明}:$\left\lvert f(x)-f(y)\right\rvert=\left\lvert x\sin{\dfrac{1}{x}}-y\sin{\dfrac{1}{y}}\right\rvert=\left\lvert x\sin{\dfrac{1}{x}}-y\sin{\dfrac{1}{x}}+y\sin{\dfrac{1}{x}}-y\sin{\dfrac{1}{y}}\right\rvert$ \\
+
+$<\left\lvert \sin{\dfrac{1}{x}}\right\rvert\left\lvert x-y\right\rvert+y\left\lvert \sin{\dfrac{1}{x}-\dfrac{1}{y}}\right\rvert<\left\lvert x-y\right\rvert+y\left\lvert \sin{\dfrac{1}{x}-\dfrac{1}{y}}\right\rvert,$ \\
+
+利用$\sin{x}\text{是}Lipschitz\text{函数},\,\left\lvert \sin{\dfrac{1}{x}-\dfrac{1}{y}}\right\rvert<\left\lvert \dfrac{1}{x}-\dfrac{1}{y}\right\rvert,$ \\
+
+$\therefore\left\lvert f(x)-f(y)\right\rvert<\left\lvert x-y\right\rvert+y\left\lvert \dfrac{1}{x}-\dfrac{1}{y}\right\rvert=\left\lvert x-y\right\rvert+\dfrac{1}{x}\left\lvert x-y\right\rvert,$ \\
+
+同理$\left\lvert f(x)-f(y)\right\rvert<\left\lvert x-y\right\rvert+\dfrac{1}{y}\left\lvert x-y\right\rvert,$ \\
+
+又$\left\lvert f(x)-f(y)\right\rvert<\left\lvert x\sin{\dfrac{1}{x}}\right\rvert+\left\lvert y\sin{\dfrac{1}{y}}\right\rvert<x+y,$ \\
+
+对$\forall\,\varepsilon>0,\;\text{取}\delta=\varepsilon(1+\dfrac{2}{\varepsilon})^{-1},$我们断言:$\left\lvert x-y\right\rvert<\delta\text{时},\left\lvert f(x)-f(y)\right\rvert<\varepsilon,$ \\
+
+分情况讨论, \\
+
+\romannum{1} 若$x<\dfrac{\varepsilon}{2},\,y<\dfrac{\varepsilon}{2},\text{则}\left\lvert f(x)-f(y)\right\rvert<x+y<\varepsilon,$ \\
+
+\romannum{2} 若$x\geq\dfrac{\varepsilon}{2}(y\geq\dfrac{\varepsilon}{2}\text{时类似可这样处理}),\text{则}\left\lvert f(x)-f(y)\right\rvert<\left\lvert x-y\right\rvert+\dfrac{1}{x}\left\lvert x-y\right\rvert$ \\
+
+$\leq\left\lvert x-y\right\rvert+\dfrac{2}{\varepsilon}\left\lvert x-y\right\rvert<(1+\dfrac{2}{\varepsilon})\delta=\varepsilon,$ \\
+
+即$\forall\,\varepsilon>0,\;\exists\,\delta=\varepsilon(1+\dfrac{2}{\varepsilon})^{-1},\left\lvert x-y\right\rvert<\delta\text{时},\left\lvert f(x)-f(y)\right\rvert<\varepsilon,$ \\
+
+即$f(x)=x\sin{\dfrac{1}{x}}\text{在}(0,+\infty)$上一致连续. \\
+
+\textbf{注}:本题中$\left\lvert f(x)-f(y)\right\rvert=\left\lvert x\sin{\dfrac{1}{x}}-y\sin{\dfrac{1}{x}}+y\sin{\dfrac{1}{x}}-y\sin{\dfrac{1}{y}}\right\rvert$的处理方法在解决这种差值估计当中十分常见,
+但是本题中这种方法在0附近失效了,不能直接解决问题,所以要分段去用不同的放缩,在0附近利用$f$趋近于0来放缩.
+
+\begin{ti}
+【题5】设$g\text{是区间}I\text{上的单调函数}$,证明:值域$g(I)$为区间的充要条件为$g\in C^0(I)$
+\end{ti}
+
+\textbf{证明}:充分性易得,下证必要性,先设$\displaystyle g$是单调递增的, \\
+
+若$\displaystyle g$在内点$\displaystyle x_0\in I$处不连续,则$\displaystyle g(x_0^-)<g(x_0^+)$,取$\displaystyle y\in(g(x_0^-),g(x_0^+))$且$\displaystyle y\neq g(x_0)$, \\
+
+由单调性可知$\displaystyle y\notin g(I)$,与$\displaystyle g(I)$是区间矛盾, \\
+
+若$\displaystyle I$含左端点$\displaystyle a$,且$\displaystyle g$在$\displaystyle a$处相对右不连续,则$\displaystyle g(a)<g(a^+)$, \\
+
+任取$\displaystyle y\in(g(a),g(a^+))$,对$\displaystyle x=a$有$\displaystyle g(x)<y$,对$\displaystyle x>a$有$\displaystyle g(x)\geq g(a^+)>y$, \\
+
+故$\displaystyle y\notin g(I)$,矛盾, \\
+
+若$\displaystyle I$含右端点$\displaystyle b$,且$\displaystyle g$在$\displaystyle b$处相对左不连续,则$\displaystyle g(b^-)<g(b)$,\\
+
+任取$\displaystyle y\in(g(b^-),g(b))$,对$\displaystyle x<b$有$\displaystyle g(x)\leq g(b^-)<y$,而$\displaystyle g(b)>y$,故$\displaystyle y\notin g(I)$,矛盾, \\
+
+所以单调递增时$\displaystyle g\in C^0(I)$.若$\displaystyle g$单调递减,对$\displaystyle-g$应用上述结论即可,故$\displaystyle g\in C^0(I).$
+
+\begin{ti}
+【题6】设$f$是$(-\infty,+\infty)$上的单调函数,在每一点定义$g(x)=f(x^+)$,证明:$g\text{是}(-\infty,+\infty)$上处处右连续的函数
+\end{ti}
+
+\textbf{证明}:即证$\forall\,x_0\in\mathbb{R},\;\displaystyle\lim_{x\to x_0^+}f(x^+)=f(x_0^+),$ \\
+
+不妨设$f$是单调递增函数,则$x>x_0\text{时},f(x_0^+)\leq f(x)\leq f(x^+),$ \\
+
+又$f(x_0^+)=\displaystyle\inf_{x>x_0}f(x),$由确界的刻画可知, \\
+
+$\forall\,\varepsilon>0,\;\exists\,u_0>x_0,\;\text{s.t.}\,f(x_0^+)+\varepsilon>f(u_0),$ \\
+
+令$\delta=u_0-x_0>0,\,x\in(x_0,x_0+\delta)\text{时},f(x^+)\leq f(u_0)<f(x_0^+)+\varepsilon,$ \\
+
+$\therefore\,\forall\varepsilon>0,\;\exists\,\delta>0,x\in(x_0,x_0+\delta)\text{时},\left\lvert f(x^+)-f(x_0^+)\right\rvert<\varepsilon,$ \\
+
+$\therefore\displaystyle\lim_{x\to x_0^+}f(x^+)=f(x_0^+)$对$\forall\,x_0\in\mathbb{R}$成立,即$g(x)$在$(-\infty,+\infty)$上处处右连续.
+
+\begin{ti}
+【题7】设函数$f$在区间$I$内只有可去间断点,定义$g(x)=\displaystyle\lim_{t\to x}f(t),x\in I,$证明:$g\in C(I)$
+\end{ti}
+
+\textbf{证明}:因为$\displaystyle f$只有可去间断点,所以$\displaystyle g$在$\displaystyle I$中每一点都有定义, \\
+
+给定$\displaystyle\varepsilon>0$,由极限定义,存在$\displaystyle\delta>0$,当$\displaystyle0<|t-x_0|<\delta$时,$\displaystyle\left\lvert f(t)-g(x_0)\right\rvert<\dfrac{\varepsilon}{2},$ \\
+
+若$\displaystyle|x-x_0|<\dfrac{\delta}{2}$,令$\displaystyle y\to x$且$\displaystyle0<|y-x|<\dfrac{\delta}{2}-|x-x_0|$,则$\displaystyle|y-x_0|<\delta$,从而 \\
+
+$\displaystyle g(x_0)-\dfrac{\varepsilon}{2}\leq\lim_{y\to x}f(y)=g(x)\leq g(x_0)+\dfrac{\varepsilon}{2},$ 故$\displaystyle\left\lvert g(x)-g(x_0)\right\rvert\leq\dfrac{\varepsilon}{2}<\varepsilon$,\\
+
+因此$\displaystyle\lim_{x\to x_0}g(x)=g(x_0)$对任意$\displaystyle x_0\in I$成立,即$\displaystyle g\in C(I).$
+
+\begin{ti}
+【题8】证明:若$f$在$[0,+\infty)$上连续且有界,则对每个给定的$\lambda$,存在一个数列$\{x_n\}$满足要求: \\
+$\displaystyle(1)\lim_{n\to\infty}x_n=+\infty;\quad(2)\lim_{n\to\infty}[f(x_n+\lambda)-f(x_n)]=0$
+\end{ti}
+
+\textbf{证明}:若$\lambda=0,\text{取}x_n=n$即可,下设$\lambda\neq 0$, \\
+
+考虑函数$\displaystyle g(x)=f(x+\lambda)-f(x)$,则$\displaystyle g$在$\displaystyle[\max\{0,-\lambda\},+\infty)$上连续且有界, \\
+
+下面证明:$\displaystyle\forall\,\varepsilon>0,\forall\,M>0,\;\exists\,x\geq M,\;\text{s.t.}\,\left\lvert g(x)\right\rvert<\varepsilon,$ \\
+
+用反证法,假设$\displaystyle\exists\,\varepsilon_0>0,M_0>0,\;\text{s.t.}\,\forall\,x\geq M_0,\left\lvert g(x)\right\rvert\geq\varepsilon_0$, \\
+
+令$\displaystyle L=\max\{0,-\lambda,M_0\}$,因为$\displaystyle g$在连通区间$\displaystyle[L,+\infty)$上连续且不取零值, \\
+
+所以由介值定理,$\displaystyle g$在该区间上恒取同一符号, \\
+
+即$\displaystyle g(x)\geq\varepsilon_0$恒成立或$\displaystyle g(x)\leq-\varepsilon_0$恒成立, \\
+
+下设前一种情形,后一种情形同理, \\
+
+当$\displaystyle\lambda>0$时,$\displaystyle f(L+\lambda)-f(L)\geq\varepsilon_0,$ \\
+
+\phantom{当$\displaystyle\lambda>0$时,$\displaystyle\;$}$\displaystyle f(L+2\lambda)-f(L+\lambda)\geq\varepsilon_0,$ \\
+\phantom{当$\displaystyle\lambda>0$时,$\displaystyle\;f(L+2\lambda)$}\vdots \\
+\phantom{当$\displaystyle\lambda>0$时,$\displaystyle\;$}$\displaystyle f(L+n\lambda)-f(L+n\lambda-\lambda)\geq\varepsilon_0,$ \\
+
+\phantom{当$\displaystyle\lambda>0\;$}$\displaystyle\therefore\,f(L+n\lambda)-f(L)\geq n\varepsilon_0,$ \\
+
+\phantom{当$\displaystyle\lambda>0\;$}$\displaystyle\therefore\lim_{n\to\infty}f(L+n\lambda)=+\infty$,与$\displaystyle f(x)$在$\displaystyle[0,+\infty)$上有界矛盾, \\
+
+当$\displaystyle\lambda<0$时,$\displaystyle f(L)-f(L-\lambda)\geq\varepsilon_0,$ \\
+
+\phantom{当$\displaystyle\lambda<0$时,$\displaystyle\;$}$\displaystyle f(L-\lambda)-f(L-2\lambda)\geq\varepsilon_0,$ \\
+\phantom{当$\displaystyle\lambda<0$时,$\displaystyle\;f(L-\lambda)$}\vdots \\
+\phantom{当$\displaystyle\lambda<0$时,$\displaystyle\;$}$\displaystyle f(L-n\lambda+\lambda)-f(L-n\lambda)\geq\varepsilon_0,$ \\
+
+\phantom{当$\displaystyle\lambda<0\;$}$\displaystyle\therefore\,f(L)-f(L-n\lambda)\geq n\varepsilon_0,$ \\
+
+\phantom{当$\displaystyle\lambda<0\;$}$\displaystyle\therefore\lim_{n\to\infty}f(L-n\lambda)=-\infty$,与$\displaystyle f(x)$在$\displaystyle[0,+\infty)$上有界矛盾, \\
+
+综上,$\forall\,\varepsilon>0,\forall\,M>0,\;\exists\,x\geq M,\;\text{s.t.}\,\left\lvert g(x)\right\rvert<\varepsilon,$ \\
+
+取$\varepsilon=1,M=1,\;\exists\,x_1\geq 1,\text{且}\left\lvert g(x_1)\right\rvert<1,$ \\
+
+取$\varepsilon=\dfrac{1}{2},M=2,\;\exists\,x_2\geq 2,\text{且}\left\lvert g(x_2)\right\rvert<\dfrac{1}{2},$ \\
+\phantom{取$\varepsilon=1,M=1,$}\vdots \\
+取$\varepsilon=\dfrac{1}{n},M=n,\;\exists\,x_n\geq n,\text{且}\left\lvert g(x_n)\right\rvert<\dfrac{1}{n},$ \\
+
+$\therefore\displaystyle\lim_{n\to\infty}x_n=+\infty,\lim_{n\to\infty}\left\lvert f(x_n+\lambda)-f(x_n)\right\rvert=0,$ \\
+
+综上,$\forall\,\lambda\in\mathbb{R},\;\exists\{x_n\},\;\text{s.t.}\,\displaystyle\lim_{n\to\infty}x_n=+\infty,\lim_{n\to\infty}[f(x_n+\lambda)-f(x_n)]=0.$
+
+\begin{ti}
+【题9】证明:不等于常数的连续周期函数一定有最小正周期
+\end{ti}
+
+\textbf{证明}:记集合$T=\left\{t>0\,|\;f(x+t)=f(x)\right\}$,函数$f(x)$为不等于常数的连续周期函数, \\
+
+$\because\,f(x)$是周期函数,$\quad\therefore\,T$非空,又$t>0,\quad\therefore\,T$有下界, \\
+
+由确界原理,$\exists\,T_0=\inf{T},T_0\geq 0$,下证:$T_0>0\text{且}T_0\in T,$ \\
+
+\ding{172} 若$\displaystyle T_0=0$,则对每个$\displaystyle n\in\mathbb{N}^+$,可取$\displaystyle t_n\in T$使$\displaystyle0<t_n<\dfrac{1}{n}$, \\
+
+任取$\displaystyle x_1<x_2$,令$\displaystyle k_n$为满足$\displaystyle k_nt_n\geq x_2-x_1$的最小正整数,并令$\displaystyle r_n=x_2-x_1-(k_n-1)t_n$, \\
+
+则$\displaystyle0<r_n\leq t_n<\dfrac{1}{n}$,故$\displaystyle r_n\to0^+$,又$\displaystyle(k_n-1)t_n$为$\displaystyle f$的周期, \\
+
+$\therefore\displaystyle f(x_2)=f(x_1+(k_n-1)t_n+r_n)=f(x_1+r_n)\to f(x_1),$ \\
+
+故$\displaystyle f(x_2)=f(x_1)$.由$\displaystyle x_1,x_2$的任意性,$\displaystyle f$为常值函数,与题目条件矛盾!$\displaystyle\quad\therefore\,T_0>0,$ \\
+
+\ding{173} $\because\,T_0=\inf{T},\;\therefore\exists\,\{t_n\}\subseteq T,\;\text{s.t.}\,\displaystyle\lim_{n\to\infty}t_n=T_0,$ \\
+
+又$f(x)=f(x+t_n)\text{对}\forall\,n\in\mathbb{N}^+$成立,$\quad\therefore\,f(x)=\displaystyle\lim_{n\to\infty}f(x+t_n),$ \\
+
+由$Heine$定理,$\displaystyle\lim_{n\to\infty}f(x+t_n)=f(x+T_0),\quad\therefore\,f(x)=f(x+T_0),\text{即}T_0\in T,$ \\
+
+综上,$T_0$为$f(x)$的最小正周期,即$f(x)$有最小正周期. \\
+
+\textbf{注记}:关键在于,当周期很小的时候,可以用整数倍周期很好的逼近任意实数.
+
+\begin{ti}
+【题10】设$f$在区间$[0,n]$连续,$f(0)=f(n),n\in\mathbb{N}^+$,证明:至少有$n$对不同的$(x,y)$使得$f(x)=f(y)$,同时$x-y$为非$0$整数
+\end{ti}
+
+\textbf{证明}:对$n$进行归纳,$n=1$时显然成立, \\
+
+假设$n=k-1$时结论成立,$\;n=k$时,设$g(x)=f(x+1)-f(x),$ \\
+
+则$g(0)+g(1)+...+g(n-1)=0,\;\therefore\,g(0),g(1),...g(n-1)$不能恒正或恒负, \\
+
+$\therefore\exists\,k_1,k_2\in\{0,1,...,n-1\},\;\text{s.t.}\,g(k_1)\geq 0,g(k_2)\leq 0,k_1\neq k_2,$ \\
+
+$\therefore\exists\,x_0\text{介于}k_1,k_2\text{之间},\;\text{s.t.}\,g(x_0)=0,$ \\
+
+记$\displaystyle\phi(x)=\begin{cases}
+    \raisebox{0.45ex}[0pt][0pt]{$\displaystyle x$}&\raisebox{0.45ex}[0pt][0pt]{$\displaystyle\quad x\in[0,x_0]$} \\
+    \displaystyle x+1&\displaystyle\quad x\in(x_0,n-1]
+\end{cases}$,并令$\displaystyle h(x)=f(\phi(x))$,
+\\
+
+因为$\displaystyle f(x_0)=f(x_0+1)$,所以$\displaystyle h\in C[0,n-1]$, \\
+
+由归纳假设,$\displaystyle h$至少有$\displaystyle n-1$对不同的$\displaystyle(x_i,y_i)$,满足$\displaystyle h(x_i)=h(y_i)$且$\displaystyle x_i-y_i\in\mathbb{Z}\setminus\{0\}$, \\
+
+易得函数$\displaystyle\phi$在$\displaystyle[0,n-1]$上严格递增,故为单射, \\
+
+对每一对$\displaystyle(x_i,y_i)$,有$\displaystyle f(\phi(x_i))=f(\phi(y_i))$, \\
+
+且$\displaystyle\phi(x_i)-\phi(y_i)$等于$\displaystyle x_i-y_i$加上$\displaystyle-1,0,1$中的一个,因而仍为整数; \\
+
+又由单射性可知该整数非零, 单射性还保证不同点对的像仍不相同, \\
+
+又$\displaystyle\phi([0,n-1])=[0,x_0]\cup(x_0+1,n]$,所以$\displaystyle x_0+1$不在像集中, \\
+
+从而新增点对$\displaystyle(x_0,x_0+1)$不与上述$\displaystyle n-1$对重复, \\
+
+因此$\displaystyle f$至少有$\displaystyle n$对不同的$\displaystyle(x,y)$满足$\displaystyle f(x)=f(y)$且$\displaystyle x-y$为非零整数,\\
+
+由数学归纳法可知,至少有$\displaystyle n$对不同的$\displaystyle(x,y)$使得$\displaystyle f(x)=f(y)$,同时$\displaystyle x-y$为非$\displaystyle0$整数.
+
+
+
+\BookEnd

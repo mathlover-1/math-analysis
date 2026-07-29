@@ -1,0 +1,278 @@
+\ifdefined\BookMaster
+\def\BookEnd{}
+\else
+\documentclass[a4paper,12pt,fleqn,openany,twoside,fontset=windows]{ctexbook}
+\input{数学分析习题整理-导言.tex}
+\begin{document}
+\mainmatter
+\pagestyle{main}
+\setcounter{chapter}{0}
+\def\BookEnd{\end{document}}
+\fi
+
+\chapter{数列}
+
+% 在此处使用 ti 环境添加题目,例如:
+% \begin{ti}
+% 证明:若数列 $\{a_n\}$ 单调有界,则必收敛.
+% \end{ti}
+%
+% 支持行间公式:
+% \begin{ti}
+% 求极限
+% \[
+%   \lim_{n \to \infty} \frac{a_n}{b_n}
+% \]
+% \end{ti}
+
+\begin{ti}
+【题1】 设$a_n=\left[\dfrac{(2n-1)!!}{(2n)!!}\right]^2$,证明:$\{a_n\}$收敛于0.
+\end{ti}
+
+\textbf{证明}:在不使用斯特林公式的情况下,对任意$\displaystyle n\geq1$,有 \\
+
+$\displaystyle\prod_{k=1}^{n}\dfrac{(2k-1)(2k+1)}{(2k)^2}=\dfrac{1\cdot3^2\cdot5^2\cdots(2n-1)^2(2n+1)}{2^2\cdot4^2\cdots(2n)^2}=(2n+1)a_n,$ \\
+
+又对每个$\displaystyle k\geq1$,有$\displaystyle 0<\dfrac{(2k-1)(2k+1)}{(2k)^2}=1-\dfrac{1}{4k^2}<1,$ \\
+
+故$\displaystyle 0<(2n+1)a_n<1$,从而$\displaystyle 0<a_n<\dfrac{1}{2n+1}\to0,$ \\
+
+由夹逼准则,$\displaystyle\lim_{n\to\infty}a_n=0.$
+
+\begin{ti}
+【题2】 $a_1> 0,\quad a_{n+1}=a_n+\dfrac{1}{a_n}\quad \text{证明}:\displaystyle\lim_{n\to\infty}\dfrac{a_n}{\sqrt{2n}}=1$
+\end{ti}
+
+\textbf{证明}: 易得$a_n> 0$,且$a_{n+1}> a_n,$ \\
+
+若$\{a_n\}$收敛,设收敛于$a,\;a\in\mathbb{R},\text{则}a=a+\dfrac{1}{a}$,无解, \\
+
+若$\displaystyle\{a_n\}$有上界,则由单调收敛定理必收敛,与上面的结论矛盾. \\
+
+故$\displaystyle\{a_n\}$无上界;又$\displaystyle\{a_n\}$单调递增,所以$\displaystyle a_n\to+\infty$,则$\displaystyle\lim_{n\to\infty}\dfrac{1}{a_n}=0,$ \\
+
+$\because\displaystyle\lim_{n\to\infty}\dfrac{a_{n+1}^2-a_n^2}{2(n+1)-2n}=\lim_{n\to\infty}\dfrac{\frac{1}{a_n^2}+2}{2}=1,$ \\
+
+且$b_n=2n$为严格单调递增且发散到$+\infty$的数列, \\
+
+由\textit{Stolz}定理,$\quad\displaystyle\lim_{n\to\infty}\dfrac{a_n^2}{2n}=1,$ \\
+
+$\therefore\displaystyle\lim_{n\to\infty}\dfrac{a_n}{\sqrt{2n}}=1.$ \\
+
+\textbf{一点思考}:关于为什么要平方,我的思考是:若有$\displaystyle\lim_{n\to\infty}(b_{n+1}-b_n)=0,$ \\
+
+$\text{则由Stolz公式},\displaystyle\lim_{n\to\infty}\dfrac{b_n}{n}=0$, 而这里$a_{n+1}-a_n\rightarrow 0,$ \\
+
+$\text{但是题目要求}\dfrac{a_n}{\sqrt{2n}}\rightarrow 1$,这说明$a_{n+1}-a_n\rightarrow 0$的条件不够强, \\
+
+应该研究$b_n=a_n^2,\text{研究}b_{n+1}-b_n$.
+
+\begin{ti}
+【题3】 设$0< x_i\leq \frac{1}{2}\quad i=1,2,...,n,\text{证明}:  $ \\
+
+$\dfrac{\displaystyle\prod_{i=1}^n x_i}{(\displaystyle\sum_{i=1}^n x_i)^n}\leq
+\dfrac{\displaystyle\prod_{i=1}^n (1-x_i)}{[\displaystyle\sum_{i=1}^n (1-x_i)]^n}$
+\end{ti}
+
+\textbf{证明}:$\;n=1\text{时,上式显然成立},$ \\
+
+$n=2\text{时,即证}\dfrac{x_1x_2}{(x_1+x_2)^2}\leq\dfrac{(1-x_1)(1-x_2)}{(2-x_1-x_2)^2},$ \\
+
+$\text{即证}\quad x_1x_2\left[4+(x_1+x_2)^2-4(x_1+x_2)\right]\leq(x_1+x_2)^2\left[1+x_1x_2-(x_1+x_2)\right],$ \\
+
+$\text{即证}\quad 4x_1x_2\left[1-(x_1+x_2)\right]\leq (x_1+x_2)^2\left[1-(x_1+x_2)\right],$ \\
+
+$\because 1-(x_1+x_2)\geq 0,\text{即证}\quad 4x_1x_2\leq (x_1+x_2)^2\quad\text{易得上式成立},$ \\
+
+$\text{下面使用向前向后证明法},$ \\
+
+$\text{向前:}\quad n\rightarrow 2n,$ \\
+
+$\begin{cases}
+    &\dfrac{\displaystyle\prod_{i=1}^n x_i}{(\displaystyle\sum_{i=1}^n x_i)^n}\leq
+\dfrac{\displaystyle\prod_{i=1}^n (1-x_i)}{[\displaystyle\sum_{i=1}^n (1-x_i)]^n} \text{\ding{172}} \\
+    &\dfrac{\displaystyle\prod_{i=n+1}^{2n} x_i}{(\displaystyle\sum_{i=n+1}^{2n} x_i)^n}\leq
+\dfrac{\displaystyle\prod_{i=n+1}^{2n} (1-x_i)}{[\displaystyle\sum_{i=n+1}^{2n} (1-x_i)]^n} \text{\ding{173}} \\
+\end{cases}$
+\[\resizebox{0.70\textwidth}{!}{$\text{\ding{172}}\times\text{\ding{173}}:\dfrac{\displaystyle\prod_{i=1}^{2n} x_i}{(\displaystyle\sum_{i=1}^n x_i\cdot\sum_{i=n+1}^{2n} x_i)^n}\leq\dfrac{\displaystyle\prod_{i=1}^{2n} (1-x_i)}{[\displaystyle\sum_{i=1}^n (1-x_i)\cdot\sum_{i=n+1}^{2n} (1-x_i)]^n}$}\] \\
+$\text{设}A=\displaystyle\sum_{i=1}^n x_i\quad B=\displaystyle\sum_{i=n+1}^{2n} x_i\quad\text{则}A\leq\frac{n}{2},B\leq\frac{n}{2},$ \\
+
+$\therefore\dfrac{\displaystyle\prod_{i=1}^{2n} x_i}{\displaystyle\prod_{i=1}^{2n} (1-x_i)}\leq\dfrac{(AB)^n}{(n-A)^n(n-B)^n},$ $\text{令}A'=\dfrac{A}{n},B'=\dfrac{B}{n},$ \\
+
+$\therefore\dfrac{(AB)^n}{(n-A)^n(n-B)^n}=\left[\dfrac{A'B'}{(1-A')(1-B')}\right]^n\quad \text{由}n=2\text{情形可知},$ \\
+
+$\left[\dfrac{A'B'}{(1-A')(1-B')}\right]^n\leq\dfrac{(A'+B')^{2n}}{(2-A'-B')^{2n}}=\dfrac{(A+B)^{2n}}{(2n-A-B)^{2n}},$ \\
+
+即$\dfrac{\displaystyle\prod_{i=1}^{2n} x_i}{\displaystyle\prod_{i=1}^{2n} (1-x_i)}\leq\dfrac{(\displaystyle\sum_{i=1}^{2n} x_i)^{2n}}{(2n-\displaystyle\sum_{i=1}^{2n} x_i)^{2n}}=\dfrac{(\displaystyle\sum_{i=1}^{2n} x_i)^{2n}}{[\displaystyle\sum_{i=1}^{2n} (1-x_i)]^{2n}},$ \\
+ 
+向后:$n\rightarrow n-1$,  假设对$n$成立, $\because\dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n-1} x_i\leq\dfrac{1}{2}\quad\text{由}x_n\text{的任意性},$ \\
+
+不妨取$x_n=\dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n-1} x_i,$ \\
+
+设$S_n=\displaystyle\sum_{i=1}^{n} x_i,\quad\text{则}x_n=\dfrac{S_{n-1}}{n-1},\quad S_n=S_{n-1}+x_n=S_{n-1}\cdot\dfrac{n}{n-1},$ \\
+
+$\therefore\dfrac{\displaystyle\prod_{i=1}^n x_i}{(S_n)^n}\leq\dfrac{\displaystyle\prod_{i=1}^{n} (1-x_i)}{(n-S_n)^n},$ \\
+
+$\therefore\dfrac{\displaystyle\prod_{i=1}^{n-1} x_i\cdot\dfrac{S_{n-1}}{n-1}}{S_{n-1}^n\cdot\frac{n^n}{(n-1)^n}}\leq\dfrac{\displaystyle\prod_{i=1}^{n-1} (1-x_i)\cdot(1-\dfrac{S_{n-1}}{n-1})}{n^n(1-\dfrac{S_{n-1}}{n-1})^n},$ \\
+
+$\therefore\dfrac{\displaystyle\prod_{i=1}^{n-1} x_i}{(\dfrac{S_{n-1}}{n-1})^{n-1}}\leq\dfrac{\displaystyle\prod_{i=1}^{n-1} (1-x_i)}{(1-\dfrac{S_{n-1}}{n-1})^{n-1}},$ \\
+
+$\therefore\dfrac{\displaystyle\prod_{i=1}^{n-1} x_i}{(\displaystyle\sum_{i=1}^{n-1} x_i)^{n-1}}\leq\dfrac{\displaystyle\prod_{i=1}^{n-1} (1-x_i)}{\left[\displaystyle\sum_{i=1}^{n-1} (1-x_i)\right]^{n-1}},$ \\
+
+又$n=2$时命题成立, \\
+由向前-向后归纳法可知 $\dfrac{\displaystyle\prod_{i=1}^{n} x_i}{(\displaystyle\sum_{i=1}^{n} x_i)^n}\leq\dfrac{\displaystyle\prod_{i=1}^{n} (1-x_i)}{\left[\displaystyle\sum_{i=1}^{n} (1-x_i)\right]^n}.$
+
+\begin{ti}
+【题4】设$a_n=\sqrt{1+\sqrt{2+\sqrt{...+\sqrt{n}}}}\quad $证明:$\{a_n\}$收敛
+\end{ti}
+
+\textbf{证明}: 易得$\{a_n\}$单调递增, \\
+
+对固定的$\displaystyle n$,定义$\displaystyle x_{n,n}=\sqrt n,\quad x_{k,n}=\sqrt{k+x_{k+1,n}}\quad(k=n-1,\ldots,1)$,则$\displaystyle a_n=x_{1,n},$ \\
+
+下面用反向归纳法证明$\displaystyle x_{k,n}\leq\sqrt{k}+1\quad(1\leq k\leq n)$, \\
+
+当$\displaystyle k=n$时,$\displaystyle x_{n,n}=\sqrt n\leq\sqrt n+1$.若$\displaystyle x_{k+1,n}\leq\sqrt{k+1}+1$, \\
+
+则由$\displaystyle\sqrt{k+1}\leq2\sqrt k$可得$\displaystyle x_{k,n}\leq\sqrt{k+\sqrt{k+1}+1}\leq\sqrt{k+2\sqrt k+1}=\sqrt k+1,$ \\
+
+故由反向归纳法,$\displaystyle a_n=x_{1,n}\leq2$,即$\displaystyle\{a_n\}$有上界.\\
+
+又$\displaystyle\{a_n\}$单调递增,所以由单调收敛定理,$\displaystyle\{a_n\}$收敛. \\
+
+\begin{ti}
+【题5】设已知$\displaystyle\lim_{n\to\infty}a_n=a\quad$,证明$\displaystyle\lim_{n\to\infty}\frac{1}{2^n}\sum_{k=0}^{n}\binom{n}{k}a_k=a $
+\end{ti}
+
+\textbf{证明}:$\;\because 2^n=\displaystyle\sum_{k=0}^{n}\binom{n}{k},$ \\
+
+$\therefore\left\lvert \dfrac{1}{2^n}\displaystyle\sum_{k=0}^{n}\binom{n}{k}a_k-a \right\rvert =\left\lvert \dfrac{1}{2^n}\displaystyle\sum_{k=0}^{n}\binom{n}{k}(a_k-a) \right\rvert$ $\leq\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{n}\binom{n}{k}\left\lvert a_k-a\right\rvert,$ \\
+
+$\because\displaystyle\lim_{n\to\infty}a_n=a\;\therefore\text{对}\forall\varepsilon>0,\;\exists N_1\;\text{s.t.}\;n>N_1\text{时},\;\left\lvert a_n-a\right\rvert<\varepsilon,$ \\
+
+$\therefore\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{n}\binom{n}{k}\left\lvert a_k-a\right\rvert=\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{N_1}\binom{n}{k}\left\lvert a_k-a\right\rvert+\dfrac{1}{2^n}\displaystyle\sum_{k=N_1+1}^{n}\binom{n}{k}\left\lvert a_k-a\right\rvert$ \\
+
+$<\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{N_1}\binom{n}{k}\left\lvert a_k-a\right\rvert+\dfrac{\varepsilon}{2^n}\displaystyle\sum_{k=N_1+1}^{n}\binom{n}{k}$ \\
+
+$<\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{N_1}\binom{n}{k}\left\lvert a_k-a\right\rvert+\varepsilon,$ \\
+
+又$\displaystyle\binom{n}{k} =\dfrac{n!}{k!(n-k)!}\leq\dfrac{n!}{(n-k)!}\leq n^k,\;\text{令}M=\max\{\left\lvert a_0-a\right\rvert,\left\lvert a_1-a\right\rvert,...,\left\lvert a_{N_1}-a\right\rvert  \},$ \\
+
+$\therefore\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{N_1}\binom{n}{k}\left\lvert a_k-a\right\rvert\leq\dfrac{M}{2^n}\displaystyle\sum_{k=0}^{N_1}n^k<\dfrac{M\cdot n^{N_1+1}}{2^n},$ \\
+
+$\because\displaystyle\lim_{n\to\infty}\dfrac{n^{\alpha}}{2^n}=0\;\therefore\forall\varepsilon,\;\exists N_2,\;\text{s.t.}\;n>N_2\text{时},\dfrac{n^{N_1+1}}{2^n}<\varepsilon,$ \\
+
+$\therefore\forall\varepsilon>0,\;\exists N=\max\{N_1,N_2\},\; n>N\text{时},$ $\left\lvert \dfrac{1}{2^n}\displaystyle\sum_{k=0}^{n}\binom{n}{k}a_k-a \right\rvert<(M+1)\varepsilon,$ \\
+
+$\therefore\displaystyle\lim_{n\to\infty}\frac{1}{2^n}\sum_{k=0}^{n}\binom{n}{k}a_k=a.$
+
+\begin{ti}
+【题6】设${a_n}$满足条件$0<a_1<1,a_{n+1}=a_n(1-a_n)$,证明:$\displaystyle\lim_{n\to\infty}na_n=1$
+\end{ti}
+
+\textbf{证明}:$\;\because a_{n+1}-a_n=-a_n^2\leq 0,\quad\therefore \{a_n\}$单调递减, \\
+
+由数学归纳法可得$0<a_n<1,\quad\therefore \{a_n\}$收敛, \\
+
+设$\displaystyle\lim_{n\to\infty}a_n=\alpha,\text{其中}0\leq\alpha\leq 1,$ $\quad\therefore\alpha=\alpha(1-\alpha)\Rightarrow \alpha=0,$ \\
+
+又$\dfrac{1}{a_{n+1}}=\dfrac{1}{a_n(1-a_n)}=\dfrac{1}{a_n}+\dfrac{1}{1-a_n},\quad\therefore\dfrac{1}{a_{n+1}}-\dfrac{1}{a_n}=\dfrac{1}{1-a_n},$ \\
+
+$\therefore\displaystyle\lim_{n\to\infty}\dfrac{(n+1)-n}{\dfrac{1}{a_{n+1}}-\dfrac{1}{a_n}}=\displaystyle\lim_{n\to\infty}(1-a_n)=1,$ \\
+
+又$\dfrac{1}{a_n}$为严格单调递增的正无穷大量, \\
+
+$\therefore\displaystyle\lim_{n\to\infty}\dfrac{n}{\dfrac{1}{a_n}}=1,\;\text{即}\displaystyle\lim_{n\to\infty}na_n=1.$ \\
+
+\textbf{注}:本题与题2类似,直接用Stolz公式并不好做,取倒数的动机为如果$\displaystyle\lim_{n\to\infty}na_n=1$ 
+
+这就说明$a_n$的衰减速度与$\dfrac{1}{n}$相同,则$b_n=\dfrac{1}{a_n}$就是线性增长,便于研究.
+
+\begin{ti}
+【题7】证明:自然对数的底$e$是无理数
+\end{ti}
+
+\textbf{证明}:$\;\text{假设}e\in\mathbb{Q},\text{则}\exists\;p,q\in\mathbb{N}^+,\;\text{s.t.}\,e=\dfrac{p}{q},$ \\
+
+设$\varepsilon_n=e-(1+\dfrac{1}{1!}+\dfrac{1}{2!}+...+\dfrac{1}{n!}),$ \\
+
+先证明一个引理:$\;\varepsilon_n<\dfrac{1}{n!n},$ \\
+
+$n!\varepsilon_n=n!\displaystyle\sum_{k=n+1}^{\infty}\dfrac{1}{k!}=\dfrac{1}{n+1}+\dfrac{1}{(n+1)(n+2)}+...,$ \\
+
+$\dfrac{1}{n}-\dfrac{1}{n+1}=\dfrac{1}{n(n+1)},\dfrac{1}{n(n+1)}-\dfrac{1}{(n+1)(n+2)}=\dfrac{2}{n(n+1)(n+2)}...,$  \\
+
+这样归纳下去,可得$\forall m\in\mathbb{N}^+ ,\dfrac{1}{n}>\dfrac{1}{n+1}+\dfrac{1}{(n+1)(n+2)}+...+\dfrac{1}{(n+1)(n+2)...(n+m)}\rlap{,}$ \\
+
+从而$\varepsilon_n<\dfrac{1}{n!n},$\\
+
+$\because q\in\mathbb{N}^+,\,e=(1+\dfrac{1}{1!}+...+\dfrac{1}{q!})+\varepsilon_q=\dfrac{p}{q},$ \\
+
+两边同乘$\displaystyle q!$,有$\displaystyle p(q-1)!-q!\sum_{k=0}^{q}\dfrac{1}{k!}=q!\varepsilon_q,$ \\
+
+等式左边为整数,故$\displaystyle q!\varepsilon_q\in\mathbb{Z}$.另一方面,$\displaystyle 0<q!\varepsilon_q<\dfrac{1}{q}\leq1$,即$\displaystyle 0<q!\varepsilon_q<1$,矛盾!
+
+这就说明$e$是无理数,得证.
+
+\begin{ti}
+【题8】设已知存在极限$\displaystyle\lim_{n\to\infty}\dfrac{a_1+a_2+...+a_n}{n},$证明:$\displaystyle\lim_{n \to \infty}\dfrac{a_n}{n}=0  $
+\end{ti}
+
+\textbf{证明}: 设$b_n=\dfrac{a_1+a_2+...+a_n}{n},\text{由题意,不妨设}\{b_n\}\text{的极限为}l,$ \\
+
+$\because a_n=nb_n-(n-1)b_{n-1}\,(n\geq 2),$ \\
+
+$\therefore\displaystyle\lim_{n \to \infty}\dfrac{a_n}{n}=\lim_{n\to\infty}\dfrac{nb_n-(n-1)b_{n-1}}{n}=l-l=0.$
+
+\begin{ti}
+【题9】 设$x_n=\dfrac{1}{n^2}\displaystyle\sum_{k=0}^{n}ln\binom{n}{k},\text{求}\lim_{n\to\infty}x_n$
+\end{ti}
+
+\textbf{证明}: 由于$n^2$是单调递增的正无穷大量, \\
+
+由Stolz公式,$\displaystyle\lim_{n\to\infty}x_n=\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=0}^{n+1}ln\binom{n+1}{k}-\displaystyle\sum_{k=0}^{n}ln\binom{n}{k}}{2n+1}$ \\
+
+$=\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k = 0}^{n}ln\frac{n+1}{n+1-k}}{2n+1},$又由于$2n+1$也是单调递增的正无穷大量, \\
+
+再由Stolz公式,$\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k = 0}^{n}\ln\frac{n+1}{n+1-k}}{2n+1}=\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=0}^{n}\ln\frac{n+1}{n+1-k}-\displaystyle\sum_{k=0}^{n-1}\ln\frac{n}{n-k}}{2}$ \\
+
+$=\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=1}^{n}\ln\frac{n+1}{n+1-k}-\displaystyle\sum_{k=0}^{n-1}\ln\frac{n}{n-k}}{2}$ \\
+
+$=\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=0}^{n-1}\ln\frac{n+1}{n-k}-\displaystyle\sum_{k=0}^{n-1}\ln\frac{n}{n-k}}{2}$ \\
+
+$=\displaystyle\lim_{n\to\infty}\dfrac{n\ln\dfrac{n+1}{n}}{2},$ \\
+
+$\because\dfrac{1}{n+1}\leq\ln(1+\dfrac{1}{n})\leq\dfrac{1}{n},\quad\therefore\dfrac{n}{n+1}\leq n\ln(1+\dfrac{1}{n})\leq 1,$ \\
+
+由夹逼准则,$\displaystyle\lim_{n\to\infty}n\ln(1+\dfrac{1}{n})=1,$ \\
+
+$\therefore\displaystyle\lim_{n\to\infty}x_n=\dfrac{1}{2}.$
+
+\begin{ti}
+【题10】设$a_n>0,\{\dfrac{a_{n+1}+a_{n+2}}{a_n}\}\text{收敛于}\alpha,\alpha>2$,证明:数列$\{a_n\}$没有上界
+\end{ti}
+
+\textbf{证明}:用反证法,假设$\{a_n\}$有上界,又$a_n>0\Rightarrow\{a_n\}$为有界序列, \\
+
+所以$\{a_n\}$上下极限存在,记$a=\displaystyle\varlimsup_{n\to\infty}a_n,b=\displaystyle\varliminf_{n\to\infty}a_n,\text{那么}a\geq b\geq 0,$ \\
+
+\ding{172}$\;a>0$:$\;\exists\,\beta>2,N_1,\;\text{s.t.}\,n>N_1\text{时},a_{n+1}+a_{n+2}>\beta a_n,$ \\
+
+由上极限的保不等式性质,$2a\geq\beta a\Rightarrow\beta\leq 2,$矛盾!
+
+\ding{173}$\;a=0$:同上有$a_{n+1}+a_{n+2}>\beta a_n(\beta>2,n>N_1),$ \\
+
+记$M_n=\displaystyle\sup_{k\geq n}a_k,\text{则}a_{n+1}\leq M_n,a_{n+2}\leq M_n\Rightarrow M_n>\dfrac{\beta}{2}a_n>a_n,$ \\
+
+又$M_n=\max\{a_n,M_{n+1}\},\;\therefore\,M_n=M_{n+1},\forall\,n>N_1,$ \\
+
+又$a=0\Rightarrow\displaystyle\lim_{n\to\infty}M_n=0\;\therefore\forall\,n>N_1,\text{都有}M_n=0$,这与$a_n>0$矛盾! \\
+
+综上,$\{a_n\}$没有上界. \\
+
+\textbf{注意}:上下极限没有乘除法的四则运算性质,所以即使是在$a>b>0$的情况下,\\
+$\alpha\neq\dfrac{2a}{b},\alpha\neq\dfrac{2b}{a}$ 
+
+
+
+\BookEnd

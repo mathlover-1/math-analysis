@@ -1,0 +1,397 @@
+\ifdefined\BookMaster
+\def\BookEnd{}
+\else
+\documentclass[a4paper,12pt,fleqn,openany,twoside,fontset=windows]{ctexbook}
+\input{数学分析习题整理-导言.tex}
+\begin{document}
+\mainmatter
+\pagestyle{main}
+\setcounter{chapter}{3}
+\def\BookEnd{\end{document}}
+\fi
+
+\chapter{一元微分学与一元积分学}
+\begin{ti}
+【拓展1】$Rolle$定理的$Samuleson$证明
+\end{ti}
+
+\textbf{证明}:设$f\in C^0[a,b],\text{且在开区间}(a,b)\text{可导},f(a)=f(b),\text{则要证的就是}\;\exists\xi,\;\text{s.t.}\,f'(\xi)=0,$ \\
+
+构造$F(x)=f(x)-f(x+\dfrac{b-a}{2}),F\in C[a,\dfrac{a+b}{2}],F(a)=-F(\dfrac{a+b}{2}),$ \\
+
+$\therefore\exists\,a_1\in[a,\dfrac{a+b}{2}],\;\text{s.t.}\,F(a_1)=0,$ \\
+
+记$b_1=a_1+\dfrac{b-a}{2},\,\,\text{则}f(a_1)=f(b_1),\,\,\text{且}b_1-a_1=\dfrac{b-a}{2},$ \\
+
+以此类推地做下去,可以得到闭区间套$\{[a_n,b_n]\},\text{且}f(a_n)=f(b_n),b_n-a_n=\dfrac{b-a}{2^n},$ \\
+
+由闭区间套原理,这些闭区间有唯一公共点$\xi,\text{且}\displaystyle\lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=\xi,a_n\leq\xi\leq b_n,$ \\
+
+事实上,总可以使得$\displaystyle\xi\in(a,b)$.\\
+
+若$\displaystyle\xi=a$,则由$\displaystyle a\leq a_n\leq\xi=a$可知$\displaystyle a_n=a$对每个$\displaystyle n$成立, \\
+
+从而$\displaystyle f(b_1)=f(a)=f(b_2)$, \\
+
+又$\displaystyle b_2=a+\dfrac{b-a}{4}<b_1=a+\dfrac{b-a}{2}$,故$\displaystyle[b_2,b_1]\subset(a,b)$, \\
+
+以$\displaystyle[b_2,b_1]$为新的初始区间,对$\displaystyle f$重新进行上述构造, \\
+
+所得闭区间套的公共点属于$\displaystyle[b_2,b_1]\subset(a,b)$, \\
+
+若$\displaystyle\xi=b$,则同理由$\displaystyle\xi=b\leq b_n\leq b$可知$\displaystyle b_n=b$对每个$\displaystyle n$成立, \\
+
+从而$\displaystyle f(a_1)=f(b)=f(a_2)$,且$\displaystyle[a_1,a_2]\subset(a,b)$, \\
+
+以$\displaystyle[a_1,a_2]$为新的初始区间重新进行上述构造即可, \\
+
+因此总能得到公共点$\displaystyle\xi\in(a,b)$的闭区间套, \\
+
+下面证明一个引理:若有$x_n\leq c\leq y_n,\displaystyle\lim_{n\to\infty}x_n=\lim_{n\to\infty}y_n=c,f\text{在}c\text{处可导},$ \\
+$\displaystyle\text{则}f'(c)=\lim_{n\to\infty}\dfrac{f(x_n)-f(y_n)}{x_n-y_n}.$ \\
+
+不妨设$f'(c)=0,$否则令$g(x)=f(x)-f'(c)x,\;\text{则}g'(c)=0,$ \\
+
+$\displaystyle\lim_{n\to\infty}\dfrac{f(x_n)-f(y_n)}{x_n-y_n}=\lim_{n\to\infty}\dfrac{g(x_n)-g(y_n)}{x_n-y_n}+f'(c),$ \\
+
+$\because f'(c)=0,\quad\therefore\forall\,\varepsilon>0,\;\exists\,N,\;n>N\text{时},$ \\
+
+$\left\lvert f(c)-f(x_n)\right\rvert<\varepsilon(c-x_n),\left\lvert f(y_n)-f(c)\right\rvert<\varepsilon(y_n-c),$ \\
+
+$\therefore\left\lvert f(x_n)-f(y_n)\right\rvert\leq\left\lvert f(c)-f(x_n)\right\rvert+\left\lvert f(y_n)-f(c)\right\rvert<\varepsilon(y_n-x_n),$ \\
+
+即$\forall\,\varepsilon>0,\;\exists\,N,\;n>N\text{时},\;\left\lvert \dfrac{f(x_n)-f(y_n)}{x_n-y_n}\right\rvert<\varepsilon,$ \\
+
+$\therefore\displaystyle\lim_{n\to\infty}\dfrac{f(x_n)-f(y_n)}{x_n-y_n}=f'(c)=0,$得证, \\
+ 
+由引理,$f'(\xi)=\displaystyle\lim_{n\to\infty}\dfrac{f(a_n)-f(b_n)}{a_n-b_n}=0$,命题得证. \\
+
+\textbf{注}:以上证明并未用到最值定理与极值的思想,事实上,由$Samuleson$证明得到的$\xi$不一定是极值点, \\
+
+如$f(x)=\begin{cases}
+    x^3\sin{\dfrac{1}{x}}&\quad x\in[-\dfrac{1}{\pi},0)\cup(0,\dfrac{1}{\pi}] \\
+    0&\quad x=0 \\
+\end{cases}$
+
+\begin{ti}
+【拓展2】$Lagrange$定理的面积证法
+\end{ti}
+
+\textbf{证明}:令$S(x)=\dfrac{1}{2}\begin{vmatrix}
+    1 &1 &1 \\
+    a &b &x \\
+    f(a) &f(b) &f(x)
+\end{vmatrix},$ \\
+
+则$S(x)=\dfrac{1}{2}\begin{vmatrix}
+    1 &0 &0 \\
+    a &b-a &x-a \\
+    f(a) &f(b)-f(a) &f(x)-f(a)
+\end{vmatrix}=\dfrac{1}{2}\begin{vmatrix}
+     b-a &x-a \\
+     f(b)-f(a) &f(x)-f(a)
+\end{vmatrix},$ \\
+
+$\therefore\,S(a)=S(b)=0,$由$Rolle$定理,$\exists\,\xi\in(a,b),\;\text{s.t.}\,S'(\xi)=0,$ \\
+
+由行列式求导法则,$2S'(x)=\begin{vmatrix}
+    0 &x-a \\
+    0 &f(x)-f(a)
+\end{vmatrix}+\begin{vmatrix}
+    b-a &1 \\
+    f(b)-f(a) &f'(x)
+\end{vmatrix},$ \\
+
+$\therefore\,2S'(\xi)=\begin{vmatrix}
+    b-a &1 \\
+    f(b)-f(a) &f'(\xi)
+\end{vmatrix}=0\Rightarrow f'(\xi)=\dfrac{f(b)-f(a)}{b-a}.$ \\
+
+\begin{minipage}[t]{0.59\textwidth}
+\textbf{注}:这个证法来自于几何直观,我们要找函数上切线与给定连线平行的点 ,$S(x)$是$(a,f(a)),(b,f(b)),(x,f(x))$三点连成的三角形的有向面积,当$(x,f(x))$沿着平行于$(a,f(a)),(b,f(b))$的连线的直线移动时,$S(x)$不变,
+猜想:$S(x)$的驻点处,切线与该连线平行
+\end{minipage}\hfill
+\begin{minipage}[t]{0.37\textwidth}
+\begin{tikzpicture}[x=0.72cm,y=0.72cm,baseline=(current bounding box.north)]
+    \draw[bookteal!55,line width=1pt] (0.35,0.35) -- (2.90,2.05) -- (4.35,0.75) -- cycle;
+    \draw[bookteal!75,line width=0.8pt]
+        (0.35,0.35) .. controls (0.95,1.35) and (2.30,1.99) .. (2.90,2.05)
+        .. controls (3.12,2.072) and (3.25,2.08) .. (3.35,2.02)
+        .. controls (3.72,1.80) and (4.08,1.02) .. (4.35,0.75);
+    \draw[bookgray!80,dashed,line width=0.55pt]
+        (1.80,1.94) -- (3.80,2.14);
+    \fill[bookblue] (0.35,0.35) circle (1.4pt);
+    \fill[bookblue] (2.90,2.05) circle (1.4pt);
+    \fill[bookblue] (4.35,0.75) circle (1.4pt);
+    \node[below left,font=\scriptsize] at (0.35,0.35) {$(a,f(a))$};
+    \node[above left,font=\scriptsize] at (2.90,2.05) {$(x,f(x))$};
+    \node[below right,font=\scriptsize] at (4.35,0.75) {$(b,f(b))$};
+\end{tikzpicture}
+
+\vspace{2pt}
+{\centering\small\color{bookgray}图4-1\par}
+\end{minipage}
+\par
+
+\begin{ti}
+【题3】设$f\in C[0,1],\text{在}(0,1)\text{可微},f(0)=0,f(1)=1,\text{设}k_1,k_2,...,k_n\text{是满足}$ \\
+$k_1+k_2+...+k_n=1$的$n$个正数,证明:在$(0,1)$中存在$n$个互不相同的数$t_1,t_2,...,t_n,\text{使得}\dfrac{k_1}{f'(t_1)}+...+\dfrac{k_n}{f'(t_n)}=1$
+\end{ti}
+
+\textbf{证明}:由介值定理,$\exists\,x_1\in(0,1),\;\text{s.t.}\,f(x_1)=k_1,$ \\
+
+同理$\exists\,x_2\in(x_1,1),\;\text{s.t.}\,f(x_2)=k_1+k_2,$ \\
+
+以此类推,可以在$[0,1]$中插入一系列数:$0=x_0<x_1<x_2<...<x_{n-1}<x_n=1,$ \\
+
+同时$f(x_m)=\displaystyle\sum_{i=1}^{m}k_i$,在$[x_{i-1},x_i]\text{上,由}Lagrange$中值定理, \\
+
+$\exists\,t_i\in(x_{i-1},x_i),\;\text{s.t.}\,f(x_i)-f(x_{i-1})=f'(t_i)(x_i-x_{i-1}),i=1,2,...,n,$ \\
+
+$\therefore\displaystyle\sum_{i=1}^{n}\dfrac{k_i}{f'(t_i)}=\sum_{i=1}^{n}(x_i-x_{i-1})=1,\text{且}t_1,t_2,...,t_n$互不相同,得证.
+
+\begin{ti}
+【题4】设$f(x)=\displaystyle\sum_{k=1}^{n}c_ke^{\lambda_k x},\text{其中}\lambda_1,\lambda_2,...,\lambda_n$为互异实数,$c_1,c_2,...,c_n$不同时为$0$, \\
+
+证明:$f$的零点个数小于$n$
+\end{ti}
+
+\textbf{证明}:$n=1\text{时},f(x)=c_1e^{\lambda_1 x}$无零点,符合要求, \\
+
+假设$n=m$时结论成立,$n=m+1$时,令$g(x)=e^{-\lambda_{m+1} x}f(x)=\displaystyle\sum_{k=1}^{m+1}c_ke^{(\lambda_k-\lambda_{m+1})x},$ \\
+
+则$g'(x)=\displaystyle\sum_{k=1}^{m+1}c_k(\lambda_k-\lambda_{m+1})e^{(\lambda_k-\lambda_{m+1})x}=\sum_{k=1}^{m}c_k(\lambda_k-\lambda_{m+1})e^{(\lambda_k-\lambda_{m+1})x},$ \\
+
+记$d_k=c_k(\lambda_k-\lambda_{m+1}),\;\lambda_k'=\lambda_k-\lambda_{m+1},$ \\
+
+那么$d_1,...,d_m$不同时为$0$,$\lambda_1',...,\lambda_m'$为互异实数,又$g'(x)=\displaystyle\sum_{k=1}^{m}c_k(\lambda_k-\lambda_{m+1})e^{(\lambda_k-\lambda_{m+1})x}\rlap{,}$ \\
+
+由归纳假设可知,$g'(x)$零点个数小于$m$,\\
+
+但如果$f$有大于等于$m+1$个零点,则$g$也有大于等于$m+1$个零点, \\
+
+从而$g'$有至少$m$个零点,矛盾!$\quad\therefore f$的零点个数小于$m+1,$ \\
+
+由数学归纳法可知,$f$的零点个数小于$n.$
+
+\begin{ti}
+【题5】$\;f\text{在}[a,b]\text{上连续},(a,b)\text{上二阶可导},f(a)=f(b)=0,\int_{a}^{b}f(x)\,dx=0,$ \\
+证明:$\exists\,\zeta\in[a,b],\;\text{s.t.}f(\zeta)=f''(\zeta)$
+\end{ti}
+
+\textbf{证明}:若$f(x)_{min}=0,\text{则由}\int_{a}^{b}f(x)\,dx=0\Rightarrow f\equiv 0,$ \\
+
+则$\forall\zeta\in(a,b),\text{都有}f(\zeta)=f''(\zeta)$,同理$f(x)_{max}=0$时也有$f(\zeta)=f''(\zeta),$ \\
+
+下设$f(x_1)=f(x)_{min}<0,f(x_2)=f(x)_{max}>0,x_1,x_2\in(a,b),$ \\
+
+由零值定理,$\exists\,x_0\in(a,b),\;\text{s.t.}f(x_0)=0,$ \\
+
+令$G(x)=e^xf(x),\text{则}G(a)=G(x_0)=G(b)=0,G'(x)=e^x[f(x)+f'(x)],$ \\
+
+由$Rolle$定理,$\;\exists\,\xi_1\in(a,x_0),\xi_2\in(x_0,b),\;\text{s.t.}\,G'(\xi_1)=G'(\xi_2)=0,$ \\
+
+令$F(x)=e^{-x}[f(x)+f'(x)],\text{则}F(\xi_1)=F(\xi_2)=0,$ \\
+
+$\because f\text{在}[a,b]\text{上连续},\text{在}(a,b)\text{上二阶可导},\quad\therefore F\text{在}[\xi_1,\xi_2]\text{上连续},\text{在}(\xi_1,\xi_2)\text{上可导},$ \\
+
+由$Rolle$定理,$\;\exists\,\zeta\in(\xi_1,\xi_2),\;\text{s.t.}\,F'(\zeta)=0$, \\
+
+又$F'(x)=e^{-x}[f''(x)-f(x)],\quad\therefore f''(\zeta)=f(\zeta)$, \\
+
+综上,$\exists\,\zeta\in[a,b],\;\text{s.t.}f(\zeta)=f''(\zeta).$ 
+
+\begin{ti}
+【题6】设$f\text{在}[a,b]\text{上可微,在}(a,b)\text{上二阶可微},$ 证明:$\exists\,\xi\in(a,b),\;\text{s.t.}\,f'(b)-f'(a)=f''(\xi)(b-a)$
+\end{ti}
+
+\textbf{证明}:假设不存在这样的$\xi$,由$Darboux$定理, \\
+
+$f''(x)>\dfrac{f'(b)-f'(a)}{b-a}\text{恒成立或}f''(x)<\dfrac{f'(b)-f'(a)}{b-a}\text{恒成立}$, \\
+
+不妨设$f''(x)>\dfrac{f'(b)-f'(a)}{b-a},\;\forall\,x\in(a,b)$, \\
+
+设$\lambda=\dfrac{f'(b)-f'(a)}{b-a},\;g(x)=f'(x)-\lambda x,\text{则}x\in(a,b)\text{时},g'(x)=f''(x)-\lambda>0$, \\
+
+$\therefore\,g(x)\text{在}(a,b)$上严格单调递增,且$g(a)=g(b)$, \\
+
+$\therefore\,g(a^+),g(b^-)$均存在,即$\displaystyle\lim_{x\to a^+}f'(x),\lim_{x\to b^-}f'(x)$均存在, \\
+
+下面证明一个重要引理:若$\displaystyle\lim_{x\to a^+}f'(x)$存在,则必然等于$f'(a)$, \\
+
+事实上,由$Lagrange$中值定理,$\exists\,\xi_x\in(a,x),\;\text{s.t.}\,\dfrac{f(x)-f(a)}{x-a}=f'(\xi_x)$, \\
+
+$x\rightarrow a^+\text{时},\xi_x\rightarrow a^+$,对上式两边取极限即得到上述引理. \\
+
+由上面的引理,可知$g$在$a,b$处均连续,即$g\in C[a,b]$, \\
+
+$\therefore g\text{在}[a,b]$上严格单调递增,这与$g(a)=g(b)$矛盾! \\
+
+综上,$\exists\,\xi\in(a,b),\;\text{s.t.}\,f'(b)-f'(a)=f''(\xi)(b-a)$. \\
+
+\textbf{注意}:本题并未要求$f'\in C[a,b]$,本题的意义在于,对于导函数来说,$Lagrange$定理中在闭区间上连续的要求不是必要的.
+
+\begin{ti}
+【题7】设$f\in C^1[a,b],\int_{a}^{b}f(x)\,dx=\int_{a}^{b}xf(x)\,dx=0,$求证:$\exists\,x_1,x_2\in(a,b),x_1\neq x_2,\;\text{s.t.}\,f(x_1)=f(x_2)=0$
+\end{ti}
+
+\textbf{证明}:若$f(x)\text{在}(a,b)$上无零点,由介值定理,$f(x)>0\text{或}f(x)<0$恒成立, \\
+
+这与$\displaystyle\int_{a}^{b}f(x)\,dx=0$矛盾,$\quad\therefore\exists\,c\in(a,b),\;\text{s.t.}\,f(c)=0$, \\
+
+若$f(x)$在$(a,b)$中只有这一个零点, \\
+
+如果$f(x)$在$c$两边同号,则与$\displaystyle\int_{a}^{b}f(x)\,dx=0$矛盾, \\
+
+$\therefore\,f(x)\text{在}c$两边异号, \\
+
+不妨设$x\in(a,c)\text{时},f(x)<0,\;x\in(c,b)\text{时},f(x)>0$, \\
+
+则$(x-c)f(x)>0$对$\forall\,x\in(a,b)$恒成立,$\;\therefore\displaystyle\int_{a}^{b}(x-c)f(x)\,dx>0$, \\
+
+而$\displaystyle\int_{a}^{b}(x-c)f(x)\,dx=\int_{a}^{b}xf(x)\,dx-c\int_{a}^{b}f(x)\,dx=0$,矛盾! \\
+
+所以$f$至少两个零点,即:$\exists\,x_1,x_2\in(a,b),x_1\neq x_2,\;\text{s.t.}\,f(x_1)=f(x_2)=0$.
+
+\begin{ti}
+【题8】设$f$在$[a,b]$上二阶可微,$f'(a)=f'(b)=0$,证明:$\exists\,\xi\in(a,b),\;\text{s.t.}\,\left\lvert f''(\xi)\right\rvert\geq\dfrac{4}{(b-a)^2}\left\lvert f(b)-f(a)\right\rvert $
+\end{ti}
+
+\textbf{证明}:将$f(x)$分别在$a$处和$b$处展开, \\
+
+$f(x)=f(a)+f'(a)(x-a)+\dfrac{f''(\xi_1)}{2}(x-a)^2=f(a)+\dfrac{f''(\xi_1)}{2}(x-a)^2$, \\
+
+$f(x)=f(b)+f'(b)(x-b)+\dfrac{f''(\xi_2)}{2}(x-b)^2=f(b)+\dfrac{f''(\xi_2)}{2}(x-b)^2$, \\
+
+代入$x=\dfrac{a+b}{2},f(\dfrac{a+b}{2})=f(a)+\dfrac{f''(\xi_1)}{2}\cdot\dfrac{(b-a)^2}{4}=f(b)+\dfrac{f''(\xi_2)}{2}\cdot\dfrac{(b-a)^2}{4}$, \\
+
+则$\left\lvert f(b)-f(a)\right\rvert\cdot\dfrac{4}{(b-a)^2}=\dfrac{1}{2}\left\lvert f''(\xi_2)-f''(\xi_1)\right\rvert$ $\leq\dfrac{1}{2}\left(\left\lvert f''(\xi_1)\right\rvert+\left\lvert f''(\xi_2)\right\rvert\right)$, \\
+
+取$\xi\in\{\xi_1,\xi_2\},\text{使得}\left\lvert f''(\xi)\right\rvert=\max\{\left\lvert f''(\xi_1)\right\rvert,\left\lvert f''(\xi_2) \right\rvert\}$, \\
+
+则$\left\lvert f''(\xi)\right\rvert\geq\dfrac{4}{(b-a)^2}\left\lvert f(b)-f(a)\right\rvert$,得证.
+
+\begin{ti}
+【题9】设$f$在$(a,b)$上可微,且在某点$\xi\in(a,b)$处有$f''(\xi)>0$,证明:$\exists\,x_1,x_2\in(a,b),\;\text{s.t.}\,\dfrac{f(x_2)-f(x_1)}{x_2-x_1}=f'(\xi)$
+\end{ti}
+
+\textbf{证明}:令$F(x)=f(x)-f'(\xi)x,\;\text{则}F'(\xi)=f'(\xi)-f'(\xi)=0,F''(\xi)=f''(\xi)>0,$ \\
+
+由二阶导数的定义,$\therefore\exists\,\delta,\;\text{s.t.}\,x\in[\xi-\delta,\xi)\text{时},F'(x)<0;\;x\in(\xi,\xi+\delta]\text{时},F'(x)>0,$ \\
+
+$\therefore\,x\in[\xi-\delta,\xi)\text{时},F(x)\text{严格单调递减},x\in(\xi,\xi+\delta]\text{时},F(x)\text{严格单调递增},$ \\
+
+设$m=\min\{F(\xi-\delta),F(\xi+\delta)\},\text{则}F(\xi)<m,$ \\
+
+取$\eta\in(F(\xi),m),\text{则}\exists\,x_1\in(\xi-\delta,\xi),x_2\in(\xi,\xi+\delta),\;\text{s.t.}\,F(x_1)=F(x_2)=\eta,$ \\
+
+$\therefore\,0=\dfrac{F(x_2)-F(x_1)}{x_2-x_1}=\dfrac{f(x_2)-f(x_1)}{x_2-x_1}-f'(\xi),$ \\
+
+$\therefore\,\dfrac{f(x_2)-f(x_1)}{x_2-x_1}=f'(\xi)$,这样的$x_1,x_2$即为所求. \\
+
+\textbf{注}:本题虽然简单,但是可以与$Lagrange$中值定理对比来看,事实上,如果没有其他条件,那么任意的$\xi\in(a,b)$,不一定存在$x_1,x_2$,使得$\dfrac{f(x_2)-f(x_1)}{x_2-x_1}=f'(\xi)$,
+读者可以自行思考存在$x_1,x_2$使得$\dfrac{f(x_2)-f(x_1)}{x_2-x_1}=f'(\xi)$的充要条件是什么.
+
+\begin{ti}
+【题10】设$f$在$[a,b]$上可微,$f'(a)=f'(b)$,证明:$\exists\,\xi\in(a,b),\;\text{s.t.}\,f'(\xi)=\dfrac{f(\xi)-f(a)}{\xi-a}$
+\end{ti}
+
+\textbf{证明}:令$F(x)=f(x)-f(a)-f'(a)(x-a),\text{则}F(a)=0,F'(a)=F'(b)=0,$ \\
+
+\begin{minipage}[t]{0.58\textwidth}
+考虑本题的几何含义, \\
+
+定义$H(x)=\begin{cases}
+    \dfrac{F(x)}{x-a}&\quad (a<x\leq b) \\
+    0&\quad (x=a) \\
+\end{cases}$ \\[3pt]
+
+易得$H(a^+)=H(a)$, \\
+
+$\therefore H\text{在}[a,b]\text{上连续}$, $H\text{在}(a,b)\text{上可导}$, \\
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\textwidth}
+\centering
+\resizebox{0.96\linewidth}{!}{%
+\begin{tikzpicture}[x=0.90cm,y=1.05cm,baseline=(current bounding box.north)]
+    \draw[bookteal!80,line width=0.9pt]
+        (0.35,0.45) .. controls (0.85,1.55) and (1.45,2.25) .. (2.15,1.75)
+        .. controls (2.75,1.30) and (3.80,1.5253) .. (4.20,1.65)
+        .. controls (4.60,1.7747) and (5.15,1.82) .. (5.70,1.55);
+    \draw[bookgray!85,line width=0.8pt]
+        (-0.10,0.3097) -- (5.70,2.1175);
+    \fill[bookblue] (0.35,0.45) circle (1.5pt);
+    \fill[bookblue] (4.20,1.65) circle (1.5pt);
+    \node[below left,font=\scriptsize] at (0.35,0.45) {$(a,f(a))$};
+    \node[below right,font=\scriptsize] at (4.20,1.65) {$(x,f(x))$};
+\end{tikzpicture}%
+}
+
+\vspace{2pt}
+{\centering\small\color{bookgray}图4-2\par}
+\end{minipage}
+\par
+
+
+且$x\in(a,b]\text{时},\;H'(x)=\dfrac{(x-a)f'(x)-f(x)+f(a)}{(x-a)^2},$ \\
+
+$\therefore\,H(b)=\dfrac{F(b)}{b-a},\;H'(b)=\dfrac{(b-a)f'(b)-f(b)+f(a)}{(b-a)^2}=-\dfrac{F(b)}{(b-a)^2}=-\dfrac{H(b)}{b-a}.$ \\
+
+\romannum{1} $\quad H(b)>0,\text{则}H'(b)<0,\text{则}\exists\,c\in(a,b),\;\text{s.t.}\,H(c)>H(b),$ \\
+
+又$H(c)>H(b)>0=H(a),\;\therefore\,H$在区间内部取到最大值,\\
+
+即$\exists\,\xi\in(a,b),\;\text{s.t.}\,H'(\xi)=0.$ \\
+
+\romannum{2} $\quad H(b)<0,\text{则}H'(b)>0,\text{则}\exists\,c\in(a,b),\;\text{s.t.}\,H(c)<H(b),$ \\
+
+又$H(c)<H(b)<0=H(a),\;\therefore\,H$在区间内部取到最小值, \\
+
+即$\exists\,\xi\in(a,b),\;\text{s.t.}\,H'(\xi)=0.$ \\
+
+\romannum{3} $\quad H(b)=0$,则由$Rolle$定理,$\exists\,\xi\in(a,b),\;\text{s.t.}\,H'(\xi)=0.$ \\
+
+综上,$\exists\,\xi\in(a,b),\;\text{s.t.}\,H'(\xi)=0$,即$\exists\,\xi\in(a,b),\;\text{s.t.}\,f'(\xi)=\dfrac{f(\xi)-f(a)}{\xi-a}.$ 
+
+\begin{ti}
+【题11】设$f$在$[0,+\infty)$上可微,$f(0)=0,\text{且}\exists\,c>0,\;\text{s.t.}\,\left\lvert f'(x)\right\rvert\leq c\left\lvert f(x)\right\rvert,\forall\,x\in[0,+\infty),\;$
+证明:$f(x)\equiv 0$
+\end{ti}
+
+\textbf{证明}:易得$\left\lvert f\right\rvert\in C[0,\dfrac{1}{2c}]$,由连续函数最值定理,设$\left\lvert f(x_0)\right\rvert=\displaystyle\max_{x\in[0,\frac{1}{2c}]}\left\lvert f(x)\right\rvert$, \\
+
+$\therefore\left\lvert f(x_0)\right\rvert=\left\lvert f(x_0)-f(0)\right\rvert=\left\lvert f'(\xi)\right\rvert x_0\leq c\left\lvert f(\xi)\right\rvert x_0$ \\
+
+$\leq\dfrac{1}{2}\left\lvert f(\xi)\right\rvert\leq\dfrac{1}{2}\left\lvert f(x_0)\right\rvert\Longrightarrow \left\lvert f(x_0)\right\rvert=0,$ $\;\therefore\,f(x)\equiv 0,\;\forall\,x\in[0,\dfrac{1}{2c}]$, \\
+
+假设$x\in[\dfrac{k-1}{2c},\dfrac{k}{2c}]\text{时},f(x)\equiv 0,\text{记}\left\lvert f(x_1)\right\rvert=\displaystyle\max_{x\in[\frac{k}{2c},\frac{k+1}{2c}]}\left\lvert f(x)\right\rvert,$ \\
+
+$\therefore\left\lvert f(x_1)\right\rvert=\left\lvert f(x_1)-f(\dfrac{k}{2c})\right\rvert=\left\lvert f'(\xi_1)\right\rvert(x_1-\dfrac{k}{2c})\leq c\left\lvert f(\xi_1)\right\rvert\cdot\dfrac{1}{2c}$ \\
+
+$\leq\dfrac{1}{2}\left\lvert f(x_1)\right\rvert\Longrightarrow\left\lvert f(x_1)\right\rvert=0,\;$ 即$f(x)\equiv 0,\;\forall\,x\in[\dfrac{k}{2c},\dfrac{k+1}{2c}],$ \\
+
+由数学归纳法,$f(x)\equiv 0,\;\forall\,x\in[\dfrac{n}{2c},\dfrac{n+1}{2c}],\;\text{对}\forall\,n\in\mathbb{N}\text{恒成立}$, \\
+
+即$f(x)\equiv 0,\;\forall\,x\in\displaystyle\bigcup_{n=0}^{\infty}[\dfrac{n}{2c},\dfrac{n+1}{2c}]$,\\
+
+即$f(x)\equiv 0,\;\forall\,x\in[0,+\infty)$,证毕. \\
+
+\textbf{另解}:由题意可得$f(x)=\displaystyle\int_{0}^{x}f'(t)\,dt,$ \\
+
+$\displaystyle\therefore\left\lvert f(x)\right\rvert=\left\lvert \int_{0}^{x}f'(t)\,dt\right\rvert\leq\int_{0}^{x}\left\lvert f'(t)\right\rvert \,dt\leq c\int_{0}^{x}\left\lvert f(t)\right\rvert\,dt $, \\
+
+$\forall\,x_0\in(0,+\infty),\;f\in C[0,x_0],\text{记}M=\displaystyle\max_{t\in[0,x_0]}\left\lvert f(t)\right\rvert,$ \\
+
+则$\displaystyle\left\lvert f(x)\right\rvert\leq c\int_{0}^{x}\left\lvert f(t)\right\rvert \,dt\leq c\cdot Mx,\;\forall\,x\in[0,x_0],$ \\
+
+再将此式带回,可得$\displaystyle\left\lvert f(x)\right\rvert\leq c\int_{0}^{x}\left\lvert f(t)\right\rvert \,dt\leq c^2\int_{0}^{x}Mt\,dt=\dfrac{Mc^2}{2}x^2,$ \\
+
+以此归纳地做下去,可得$x\in[0,x_0]\text{时},\left\lvert f(x)\right\rvert\leq\dfrac{Mc^nx^n}{n!},\text{对}\forall\,n\in\mathbb{N}^+$恒成立, \\
+
+$\therefore\,x\in[0,x_0]\text{时},\left\lvert f(x)\right\rvert\leq\displaystyle\lim_{n\to\infty}\dfrac{Mc^nx^n}{n!}=0,\text{即}f(x)=0,$ \\
+
+由$x_0$的任意性可知,$f\equiv 0$,证毕.
+
+
+
+\BookEnd

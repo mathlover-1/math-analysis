@@ -1,0 +1,305 @@
+\ifdefined\BookMaster
+\def\BookEnd{}
+\else
+\documentclass[a4paper,12pt,fleqn,openany,twoside,fontset=windows]{ctexbook}
+\input{数学分析习题整理-导言.tex}
+\begin{document}
+\mainmatter
+\pagestyle{main}
+\setcounter{chapter}{4}
+\def\BookEnd{\end{document}}
+\fi
+
+\chapter{多元微分学与多元积分学}
+\begin{ti}
+【题1】若$f(x,y)$是在$\mathbb{R}^2\backslash\{0\}$上连续的$n$次齐次函数(注:$n$次齐次函数是指满足$f(t\mathbf{x})=t^nf(\mathbf{x})$的函数),
+证明:$\left\lvert f(x,y)\right\rvert\leq C(x^2+y^2)^{\frac{n}{2}}$,其中$C$为正常数
+\end{ti}
+
+\textbf{证明}:考虑集合$S=\left\{(x,y)\,|\;x^2+y^2=1\right\}$,则$S$为有界闭集, \\
+
+又$f$为连续函数,$\therefore\left\lvert f\right\rvert $也是连续函数,$\therefore\exists\,C>0,\,(x,y)\in S\text{时},\left\lvert f(x,y)\right\rvert\leq C$, \\
+
+对$\forall\,(x,y)\in\mathbb{R}^2\backslash\{0\},\text{令}r=\sqrt{x^2+y^2},$ 则$f(x,y)=f(r\cdot\dfrac{x}{r},r\cdot\dfrac{y}{r})=r^nf(\dfrac{x}{r},\dfrac{y}{r}),$ \\
+
+又$\because(\dfrac{x}{r},\dfrac{y}{r})\in S,\quad\therefore\left\lvert f(\dfrac{x}{r},\dfrac{y}{r})\right\rvert\leq C$, \\
+
+$\therefore\left\lvert f(x,y)\right\rvert\leq C(x^2+y^2)^{\frac{n}{2}}$.
+
+\begin{ti}
+【题2】如果$F(x,y)$在矩形$D=\left\{(x,y)\in\mathbb{R}^2\,|\;\left\lvert x-x_0\right\rvert<a,\left\lvert y-y_0\right\rvert<b\right\}$上连续,
+$F(x_0,y_0)=0,$且$F(x,y)$对每一个$x\in(x_0-a,x_0+a)$关于$y$严格单调,求证:在$(x_0,y_0)$某个邻域内,由$F(x,y)=0$可确定唯一的函数$y=f(x)$,且$f(x)$在$x_0$的一个邻域里连续
+\end{ti}
+
+\textbf{证明}:不妨设关于$\displaystyle y$严格单调递增.取$\displaystyle(x_0,y_1),(x_0,y_2)\in D$,且$\displaystyle y_1>y_0>y_2$, \\
+
+则$\displaystyle F(x_0,y_1)>0,F(x_0,y_2)<0$.取$\displaystyle0<\alpha<a$使$\displaystyle S=[x_0-\alpha,x_0+\alpha]\times[y_2,y_1]\subset D$, \\
+
+因为$\displaystyle F$在闭矩形$\displaystyle S$上一致连续,令$\displaystyle\varepsilon_1=\dfrac{\min\{|F(x_0,y_1)|,|F(x_0,y_2)|\}}{2}$, \\
+
+可取$\displaystyle\delta_0>0$,使$\displaystyle u,v\in S$且$\displaystyle\left\lVert u-v\right\rVert <\delta_0$时,$\displaystyle|F(u)-F(v)|<\varepsilon_1$, \\
+
+令$\displaystyle\delta=\min\{\delta_0,\alpha\}$,对每个$\displaystyle x\in(x_0-\delta,x_0+\delta)$,有$\displaystyle F(x,y_1)>0,F(x,y_2)<0$, \\
+
+故由连续性和严格单调性,存在唯一的$\displaystyle f(x)\in(y_2,y_1)$使$\displaystyle F(x,f(x))=0$,且$\displaystyle f(x_0)=y_0$, \\
+
+下证$\displaystyle f$连续,任取$\displaystyle x^*\in(x_0-\delta,x_0+\delta)$及$\displaystyle\varepsilon>0$, \\
+
+取$\displaystyle 0<\rho<\min\{\varepsilon,f(x^*)-y_2,y_1-f(x^*)\}$, \\
+
+则由严格单调性,$\displaystyle F(x^*,f(x^*)-\rho)<0<F(x^*,f(x^*)+\rho)$, \\
+
+由$\displaystyle F$的连续性,存在$\displaystyle\eta_0>0$,使$\displaystyle|x-x^*|<\eta_0$时上述两端仍分别为负和正, \\
+
+令$\displaystyle\eta=\min\{\eta_0,\delta-|x^*-x_0|\}>0$,当$\displaystyle|x-x^*|<\eta$时, \\
+
+唯一零点$\displaystyle f(x)$位于$\displaystyle(f(x_*)-\rho,f(x_*)+\rho)$内,故$\displaystyle|f(x)-f(x_*)|<\rho<\varepsilon$, \\
+
+所以$\displaystyle f$在$\displaystyle(x_0-\delta,x_0+\delta)$上连续,命题得证.
+
+\begin{ti}
+【题3】$D=\left\{u\in\mathbb{R}^n\,|\;\left\lVert u\right\rVert\leq\frac{1}{2}\right\},$ $f\colon D\to\mathbb{R}\text{为}C^1$映射, \\
+$\left\lVert \nabla f(0)\right\rVert=1,\text{且}\left\lVert \nabla f(u)-\nabla f(v)\right\rVert\leq\left\lVert u-v\right\rVert $, \\
+证明:存在唯一的点$\xi$,使得$f(\xi)=\displaystyle\max_{D}f$
+\end{ti}
+
+\textbf{证明}:$\because D$为有界闭集,$f$为连续映射,从而$f$在$D$上能取到最大值, \\
+
+当$u\in int D\text{时},\left\lVert \nabla f(u)-\nabla f(0)\right\rVert\leq\left\lVert u\right\rVert<\dfrac{1}{2}\Rightarrow\dfrac{1}{2}<\left\lVert \nabla f(u)\right\rVert<\dfrac{3}{2},$ \\
+
+特别地,$\left\lVert \nabla f(u)\right\rVert\neq 0,$从而$f$的最大值只能在$\partial D$上取到, \\
+
+令$F(u)=f(u)-\dfrac{1}{2}\left\lVert u\right\rVert^2,\;\therefore\,\nabla F(u)=\nabla f(u)-u$,同理$F$可在$D$上取到最大值, \\
+
+当$u\in int D\text{时},\left\lVert \nabla F(u)\right\rVert=\left\lVert \nabla f(u)-u\right\rVert\geq\left\lVert \nabla f(u)\right\rVert-\left\lVert u\right\rVert>0$, \\
+
+$\therefore\,\nabla F(u)\neq 0$,即$F$的最大值也只能在$\partial D$上取到, \\
+
+又$\displaystyle\max_{D}F=\max_{\partial D}F=\max_{\partial D}f-\dfrac{1}{8}=\max_{D}f-\dfrac{1}{8}$, \\
+
+$\therefore F\text{与}f$有完全相同的最大值点,因此只需要证明$F$的最大值点唯一即可, \\
+
+对任意$\displaystyle u,v\in D$,由条件与$Cauchy$不等式, \\
+
+$\displaystyle(\nabla F(u)-\nabla F(v))\cdot(u-v)$ \\
+
+$\displaystyle=(\nabla f(u)-\nabla f(v))\cdot(u-v)-\left\lVert u-v\right\rVert^2$ \\
+
+$\displaystyle\leq\left\lVert\nabla f(u)-\nabla f(v)\right\rVert\left\lVert u-v\right\rVert-\left\lVert u-v\right\rVert^2\leq0,$ \\
+
+令$\displaystyle w(t)=(1-t)u+tv,\;\psi(t)=F(w(t))$,若$\displaystyle0\leq s<t\leq1$, \\
+
+则$\displaystyle(\nabla F(w(t))-\nabla F(w(s)))\cdot(w(t)-w(s))\leq0,$ \\
+
+而$\displaystyle w(t)-w(s)=(t-s)(v-u)$,故$\displaystyle\psi'(t)\leq\psi'(s)$, \\
+
+因此$\displaystyle\psi'$单调不增,$\displaystyle\psi$为凹函数,从而$\displaystyle F$在$\displaystyle D$上为凹函数, \\
+
+假设$\displaystyle u^0,v^0$是$\displaystyle F$的两个不同最大值点,记$\displaystyle F(u^0)=F(v^0)=M$, \\
+
+对任意$\displaystyle t\in(0,1)$,由凹性与$\displaystyle M$的最大性, \\
+
+$\displaystyle M\geq F((1-t)u^0+tv^0)\geq(1-t)F(u^0)+tF(v^0)=M,$ \\
+
+故线段开段上每一点都是$\displaystyle F$的最大值点, \\
+
+由于闭球$\displaystyle D$严格凸,$\displaystyle(1-t)u^0+tv^0\in\operatorname{int}D$, \\
+
+由$Fermat$必要条件可知该点满足$\displaystyle\nabla F=0$,与前面已证的$\displaystyle\nabla F\neq0$矛盾, \\
+
+从而$F$只能有唯一的最大值点,即存在唯一的点$\xi$,使得$f(\xi)=\displaystyle\max_{D}f$,得证.
+
+\begin{ti}
+【题4】二元函数$f(x,y)$,定义域为$I=[a,b]\times[c,d]$,$f$关于每个变量单调递增,证明:$f\in R(I)$
+\end{ti}
+
+\textbf{证明}:取等距分划$\displaystyle a=x_0<\cdots<x_n=b,\quad c=y_0<\cdots<y_n=d$,并令 \\
+
+$\displaystyle R_{ij}=[x_{i-1},x_i]\times[y_{j-1},y_j],\quad\Delta x=\dfrac{b-a}{n},\quad\Delta y=\dfrac{d-c}{n}.$ \\
+
+由单调性,$\displaystyle f$在$\displaystyle R_{ij}$上的振幅为$\displaystyle\omega_{ij}=f(x_i,y_j)-f(x_{i-1},y_{j-1})$ \\
+
+$\displaystyle=[f(x_i,y_j)-f(x_{i-1},y_j)]+[f(x_{i-1},y_j)-f(x_{i-1},y_{j-1})]$, \\
+
+因此沿$\displaystyle i,j$分别求和,可得$\displaystyle S(f,P_n)-s(f,P_n)=\sum_{i,j}\omega_{ij}\Delta x\Delta y$ \\
+
+$\displaystyle=\Delta x\Delta y\left\{\sum_{j=1}^n[f(b,y_j)-f(a,y_j)]+\sum_{i=1}^n[f(x_{i-1},d)-f(x_{i-1},c)]\right\}$ \\
+
+$\displaystyle\leq\frac{2(b-a)(d-c)}{n}[f(b,d)-f(a,c)]\to0.$ \\
+
+故对任意$\displaystyle\varepsilon>0$,可取充分大的$\displaystyle n$,使$\displaystyle S(f,P_n)-s(f,P_n)<\varepsilon$,从而$\displaystyle f\in R(I)$,得证.
+
+\begin{ti}
+【题5】$\gamma(t):[a,b]\to \mathbb{R}^2,\gamma(t)=(x(t),y(t))$,且 $x(t)\in C^\alpha[a,b],y(t)\in C^\beta[a,b],0<\alpha,\beta<1, \alpha+\beta>1$, 
+证明:$\gamma([a,b])$ 是 $\mathbb{R}^2$ 中零面积集.(注:$x(t)\in C^\alpha[a,b]$指的是$\displaystyle|x(t_1)-x(t_2)|\leq C_x\left\lvert t_1-t_2\right\rvert^{\alpha}$)
+\end{ti}
+
+\textbf{证明}:将 $[a,b]$ $n$等分,$a=t_0<t_1<\dots<t_n=b, \Delta t_i=\dfrac{b-a}{n}$, \\
+
+ 设$x(t)$在$[t_{i-1},t_i]$上最大值,最小值分别为$\alpha_i, \beta_i$, \\
+ 
+ $\phantom{\text{设}}y(t)$在$[t_{i-1},t_i]$上最大值,最小值分别为$\mu_i, \nu _i$, \\
+ 
+ 令$I_i=[\beta_i,\alpha_i]\times[\nu_i,\mu_i]$ ,则 $\displaystyle\gamma([a,b])\subset\bigcup_{i=1}^n I_i$, 取$C=\max\{C_x,C_y\}$, \\
+ 
+ $\because \alpha_i - \beta_i \leq C|t_i - t_{i-1}|^\alpha = \dfrac{C(b-a)^\alpha}{n^\alpha}$, \\
+
+ $\phantom{\because}\mu_i - \nu_i \leq C|t_i - t_{i-1}|^\beta = \dfrac{C(b-a)^\beta}{n^\beta}$, \\
+ 
+ $\displaystyle\therefore \sum_{i=1}^n \sigma(I_i) = \sum_{i=1}^n \dfrac{C^2(b-a)^{\alpha+\beta}}{n^{\alpha+\beta}} = \dfrac{C^2(b-a)^{\alpha+\beta}}{n^{\alpha+\beta-1}}$, \\
+ 
+ $\displaystyle\because \alpha+\beta>1, \quad\therefore \lim_{n\to\infty} \dfrac{C^2(b-a)^{\alpha+\beta}}{n^{\alpha+\beta-1}}=0$, \\
+
+$\displaystyle\therefore \forall\,\varepsilon>0,\;\exists N,\;\text{s.t.}\,\forall\,n\geq N,\;\gamma([a,b])\subset\bigcup_{i=1}^n I_i$,且$\displaystyle\sum_{i=1}^n \sigma(I_i)<\varepsilon$, \\
+
+从而 $\gamma([a,b])$是$\mathbb{R}^2$中零面积集,得证.
+
+\begin{ti}
+【题6】设 $f\in C^2(\overline{B_1(0)})$,在 $B_1(0)$ 上 $C^2$,设 $f$ 在 $\partial B_1(0)$ 上最小值为 $a$,
+$f(0)=b<a$,考虑映射 $\phi:B_1(0)\to\mathbb{R}^n,\phi(x)=\nabla f(x)$,$\Sigma=\{x\in B_1(0)|\nabla^2 f(x)$半正定$\}$,
+证明:$\phi(\Sigma)$ 中包含一个半径为 $a-b$ 的开球
+\end{ti}
+
+\textbf{证明}:$\displaystyle\because f(0)=b<a=\min_{\partial B_1(0)} f$,且 $\overline{B_1(0)}$ 是有界闭集, $f\in C^2(\overline{B_1(0)})$, \\
+
+$\therefore\,f$在$\overline{B_1(0)}$ 上有最小值,且最小值点在 $B_1(0)$ 取到, \\
+
+即 $\exists\,x^*\in B_1(0),\;\text{s.t.}\, \nabla f(x^*)=0$,且 $\nabla^2 f(x^*)\geq0,\quad\therefore x^*\in\Sigma$, \\
+
+$\because\,0=\phi(x^*),\quad\therefore 0\in\phi(\Sigma)$, \\
+
+对$\forall v\in B_{a-b}(0)$,考虑函数$g(x)=f(x)-v\cdot x,\;\text{则}g\in C^0(\overline{B_1(0)})$,且$g(0)=f(0)=b$, \\
+
+$x\in\partial B_1(0)$ 时, $g(x)\geq a - v\cdot x \geq a - \left\lVert v\right\rVert\left\lVert x\right\rVert   > a - (a-b)=b$, \\
+
+从而$g(x)$在$\overline{B_1(0)}$上的最小值在$B_1(0)$取到, \\
+
+即$\exists\,y^0\in B_1(0)$,$\;\text{s.t.}\,\nabla g(y^0)=0$且$\nabla^2 g(y^0)\geq0$, \\
+
+又$\nabla g(y^0)=\nabla f(y^0)-v$, $\nabla^2 g(y^0)=\nabla^2 f(y^0)\geq0$, \\
+
+$\therefore\,y^0\in\Sigma$$\quad\therefore\,v=\nabla f(y^0)\in\phi(\Sigma)$, \\
+
+从而$B_{a-b}(0)\subset\phi(\Sigma)$,证毕.
+
+\begin{ti}
+【题7】设$D\subset\mathbb{R}^2$为平面区域,$u\in C^2(D)$,满足$\dfrac{\partial^2 u}{\partial x^2}+\dfrac{\partial^2 u}{\partial y^2}=0$,
+证明:对任何$\overline{B_r(a)}\subset D$,都有$\displaystyle\int_{\partial B_r(a)}\dfrac{\partial u}{\partial \vec{n}}ds=0$,
+其中$\vec{n}$为$\partial B_r(a)$的单位外法向量,$\dfrac{\partial u}{\partial \vec{n} }$为方向导数.
+\end{ti}
+
+\textbf{证明}:设$a=(a_1,a_2)$,则$\partial B_r(a)$:$\begin{cases}x=a_1+r\cos\theta\\y=a_2+r\sin\theta\end{cases}\quad\theta\in[0,2\pi]$, \\
+
+$\therefore\,\vec{n}=(\cos\theta,\sin\theta)$, $ds=rd\theta$, \\
+
+又$u\in C^2(D)$,$\quad\therefore\dfrac{\partial u}{\partial \vec{n} }=\nabla u\cdot\vec{n}=\dfrac{\partial u}{\partial x}\cos\theta+\dfrac{\partial u}{\partial y}\sin\theta$,\\
+
+$\therefore\displaystyle\int_{\partial B_r(a)}\dfrac{\partial u}{\partial \vec{n} }ds$
+$=\displaystyle\int_0^{2\pi}[\dfrac{\partial u}{\partial x}(a_1+r\cos\theta,a_2+r\sin\theta)\cdot\cos\theta+\dfrac{\partial u}{\partial y}(a_1+r\cos\theta,a_2+r\sin\theta)\sin\theta] rd\theta$ \\
+
+$=\displaystyle\int_0^{2\pi}[\dfrac{\partial u}{\partial x}\cdot(r\cos\theta)+\dfrac{\partial u}{\partial y}\cdot(r\sin\theta)]d\theta$
+$=\displaystyle\int_0^{2\pi}[\dfrac{\partial u}{\partial x}\cdot y'(\theta)-\dfrac{\partial u}{\partial y}\cdot x'(\theta)]d\theta$ \\
+
+$=\displaystyle\oint_{\partial B_r(a)}\dfrac{\partial u}{\partial x}dy-\dfrac{\partial u}{\partial y}dx$, \\
+
+设$P(x,y)=-\dfrac{\partial u}{\partial y}$,$\;Q(x,y)=\dfrac{\partial u}{\partial x}$,$\quad\therefore\,P,Q\in C^1(D)$, $\dfrac{\partial Q}{\partial x}=\dfrac{\partial^2 u}{\partial x^2}$,$\;\dfrac{\partial P}{\partial y}=-\dfrac{\partial^2 u}{\partial y^2}$, \\
+
+由$Green$公式,$\displaystyle\oint_{\partial B_r(a)}\dfrac{\partial u}{\partial x}dy-\dfrac{\partial u}{\partial y}dx=\iint_{B_r(a)}(\dfrac{\partial^2 u}{\partial x^2}+\dfrac{\partial^2 u}{\partial y^2})dxdy=0$, \\
+
+$\therefore\displaystyle\int_{\partial B_r(a)}\dfrac{\partial u}{\partial \vec{n} }ds=0$,得证.
+
+\begin{ti}
+【题8】$\Omega$为有界$C^1$区域,$\displaystyle u\in C^2(\overline\Omega)$,$\displaystyle\Delta u=u$,且$\displaystyle u|_{\partial\Omega}\equiv 0$,
+证明:$u\equiv0$
+\end{ti}
+
+\textbf{微分学视角}:假设$u$不恒为$0$,存在$x^0\in int\Omega$,$\;\text{s.t.}\,u(x^0)>0$, \\
+
+且$\displaystyle u(x^0)=\max_{\Omega}u$,则$\nabla u(x^0)=0$,且$\nabla^2 u(x^0)\leq 0$, \\
+
+由于$\Delta u = \dfrac{\partial^2 u}{\partial x^2} + \dfrac{\partial^2 u}{\partial y^2} = \text{tr}(\nabla^2 u)$, \\
+
+$\therefore\,\Delta u(x^0)\leq 0$,与$\Delta u(x^0)=u(x^0)$矛盾!  从而$u \equiv 0$,得证. \\
+
+\textbf{积分学视角}:考虑积分$\displaystyle\int_\Omega u^2 dxdy$,则$\displaystyle\int_\Omega u^2 dxdy = \int_\Omega u\Delta u dxdy$, \\
+
+$\because\,\text{div}(u \nabla u) = \text{div}((u\dfrac{\partial u}{\partial x},u\dfrac{\partial u}{\partial y})) = \dfrac{\partial(u\dfrac{\partial u}{\partial x})}{\partial x}+\dfrac{\partial (u\dfrac{\partial u}{\partial y})}{\partial y}$ \\
+
+$=u\dfrac{\partial^2 u}{\partial x^2} + (\dfrac{\partial u}{\partial x})^2 + u\dfrac{\partial^2 u}{\partial y^2} + (\dfrac{\partial u}{\partial y})^2$ $=u\Delta u+||\nabla u||^2$, \\
+
+由$Gauss$公式,$\displaystyle\int_{\Omega} u\Delta u dxdy = \int_\Omega \text{div}(u \nabla u) dxdy - \int_\Omega ||\nabla u||^2 dxdy$ \\
+
+$\displaystyle=\int_{\partial\Omega} u\nabla u \cdot \vec{n} ds - \int_\Omega ||\nabla u||^2 dxdy$, \\
+
+$\displaystyle=-\int_\Omega ||\nabla u||^2 dxdy \leq 0$,而$\int_\Omega u^2 dxdy \geq 0$, \\
+
+从而$\displaystyle\int_\Omega u^2 dxdy = 0 \Rightarrow u \equiv 0$,得证.
+
+\begin{ti}
+【题9】计算$\displaystyle\oint_\Gamma\dfrac{xdy - ydx}{ax^2 + 2cxy + by^2}$,
+其中$\Gamma:x^2 + y^2 =1$,方向为逆时针且$ab > c^2$
+\end{ti}
+
+\textbf{证明}:分母$\displaystyle ax^2+2cxy+by^2=(x,y)M\begin{pmatrix}x\\y\end{pmatrix}$, \\
+
+其中$\displaystyle M=\begin{pmatrix}a&c\\c&b\end{pmatrix}$为实对称矩阵,且$\displaystyle\det M=ab-c^2>0$, \\
+
+可选$\displaystyle P\in SO(2)$,使$\displaystyle P^TMP=\begin{pmatrix}\lambda_1&0\\0&\lambda_2\end{pmatrix}$, \\
+
+令$\displaystyle\begin{pmatrix}x\\y\end{pmatrix}=P\begin{pmatrix}u\\v\end{pmatrix}$,则单位圆及其逆时针方向保持不变,且$\displaystyle x\,dy-y\,dx=u\,dv-v\,du$, \\
+
+由$\displaystyle ab>c^2$可知$\displaystyle a,b$同号,两个特征值也与$\displaystyle a$同号, \\
+
+令$\displaystyle s=\operatorname{sgn}(a)$,则可写$\displaystyle\lambda_i=s\mu_i$,其中$\displaystyle\mu_i>0$,且$\displaystyle\mu_1\mu_2=\lambda_1\lambda_2=ab-c^2$, \\
+
+取$\displaystyle u=\cos\theta,v=\sin\theta$,则$\displaystyle\oint_\Gamma\dfrac{x\,dy-y\,dx}{ax^2+2cxy+by^2}$ \\
+
+$\displaystyle=s\int_0^{2\pi}\dfrac{d\theta}{\mu_1\cos^2\theta+\mu_2\sin^2\theta}$ $\displaystyle=4s\int_0^{\frac{\pi}{2}}\dfrac{d\theta}{\mu_1\cos^2\theta+\mu_2\sin^2\theta}$, \\
+
+令$\displaystyle t=\tan\theta$,则$\displaystyle4s\int_0^{\frac{\pi}{2}}\dfrac{d\theta}{\mu_1\cos^2\theta+\mu_2\sin^2\theta}=4s\int_0^{+\infty}\dfrac{dt}{\mu_1+\mu_2t^2}=\dfrac{2\pi s}{\sqrt{\mu_1\mu_2}},$ \\
+
+故:$\quad\displaystyle\boxed{\oint_\Gamma\dfrac{x\,dy-y\,dx}{ax^2+2cxy+by^2}=\dfrac{2\pi\operatorname{sgn}(a)}{\sqrt{ab-c^2}}}.$
+
+\begin{ti}
+【题10】$\Omega\subset \mathbb{R}^3$为有$C^1$边界的有界区域,$\displaystyle u\in C^2(\overline\Omega,\mathbb{R})$,
+$\Delta u = 0$,证明:对任意内点$p \in \Omega$,有:
+$\displaystyle u(p)=\dfrac{1}{4\pi}\int_{\partial\Omega}\left(\dfrac{\boldsymbol{r}\cdot\boldsymbol{n}}{r^3} u + \dfrac{1}{r}\dfrac{\partial u}{\partial \boldsymbol{n}} \right)d\sigma$,
+其中$p = (x_0, y_0, z_0)$,$\boldsymbol{r} = (x - x_0, y - y_0, z - z_0)$,$\boldsymbol{n}$为$\partial\Omega$单位外法向量
+\end{ti}
+
+\textbf{证明}:固定$\displaystyle\varepsilon_0>0$使$\displaystyle\overline{B_{\varepsilon_0}(p)}\subset\Omega$,并取$\displaystyle0<\varepsilon<\varepsilon_0$.因为$\displaystyle\dfrac{\partial u}{\partial \boldsymbol{n}}=\nabla u\cdot\boldsymbol{n}$,令$\displaystyle\boldsymbol{X}=\dfrac{\boldsymbol{r}}{r^3}u+\dfrac{1}{r}\nabla u$,考虑$\displaystyle\Omega\setminus B_\varepsilon(p)$, \\
+
+记$\displaystyle I_1 =\int_{\partial\Omega}(\dfrac{\boldsymbol{r} \cdot \boldsymbol{n}}{r^3} u +\dfrac{1}{r}\dfrac{\partial u}{\partial \boldsymbol{n}}) d\sigma$,
+$\displaystyle I_2 = \int_{\partial B_\varepsilon(p)} (\dfrac{\boldsymbol{r} \cdot \boldsymbol{n}}{r^3} u +\dfrac{1}{r}\dfrac{\partial u}{\partial \boldsymbol{n}}) d\sigma$, \\
+
+则由$Gauss$公式,$\displaystyle I_1 + I_2 = \int_{\Omega\backslash B_{\varepsilon}(p)}\text{div}\boldsymbol{X} \, dxdydz$,记$\boldsymbol{X} = (P, Q, R)$, \\
+
+$\therefore\dfrac{\partial P}{\partial x} = \dfrac{1}{r}\dfrac{\partial^2 u}{\partial x^2} + (-\dfrac{1}{r^2})\dfrac{x-x_0}{r}\dfrac{\partial u}{\partial x}+\dfrac{x-x_0}{r^3}\dfrac{\partial u}{\partial x} + u\cdot\dfrac{r^2 - 3(x - x_0)^2}{r^5}$ \\
+
+$=\dfrac{1}{r}\dfrac{\partial^2 u}{\partial x^2} + u\cdot\dfrac{r^2 - 3(x - x_0)^2}{r^5}$, \\
+
+同理$\dfrac{\partial Q}{\partial y} = \dfrac{1}{r} \dfrac{\partial^2 u}{\partial y^2} + u\cdot\dfrac{r^2 - 3(y - y_0)^2}{r^5}$,
+$\dfrac{\partial R}{\partial z} = \dfrac{1}{r}\dfrac{\partial^2 u}{\partial z^2} + u\cdot\dfrac{r^2 - 3(z - z_0)^2}{r^5}$, \\
+
+$\therefore\,\text{div} \boldsymbol{X} = \dfrac{1}{r}\Delta u + u\cdot\dfrac{3r^2 - 3r^2}{r^5} = 0$, 
+$\quad\therefore I_1 + I_2 = 0$, \\
+
+在$\partial B_\varepsilon(p)$上,诱导定向的$\boldsymbol{n} = -\dfrac{\boldsymbol{r}}{r}$,且$r = \varepsilon$, \\
+
+$\displaystyle\therefore\,I_2 = -\int_{\partial B_\varepsilon(p)}(\dfrac{u}{\varepsilon^2}+\dfrac{\nabla u}{\varepsilon}\cdot\dfrac{\boldsymbol{r}}{r} \,) d\sigma$, \\
+
+令$\displaystyle C=\max_{\overline{B_{\varepsilon_0}(p)}}\left\lVert \nabla u\right\rVert <\infty$.对每个$\displaystyle0<\varepsilon<\varepsilon_0$,有 \\
+
+$\displaystyle\left|\int_{\partial B_\varepsilon(p)}\frac{\nabla u}{\varepsilon}\cdot\frac{\boldsymbol{r}}{r}\,d\sigma\right|\leq\frac{C}{\varepsilon}\,4\pi\varepsilon^2=4\pi C\varepsilon\to0,$ \\
+
+又由$\displaystyle u$在$\displaystyle p$处连续,有$\displaystyle\sup_{|x-p|=\varepsilon}|u(x)-u(p)|\to0$, \\
+
+从而$\displaystyle\left|\frac{1}{\varepsilon^2}\int_{\partial B_\varepsilon(p)}u\,d\sigma-4\pi u(p)\right|\leq4\pi\sup_{|x-p|=\varepsilon}|u(x)-u(p)|\to0,$ \\
+
+$\displaystyle\therefore\lim_{\varepsilon\to0}I_2=-4\pi u(p)$,又$\displaystyle I_1+I_2=0$对每个$\displaystyle0<\varepsilon<\varepsilon_0$成立, \\
+
+$\therefore\,I_1 = 4\pi u(p)$,即$\displaystyle u(p) = \dfrac{1}{4\pi}\int_{\partial \Omega} \left( \dfrac{\boldsymbol{r} \cdot \boldsymbol{n}}{r^3} u + \dfrac{1}{r} \dfrac{\partial u}{\partial \boldsymbol{n}} \right) d\sigma$.
+
+
+
+\BookEnd

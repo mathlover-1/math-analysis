@@ -1,0 +1,211 @@
+\ifdefined\BookMaster
+\def\BookEnd{}
+\else
+\documentclass[a4paper,12pt,fleqn,openany,twoside,fontset=windows]{ctexbook}
+\input{数学分析习题整理-导言.tex}
+\begin{document}
+\mainmatter
+\pagestyle{main}
+\setcounter{chapter}{1}
+\def\BookEnd{\end{document}}
+\fi
+
+\chapter{实数系基本定理}
+\begin{ti}
+【题1】 设$A$是有上界的数集,$\beta=\sup A$  证明:$\exists\{a_n\},\text{s.t.}\;a_n\in A\text{且}\displaystyle\lim_{n\to\infty}a_n=\beta;$ \\
+
+又若$\beta\notin A,$则$\{a_n\}$可以是严格单调递增的
+\end{ti}
+
+\textbf{证明}:$\;\because\beta=\sup A,\quad\therefore\forall\,n\geq 1,\text{都存在}a_n\in A,\;\text{s.t.}\;\beta-\dfrac{1}{n}<a_n\leq\beta,$ \\
+
+由此生成的数列$\{a_n\}\text{就满足}\displaystyle\lim_{n\to\infty}a_n=\beta,$ \\
+
+若$\beta\notin A,\text{则}a_n<\beta,\text{则}\beta-1<a_1<\beta,$ \\
+
+$\because\max\{a_1,\beta-\dfrac{1}{2}\}<\beta\quad\therefore\exists a_2\in A,\;\text{s.t.}\;\max\{a_1,\beta-\dfrac{1}{2}\}<a_2<\beta,$ \\
+
+由此归纳地做下去,可以找到数列$\{a_n\}$,满足$\beta-\dfrac{1}{n}<a_n<\beta\text{且}a_n>a_{n-1},$ \\
+
+$\therefore\{a_n\}$可以是严格单调递增的.
+
+\begin{ti}
+【题2】 证明:每个数列都有单调子列
+\end{ti}
+
+\textbf{证明}:称$\{a_n\}$中某项$a_n$满足以下条件时具有性质$(M):\forall k>n,\text{都有}a_k\leq a_n,$ \\
+
+分情况讨论, \\
+
+\ding{172}$\quad\text{若}\{a_n\}\text{中有无限多项具有性质}(M),\text{则把这些下标拿出来,记为}n_1,n_2,...,n_k,$ \\
+
+则有$a_{n_1}\geq a_{n_2}\geq...\geq a_{n_k}\geq...\quad\text{那么}\{a_{n_k}\}$为单调递减的子列, \\
+
+\ding{173}$\quad\text{若}\{a_n\}\text{只有有限多项满足性质}(M),\text{则}\,\exists N,\;\text{s.t.}\;n>N\text{时},a_n\text{均不满足性质}(M),$ \\
+
+取$n_1>N,\text{则}\exists\,n_2>n_1,\;\text{s.t.}\,a_{n_2}>a_{n_1},$ \\
+
+同理继续操作下去,可得到单调递增的子列$\{a_{n_k}\},$ \\
+
+综上,每个数列都有单调子列.
+
+\begin{ti}
+【题3】证明:若$\{x_n\}$无界,但不是无穷大量,则存在两个子列,其中一个子列收敛,另一个子列是无穷大量
+\end{ti}
+
+\textbf{证明}:先证明前半部分:若$\{x_n\}$无界,则有无穷大量子列, \\
+
+$\because\{x_n\}\text{无界},\quad\therefore\forall\,M\in\mathbb{R},\exists\,n\in\mathbb{N}\;\text{s.t.}\left\lvert x_n\right\rvert>M,$ \\
+
+事实上,这样的$n$总是有无限个, \\
+
+否则,令$M'=\max\{\left\lvert x_n\right\rvert\,|\;\left\lvert x_n\right\rvert>M\},\text{因为只有有限项满足}\left\lvert x_n\right\rvert>M,\text{所以}M'\in\mathbb{R},$ \\
+
+则$\forall\,n\in\mathbb{N}\;\text{总有}\left\lvert x_n\right\rvert\leq M',\text{与}\{x_n\}\text{无界矛盾},$ \\
+
+$\therefore\text{取}M=1,\;\exists\,p_1\in\mathbb{N},\;\text{s.t.}\,\left\lvert x_{p_1}\right\rvert>1,$ \\
+
+$\phantom{\therefore}\text{取}M=2,\;\exists\,p_2>p_1,\;\text{s.t.}\,\left\lvert x_{p_2}\right\rvert>2,$ \\
+
+从而归纳地做下去,可以得到子列$\{x_{p_m}\}$,$\text{其中}p_1<p_2<...<p_m<...,\,\left\lvert x_{p_m}\right\rvert>m,$ \\
+
+$\therefore\{x_{p_m}\}$是无穷大量的子列. \\
+
+再证下半部分:若$\{x_n\}$不是无穷大量,则$\{x_n\}$有收敛子列, \\
+
+$\because\{x_n\}\text{不是无穷大量},\therefore\exists\,G_0>0,\,\forall\,N,\,\exists\,n>N,\,\text{s.t.}\left\lvert x_n\right\rvert \leq G_0,$ \\
+
+取$N=1,\;\exists\,n_1>1,\,\text{s.t.}\,\left\lvert x_{n_1}\right\rvert\leq G_0,$ \\
+
+再取$N=n_1,\;\exists\,n_2>n_1,\,\text{s.t.}\,\left\lvert x_{n_2}\right\rvert\leq G_0,$ \\
+
+由此归纳地做下去,我们可以得到子列$\{x_{n_k}\}$,$\text{其中}n_1<n_2<...<n_k<...,\,\left\lvert x_{n_k}\right\rvert\leq G_0,$ \\
+
+$\therefore\{x_{n_k}\}$是有界数列, 运用$Bolzano$定理 ,$\{x_{n_k}\}$有收敛子列,  则$\{x_n\}$也有收敛子列, \\
+
+综上,命题得证. \\
+
+\textbf{另解}:对上半部分的另一种证法, \\
+
+取$M=1\quad\exists\,p_1\in\mathbb{N},\;\text{s.t.}\,\left\lvert x_{p_1}\right\rvert>1,$ \\
+
+再取$M=\max\{\left\lvert x_1\right\rvert,\left\lvert x_2\right\rvert,...,\left\lvert x_{p_1}\right\rvert,2\},\;\exists\,p_2,\;\text{s.t.}\,\left\lvert x_{p_2}\right\rvert>M,$ \\
+
+则$p_2>p_1,\text{且}\left\lvert x_{p_2}\right\rvert>2,$ \\
+
+这样归纳地做下去,同样可得到所需的无穷大量子列. \\
+
+\textbf{注记}:$\,Bolzano$定理告诉我们有界数列必有收敛子列,而下半部分的证明事实上提供了$Bolzano$定理的加强版: $\{x_n\}\text{有收敛子列}\Leftrightarrow\{x_n\}\text{不是无穷大量}$
+
+\begin{ti}
+【题4】用闭区间套原理直接证明$Cauchy$收敛准则
+\end{ti}
+
+\textbf{证明}:设$\{x_n\}\text{是}Cauchy$列,则易得$\{x_n\}$有界, \\
+
+$\text{设}x_n\in[a_1,b_1],\;\text{对}[a_1,b_1]\text{三等分,令}c_1=\dfrac{2a_1+b_1}{3},\;c_2=\dfrac{a_1+2b_1}{3},$ \\
+
+设$J_1=[a_1,c_1],J_2=[c_1,c_2],J_3=[c_2,b_1],$ \\
+
+$Claim:J_1\text{和}J_3$中至少有一个区间只包含$\{x_n\}$的有限多项, \\
+
+事实上,如果$J_1\text{和}J_3$均包含$\{x_n\}$中的无限多项, \\
+
+则$\exists\,\varepsilon=\dfrac{b_1-a_1}{3},\;\forall N,\;\exists\,m,n>N\;\text{s.t.}\,x_n\in J_1,x_m\in J_3,\text{且}\left\lvert x_m-x_n\right\rvert\geq\varepsilon,$ \\
+
+这与$\{x_n\}\text{是}Cauchy$列矛盾! \\
+
+从而可以去掉$J_1,J_3$中只包含有限项的那个区间(如果$J_1,J_3$都只包含有限多项,则任意去掉一个区间),与未去掉的$J_2$组成新的闭区间$[a_2,b_2],$ \\
+
+如此继续操作下去,可以得到闭区间套$\{[a_k,b_k]\},\text{且}b_n-a_n=\dfrac{2}{3}(b_{n-1}-a_{n-1}),$ \\
+
+$\therefore\displaystyle\lim_{n\to\infty}(b_n-a_n)=0,$ \\
+
+由闭区间套原理,可知闭区间套有一个公共点$\xi$,且根据闭区间套的构造, \\
+
+每个区间$[a_k,b_k]$均包含$\{x_n\}$中从某项开始往后的所有项, \\
+
+$\because\displaystyle\lim_{n\to\infty}b_n=\lim_{n\to\infty}a_n=\xi,\;\therefore\forall\varepsilon>0,\;\exists N_1,\;\text{s.t.}\,[a_{N_1},b_{N_1}]\subseteq(\xi-\varepsilon,\xi+\varepsilon),$ \\
+
+又$\exists\,N_2,\;n>N_2\text{时},x_n\in[a_{N_1},b_{N_1}],$ \\
+
+$\therefore\,\forall\,\varepsilon>0,\;\exists\,N,\,n>N\text{时},\left\lvert x_n-\xi\right\rvert<\varepsilon\Rightarrow\{x_n\}\text{收敛}$,得证.
+
+\begin{ti}
+【题5】证明:有限覆盖定理在$\mathbb{Q}$中不成立
+\end{ti}
+
+\textbf{证明}:考虑$J=[0,2]\cap\mathbb{Q},$ \\
+
+$\because\sqrt{2}\notin\mathbb{Q},\;\therefore\forall\,x\in J,\;\exists r_x\in\mathbb{Q}^+,\;\text{s.t.}\,\sqrt{2}\notin(x-r_x,x+r_x),$ \\
+
+又$J\subseteq\displaystyle\bigcup_{x\in J}[(x-r_x,x+r_x)\cap\mathbb{Q}]$,如果有限覆盖定理对$J$成立, \\
+
+即$J\subseteq\displaystyle\bigcup_{k=1}^{n}(x_k-r_k,x_k+r_k)\cap\mathbb{Q},$ \\
+
+令$\delta_k=\min\{\left\lvert \sqrt{2}-x_k+r_k\right\rvert,\left\lvert \sqrt{2}-x_k-r_k\right\rvert\}$,再令$\delta=\min\{\delta_1,\delta_2,...,\delta_n\},$ \\
+
+则$(\sqrt{2}-\delta,\sqrt{2}+\delta)\bigcap\left(\displaystyle\bigcup_{k=1}^{n}(x_k-r_k,x_k+r_k)\right)=\varnothing,$ \\
+
+又$\exists\,q\in J,\text{且}q\in(\sqrt{2}-\delta,\sqrt{2}+\delta),$ \\
+
+$\therefore\displaystyle\bigcup_{k=1}^{n}(x_k-r_k,x_k+r_k)$不能覆盖整个$J$,自然$\left(\displaystyle\bigcup_{k=1}^{n}(x_k-r_k,x_k+r_k)\right)\bigcap\mathbb{Q}$不能覆盖整个$J,$ \\
+
+所以有限覆盖定理在$\mathbb{Q}$中不成立.
+
+\begin{ti}
+【题6】用有限覆盖定理证明闭区间套原理
+\end{ti}
+
+\textbf{证明}:设存在闭区间套$[a_1,b_1]\supseteq[a_2,b_2]\supseteq...\supseteq[a_n,b_n]\supseteq...,\text{且}\displaystyle\lim_{n\to\infty}(b_n-a_n)=0,$ \\
+
+假设这个闭区间套无公共点,则$\forall\,x\in[a_1,b_1],\;\exists\,n_x,\;\text{s.t.}\,x\notin[a_{n_x},b_{n_x}],$ \\
+
+构造集合$O_x=\mathbb{R}\backslash[a_{n_x},b_{n_x}],\text{则}x\in O_x,\text{且}O_x\text{是开集},$ \\
+
+则$\displaystyle\bigcup_{x\in[a_1,b_1]}O_x$是$[a_1,b_1]$的一个开覆盖,则存在有限个$O_x$覆盖整个$[a_1,b_1],$ \\
+
+设$[a_1,b_1]\subseteq\displaystyle\bigcup_{i=1}^{k}O_{x_i},N=\max\{n_{x_1},n_{x_2},...n_{x_k}\},$ \\
+
+则$[a_N,b_N]\subseteq[a_{n_{x_i}},b_{n_{x_i}}],\text{从而}[a_N,b_N]\text{不与}O_{x_1},O_{x_2},...,O_{x_k}$中任意一个相交, \\
+
+但$[a_N,b_N]\subseteq[a_1,b_1],\text{而}O_{x_1},O_{x_2},...,O_{x_k}\text{覆盖了整个}[a_1,b_1]$,矛盾! \\
+
+$\therefore$闭区间套必有公共点, 设$\xi,\xi'$都是公共点,则$\left\lvert \xi-\xi'\right\rvert\leq\left\lvert b_n-a_n\right\rvert,$ \\
+
+令$n\rightarrow\infty,\text{则}\left\lvert \xi-\xi'\right\rvert\leq 0\Rightarrow\xi=\xi',$ \\
+
+$\therefore$闭区间套$\{[a_n,b_n]\}$有唯一公共点.
+
+\begin{ti}
+【题7】设正数列$\{a_n\}$满足$a_{m+n}\leq a_ma_n,\,\forall\,n,m\in\mathbb{N}^+$,证明: \\
+若$\{\dfrac{\ln{a_n}}{n}\}$有界,则$\displaystyle\lim_{n\to\infty}\dfrac{\ln{a_n}}{n}=\displaystyle\inf_{n\geq 1}\{\dfrac{\ln{a_n}}{n}\}$
+\end{ti}
+
+\textbf{证明}:设$\alpha=\displaystyle\inf_{n\geq 1}\{\dfrac{\ln{a_n}}{n}\},\text{则}\displaystyle\varliminf_{n\to\infty}\dfrac{\ln{a_n}}{n}\geq\alpha,$ \\
+
+又$\alpha$是下确界,由确界的刻画,$\forall\,\varepsilon>0,\;\exists\,N,\;\text{s.t.}\,\dfrac{\ln{a_N}}{N}<\alpha+\varepsilon,$ \\
+
+固定这个$N,\text{对}\forall\,n\in\mathbb{N}^+,\;\exists\,m,k\in\mathbb{N},\;\text{s.t.}\,n=mN+k,0<k\leq N,n$足够大时$m\geq 1$, \\
+
+则$a_n=a_{mN+k}\leq a_{mN}a_k\leq a_N^ma_k,$ \\
+
+$\therefore\dfrac{\ln{a_n}}{n}\leq\dfrac{m\ln{a_N}}{n}+\dfrac{\ln{a_k}}{n}\leq\dfrac{mN(\alpha+\varepsilon)}{n}+\dfrac{\ln{a_k}}{n}$,\ding{172} \\
+
+令$\displaystyle C=\max_{1\leq j\leq N}|\ln a_j|$,因为$\displaystyle 1\leq k\leq N$,所以$\displaystyle\dfrac{|\ln a_k|}{n}\leq\dfrac{C}{n}\to0,$ \\
+
+又$\displaystyle\dfrac{mN}{n}=1-\dfrac{k}{n}$,故$\displaystyle\lim_{n\to\infty}\dfrac{mN}{n}=1,\quad\lim_{n\to\infty}\dfrac{\ln a_k}{n}=0,$ \\
+
+对\ding{172}式两边同时关于$n$取上极限:$\displaystyle\varlimsup_{n\to\infty}\dfrac{\ln{a_n}}{n}\leq\alpha+\varepsilon,$ \\
+
+由$\varepsilon$的任意性,$\displaystyle\varlimsup_{n\to\infty}\dfrac{\ln{a_n}}{n}\leq\alpha,\text{又}\displaystyle\varlimsup_{n\to\infty}\dfrac{\ln{a_n}}{n}\geq\displaystyle\varliminf_{n\to\infty}\dfrac{\ln{a_n}}{n},$ \\
+
+$\therefore\displaystyle\varlimsup_{n\to\infty}\dfrac{\ln{a_n}}{n}=\displaystyle\varliminf_{n\to\infty}\dfrac{\ln{a_n}}{n}=\alpha,$ \\
+
+$\therefore\displaystyle\lim_{n\to\infty}\dfrac{\ln{a_n}}{n}\text{有意义,且}\displaystyle\lim_{n\to\infty}\dfrac{\ln{a_n}}{n}=\displaystyle\inf_{n\geq 1}\{\dfrac{\ln{a_n}}{n}\}.$ \\
+
+\textbf{注}:由上可得到正数列$\{a_n\}$满足条件$a_{m+n}\leq a_na_m$时,$\{\sqrt[n]{a_n} \}$一定收敛于$\displaystyle\inf_{n\geq 1}\{\sqrt[n]{a_n} \}$
+
+
+
+\BookEnd

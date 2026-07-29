@@ -1,0 +1,136 @@
+\documentclass[a4paper,12pt,fleqn,openany,twoside,fontset=windows]{ctexbook}
+\input{数学分析习题整理-导言.tex}
+\begin{document}
+
+\maketitle
+\frontmatter
+
+\booknotetitle{前言}
+\begin{booknotebody}
+本书是笔者在南京大学一年级数学分析学习过程中积攒形成的习题整理,
+题目主要来源于谢惠民等老师编著的数学分析习题课讲义以及笔者在大一期间遇到的数学分析课堂例题和南京大学数学分析期中与期末考试卷. \\
+
+本书按照数列,实数系基本定理,函数,一元微分学与一元积分学以及多元微分学与多元积分学的顺序编排. \\
+
+选题侧重较有难度,方法典型或思路新颖的题目,并保留推导过程与解题思路,便于日后复习,补充和查阅. \\
+
+本书仅作为开源共享的笔记式学习资料,
+由于个人水平所限,书中难免存在疏漏,后续将结合复习体会和读者反馈持续修订,同时补充更多有价值有思想的数学分析题目.
+
+
+\end{booknotebody}
+\clearpage
+
+\booknotetitle{本书简介}
+\begin{booknotebody}
+本书依照数学分析课程的学习顺序编排,各章选取具有代表性的习题和证明,并不以完整覆盖全部知识点为目标.
+
+\textbf{第一章\quad 数列}.本章讨论数列收敛,单调性与有界性,递推数列,嵌套根式,组合平均,上下极限及相关极限方法,并包含自然对数底无理性的证明.
+
+\textbf{第二章\quad 实数系基本定理}.本章讨论上确界,单调子列,Bolzano定理,Cauchy收敛准则,闭区间套,有限覆盖以及次可乘数列,着重展示实数完备性的不同表述与应用.
+
+\textbf{第三章\quad 函数}.本章讨论连续性,一致连续性,单侧极限,单调函数,间断点,周期函数及最小正周期,并呈现介值性,连通性与连续性之间的联系.
+
+\textbf{第四章\quad 一元微分学与一元积分学}.本章讨论Rolle定理和Lagrange中值定理的拓展证明,导数与高阶导数估计,积分零点问题以及若干中值定理构造.
+
+\textbf{第五章\quad 多元微分学与多元积分学}.本章讨论齐次函数,隐式零点函数,凹性,二元Riemann可积性,Hölder曲线,调和函数,Gauss公式,曲线积分和球面平均公式.
+
+\end{booknotebody}
+\clearpage
+
+\booknotetitle{使用说明}
+\begin{booknotebody}
+\begin{itemize}[leftmargin=2\ccwd,itemsep=0.55em,topsep=0pt]
+    \item 各章题号独立编号,新章从题1开始.
+    \item 【题x】表示普通题目,【拓展1】和【拓展2】表示对相关定理或证明方法的扩展.
+    \item \textbf{证明}表示主要解答;\textbf{另解}表示可以独立完成论证的另一种方法.若另解只替换原证明中的局部步骤,则由上下文说明.
+    \item \textbf{注}和\textbf{注记}用于就近补充条件,记号或结论,有时也用于解释思考动机.
+    \item \textbf{一点思考}用于记录思考动机,试探过程或非正式想法,不替代严格证明.
+    \item 题目文字未作改动,部分证明和讲解依据课堂笔记转载整理.
+    \item 本书目前不提供逐题出处,统一来源见前言及书末的\textbf{参考资料与来源说明}.
+\end{itemize}
+\end{booknotebody}
+\clearpage
+
+\booknotetitle{符号与约定}
+\begin{booknotelongbody}
+\textbf{数集与数列}
+
+\begin{itemize}[leftmargin=2\ccwd,itemsep=0.5em,topsep=0.4em]
+    \item 约定$\displaystyle\mathbb{N}=\{0,1,2,\ldots\}$,$\displaystyle\mathbb{N}^+=\{1,2,3,\ldots\}$, \\
+    $\displaystyle\mathbb Z$,$\displaystyle\mathbb Q$,$\displaystyle\mathbb R$分别表示整数集,有理数集和实数集.
+    \item 数列写作$\displaystyle\{a_n\}$,$\;\displaystyle\varlimsup a_n$和$\displaystyle\varliminf a_n$分别表示数列的上极限和下极限.
+    \item 无穷大量指$\displaystyle|a_n|\to+\infty$;特指趋于正无穷时写作$\displaystyle a_n\to+\infty$.无界数列不一定是无穷大量.
+\end{itemize}
+
+\textbf{区间,邻域与拓扑}
+
+\begin{itemize}[leftmargin=2\ccwd,itemsep=0.5em,topsep=0.4em]
+    \item 区间均指$\displaystyle\mathbb R$中的区间.端点属于定义域时,连续性和极限按定义域的相对单侧意义理解.
+    \item $\displaystyle\overline\Omega$,$\displaystyle\partial\Omega$和$\displaystyle\operatorname{int}\Omega$分别表示$\displaystyle\Omega$的闭包,边界和内部.
+    \item $\displaystyle B_r(a)$和$\displaystyle\overline{B_r(a)}$分别表示以$\displaystyle a$为中心,半径为$\displaystyle r$的开球和闭球.
+    \item 区域指非空连通开集;涉及闭区域时明确写其闭包.
+\end{itemize}
+
+\textbf{凸集,凸函数与凹函数}
+
+\begin{itemize}[leftmargin=2\ccwd,itemsep=0.5em,topsep=0.4em]
+    \item 集合$\displaystyle D$称为凸集,是指对任意$\displaystyle x,y\in D$和$\displaystyle t\in[0,1]$,均有$\displaystyle(1-t)x+ty\in D$.
+    \item 函数$\displaystyle f$称为凸函数,是指其定义域为凸集,且$\displaystyle f((1-t)x+ty)\leq(1-t)f(x)+tf(y)$;凹函数采用反向不等式.
+    \item 严格凸函数和严格凹函数要求当$\displaystyle x\neq y$且$\displaystyle t\in(0,1)$时,相应不等式严格成立.
+    \item 凸集$\displaystyle D$称为严格凸集,是指对任意不同的$\displaystyle x,y\in D$和$\displaystyle t\in(0,1)$,均有$\displaystyle(1-t)x+ty\in\operatorname{int}D$.
+\end{itemize}
+
+\textbf{范数,微分与函数空间}
+
+\begin{itemize}[leftmargin=2\ccwd,itemsep=0.5em,topsep=0.4em]
+    \item $\displaystyle\lVert x\rVert$默认表示欧氏范数,$\displaystyle x\cdot y$表示欧氏内积,$\displaystyle|x|$表示实数的绝对值;在向量语境中,$\displaystyle|x|$亦可表示欧氏范数.
+    \item $\displaystyle\nabla u$,$\displaystyle\Delta u$和$\displaystyle\operatorname{div}X$分别表示梯度,$Laplace$算子和散度.
+    \item $\displaystyle C(I)$与$\displaystyle C^0(I)$均表示$\displaystyle I$上的连续函数类;$\displaystyle C^k(I)$表示具有连续到$\displaystyle k$阶导数的函数类.
+    \item $\displaystyle C^k(\overline\Omega)$表示函数及其不超过$\displaystyle k$阶的偏导数均可连续延拓至$\displaystyle\overline\Omega$.
+    \item $\displaystyle C^\alpha[a,b]$表示Hölder指数为$\displaystyle\alpha$的函数类,即存在$\displaystyle M>0$,使任意$\displaystyle s,t\in[a,b]$均满足$\displaystyle|f(t)-f(s)|\leq M|t-s|^\alpha$.
+\end{itemize}
+
+\textbf{曲线,曲面与方向}
+
+\begin{itemize}[leftmargin=2\ccwd,itemsep=0.5em,topsep=0.4em]
+    \item 平面简单闭曲线未另作说明时,正向指逆时针方向.
+    \item $\displaystyle\partial\Omega$上的单位法向量未另作说明时取外法向量.对于挖孔区域,内边界的法向量仍按该区域的外法向量取向.
+    \item 曲线积分和曲面积分按题设指定的方向或定向理解;若结果依赖方向,则题设中的方向条件不可省略.
+    \item $\displaystyle\operatorname{sgn}(a)$表示符号函数,即当$\displaystyle a>0$,$\displaystyle a=0$和$\displaystyle a<0$时,其值分别为$\displaystyle1$,$\displaystyle0$和$\displaystyle-1$.
+\end{itemize}
+
+
+\end{booknotelongbody}
+\clearpage
+
+\tableofcontents
+
+\clearpage
+\mainmatter
+\pagestyle{main}
+
+\def\BookMaster{}
+\input{第一章-数列.tex}
+\input{第二章-实数系基本定理.tex}
+\input{第三章-函数.tex}
+\input{第四章-一元微分学与一元积分学.tex}
+\input{第五章-多元微分学与多元积分学.tex}
+\backmatter
+\booknotetitle{参考资料}
+\begin{booknotebody}
+
+\begin{enumerate}[leftmargin=2\ccwd,itemsep=0.55em,topsep=0.4em]
+    \item 梅加强.\textit{数学分析}[M].第2版.北京:高等教育出版社,2020.ISBN 978-7-04-053344-6.
+    \item 谢惠民,恽自求,易法槐,钱定边.\textit{数学分析习题课讲义:上册}[M].第2版.北京:高等教育出版社,2018.ISBN 978-7-04-049851-6.
+    \item 谢惠民,恽自求,易法槐,钱定边.\textit{数学分析习题课讲义:下册}[M].第2版.北京:高等教育出版社,2019.ISBN 978-7-04-051152-9.
+\end{enumerate}
+
+
+\end{booknotebody}
+
+
+
+\makebackcover
+
+\end{document}

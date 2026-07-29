@@ -1,0 +1,275 @@
+
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb,amsthm,mathrsfs}
+\usepackage{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{pifont}
+\usepackage{hyperref}
+\usepackage{romannum}
+\usepackage{mathtools}
+
+\definecolor{bookblue}{HTML}{264653}
+\definecolor{bookteal}{HTML}{4F7C82}
+\definecolor{booklight}{HTML}{EDF4F3}
+\definecolor{bookgray}{HTML}{5E686B}
+
+\geometry{
+    inner=2.7cm,
+    outer=2.5cm,
+    top=2.7cm,
+    bottom=2.7cm,
+    headheight=18pt,
+    headsep=18pt,
+    footskip=25pt
+}
+\setlength{\mathindent}{0pt}
+\setlength{\parindent}{5pt}
+\setlength{\parskip}{3pt plus 1pt minus 1pt}
+\linespread{1.25}
+\allowdisplaybreaks[3]
+\AtBeginDocument{%
+    \setlength{\parindent}{5pt}
+    \setlength{\abovedisplayskip}{8pt plus 2pt minus 2pt}
+    \setlength{\belowdisplayskip}{8pt plus 2pt minus 2pt}
+    \setlength{\abovedisplayshortskip}{5pt plus 1pt minus 1pt}
+    \setlength{\belowdisplayshortskip}{5pt plus 1pt minus 1pt}
+}
+
+\hypersetup{
+    unicode=true,
+    colorlinks=true,
+    linkcolor=bookblue,
+    citecolor=bookblue,
+    urlcolor=bookteal,
+    bookmarksopen=true,
+    pdfauthor={Chen},
+    pdftitle={数学分析习题整理}
+}
+
+\renewcommand{\chaptermark}[1]{\markboth{第\thechapter 章\quad #1}{}}
+\fancypagestyle{main}{%
+    \fancyhf{}
+    \fancyhead[LE]{\small\color{bookgray}\nouppercase{\leftmark}}
+    \fancyhead[RO]{\small\color{bookgray}数学分析习题整理}
+    \fancyfoot[LE,RO]{\color{bookblue}\thepage}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyfoot[C]{\color{bookblue}\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{main}
+
+\titleformat{\chapter}[display]
+  {\normalfont\sffamily\bfseries\color{bookblue}}
+  {\raggedleft\fontsize{46}{50}\selectfont\thechapter}
+  {-18pt}
+  {\titlerule[1.2pt]\vspace{10pt}\filright\Huge}
+\titlespacing*{\chapter}{0pt}{-15pt}{36pt}
+
+\renewcommand{\contentsname}{目\quad 录}
+\renewcommand{\cfttoctitlefont}{\hfill\sffamily\bfseries\Huge\color{bookblue}}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\setlength{\cftbeforetoctitleskip}{5pt}
+\setlength{\cftaftertoctitleskip}{28pt}
+\setlength{\cftbeforechapskip}{12pt}
+\renewcommand{\cftchapfont}{\sffamily\bfseries\large\color{bookblue}}
+\renewcommand{\cftchappagefont}{\sffamily\bfseries\large\color{bookblue}}
+\renewcommand{\cftchapleader}{\color{bookteal}\cftdotfill{2.5}}
+
+\newtcolorbox{ti}{
+    enhanced,
+    breakable,
+    colback=booklight!55!white,
+    colframe=bookteal!35!white,
+    boxrule=0.45pt,
+    boxsep=0pt,
+    left=10pt,
+    right=10pt,
+    top=9pt,
+    bottom=9pt,
+    before skip=14pt,
+    after skip=14pt,
+    arc=2pt,
+    outer arc=2pt,
+    before upper={\parindent=0pt}
+}
+
+\newenvironment{booknotebody}{%
+    \begin{center}
+    \begin{minipage}{0.84\textwidth}
+    \songti\zihao{4}\linespread{1.45}\selectfont
+    \setlength{\parindent}{2\ccwd}
+    \setlength{\parskip}{0.75em}
+}{%
+    \end{minipage}
+    \end{center}
+}
+
+\newenvironment{booknotelongbody}{%
+    \begingroup
+    \songti\zihao{4}\linespread{1.45}\selectfont
+    \setlength{\parindent}{2\ccwd}
+    \setlength{\parskip}{0.75em}
+    \begin{list}{}{%
+        \setlength{\leftmargin}{0.08\textwidth}
+        \setlength{\rightmargin}{0.08\textwidth}
+        \setlength{\topsep}{0pt}
+        \setlength{\partopsep}{0pt}
+        \setlength{\parsep}{0pt}
+        \setlength{\itemsep}{0pt}
+    }
+    \item\relax
+}{%
+    \end{list}
+    \endgroup
+}
+
+\newcommand{\booknotetitle}[1]{%
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{#1}
+    \markboth{#1}{}
+    \thispagestyle{plain}
+    \vspace*{1.2cm}
+    \begin{center}
+        {\sffamily\heiti\bfseries\fontsize{26}{34}\selectfont\color{bookblue}#1\par}
+        \vspace{0.8em}
+        {\color{bookteal}\rule{4.5cm}{0.8pt}\par}
+    \end{center}
+    \vspace{1.2cm}
+}
+
+\renewcommand{\proofname}{证明}
+\renewcommand{\qedsymbol}{\color{bookteal}\ensuremath{\blacksquare}}
+
+\title{数学分析习题整理}
+\author{Chen}
+\date{}
+
+\makeatletter
+\renewcommand{\maketitle}{%
+    \begin{titlepage}
+        \thispagestyle{empty}
+        \setcounter{page}{0}
+        \noindent\hspace*{-\parindent}\begin{tikzpicture}[remember picture,overlay]
+            \fill[bookblue] (current page.north west) rectangle ([yshift=-4.2cm]current page.north east);
+            \fill[booklight] ([yshift=-4.2cm]current page.north west) rectangle (current page.south east);
+            \draw[bookteal!55,line width=0.7pt]
+                ([xshift=2.4cm,yshift=4.3cm]current page.south west)
+                .. controls +(2.5cm,1.8cm) and +(-2.8cm,-1.3cm) ..
+                ([xshift=-2.4cm,yshift=7.2cm]current page.south east);
+            \draw[bookteal!35,line width=0.7pt]
+                ([xshift=2.5cm,yshift=6.2cm]current page.south west)
+                .. controls +(3.0cm,-1.2cm) and +(-3.0cm,1.6cm) ..
+                ([xshift=-2.3cm,yshift=3.8cm]current page.south east);
+        \end{tikzpicture}
+        \vspace*{5.6cm}
+        \noindent\color{bookblue}\rule{\textwidth}{1.4pt}\par
+        \vspace{8pt}
+        {\centering\sffamily\bfseries\fontsize{32}{42}\selectfont\color{bookblue}\@title\par}
+        \vspace{8pt}
+        \noindent\color{bookteal}\rule{\textwidth}{0.6pt}\par
+        \vspace{2.6cm}
+        {\centering\Large\color{bookgray}\@author\par}
+        \vfill
+        {\centering\color{bookteal}\large
+            $\displaystyle \lim_{n\to\infty} a_n$\qquad
+            $\displaystyle \int_a^b f(x)\,\mathrm{d}x$\qquad
+            $\displaystyle \nabla f(x,y)$\par
+        }
+        \vspace*{1.5cm}
+    \end{titlepage}
+}
+
+\newcommand{\makebackcover}{%
+    \begingroup
+    \let\cleardoublepage\clearpage
+    \begin{titlepage}
+        \thispagestyle{empty}
+        \noindent\hspace*{-\parindent}\begin{tikzpicture}[remember picture,overlay]
+            \fill[bookblue] (current page.north west) rectangle (current page.south east);
+            \fill[booklight,rounded corners=7pt]
+                ([xshift=2.2cm,yshift=-3.0cm]current page.north west)
+                rectangle
+                ([xshift=-2.2cm,yshift=3.0cm]current page.south east);
+            \fill[bookteal!80]
+                (current page.north west) --
+                ([xshift=5.3cm]current page.north west) --
+                ([xshift=2.1cm,yshift=-4.4cm]current page.north west) --
+                ([yshift=-6.2cm]current page.north west) -- cycle;
+            \fill[bookteal!55]
+                (current page.south east) --
+                ([xshift=-5.8cm]current page.south east) --
+                ([xshift=-2.4cm,yshift=4.2cm]current page.south east) --
+                ([yshift=6.0cm]current page.south east) -- cycle;
+            \foreach \radius in {0.75,1.15,1.55,1.95} {
+                \draw[bookteal!55,line width=0.55pt]
+                    ([xshift=-2.9cm,yshift=-4.4cm]current page.north east)
+                    circle[radius=\radius cm];
+            }
+            \foreach \radius in {0.65,1.05,1.45} {
+                \draw[booklight!65,line width=0.55pt]
+                    ([xshift=2.4cm,yshift=3.6cm]current page.south west)
+                    circle[radius=\radius cm];
+            }
+            \fill[bookteal!16,rounded corners=3pt]
+                ([xshift=3.5cm,yshift=-7.1cm]current page.north west)
+                rectangle
+                ([xshift=-5.0cm,yshift=7.2cm]current page.south east);
+            \fill[bookteal!30,rounded corners=3pt]
+                ([xshift=4.4cm,yshift=-8.0cm]current page.north west)
+                rectangle
+                ([xshift=-4.1cm,yshift=8.1cm]current page.south east);
+            \begin{scope}[shift={([xshift=-0.75cm]current page.center)}]
+                \clip[rounded corners=3pt] (-5.25,-4.75) rectangle (5.25,4.75);
+                \foreach \v in {-3.6,-3.0,...,3.6} {
+                    \draw[bookteal!48,line width=0.45pt,opacity=0.72]
+                        plot[domain=-3.6:3.6,samples=45,smooth,variable=\u]
+                        ({\u+0.55*\v},{0.28*\u-0.35*\v+0.11*(\u*\u-\v*\v)});
+                }
+                \foreach \u in {-3.6,-3.0,...,3.6} {
+                    \draw[bookblue!42,line width=0.42pt,opacity=0.62]
+                        plot[domain=-3.6:3.6,samples=45,smooth,variable=\v]
+                        ({\u+0.55*\v},{0.28*\u-0.35*\v+0.11*(\u*\u-\v*\v)});
+                }
+                \draw[bookteal!70,line width=0.75pt,opacity=0.82]
+                    plot[domain=-3.6:3.6,samples=55,smooth,variable=\u]
+                    ({\u},{0.28*\u+0.11*\u*\u});
+                \draw[bookblue!60,line width=0.7pt,opacity=0.75]
+                    plot[domain=-3.6:3.6,samples=55,smooth,variable=\v]
+                    ({0.55*\v},{-0.35*\v-0.11*\v*\v});
+            \end{scope}
+            \draw[bookteal!45,line width=0.65pt]
+                ([xshift=3.0cm,yshift=-8.2cm]current page.north west)
+                .. controls +(2.2cm,2.0cm) and +(-2.0cm,-2.1cm) ..
+                ([xshift=-3.0cm,yshift=9.0cm]current page.south east);
+            \draw[bookteal!25,line width=0.55pt]
+                ([xshift=3.1cm,yshift=8.0cm]current page.south west)
+                .. controls +(2.7cm,-1.7cm) and +(-2.6cm,1.8cm) ..
+                ([xshift=-3.1cm,yshift=-8.7cm]current page.north east);
+            \node[anchor=west,text=bookteal!72,scale=0.78] at
+                ([xshift=2.8cm,yshift=-4.0cm]current page.north west) {%
+                $\displaystyle e^{\mathrm{i}\pi}+1=0$};
+            \node[anchor=east,text=bookblue!62,scale=0.67] at
+                ([xshift=-2.7cm,yshift=4.0cm]current page.south east) {%
+                $\displaystyle
+                f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n$};
+        \end{tikzpicture}
+        \mbox{}
+    \end{titlepage}
+    \endgroup
+}
+\makeatother
