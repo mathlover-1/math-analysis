@@ -10,7 +10,7 @@
 本书是笔者在南京大学一年级数学分析学习过程中积攒形成的习题整理,
 题目主要来源于谢惠民等老师编著的数学分析习题课讲义以及笔者在大一期间遇到的数学分析课堂例题和南京大学数学分析期中与期末考试卷. \\
 
-本书按照数列,实数系基本定理,函数,一元微分学与一元积分学以及多元微分学与多元积分学的顺序编排. \\
+本书按照数列,实数系基本定理,函数,一元微分学与一元积分学,多元微分学与多元积分学,级数以及Fourier分析的顺序编排. \\
 
 选题侧重较有难度,方法典型或思路新颖的题目,并保留推导过程与解题思路,便于日后复习,补充和查阅. \\
 
@@ -22,24 +22,26 @@
 \clearpage
 
 \booknotetitle{本书简介}
-\begin{booknotebody}
-本书依照数学分析课程的学习顺序编排,各章选取具有代表性的习题和证明,并不以完整覆盖全部知识点为目标.
+\begin{booknotelongbody}
+\textbf{第一章\quad 数列}. 本章讨论数列收敛,单调性与有界性,递推数列,上下极限及相关极限方法,以及常见的证明数列收敛或估计数列的阶的思想，并包含自然对数底无理性的证明. \\
 
-\textbf{第一章\quad 数列}.本章讨论数列收敛,单调性与有界性,递推数列,嵌套根式,组合平均,上下极限及相关极限方法,并包含自然对数底无理性的证明.
+\textbf{第二章\quad 实数系基本定理}. 本章讨论实数系基本定理之间的互推和应用，着重展示实数完备性的不同表述与应用.\\
 
-\textbf{第二章\quad 实数系基本定理}.本章讨论上确界,单调子列,Bolzano定理,Cauchy收敛准则,闭区间套,有限覆盖以及次可乘数列,着重展示实数完备性的不同表述与应用.
+\textbf{第三章\quad 函数}. 本章讨论连续性,一致连续性,单侧极限,单调函数,间断点,周期函数及最小正周期,并呈现介值性,连通性与连续性之间的联系.\\
 
-\textbf{第三章\quad 函数}.本章讨论连续性,一致连续性,单侧极限,单调函数,间断点,周期函数及最小正周期,并呈现介值性,连通性与连续性之间的联系.
+\textbf{第四章\quad 一元微分学与一元积分学}. 本章讨论Rolle定理和Lagrange中值定理的拓展证明,导数与高阶导数估计,积分零点问题以及若干中值定理构造.\\
 
-\textbf{第四章\quad 一元微分学与一元积分学}.本章讨论Rolle定理和Lagrange中值定理的拓展证明,导数与高阶导数估计,积分零点问题以及若干中值定理构造.
+\textbf{第五章\quad 多元微分学与多元积分学}. 本章讨论齐次函数,隐式零点函数,凹性,二元Riemann可积性,Hölder曲线,调和函数,Gauss公式,曲线积分和球面平均公式.\\[3cm]
 
-\textbf{第五章\quad 多元微分学与多元积分学}.本章讨论齐次函数,隐式零点函数,凹性,二元Riemann可积性,Hölder曲线,调和函数,Gauss公式,曲线积分和球面平均公式.
+\textbf{第六章\quad 级数}. 本章讨论数项级数的收敛性判别,函数项级数的一致收敛性,幂级数与Taylor展开等相关问题.\\
 
-\end{booknotebody}
+\textbf{第七章\quad Fourier分析}. 本章讨论Fourier级数的收敛性,正交系,Parseval等式及Fourier变换的基本性质等相关问题.\\
+
+\end{booknotelongbody}
 \clearpage
 
 \booknotetitle{使用说明}
-\begin{booknotebody}
+\begin{booknotelongbody}
 \begin{itemize}[leftmargin=2\ccwd,itemsep=0.55em,topsep=0pt]
     \item 各章题号独立编号,新章从题1开始.
     \item 【题x】表示普通题目,【拓展1】和【拓展2】表示对相关定理或证明方法的扩展.
@@ -49,7 +51,7 @@
     \item 题目文字未作改动,部分证明和讲解依据课堂笔记转载整理.
     \item 本书目前不提供逐题出处,统一来源见前言及书末的\textbf{参考资料与来源说明}.
 \end{itemize}
-\end{booknotebody}
+\end{booknotelongbody}
 \clearpage
 
 \booknotetitle{符号与约定}
@@ -107,8 +109,15 @@
 \tableofcontents
 
 \clearpage
+% 用 \let 临时把 \cleardoublepage 换成 \clearpage,避免 twoside 下目录结束于偶数页时 \mainmatter 插入空白页。
+% 注意:\mainmatter 内的 \@mainmattertrue 是局部 \let,若包在 \begingroup...\endgroup 中会被撤销,
+% 导致 \chapter 被当作不编号的 \chapter* 处理(章计数器恒为0、页眉显示"第0章");故此处不用分组,改用保存/恢复。
+\let\oldcleardoublepage\cleardoublepage
+\let\cleardoublepage\clearpage
 \mainmatter
+\let\cleardoublepage\oldcleardoublepage
 \pagestyle{main}
+
 
 \def\BookMaster{}
 \input{第一章-数列.tex}
@@ -116,6 +125,9 @@
 \input{第三章-函数.tex}
 \input{第四章-一元微分学与一元积分学.tex}
 \input{第五章-多元微分学与多元积分学.tex}
+\input{第六章-级数.tex}
+\input{第七章-Fourier分析.tex}
+\input{附录-数学分析重要定理.tex}
 \backmatter
 \booknotetitle{参考资料}
 \begin{booknotebody}

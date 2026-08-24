@@ -1,0 +1,27 @@
+\ifdefined\BookMaster
+\def\BookEnd{}
+\else
+\documentclass[a4paper,12pt,fleqn,openany,twoside,fontset=windows]{ctexbook}
+\input{数学分析习题整理-导言.tex}
+\begin{document}
+\mainmatter
+\pagestyle{main}
+\setcounter{chapter}{6}
+\def\BookEnd{\end{document}}
+\fi
+
+\chapter{Fourier分析}
+
+% ==================== 本章题目待作者填写 ====================
+% 在此处使用 ti 环境添加题目,格式与既有章节完全一致,例如:
+% \begin{ti}
+% 【题1】 题目内容...
+% \end{ti}
+%
+% \textbf{证明}:解答内容...
+%
+% 各章题号独立编号,本章从题1开始;
+% 支持 \textbf{证明}、\textbf{另解}、\textbf{注}、\textbf{注记}、\textbf{一点思考} 等标记.
+% ============================================================
+
+\BookEnd

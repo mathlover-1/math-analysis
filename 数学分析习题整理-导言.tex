@@ -55,7 +55,10 @@
     pdftitle={数学分析习题整理}
 }
 
-\renewcommand{\chaptermark}[1]{\markboth{第\thechapter 章\quad #1}{}}
+\renewcommand{\chaptermark}[1]{%
+    \edef\@tmp{第\thechapter 章\quad #1}%
+    \expandafter\markboth\expandafter{\@tmp}{}%
+}
 \fancypagestyle{main}{%
     \fancyhf{}
     \fancyhead[LE]{\small\color{bookgray}\nouppercase{\leftmark}}
