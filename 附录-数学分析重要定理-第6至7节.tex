@@ -9,6 +9,9 @@
 \setcounter{chapter}{7}
 \def\BookEnd{\end{document}}
 \fi
+
+% 子标题编号格式:§1,§2,§3,...(带段落符号);标题居左.
+\renewcommand{\thesection}{\S\arabic{section}}
 \setcounter{section}{0}
 \titleformat{\section}[block]
   {\normalfont\heiti\bfseries\Large\color{bookblue}}
