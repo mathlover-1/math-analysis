@@ -113,7 +113,7 @@
 \newenvironment{booknotebody}{%
     \begin{center}
     \begin{minipage}{0.84\textwidth}
-    \songti\zihao{4}\linespread{1.45}\selectfont
+    \songti\zihao{-4}\linespread{1.45}\selectfont
     \setlength{\parindent}{2\ccwd}
     \setlength{\parskip}{0.75em}
 }{%
@@ -123,7 +123,7 @@
 
 \newenvironment{booknotelongbody}{%
     \begingroup
-    \songti\zihao{4}\linespread{1.45}\selectfont
+    \songti\zihao{-4}\linespread{1.45}\selectfont
     \setlength{\parindent}{2\ccwd}
     \setlength{\parskip}{0.75em}
     \begin{list}{}{%
@@ -152,7 +152,7 @@
         \vspace{0.8em}
         {\color{bookteal}\rule{4.5cm}{0.8pt}\par}
     \end{center}
-    \vspace{1.2cm}
+    \vspace{0.6cm}
 }
 
 \renewcommand{\proofname}{证明}
@@ -163,6 +163,9 @@
 \date{}
 
 \makeatletter
+% ==================== 旧版封面/封底设计备份 ====================
+% 2026-08 重设计,旧代码用 \iffalse...\fi 封存,新版见下方。
+\iffalse
 \renewcommand{\maketitle}{%
     \begin{titlepage}
         \thispagestyle{empty}
@@ -270,6 +273,208 @@
                 ([xshift=-2.7cm,yshift=4.0cm]current page.south east) {%
                 $\displaystyle
                 f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n$};
+        \end{tikzpicture}
+        \mbox{}
+    \end{titlepage}
+    \endgroup
+}
+\fi
+
+% ==================== 新版封面(2026-08 重设计) ====================
+% 设计要点:顶部深绿纵向渐变+波浪下缘+两层半透明过渡波(解决深浅绿生硬过渡);
+% 深色区螺旋线/同心圆母题;标题+英文副题+作者居中;
+% 中部 Fourier 部分和逼近方波曲线;底部浅色波纹(无文字)。
+\renewcommand{\maketitle}{%
+    \begin{titlepage}
+        \thispagestyle{empty}
+        \setcounter{page}{0}
+        \noindent\hspace*{-\parindent}\begin{tikzpicture}[remember picture,overlay]
+            % ---------- 底色 ----------
+            \fill[booklight] (current page.north west) rectangle (current page.south east);
+
+            % ---------- 顶部深色区:纵向渐变 + 波浪下缘 ----------
+            \shade[top color=bookblue, bottom color=bookteal!55!bookblue]
+                (current page.north west) -- (current page.north east) --
+                ([yshift=-8.6cm]current page.north east)
+                .. controls ([xshift=-5.2cm,yshift=-10.6cm]current page.north east)
+                         and ([xshift=6.0cm,yshift=-8.0cm]current page.north west) ..
+                ([yshift=-10.0cm]current page.north west) -- cycle;
+
+            % ---------- 过渡层 1:半透明波浪 ----------
+            \fill[bookteal!60!bookblue,opacity=0.42]
+                ([yshift=-8.6cm]current page.north east)
+                .. controls ([xshift=-5.2cm,yshift=-10.6cm]current page.north east)
+                         and ([xshift=6.0cm,yshift=-8.0cm]current page.north west) ..
+                ([yshift=-10.0cm]current page.north west) --
+                ([yshift=-12.6cm]current page.north west)
+                .. controls ([xshift=6.5cm,yshift=-11.0cm]current page.north west)
+                         and ([xshift=-5.5cm,yshift=-13.2cm]current page.north east) ..
+                ([yshift=-11.4cm]current page.north east) -- cycle;
+
+            % ---------- 过渡层 2:更浅的波浪 ----------
+            \fill[bookteal!35,opacity=0.35]
+                ([yshift=-10.6cm]current page.north east)
+                .. controls ([xshift=-6.0cm,yshift=-12.4cm]current page.north east)
+                         and ([xshift=5.0cm,yshift=-9.8cm]current page.north west) ..
+                ([yshift=-11.8cm]current page.north west) --
+                ([yshift=-13.8cm]current page.north west)
+                .. controls ([xshift=5.5cm,yshift=-12.6cm]current page.north west)
+                         and ([xshift=-6.5cm,yshift=-14.6cm]current page.north east) ..
+                ([yshift=-12.8cm]current page.north east) -- cycle;
+
+            % ---------- 深色区装饰:右上螺旋线 ----------
+            \begin{scope}[shift={([xshift=-3.4cm,yshift=-4.3cm]current page.north east)}]
+                \draw[booklight!45!bookteal,opacity=0.55,line width=0.6pt]
+                    plot[domain=0:1440,samples=220,smooth,variable=\t]
+                    ({0.0028*\t*cos(\t)},{0.0028*\t*sin(\t)});
+            \end{scope}
+
+            % ---------- 深色区装饰:左下同心圆 ----------
+            \foreach \r in {0.7,1.25,1.8,2.35,2.9}{
+                \draw[booklight!35!bookteal,opacity=0.5,line width=0.5pt]
+                    ([xshift=0.4cm,yshift=-7.9cm]current page.north west) circle[radius=\r cm];
+            }
+
+            % ---------- 主标题 ----------
+            \node[anchor=center,text=booklight] at
+                ([yshift=-4.5cm]current page.north)
+                {\sffamily\bfseries\fontsize{40}{46}\selectfont \@title};
+
+            % ---------- 分隔短线 ----------
+            \draw[booklight!65,line width=1.2pt]
+                ([xshift=-2.6cm,yshift=-5.75cm]current page.north) --
+                ([xshift=2.6cm,yshift=-5.75cm]current page.north);
+
+            % ---------- 英文副题 ----------
+            \node[anchor=center,text=booklight!70!bookteal] at
+                ([yshift=-6.55cm]current page.north)
+                {\itshape\large Mathematical Analysis \textperiodcentered\
+                 A Collection of Exercises};
+
+            % ---------- 作者(紧随标题下方) ----------
+            \node[anchor=center,text=booklight!88] at
+                ([yshift=-8.2cm]current page.north)
+                {\sffamily\large \@author\quad 整理};
+
+            % ---------- 中部:Fourier 部分和逼近方波 ----------
+            \begin{scope}[shift={([xshift=-5.2cm,yshift=-18.1cm]current page.north)}]
+                % 坐标轴
+                \draw[bookgray!55,line width=0.5pt,->] (-0.5,0) -- (10.9,0);
+                \draw[bookgray!55,line width=0.5pt,->] (0,-1.75) -- (0,1.95);
+                % 目标方波(虚线)
+                \draw[bookgray!75,line width=0.6pt,dashed]
+                    (0,0.92) -- (5,0.92) (5,-0.92) -- (10,-0.92);
+                % N=1
+                \draw[bookteal!45,line width=0.7pt]
+                    plot[domain=0:360,samples=90,smooth,variable=\x]
+                    ({\x/36},{1.18*sin(\x)});
+                % N=3
+                \draw[bookteal!80,line width=0.8pt]
+                    plot[domain=0:360,samples=120,smooth,variable=\x]
+                    ({\x/36},{1.18*(sin(\x)+sin(3*\x)/3)});
+                % N=7
+                \draw[bookblue,line width=0.95pt]
+                    plot[domain=0:360,samples=150,smooth,variable=\x]
+                    ({\x/36},{1.18*(sin(\x)+sin(3*\x)/3+sin(5*\x)/5+sin(7*\x)/7)});
+                % 刻度标注
+                \node[anchor=north east,text=bookgray!80,scale=0.62] at (-0.12,0) {$0$};
+                \node[anchor=north,text=bookgray!80,scale=0.62] at (5,0) {$\pi$};
+                \node[anchor=north,text=bookgray!80,scale=0.62] at (10,0) {$2\pi$};
+            \end{scope}
+            % 图注
+            \node[anchor=center,text=bookgray,scale=0.8] at
+                ([yshift=-20.5cm]current page.north)
+                {$S_N(x)=\displaystyle\sum_{k=1}^{N}\frac{\sin\bigl((2k-1)x\bigr)}{2k-1}$
+                 \ 逐步逼近方波};
+
+            % ---------- 底部浅色波纹(无文字,与顶部波浪呼应) ----------
+            \fill[bookteal!22,opacity=0.5]
+                ([yshift=2.4cm]current page.south west)
+                .. controls ([xshift=6.0cm,yshift=3.9cm]current page.south west)
+                         and ([xshift=-6.5cm,yshift=1.0cm]current page.south east) ..
+                ([yshift=2.9cm]current page.south east) --
+                (current page.south east) -- (current page.south west) -- cycle;
+            \fill[bookteal!40!bookblue,opacity=0.28]
+                ([yshift=1.3cm]current page.south west)
+                .. controls ([xshift=5.5cm,yshift=2.7cm]current page.south west)
+                         and ([xshift=-5.5cm,yshift=0.3cm]current page.south east) ..
+                ([yshift=1.9cm]current page.south east) --
+                (current page.south east) -- (current page.south west) -- cycle;
+        \end{tikzpicture}
+        \mbox{}
+    \end{titlepage}
+}
+
+% ==================== 新版封底(纯背景,2026-08 重设计) ====================
+% 设计要点:对角渐变底+角部半透明叠层;中下部外摆线(玫瑰形)为视觉主体;
+% 底部两层半透明白色波浪;无任何文字。
+\newcommand{\makebackcover}{%
+    \begingroup
+    \let\cleardoublepage\clearpage
+    \begin{titlepage}
+        \thispagestyle{empty}
+        \noindent\hspace*{-\parindent}\begin{tikzpicture}[remember picture,overlay]
+            % ---------- 底色:对角渐变 ----------
+            \shade[top color=bookblue, bottom color=bookteal!48!bookblue,
+                   shading angle=-30]
+                (current page.north west) rectangle (current page.south east);
+
+            % ---------- 角部半透明叠层 ----------
+            \fill[white,opacity=0.05]
+                ([xshift=2.0cm,yshift=1.0cm]current page.north east) circle[radius=7.2cm];
+            \fill[white,opacity=0.06]
+                ([xshift=-0.5cm,yshift=-1.5cm]current page.north east) circle[radius=3.6cm];
+
+            % ---------- 左下同心圆 ----------
+            \foreach \r in {1.0,1.75,2.5,3.25,4.0,4.75}{
+                \draw[booklight!40,opacity=0.55,line width=0.55pt]
+                    ([xshift=-0.6cm,yshift=-0.4cm]current page.south west) circle[radius=\r cm];
+            }
+            % ---------- 右下螺旋线 ----------
+            \begin{scope}[shift={([xshift=-2.9cm,yshift=3.2cm]current page.south east)}]
+                \draw[booklight!45!bookteal,opacity=0.5,line width=0.55pt]
+                    plot[domain=0:1260,samples=200,smooth,variable=\t]
+                    ({0.0036*\t*cos(\t)},{0.0036*\t*sin(\t)});
+            \end{scope}
+            % ---------- 左上斜线组 ----------
+            \foreach \i in {0,1,2}{
+                \draw[bookteal!60!booklight,opacity=0.5,line width=0.6pt]
+                    ([xshift={1.6cm+\i*0.45cm}]current page.north west) --
+                    ([yshift={-1.6cm-\i*0.45cm}]current page.north west);
+            }
+
+            % ---------- 中下部视觉主体:外摆线(玫瑰形) ----------
+            \begin{scope}[shift={([yshift=-16.6cm]current page.north)}]
+                % 外圈
+                \draw[booklight!35,opacity=0.6,line width=0.6pt]
+                    (0,0) circle[radius=4.9cm];
+                \draw[booklight!22,opacity=0.5,line width=0.5pt]
+                    (0,0) circle[radius=5.25cm];
+                % 主玫瑰线
+                \draw[booklight!55!bookteal,opacity=0.8,line width=0.85pt]
+                    plot[domain=0:1080,samples=400,smooth,variable=\t]
+                    ({0.335*(8*cos(\t)-5*cos(2.6667*\t))},
+                     {0.335*(8*sin(\t)-5*sin(2.6667*\t))});
+                % 内层玫瑰线
+                \draw[booklight!38!bookteal,opacity=0.6,line width=0.6pt]
+                    plot[domain=0:1080,samples=400,smooth,variable=\t]
+                    ({0.21*(8*cos(\t)-5*cos(2.6667*\t))},
+                     {0.21*(8*sin(\t)-5*sin(2.6667*\t))});
+            \end{scope}
+
+            % ---------- 底部半透明波浪 ----------
+            \fill[white,opacity=0.06]
+                ([yshift=4.6cm]current page.south west)
+                .. controls ([xshift=6.5cm,yshift=6.4cm]current page.south west)
+                         and ([xshift=-6.0cm,yshift=2.6cm]current page.south east) ..
+                ([yshift=5.2cm]current page.south east) --
+                (current page.south east) -- (current page.south west) -- cycle;
+            \fill[booklight,opacity=0.08]
+                ([yshift=2.6cm]current page.south west)
+                .. controls ([xshift=5.5cm,yshift=4.3cm]current page.south west)
+                         and ([xshift=-6.5cm,yshift=1.0cm]current page.south east) ..
+                ([yshift=3.3cm]current page.south east) --
+                (current page.south east) -- (current page.south west) -- cycle;
         \end{tikzpicture}
         \mbox{}
     \end{titlepage}

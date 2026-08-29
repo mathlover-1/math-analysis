@@ -206,6 +206,34 @@ $\therefore\displaystyle\lim_{n\to\infty}\dfrac{\ln{a_n}}{n}\text{有意义,且}
 
 \textbf{注}:由上可得到正数列$\{a_n\}$满足条件$a_{m+n}\leq a_na_m$时,$\{\sqrt[n]{a_n} \}$一定收敛于$\displaystyle\inf_{n\geq 1}\{\sqrt[n]{a_n} \}$
 
+\begin{ti}
+【题8】证明:区间中的局部常值函数为常值函数(提示:先考虑闭区间)\\
 
+(注:局部常值函数是指对定义域内每个点,存在邻域使得函数在邻域上为常值)
+\end{ti}
+\textbf{证明}:考虑闭区间$[a,b]$上的函数$f$.\\
 
+由题意可得$\forall\,x\in[a,b],\;\exists\,\delta(x)>0,\;\text{s.t.}\,\forall\,y\in(x-\delta(x),x+\delta(x))\cap[a,b]$时$f(y)\equiv f(x)$.\\
+
+由有限覆盖定理,$\displaystyle [a,b]\subset\bigcup_{i=1}^{n}(x_i-\delta(x_i),x_i+\delta(x_i))$. \\
+
+下面对$n$进行归纳,$\;n=1$时易得$f$为常值函数. \\
+
+假设$n=k$时,$f$为常值函数,$\;n=k+1$时,不妨设$a\in(x_1-\delta(x_1),x_1+\delta(x_1))$.\\
+
+若$x_1+\delta(x_1)>b,$则易见$f$为常值函数,否则,不妨设$x_1+\delta(x_1)\in\left(x_2-\delta(x_2),x_2+\delta(x_2)\right)$,\\
+
+则$\displaystyle\left(x_1-\delta(x_1),x_1+\delta(x_1)\right)\bigcup\left(x_2-\delta(x_2),x_2+\delta(x_2)\right)$ \\
+
+$=\left(\min\left\{x_1-\delta(x_1),x_2-\delta(x_2)\right\},\max\left\{x_1+\delta(x_1),x_2+\delta(x_2)\right\}\right)$,\\
+
+记此区间为$(min,max)$,则$f\;|_{(min,max)}\equiv f(x_1)$.\\
+
+对$\displaystyle (min,max),\left\{x_i-\delta(x_i),x_i+\delta(x_i)\right\}_{i=2}^{k}$用归纳假设,可得$f$在$[a,b]$上为常值函数. \\
+
+由数学归纳法可知,闭区间上的局部常值函数为常值函数. \\
+
+对于开区间,利用开区间的性质和反证法即可得到,此处省略证明. \\
+
+综上,区间上的局部常值函数为常值函数.
 \BookEnd

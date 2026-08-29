@@ -153,8 +153,10 @@ $$\left\lvert a_m-a_n\right\rvert\leq\left\lvert a_m-\alpha\right\rvert+\left\lv
 这说明$\{a_n\}$为$Cauchy$数列. \\
 
 \phantom{\textbf{证明}:}充分性:设$\{a_n\}$为$Cauchy$数列.由于$Cauchy$数列必有界,$\{a_n\}$是有界数列,于是可以研究其上、下极限.根据$Cauchy$数列的定义,
-任给$\varepsilon>0$,存在$N$,当$m,n>N$时,$\left\lvert a_m-a_n\right\rvert<\varepsilon$.
-在上式中暂时固定$n>N$,对$\{a_m\}$取上极限,利用上极限的保序性可得$-\varepsilon\leq\displaystyle\varlimsup_{m\to\infty}a_m-a_n\leq\varepsilon$.
+任给$\varepsilon>0$,存在$N$,当$m,n>N$时,
+$$-\varepsilon<a_m-a_n<\varepsilon.$$
+在上式中暂时固定$n>N$,对$\{a_m\}$取上极限,利用上极限的保序性可得
+$$-\varepsilon\leq\displaystyle\varlimsup_{m\to\infty}a_m-a_n\leq\varepsilon.$$
 由数列极限的定义即可看出$\{a_n\}$收敛.
 
 \begin{ti}
@@ -167,7 +169,8 @@ $$\displaystyle\lim_{n\to\infty}\dfrac{x_n}{y_n}=\alpha$$.
 \end{ti}
 
 \textbf{证明}:先证(1).分情况讨论. \\
-\romannum{1}$\;\alpha\in\mathbb{R}$.先设$\alpha=0$.此时,任给$\varepsilon>0$,存在$N$,当$n>N$时,$\left\lvert\dfrac{x_n-x_{n-1}}{y_n-y_{n-1}}\right\rvert<\varepsilon$.
+\romannum{1}$\;\alpha\in\mathbb{R}$.先设$\alpha=0$.此时,任给$\varepsilon>0$,存在$N$,当$n>N$时,
+$$-\varepsilon<\dfrac{x_n-x_{n-1}}{y_n-y_{n-1}}<\varepsilon.$$
 利用$\{y_n\}$的单调性以及引理(当$1\leq k\leq n$时,设$b_k>0$且$m\leq\dfrac{a_k}{b_k}\leq M$,则$m\leq\dfrac{a_1+\cdots+a_n}{b_1+\cdots+b_n}\leq M$),当$n>N$时,得到
 $$\left\lvert\dfrac{x_n-x_N}{y_n-y_N}\right\rvert<\varepsilon,$$
 整理以后可得
@@ -177,7 +180,9 @@ $$\frac{x_N-\varepsilon y_N}{y_n}<\frac{x_n}{y_n}<\frac{x_N+\varepsilon y_N}{y_n
 $$\lim_{n\to\infty}\dfrac{\widetilde{x_n}-\widetilde{x_{n-1}}}{y_n-y_{n-1}}=\lim_{n\to\infty}\left(\dfrac{x_n-x_{n-1}}{y_n-y_{n-1}}-\alpha\right)=0,$$
 这说明$\displaystyle\lim_{n\to\infty}\dfrac{\widetilde{x_n}}{y_n}=0$,从而$\displaystyle\lim_{n\to\infty}\dfrac{x_n}{y_n}=\alpha$. \\
 
-\romannum{2}$\;\alpha=+\infty$.此时,存在$N$,当$n>N$时,$\dfrac{x_n-x_{n-1}}{y_n-y_{n-1}}>1$.于是,当$n>N$时,$x_n-x_{n-1}>y_n-y_{n-1}>0$,即$n>N$时$\{x_n\}$也是严格单调递增的,且
+\romannum{2}$\;\alpha=+\infty$.此时,存在$N$,当$n>N$时,$\dfrac{x_n-x_{n-1}}{y_n-y_{n-1}}>1$.于是,当$n>N$时,
+$$x_n-x_{n-1}>y_n-y_{n-1}>0,$$
+即$n>N$时$\{x_n\}$也是严格单调递增的,且
 $$x_n-x_N=(x_n-x_{n-1})+\cdots+(x_{N+1}-x_N)>(y_n-y_N),$$
 由$\displaystyle\lim_{n\to\infty}y_n=+\infty$可知$\displaystyle\lim_{n\to\infty}x_n=+\infty$.
 由题设可得$\displaystyle\lim_{n\to\infty}\dfrac{y_n-y_{n-1}}{x_n-x_{n-1}}=0$.
@@ -377,7 +382,7 @@ $$\int_a^b f(x)g(x)\,\mathrm{d}x=f(\xi)\int_{a}^{b} g(x) \,dx .$$
 $$\alpha\int_a^b g(x)\,\mathrm{d}x\leq\int_a^b f(x)g(x)\,\mathrm{d}x\leq\beta\int_a^b g(x)\,\mathrm{d}x.$$
 如果$g$在$[a,b]$中的积分为零,则上式表明$fg$的积分也为零,我们可以任意选取$\xi$;如果$g$的积分为正,则
 $$\alpha\leq\left(\int_a^b g(x)\,\mathrm{d}x\right)^{-1}\int_a^b f(x)g(x)\,\mathrm{d}x\leq\beta,$$
-由介值定理可知,存在$\xi\in[a,b]$,使得$f(\xi)=\left(\displaystyle\int_a^b g(x)\,\mathrm{d}x\right)^{-1}\displaystyle\int_a^b f(x)g(x)\,\mathrm{d}x$.
+由介值定理可知,存在$\xi\in[a,b]$,使得$f(\xi)=\left(\displaystyle\int_a^b g(x)\,\mathrm{d}x\right)^{-1}\displaystyle\int_a^b f(x)g(x)\,\mathrm{d}x$.\\
 特别地,当$g\equiv 1$时,上式成为$f(\xi)=\dfrac{1}{b-a}\displaystyle\int_a^b f(x)\,\mathrm{d}x$,即$\displaystyle\int_a^b f(x)\,\mathrm{d}x=f(\xi)(b-a)$.
 
 \section{一元微分学与一元积分学}
@@ -616,17 +621,63 @@ $$g(x)=\int_c^x f(t)\,\mathrm{d}t,\quad x\in[a,b],$$
 \end{ti}
 
 \begin{ti}
-\textbf{定理4.26(积分第二中值定理)}  设函数$f$在$[a,b]$上可积,$g$在$[a,b]$上单调,则存在$\xi\in[a,b]$,使得
+\textbf{命题4.26(阶梯逼近)}  设$f\in R[a,b]$,则存在一列阶梯函数$f_n$,使得
+$$\lim_{n\to\infty}\int_a^b|f_n(x)-f(x)|\,\mathrm{d}x=0,$$
+且每一个$f_n$均介于$f$的上、下确界之间.此外,任给$g\in R[a,b]$,均有
+$$\lim_{n\to\infty}\int_a^b f_n(x)g(x)\,\mathrm{d}x=\int_a^b f(x)g(x)\,\mathrm{d}x.$$
+\end{ti}
+
+\begin{ti}
+\textbf{命题4.27(分段线性逼近)}  设$f\in R[a,b]$,则存在一列连续的分段线性函数$f_n$,使得$f_n(a)=f(a)$,$f_n(b)=f(b)$,且
+$$\lim_{n\to\infty}\int_a^b|f_n(x)-f(x)|\,\mathrm{d}x=0,$$
+并且每一个$f_n$均介于$f$的上、下确界之间.此外,任给$g\in R[a,b]$,均有
+$$\lim_{n\to\infty}\int_a^b f_n(x)g(x)\,\mathrm{d}x=\int_a^b f(x)g(x)\,\mathrm{d}x.$$
+\end{ti}
+
+\begin{ti}
+\textbf{命题4.28(Riemann-Lebesgue引理)}  设$f\in R[a,b]$,则
+$$\lim_{\lambda\to+\infty}\int_a^b f(x)\sin(\lambda x)\,\mathrm{d}x=0,\qquad \lim_{\lambda\to+\infty}\int_a^b f(x)\cos(\lambda x)\,\mathrm{d}x=0.$$
+\end{ti}
+
+\begin{ti}
+\textbf{定理4.29(分部积分之二)}  设$f,g\in R[a,b]$,$C_1,C_2\in\mathbb{R}$.当$x\in[a,b]$时,记
+$$F(x)=\int_a^x f(t)\,\mathrm{d}t+C_1,\quad G(x)=\int_a^x g(t)\,\mathrm{d}t+C_2,$$
+则有
+$$\int_a^b F(x)g(x)\,\mathrm{d}x=F(x)G(x)\Big|_a^b-\int_a^b f(x)G(x)\,\mathrm{d}x.$$
+\end{ti}
+
+\textbf{证明}:如果$f,g\in C^0[a,b]$,则$F,G\in C^1[a,b]$,欲证等式可从已知的分部积分公式直接得到.一般地,我们分别取$f,g$的分段线性逼近$\{f_n\},\{g_n\}$,使得
+$$\int_a^b|f_n(x)-f(x)|\,\mathrm{d}x<\frac{1}{n},\quad \int_a^b|g_n(x)-g(x)|\,\mathrm{d}x<\frac{1}{n}.$$
+当$x\in[a,b]$时,记
+$$F_n(x)=\int_a^x f_n(t)\,\mathrm{d}t+C_1,\quad G_n(x)=\int_a^x g_n(t)\,\mathrm{d}t+C_2.$$
+由$f_n,g_n$连续可得
+$$\int_a^b F_n(x)g_n(x)\,\mathrm{d}x=F_n(x)G_n(x)\Big|_a^b-\int_a^b f_n(x)G_n(x)\,\mathrm{d}x.$$
+当$n\to\infty$时,我们来研究上式中的各项如何变化.首先,不妨设$f,g,f_n,g_n,F_n,G_n$在$[a,b]$中的绝对值均不超过$M$.此时有
+$$|F_n(x)G_n(x)-F(x)G(x)|\leq|F_n(x)[G_n(x)-G(x)]|+|[F_n(x)-F(x)]G(x)|$$
+$$\leq M\int_a^x|g_n(t)-g(t)|\,\mathrm{d}t+M\int_a^x|f_n(t)-f(t)|\,\mathrm{d}t<\frac{2M}{n}.$$
+上式中其余的项可以类似地作估计.令$n\to\infty$就由上面的等式得到了欲证等式.
+
+\begin{ti}
+\textbf{定理4.30(积分第二中值定理)}  设函数$f$在$[a,b]$上可积,$g$在$[a,b]$上单调,则存在$\xi\in[a,b]$,使得
 $$\int_a^b f(x)g(x)\,\mathrm{d}x=g(a)\int_a^{\xi}f(x)\,\mathrm{d}x+g(b)\int_{\xi}^{b}f(x)\,\mathrm{d}x$$.
 \end{ti}
 
 \textbf{证明}:记$F(x)=\displaystyle\int_a^x f(t)\,\mathrm{d}t$,则$F$在$[a,b]$上连续.先设$g$单调递减且$g(b)=0$(否则考虑$g-g(b)$).任取$[a,b]$的分割$P:a=x_0<x_1<\cdots<x_n=b$,利用$g$的单调性、$F$的连续性以及$Abel$求和,可以逐步选取中值点,使得存在$\xi_P\in[a,b]$,满足
 $$\int_a^b f(x)g(x)\,\mathrm{d}x=F(b)g(b)-F(a)g(a)-F(\xi_P)[g(b)-g(a)].$$
 取一列分割$\{P_n\}$,使$\left\lVert P_n\right\rVert\to 0$,得数列$\{\xi_n\}\subset[a,b]$.根据$Bolzano$定理,$\{\xi_n\}$存在收敛子列,不妨设它自身收敛于$\xi\in[a,b]$,则
-$$\int_a^b f(x)g(x)\,\mathrm{d}x=F(b)g(b)-F(a)g(a)-F(\xi)[g(b)-g(a)]=g(a)[F(\xi)-F(a)]+g(b)[F(b)-F(\xi)]$$
+$$\int_a^b f(x)g(x)\,\mathrm{d}x=F(b)g(b)-F(a)g(a)-F(\xi)[g(b)-g(a)]$$
+$$\phantom{\int_a^b f(x)g(x)\,\mathrm{d}x}=g(a)[F(\xi)-F(a)]+g(b)[F(b)-F(\xi)]$$
 $\displaystyle=g(a)\int_a^{\xi}f(x)\,\mathrm{d}x+g(b)\int_{\xi}^{b}f(x)\,\mathrm{d}x.$\\
 
 证毕.
+
+\begin{ti}
+\textbf{推论4.31(Bonnet)}  设$f\in R[a,b]$,$g$为非负函数.\\
+(1)如果$g$在$[a,b]$中单调递减,则存在$\zeta\in[a,b]$,使得
+$$\int_a^b f(x)g(x)\,\mathrm{d}x=g(a)\int_a^{\zeta}f(x)\,\mathrm{d}x;$$
+(2)如果$g$在$[a,b]$中单调递增,则存在$\eta\in[a,b]$,使得
+$$\int_a^b f(x)g(x)\,\mathrm{d}x=g(b)\int_{\eta}^{b}f(x)\,\mathrm{d}x.$$
+\end{ti}
 
 \section{多元微分学与多元积分学}
 \subsection{多元函数的微分}
@@ -650,7 +701,7 @@ $$\frac{\partial f}{\partial \mathbf{u}}(\mathbf{x}_0)=df(\mathbf{x}_0)(\mathbf{
 \end{ti}
 
 \begin{ti}
-\textbf{定理5.4(可微的充分条件)}  设函数$f$在$\mathbf{x}_0$的某邻域内各偏导数均存在且在$\mathbf{x}_0$处连续,则$f$在$\mathbf{x}_0$处可微.
+\textbf{命题5.4(可微的充分条件)}  设函数$f$在$\mathbf{x}_0$的某邻域内各偏导数均存在且在$\mathbf{x}_0$处连续,则$f$在$\mathbf{x}_0$处可微.
 \end{ti}
 
 \begin{ti}
@@ -703,15 +754,21 @@ $$\left\lvert u\cdot[f(x)-f(y)]\right\rvert\leq\left\lVert Jf(\xi)\right\rVert\c
 \end{ti}
 
 \textbf{证明}:不失一般性,可设$\mathbf{x}_0=0$,$y_0=0$.以$L$记$f$在$\mathbf{x}_0=0$处的微分,则$L$可逆,且$L^{-1}\circ f$在$\mathbf{x}_0$处的微分为恒同映射.
-如果欲证结论对$L^{-1}f$成立,则对$f$也成立.因此,不妨从一开始就假设$Jf(\mathbf{x}_0)=I_n$.在$\mathbf{x}_0=0$附近,
+如果欲证结论对$L^{-1}f$成立,则对$f$也成立.因此,不妨从一开始就假设$Jf(\mathbf{x}_0)=I_n$.\\
+
+在$\mathbf{x}_0=0$附近,
 $f$是恒同映射的小扰动:$f(x)=x+g(x)$,$Jg(0)=0$,扰动项$g(x)=f(x)-x$为$C^k$映射.因此,存在$\delta>0$使得$\left\lVert Jg(x)\right\rVert\leq\dfrac{1}{2}$对一切$x\in B_\delta(0)\subset D$成立.
-由\textbf{定理5.9}可知$\left\lVert g(x_1)-g(x_2)\right\rVert\leq\dfrac{1}{2}\left\lVert x_1-x_2\right\rVert$,$\forall x_1,x_2\in B_\delta(0)$.给定$y\in B_{\delta/2}(0)$,我们在$B_\delta(0)$中解方程$f(x)=y$,即$x=y-g(x)$.
+由\textbf{定理5.9}可知
+$$\left\lVert g(x_1)-g(x_2)\right\rVert\leq\dfrac{1}{2}\left\lVert x_1-x_2\right\rVert,\forall x_1,x_2\in B_\delta(0).$$
+给定$y\in B_{\delta/2}(0)$,我们在$B_\delta(0)$中解方程$f(x)=y$,即$x=y-g(x)$.
 记$\varphi(x)=y-g(x)$,则$\varphi$为$B_\delta(0)$到自身的压缩映射.根据压缩映射原理,方程在$B_\delta(0)$中有唯一解,记为$x_y$.令$U=f^{-1}(B_{\delta/2}(0))\cap B_\delta(0)$,$V=B_{\delta/2}(0)$,则$f|_U:U\to V$是一一映射,其逆映射$h(y)=x_y$满足$y-g(h(y))=h(y)$. \\
+
 (1)$h:V\to U$是连续映射:当$y_1,y_2\in V$时,
 $$\left\lVert h(y_1)-h(y_2)\right\rVert\leq\left\lVert y_1-y_2\right\rVert+\frac{1}{2}\left\lVert h(y_1)-h(y_2)\right\rVert,$$
 这说明$\left\lVert h(y_1)-h(y_2)\right\rVert\leq 2\left\lVert y_1-y_2\right\rVert$. \\
 (2)$h:V\to U$是可微映射:设$y_0\in V$,则对$y\in V$,有
-$$h(y)-h(y_0)=(y-y_0)-[g(h(y))-g(h(y_0))]=(y-y_0)-Jg(h(y_0))\cdot(h(y)-h(y_0))+o(\left\lVert h(y)-h(y_0)\right\rVert).$$
+$$h(y)-h(y_0)=(y-y_0)-[g(h(y))-g(h(y_0))]$$
+$$\phantom{h(y)-h(y_0)}=(y-y_0)-Jg(h(y_0))\cdot(h(y)-h(y_0))+o(\left\lVert h(y)-h(y_0)\right\rVert).$$
 利用$Jf=I_n+Jg$和(1),上式可改写为$Jf(h(y_0))\cdot(h(y)-h(y_0))=(y-y_0)+o(\left\lVert y-y_0\right\rVert)$,因而$h(y)-h(y_0)=[Jf(h(y_0))]^{-1}\cdot(y-y_0)+o(\left\lVert y-y_0\right\rVert)$.这说明$h$在$y_0$处可微. \\
 (3)$h:V\to U$为$C^k$映射:由(2)可知$Jh(y)=[Jf(h(y))]^{-1}$,$\forall y\in V$.由$f\in C^k$知$Jf\in C^{k-1}$.由(2)及上式可推出$Jh$连续,即$h\in C^1$.再由$Jf\in C^{k-1}$,$h\in C^1$及上式可推出$Jh\in C^1$,即$h\in C^2$.依此类推,最后我们就得到$h\in C^k$.
 
@@ -812,7 +869,7 @@ $$\iint_S P\,\mathrm{d}y\wedge\mathrm{d}z+Q\,\mathrm{d}z\wedge\mathrm{d}x+R\,\ma
 $$\iint_\Omega\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm{d}x\mathrm{d}y=\oint_{\partial\Omega}P\,\mathrm{d}x+Q\,\mathrm{d}y$$.
 \end{ti}
 
-\textbf{证明}:我们只证明这个定理的一个特殊情形,一般的情形可以借助下一章的单位分解定理转化为这种特殊情形.先做一些预备工作.\\
+\textbf{证明}:我们只证明这个定理的一个特殊情形,一般的情形可以借助单位分解定理转化为这种特殊情形.先做一些预备工作.\\
 设$\varphi:D\to\Omega$为$C^2$的可逆映射,记为$\varphi(u,v)=(x(u,v),y(u,v)),\,(u,v)\in D$,它可以看成$\mathbb{R}^2$内的一个坐标变换.
 假设$\varphi$是保持定向的,且$\varphi(\partial D)=\partial\Omega$.按照第二型曲线积分的定义,有
 $$\oint_{\partial D}\overline P\,\mathrm{d}u+\overline Q\,\mathrm{d}v=\oint_{\partial\Omega}P\,\mathrm{d}x+Q\,\mathrm{d}y,$$
@@ -831,7 +888,8 @@ $$\sigma(x)=(x,\varphi(x)),\quad x\in[-a,a].$$
 矩形$I$由四条边组成,其中$(x,0)\,(x\in[-a,a])$代表原来的曲线$\sigma$,而$P,Q$在其余三条边附近均为零.因此
 $$\oint_{\partial I}P\,\mathrm{d}x+Q\,\mathrm{d}y=\int_{-a}^{a}P(x,0)\,\mathrm{d}x,$$
 且
-$$\iint_I\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm{d}x\mathrm{d}y=\int_0^{a}[Q(a,y)-Q(-a,y)]\,\mathrm{d}y-\int_{-a}^{a}[P(x,a)-P(x,0)]\,\mathrm{d}x=\int_{-a}^{a}P(x,0)\,\mathrm{d}x,$$
+$$\iint_I\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm{d}x\mathrm{d}y=\int_0^{a}[Q(a,y)-Q(-a,y)]\,\mathrm{d}y-\int_{-a}^{a}[P(x,a)-P(x,0)]\,\mathrm{d}x$$
+$$\phantom{\iint_I\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm{d}x\mathrm{d}y}=\int_{-a}^{a}P(x,0)\,\mathrm{d}x,$$
 这说明$Green$公式在$I$上成立.\\
 \textbf{注}: 在证明过程中,我们假设了边界是$C^2$曲线,这个条件可以减弱.一般地,利用光滑逼近可以证明,当区域边界由有限条分段$C^1$的连续曲线组成时,$Green$公式仍然成立.
 
@@ -841,11 +899,15 @@ $$\iiint_\Omega\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}
 \end{ti}
 
 \textbf{证明}:和$Green$公式一样,我们证明一个特殊情形:在某个边界点的一个小邻域之外$P,Q$和$R$均恒为零.证明的思路也是类似的,先说明$Gauss$公式在坐标变换下具有形式不变性,然后利用坐标变换将问题变为矩形区域内的$Gauss$公式.\\
-为此,设$\varphi:\widetilde\Omega\to\Omega$为$C^2$的保定向坐标变换,记为$\varphi(u,v,w)=(x(u,v,w),y(u,v,w),z(u,v,w)),\,(u,v,w)\in\widetilde\Omega$.利用复合求导的链式法则以及第二型曲面积分的定义不难得到
-$$\iint_{\partial\widetilde\Omega}\overline P\,\mathrm{d}v\wedge\mathrm{d}w+\overline Q\,\mathrm{d}w\wedge\mathrm{d}u+\overline R\,\mathrm{d}u\wedge\mathrm{d}v=\iint_{\partial\Omega}P\,\mathrm{d}y\wedge\mathrm{d}z+Q\,\mathrm{d}z\wedge\mathrm{d}x+R\,\mathrm{d}x\wedge\mathrm{d}y,$$
+为此,设$\varphi:\widetilde\Omega\to\Omega$为$C^2$的保定向坐标变换,\\
+记为$\varphi(u,v,w)=(x(u,v,w),y(u,v,w),z(u,v,w)),\,(u,v,w)\in\widetilde\Omega$.利用复合求导的链式法则以及第二型曲面积分的定义不难得到
+$$\iint_{\partial\widetilde\Omega}\overline P\,\mathrm{d}v\wedge\mathrm{d}w+\overline Q\,\mathrm{d}w\wedge\mathrm{d}u+\overline R\,\mathrm{d}u\wedge\mathrm{d}v$$
+$$\phantom{\iint_{\partial\widetilde\Omega}\overline P\,\mathrm{d}v\wedge\mathrm{d}w+\overline Q\,\mathrm{d}w\wedge\mathrm{d}u+\overline R\,\mathrm{d}u\wedge\mathrm{d}v}=\iint_{\partial\Omega}P\,\mathrm{d}y\wedge\mathrm{d}z+Q\,\mathrm{d}z\wedge\mathrm{d}x+R\,\mathrm{d}x\wedge\mathrm{d}y,$$
 其中$\overline P=P\dfrac{\partial(y,z)}{\partial(v,w)}+Q\dfrac{\partial(z,x)}{\partial(v,w)}+R\dfrac{\partial(x,y)}{\partial(v,w)}$,而$\overline Q,\overline R$类似地定义(分别将$(v,w)$换成$(w,u)$和$(u,v)$).这是坐标变换下第二型曲面积分的变换公式.为了得到重积分的变量替换公式,注意到直接的计算表明
-$$\frac{\partial}{\partial u}\left(\frac{\partial(y,z)}{\partial(v,w)}\right)+\frac{\partial}{\partial v}\left(\frac{\partial(y,z)}{\partial(w,u)}\right)+\frac{\partial}{\partial w}\left(\frac{\partial(y,z)}{\partial(u,v)}\right)=0,$$
-在上式中将$(y,z)$换成$(z,x)$或$(x,y)$也成立.利用这些等式以及$\varphi$保持定向可知,$x_uy_vz_w$的符号不变,再由重积分的变量替换公式就得到
+$$\frac{\partial}{\partial u}\left(\frac{\partial(y,z)}{\partial(v,w)}\right)+\frac{\partial}{\partial v}\left(\frac{\partial(y,z)}{\partial(w,u)}\right)$$
+$$\phantom{\frac{\partial}{\partial u}\left(\frac{\partial(y,z)}{\partial(v,w)}\right)}+\frac{\partial}{\partial w}\left(\frac{\partial(y,z)}{\partial(u,v)}\right)=0,$$
+在上式中将$(y,z)$换成$(z,x)$或$(x,y)$也成立.\\
+利用这些等式以及$\varphi$保持定向可知,$x_uy_vz_w$的符号不变,再由重积分的变量替换公式就得到
 $$\iiint_{\widetilde\Omega}\left(\frac{\partial\overline P}{\partial u}+\frac{\partial\overline Q}{\partial v}+\frac{\partial\overline R}{\partial w}\right)\mathrm{d}u\mathrm{d}v\mathrm{d}w=\iiint_\Omega\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\mathrm{d}x\mathrm{d}y\mathrm{d}z.$$
 结合上面两个公式,我们就知道要说明$Gauss$公式在$\Omega$上成立,只要说明它在$\widetilde\Omega$上成立即可,反之亦然.\\
 通过平移以及适当的保定向的正交变换,我们可以假设$(x_0,y_0,z_0)=(0,0,0)$,$P,Q,R$在$B_\varepsilon(0)$外恒为零,且$\partial\Omega\cap B_\varepsilon(0)$为$C^1$函数$\varphi(x,y)$的图像,其中$\varphi(0,0)=0$,$\nabla\varphi(0,0)=(0,0)$.此时,在原点$(0,0,0)$处的单位外法向是$(0,0,1)$,因此区域$\Omega\cap B_\varepsilon(0)$位于图像的下方.与$Green$公式的证明类似,通过适当的保定向的坐标变换,我们将该区域变为矩形区域$I=[-a,a]^2\times[-a,0]$的一部分,在这个变换下边界$\partial\Omega\cap B_\varepsilon(0)$变为$[-a,a]^2\times\{0\}$的一部分,而$P,Q,R$在经过变换后在矩形$[-a,a]^2\times[-a,0]$的其他几个边界面附近恒为零.我们只要在这个矩形区域上验证$Gauss$公式成立就行了.经过这些预备以后我们得到
@@ -857,7 +919,8 @@ $$\iiint_I\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\fra
 
 \begin{ti}
 \textbf{定理5.24(Stokes公式)}  设$\Sigma$为定向曲面,$\Omega$为曲面上的有界区域,其边界赋以诱导定向.如果$P,Q,R$为$\Omega$附近的连续可微函数,则
-$$\iint_\Omega\left[\left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\mathrm{d}y\wedge\mathrm{d}z+\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)\mathrm{d}z\wedge\mathrm{d}x+\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm{d}x\wedge\mathrm{d}y\right]=\oint_{\partial\Omega}P\,\mathrm{d}x+Q\,\mathrm{d}y+R\,\mathrm{d}z$$.
+$$\iint_\Omega\left[\left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\mathrm{d}y\wedge\mathrm{d}z+\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)\mathrm{d}z\wedge\mathrm{d}x+\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm{d}x\wedge\mathrm{d}y\right]$$
+$$=\oint_{\partial\Omega}P\,\mathrm{d}x+Q\,\mathrm{d}y+R\,\mathrm{d}z$$.
 \end{ti}
 
 \textbf{证明}:和前面一样,我们只证明一个特殊情形:假定$\varphi:D\to\mathbb{R}^3$为定向曲面的$C^2$参数表示,且$\varphi(\widetilde\Omega)=\Omega$,
@@ -873,286 +936,4 @@ $$I=\iint_{\widetilde\Omega}(T_u-S_v)\,\mathrm{d}u\mathrm{d}v.$$
 于是$I=II$,$Stokes$公式成立.\\
 注 曲面是分片$C^1$时,$Stokes$公式仍然成立.
 
-\section{级数}
-\subsection{数项级数}
-\begin{ti}
-\textbf{定义6.1(级数的收敛与发散)}  设$\{a_n\}$为数列,称形式和$\displaystyle\sum_{n=1}^{\infty}a_n=a_1+a_2+\cdots+a_n+\cdots$为\textbf{无穷级数},
-$a_n$称为通项或一般项,$S_n=\displaystyle\sum_{k=1}^{n}a_k$称为级数的第$n$个\textbf{部分和}.
-如果数列$\{S_n\}$收敛,则称级数$\displaystyle\sum_{n=1}^{\infty}a_n$\textbf{收敛},其和记为$\displaystyle\sum_{n=1}^{\infty}a_n=\lim_{n\to\infty}S_n$;否则就称级数$\displaystyle\sum_{n=1}^{\infty}a_n$\textbf{发散}.
-\end{ti}
-
-\begin{ti}
-\textbf{定理6.2(收敛的必要条件)}  如果级数$\displaystyle\sum_{n=1}^{\infty}a_n$收敛,则$\displaystyle\lim_{n\to\infty}a_n=0$.
-\end{ti}
-
-\textbf{证明}:因为$a_n=S_n-S_{n-1}$,而部分和数列$\{S_n\}$收敛,故$\displaystyle\lim_{n\to\infty}a_n=\lim_{n\to\infty}(S_n-S_{n-1})=0$.
-
-\begin{ti}
-\textbf{定理6.3(Cauchy收敛准则)}  级数$\displaystyle\sum_{n=1}^{\infty}a_n$收敛当且仅当对任意的$\varepsilon>0$,存在$N$,使得当$m>n>N$时,
-$$\left\lvert\sum_{k=n+1}^{m}a_k\right\rvert<\varepsilon$$.
-\end{ti}
-
-\textbf{证明}:级数$\displaystyle\sum a_n$收敛当且仅当部分和数列$\{S_n\}$收敛.由数列极限的$Cauchy$准则,$\{S_n\}$收敛当且仅当任给$\varepsilon>0$,存在$N$,当$m,n>N$时$|S_m-S_n|<\varepsilon$.而$S_m-S_n=a_{n+1}+a_{n+2}+\cdots+a_m$,即得欲证结论.
-
-\begin{ti}
-\textbf{定义6.4(绝对收敛与条件收敛)}  如果级数$\displaystyle\sum_{n=1}^{\infty}\left\lvert a_n\right\rvert$收敛,则称$\displaystyle\sum_{n=1}^{\infty}a_n$\textbf{绝对收敛};
-如果$\displaystyle\sum_{n=1}^{\infty}a_n$收敛而$\displaystyle\sum_{n=1}^{\infty}\left\lvert a_n\right\rvert$发散,则称其\textbf{条件收敛}.
-\end{ti}
-
-\begin{ti}
-\textbf{定理6.5}  如果级数$\displaystyle\sum_{n=1}^{\infty}a_n$绝对收敛,则它必收敛.
-\end{ti}
-
-\textbf{证明}:设级数$\displaystyle\sum a_n$绝对收敛,则任给$\varepsilon>0$,由$Cauchy$准则存在$N$,
-当$m>n>N$时$\displaystyle\sum_{k=n+1}^{m}|a_k|<\varepsilon$.于是$\left\lvert\displaystyle\sum_{k=n+1}^{m}a_k\right\rvert\leq\displaystyle\sum_{k=n+1}^{m}|a_k|<\varepsilon$,
-由$Cauchy$准则知级数$\displaystyle\sum a_n$收敛.
-
-\begin{ti}
-\textbf{定理6.6(比较判别法)}  设$\displaystyle\sum a_n$和$\displaystyle\sum b_n$为正项级数,如果存在$M>0,N\geq 1$,使得当$n>N$时$a_n\leq Mb_n$,则$\displaystyle\sum b_n$收敛时$\displaystyle\sum a_n$也收敛;$\displaystyle\sum a_n$发散时$\displaystyle\sum b_n$也发散.
-\end{ti}
-
-\textbf{证明}:若$\displaystyle\sum b_n$收敛,则其部分和$\{B_n\}$有界,故$\{A_n\}$(从$N$之后)也有界,由基本判别法(正项级数收敛当且仅当部分和有界)知$\displaystyle\sum a_n$收敛;若$\displaystyle\sum a_n$发散,由上面已证的结论用反证法即得$\displaystyle\sum b_n$发散.
-
-\begin{ti}
-\textbf{定理6.7(比值判别法)}  设$a_n>0$,且$\displaystyle\lim_{n\to\infty}\frac{a_{n+1}}{a_n}=r$.\\
-(1)当$r<1$时级数$\displaystyle\sum a_n$收敛;\\
-(2)当$r>1$时级数$\displaystyle\sum a_n$发散.
-\end{ti}
-
-\textbf{证明}:若$r<1$,取$q$使$r<q<1$,则当$n$充分大时$\dfrac{a_{n+1}}{a_n}\leq q$,即$a_n\leq a_{N_0}q^{n-N_0}$,由比较判别法知$\displaystyle\sum a_n$收敛.若$r>1$,则当$n$充分大时$\dfrac{a_{n+1}}{a_n}\geq 1$,即$a_{n+1}\geq a_n$,通项不趋于$0$,级数发散.
-
-\begin{ti}
-\textbf{定理6.8(根值判别法)}  设$a_n\geq 0$,且$\displaystyle\lim_{n\to\infty}\sqrt[n]{a_n}=r$.\\
-(1)当$r<1$时级数$\displaystyle\sum a_n$收敛;\\
-(2)当$r>1$时级数$\displaystyle\sum a_n$发散.
-\end{ti}
-
-\textbf{证明}:若$r<1$,取$q$使$r<q<1$,则当$n$充分大时$\sqrt[n]{a_n}\leq q$,即$a_n\leq q^n$,由比较判别法(与几何级数$\displaystyle\sum q^n$比较)知$\displaystyle\sum a_n$收敛.若$r>1$,则对无穷多个$n$有$\sqrt[n]{a_n}\geq 1$,即$a_n\geq 1$,通项不趋于$0$,级数发散.
-
-\begin{ti}
-\textbf{定理6.9(积分判别法)}  设函数$f$在$[1,+\infty)$上非负单调递减,则级数$\displaystyle\sum_{n=1}^{\infty}f(n)$与广义积分$\displaystyle\int_1^{+\infty}f(x)\,\mathrm{d}x$同敛散.
-\end{ti}
-
-\textbf{证明}:由$f$单调递减可知,当$k\leq x\leq k+1$时,$f(k+1)\leq f(x)\leq f(k)$,故
-$$f(k+1)\leq\int_k^{k+1}f(x)\,\mathrm{d}x\leq f(k).$$
-这说明
-$$\sum_{k=1}^{n}f(k)\leq f(1)+\int_1^{n}f(x)\,\mathrm{d}x,$$
-以及
-$$\int_1^{n+1}f(x)\,\mathrm{d}x\leq\sum_{k=1}^{n}f(k),$$
-由基本判别法立得欲证结论.
-
-\begin{ti}
-\textbf{定理6.10(Leibniz判别法)}  设$a_n$单调地趋于$0$,则级数$\displaystyle\sum_{n=1}^{\infty}(-1)^{n}a_n$收敛.
-\end{ti}
-
-\textbf{证明}:记$b_n=(-1)^n$,则级数$\displaystyle\sum b_n$的部分和显然有界.由$Dirichlet$判别法(设$\{a_n\}$单调地趋于$0$,级数$\displaystyle\sum b_n$的部分和有界,则级数$\displaystyle\sum a_nb_n$收敛)立得欲证结论.
-
-\begin{ti}
-\textbf{定义6.11(无穷乘积)}  设$\{p_n\}$为一列实数,称形式乘积$\displaystyle\prod_{n=1}^{\infty}p_n=p_1p_2\cdots p_n\cdots$为\textbf{无穷乘积},记$P_n=p_1p_2\cdots p_n$,称为\textbf{部分乘积}.如果数列$\{P_n\}$的极限存在,且极限为实数或正负无穷,则此极限称为无穷乘积的值,记为$\displaystyle\prod_{n=1}^{\infty}p_n=\lim_{n\to\infty}P_n$.当极限为非零实数时,称无穷乘积是\textbf{收敛}的,否则就称它是发散的.
-\end{ti}
-
-\begin{ti}
-\textbf{定理6.12(无穷乘积的收敛判别法)}  设$p_n$均大于零,记$p_n=1+a_n$,则\\
-(1)无穷乘积$\displaystyle\prod_{n=1}^{\infty}p_n$收敛当且仅当级数$\displaystyle\sum_{n=1}^{\infty}\ln p_n$收敛;\\
-(2)如果$n$充分大时$a_n$不变号,则无穷乘积$\displaystyle\prod_{n=1}^{\infty}p_n$收敛当且仅当级数$\displaystyle\sum_{n=1}^{\infty}a_n$收敛;\\
-(3)如果级数$\displaystyle\sum_{n=1}^{\infty}a_n$和$\displaystyle\sum_{n=1}^{\infty}a_n^2$均收敛,则无穷乘积$\displaystyle\prod_{n=1}^{\infty}p_n$也收敛.
-\end{ti}
-
-\textbf{证明}:(1)是显然的.(2)只要利用$\ln(1+x)\sim x\,(x\to 0)$以及数项级数的比较判别法即可.(3)则是利用$\ln(1+x)-x\sim-\dfrac{x^2}{2}\,(x\to 0)$以及(1).
-
-\begin{ti}
-\textbf{定理6.13(级数的乘积)}  设级数$\displaystyle\sum_{n=0}^{\infty}a_n$与$\displaystyle\sum_{n=0}^{\infty}b_n$绝对收敛,定义它们的乘积为级数$\displaystyle\sum_{n=0}^{\infty}c_n$,其中$c_n=\displaystyle\sum_{i+j=n}a_i b_j$,$n\geq 0$.这种乘积称为\textbf{Cauchy乘积}.则乘积级数$\displaystyle\sum_{n=0}^{\infty}c_n$也绝对收敛,且
-$$\sum_{n=0}^{\infty}c_n=\left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right)$$.
-\end{ti}
-
-\textbf{证明}:记$\displaystyle\sum_{i}|a_i|=A$,$\displaystyle\sum_{j}|b_j|=B$.对指标集$\{(i,j)\}$按任意次序求和,非负项级数$\displaystyle\sum_{i,j}|a_i||b_j|=\left(\sum_{i}|a_i|\right)\left(\sum_{j}|b_j|\right)=AB$收敛,故$\{a_ib_j\}$的任意排列次序(特别地,按$Cauchy$乘积的方式排列)所得级数仍绝对收敛,且其和不变.于是$Cauchy$乘积$\displaystyle\sum c_n$绝对收敛,且$\displaystyle\sum c_n=\left(\displaystyle\sum a_n\right)\left(\displaystyle\sum b_n\right)$.
-
-\begin{ti}
-\textbf{定理6.14(重排定理)}  绝对收敛级数的项可以任意重排而不改变其和.
-\end{ti}
-
-\textbf{证明}:设级数$\displaystyle\sum a_n$绝对收敛.如果$a_n$为正项级数,则由基本判别法不难看出,将它的各项重新排列后不会影响其敛散性,如果收敛的话重排也不改变级数的和.对于一般的级数,由等式
-$$a_n=\frac{a_n+|a_n|}{2}-\frac{|a_n|-a_n}{2}$$
-以及正项级数$\displaystyle\sum\frac{a_n+|a_n|}{2}$与$\displaystyle\sum\frac{|a_n|-a_n}{2}$的收敛性可知,重排后的级数也绝对收敛,且其和不变.
-
-\begin{ti}
-\textbf{定理6.15(Riemann重排定理)}  如果级数$\displaystyle\sum a_n$条件收敛,则可以将它重排为一个收敛级数,使得重排后的级数和为任意指定的实数.
-\end{ti}
-
-\textbf{证明}:设$\xi\in\mathbb{R}$,我们将找到$\displaystyle\sum a_n$的一个重排,使得它的和为$\xi$.首先我们注意到,如果$\displaystyle\sum a_n$条件收敛,则$\displaystyle\sum|a_n|$发散,由$|a_n|=a_n^++a_n^-$,$a_n=a_n^+-a_n^-$即知,级数$\displaystyle\sum a_n^+$和$\displaystyle\sum a_n^-$均发散到$+\infty$,这两个级数的部分和分别记为$S_n^+$和$S_n^-$.因为当$n$充分大时$S_n^+>\xi$,故可取最小的正整数$m_1$,使得$S_{m_1}^+>\xi$,此时成立$\xi\geq S_{m_1-1}^+$.因为$n$充分大时,$S_{m_1}^+-S_n^-<\xi$,故可取最小的正整数$n_1$,使得$S_{m_1}^+-S_{n_1}^-<\xi$,同理有$\xi\leq S_{m_1}^+-S_{n_1-1}^-$.下面再取最小的正整数$m_2$,使得$S_{m_2}^+-S_{n_1}^->\xi\geq S_{m_2-1}^+-S_{n_1}^-$,以及最小的正整数$n_2$,使得$S_{m_2}^+-S_{n_2}^-<\xi\leq S_{m_2}^+-S_{n_2-1}^-$.如此继续下去,我们得到递增数列$m_1<m_2<\cdots$和$n_1<n_2<\cdots$,使得
-$$S_{m_k}^+-S_{n_{k-1}}^->\xi\geq S_{m_k-1}^+-S_{n_{k-1}}^-,\qquad S_{m_k}^+-S_{n_k}^-<\xi\leq S_{m_k}^+-S_{n_k-1}^-$$
-对任意$k$均成立.由$a_n\to 0$即知,下面的级数
-$$a_1^++\cdots+a_{m_1}^+-a_1^--\cdots-a_{n_1}^-+a_{m_1+1}^++\cdots+a_{m_2}^+-a_{n_1+1}^--\cdots-a_{n_2}^-+\cdots$$
-收敛到$\xi$.注意$a_n^+$和$a_n^-$在这个级数中都依次出现了,因此它可以看成是原级数$\displaystyle\sum a_n$的一个重排.
-
-\subsection{函数项级数}
-\begin{ti}
-\textbf{定义6.16(一致收敛)}  设$I$为区间,$\{f_n\}$为$I$中定义的一列函数.如果对任意的$\varepsilon>0$,均存在与$x$无关的正整数$N=N(\varepsilon)$,使得当$n>N,x\in I$时,$\left\lvert f_n(x)-f(x)\right\rvert<\varepsilon$总成立,则称函数列$\{f_n\}$在$I$中\textbf{一致收敛}于$f$,记为$f_n\Rightarrow f$.
-对于函数项级数$\displaystyle\sum f_n(x)$,若其部分和函数列一致收敛,则称该级数在$I$上\textbf{一致收敛}.
-\end{ti}
-
-\begin{ti}
-\textbf{定理6.17(一致收敛的Cauchy准则)}  定义在$I$中的函数列$\{f_n\}$一致收敛当且仅当对任意的$\varepsilon>0$,存在$N=N(\varepsilon)$,使得当$m,n>N,x\in I$时,$\left\lvert f_m(x)-f_n(x)\right\rvert<\varepsilon$.
-\end{ti}
-
-\textbf{证明}:必要性显然.充分性:设函数列$\{f_n\}$满足条件,则对每个固定的$x_0\in I$,$\{f_n(x_0)\}$是$Cauchy$数列,从而是收敛数列,记其极限为$f(x_0)$,这样得到极限函数$f$.在条件$|f_m(x)-f_n(x)|<\varepsilon$中令$m\to\infty$,得$|f_n(x)-f(x)|\leq\varepsilon$对一切$n>N$和$x\in I$成立,即$\{f_n\}$一致收敛于$f$.
-
-\begin{ti}
-\textbf{定理6.18(Weierstrass判别法)}  如果$|f_n(x)|\leq M_n$,而正项级数$\displaystyle\sum M_n$收敛,则$\displaystyle\sum f_n(x)$在$I$中一致收敛.
-\end{ti}
-
-\textbf{证明}:这是因为
-$$|f_{n+1}(x)+f_{n+2}(x)+\cdots+f_m(x)|\leq M_{n+1}+M_{n+2}+\cdots+M_m,$$
-然后利用一致收敛的$Cauchy$准则即可.
-
-\begin{ti}
-\textbf{定理6.19(一致收敛与连续性)}  设$\{f_n\}$在区间$I$中一致收敛于$f$.如果每一个$f_n$均为连续函数,则$f$也是连续函数.
-\end{ti}
-
-\textbf{证明}:任取$x_0\in I$,要证明$f$在$x_0$处连续.由题设,任给$\varepsilon>0$,存在$N=N(\varepsilon)$,当$n>N,x\in I$时,$|f_n(x)-f(x)|<\dfrac{\varepsilon}{3}$.取定$n_0=N+1$,由于$f_{n_0}$在$x_0$处连续,故存在$\delta=\delta(\varepsilon)>0$,使得当$|x-x_0|<\delta$时$|f_{n_0}(x)-f_{n_0}(x_0)|<\dfrac{\varepsilon}{3}$.于是当$|x-x_0|<\delta$时,
-$$|f(x)-f(x_0)|\leq|f(x)-f_{n_0}(x)|+|f_{n_0}(x)-f_{n_0}(x_0)|+|f_{n_0}(x_0)-f(x_0)|<\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon,$$
-这说明$f$在$x_0$处连续.由$x_0$的任意性,$f$在$I$上连续.
-
-\begin{ti}
-\textbf{定理6.20(逐项积分)}  设$f_n\in R[a,b]$,如果$\{f_n\}$一致收敛于$f$,则$f\in R[a,b]$,且
-$$\lim_{n\to\infty}\int_a^b f_n(x)\,\mathrm{d}x=\int_a^b \lim_{n\to\infty}f_n(x)\,\mathrm{d}x=\int_a^b f(x)\,\mathrm{d}x$$.
-\end{ti}
-
-\textbf{证明}:先来说明$f$可积.任给$\varepsilon>0$,存在$N=N(\varepsilon)$,当$n\geq N,x\in[a,b]$时,$|f_n(x)-f(x)|\leq\dfrac{\varepsilon}{4(b-a)}$.因为$f_N$是可积函数,故存在$[a,b]$的分割$\pi$,使得$\displaystyle\sum_i\omega_i(f_N)\Delta x_i<\dfrac{\varepsilon}{2}$.对于每一个小区间$[x_{i-1},x_i]$,由上式可得
-$$\omega_i(f)\leq\omega_i(f_N)+\frac{\varepsilon}{2(b-a)}.$$
-因此
-$$\sum_i\omega_i(f)\Delta x_i\leq\sum_i\omega_i(f_N)\Delta x_i+\frac{\varepsilon}{2(b-a)}(b-a)\leq\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon,$$
-由可积函数的充要条件即知$f\in R[a,b]$.进一步,当$n\geq N$时,我们有
-$$\left\lvert\int_a^b f_n(x)\,\mathrm{d}x-\int_a^b f(x)\,\mathrm{d}x\right\rvert\leq\int_a^b|f_n(x)-f(x)|\,\mathrm{d}x\leq\frac{\varepsilon}{4},$$
-这说明$\displaystyle\lim_{n\to\infty}\int_a^b f_n(x)\,\mathrm{d}x=\int_a^b f(x)\,\mathrm{d}x$.
-
-\begin{ti}
-\textbf{定理6.21(逐项求导)}  设$\{f_n\}$为$[a,b]$中的一列可导函数,$c\in[a,b]$.如果$\{f_n(c)\}$收敛,$\{f'_n\}$一致收敛于$g$,
-则$\{f_n\}$一致收敛于可导函数$f$,且$f'=g$.
-\end{ti}
-
-\textbf{证明}:由$\{f'_n\}$一致收敛可知,任给$\varepsilon>0$,存在$N$,当$m,n>N,x\in[a,b]$时,$|f'_m(x)-f'_n(x)|<\varepsilon$.此时,由微分中值定理可得
-$$|[f_m(x)-f_m(c)]-[f_n(x)-f_n(c)]|=|[f'_m(\xi)-f'_n(\xi)](x-c)|\leq(b-a)\varepsilon,$$
-这说明$\{f_n-f_n(c)\}$一致收敛,从而$\{f_n\}$一致收敛到某个函数$f(x)$.\\
-我们要说明$f$可导.为此,任取$x_0\in[a,b]$,令
-$$g_n(x)=\begin{cases}\dfrac{f_n(x)-f_n(x_0)}{x-x_0},&x\neq x_0,\\[2mm] f'_n(x_0),&x=x_0.\end{cases}$$
-由$f_n$可导可知$g_n$为连续函数.类似于刚才的论证,由微分中值定理,有$|g_m(x)-g_n(x)|=|f'_m(\xi)-f'_n(\xi)|\leq\varepsilon$,这说明$\{g_n\}$一致收敛,其极限为
-$$\widehat{g}(x)=\begin{cases}\dfrac{f(x)-f(x_0)}{x-x_0},&x\neq x_0,\\[2mm] g(x_0),&x=x_0.\end{cases}$$
-根据前节定理6.19,$\widehat{g}$为连续函数.特别地,$f$在$x_0$处可导且导数为$g(x_0)$.
-
-\begin{ti}
-\textbf{定理6.22(Cauchy-Hadamard)}  对幂级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$,记$\rho=\displaystyle\lim_{n\to\infty}\sqrt[n]{\left\lvert a_n\right\rvert}$,则\\
-(1)$\rho=0$时,幂级数在$(-\infty,\infty)$中绝对收敛;\\
-(2)$\rho=+\infty$时,幂级数仅在$x=0$处收敛;\\
-(3)$0<\rho<\infty$时,幂级数在$\left\lvert x\right\rvert<\dfrac{1}{\rho}$中绝对收敛,在$\left\lvert x\right\rvert>\dfrac{1}{\rho}$之外发散.此时,称$\dfrac{1}{\rho}$为\textbf{收敛半径}.
-\end{ti}
-
-\textbf{证明}:注意到$\displaystyle\lim_{n\to\infty}\sqrt[n]{|a_n x^n|}=\rho|x|$,由数项级数的根值判别法即可得到定理结论.
-
-\begin{ti}
-\textbf{定理6.23(幂级数的性质)}  设幂级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$的收敛半径为$R$,则其和函数$S(x)=\displaystyle\sum_{n=0}^{\infty}a_n x^n$在$(-R,R)$中任意次可导,且
-$$S^{(k)}(x)=\sum_{n=k}^{\infty}n(n-1)\cdots(n-k+1)a_n x^{n-k};$$
-并且当$x\in(-R,R)$时,有
-$$\int_0^x S(t)\,\mathrm{d}t=\sum_{n=0}^{\infty}\frac{a_n}{n+1}x^{n+1}.$$
-\end{ti}
-
-\textbf{证明}:以$k=1$为例.首先,幂级数$\displaystyle\sum_{n=0}^{\infty}(a_n x^n)'=\sum_{n=1}^{\infty}na_n x^{n-1}$的收敛半径仍为$R$,故它在闭区间$I\subset(-R,R)$中一致收敛.由定理6.21可知,$\displaystyle\sum_{n=0}^{\infty}a_n x^n$在$I$中可导,且
-$$S'(x)=\left(\sum_{n=0}^{\infty}a_n x^n\right)'=\sum_{n=0}^{\infty}(a_n x^n)'=\sum_{n=1}^{\infty}na_n x^{n-1}.$$
-$S(x)$的高阶可导性的证明是完全类似的.特别地,$S^{(n)}(0)=n!a_n$,这说明函数$S(x)$在$x=0$处的$Taylor$展开就是该幂级数本身.\\
-逐项积分:不妨设$x>0$,根据前面的讨论,$\displaystyle\sum_{n=0}^{\infty}a_n t^n$在$[0,x]$中一致收敛,因此可以逐项积分,即得$\displaystyle\int_0^x S(t)\,\mathrm{d}t=\sum_{n=0}^{\infty}\frac{a_n}{n+1}x^{n+1}$.
-
-\begin{ti}
-\textbf{定理6.24(Abel连续性定理)}  设幂级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$的收敛半径为$R\,(0<R<\infty)$.如果$\displaystyle\sum_{n=0}^{\infty}a_n R^n$收敛,则
-$$\lim_{x\to R^-}\sum_{n=0}^{\infty}a_n x^n=\sum_{n=0}^{\infty}a_n R^n;$$
-如果$\displaystyle\sum_{n=0}^{\infty}a_n(-R)^n$收敛,则
-$$\lim_{x\to -R^+}\sum_{n=0}^{\infty}a_n x^n=\sum_{n=0}^{\infty}a_n(-R)^n.$$
-\end{ti}
-
-\textbf{证明}:设$\displaystyle\sum a_nR^n$收敛.当$x\in[0,R]$时,$\displaystyle\sum a_nx^n=\sum a_nR^n\left(\frac{x}{R}\right)^n$,其中$\left(\dfrac{x}{R}\right)^n$关于$n$单调且$\leq 1$,由数项级数的$Abel$判别法,$\displaystyle\sum a_nx^n$在$[0,R]$上一致收敛,故$\displaystyle\lim_{x\to R^-}\sum a_nx^n=\sum a_nR^n$.对$x\in[-R,0]$的情形同理,即得另一等式.
-
-\section{Fourier分析}
-\begin{ti}
-\textbf{定义7.1(Fourier系数与Fourier级数)}  设$f$在$[-\pi,\pi]$中Riemann可积或广义绝对可积.令
-$$a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\,\mathrm{d}x,\qquad a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos(nx)\,\mathrm{d}x,\qquad b_n=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin(nx)\,\mathrm{d}x,\quad n=1,2,\ldots,$$
-$a_0,a_n,b_n$称为$f$的\textbf{Fourier系数},形式和
-$$\frac{a_0}{2}+\sum_{n=1}^{\infty}\bigl(a_n\cos(nx)+b_n\sin(nx)\bigr)$$
-称为$f$的\textbf{Fourier级数}或Fourier展开,记为$\displaystyle f(x)\sim\frac{a_0}{2}+\sum_{n=1}^{\infty}\bigl(a_n\cos(nx)+b_n\sin(nx)\bigr)$.
-\end{ti}
-
-\begin{ti}
-\textbf{定理7.2(正交性)}  三角函数系$\{1,\cos x,\sin x,\cos 2x,\sin 2x,\ldots\}$在$[-\pi,\pi]$上两两正交,即对任意的$m,n$,有
-$$\int_{-\pi}^{\pi}\cos(mx)\sin(nx)\,\mathrm{d}x=0$$
-且当$m\neq n$时,有
-$$\int_{-\pi}^{\pi}\cos(mx)\cos(nx)\,\mathrm{d}x=\int_{-\pi}^{\pi}\sin(mx)\sin(nx)\,\mathrm{d}x=0$$.
-\end{ti}
-
-\textbf{证明}:由直接计算,
-$$\int_{-\pi}^{\pi}\cos(mx)\sin(nx)\,\mathrm{d}x=\frac{1}{2}\int_{-\pi}^{\pi}\left[\sin((m+n)x)+\sin((n-m)x)\right]\mathrm{d}x=0;$$
-当$m\neq n$时,
-$$\int_{-\pi}^{\pi}\cos(mx)\cos(nx)\,\mathrm{d}x=\frac{1}{2}\int_{-\pi}^{\pi}\left[\cos((m+n)x)+\cos((m-n)x)\right]\mathrm{d}x=0,$$
-$\sin(mx)\sin(nx)$的积分同理为零.
-
-\begin{ti}
-\textbf{定理7.3(Bessel不等式)}  设函数$f$在$[-\pi,\pi]$上平方可积,则
-$$\frac{a_0^2}{2}+\sum_{n=1}^{\infty}\bigl(a_n^2+b_n^2\bigr)\leq\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)^2\,\mathrm{d}x$$.
-\end{ti}
-
-\textbf{证明}:任取$g\in R[-\pi,\pi]$,设其$Fourier$系数为$\{\alpha_n,\beta_n\}$,记$S_n(x)=\dfrac{a_0}{2}+\displaystyle\sum_{k=1}^{n}(a_k\cos kx+b_k\sin kx)$为$f$的Fourier级数的部分和,则
-$$\frac{1}{\pi}\int_{-\pi}^{\pi}S_n(x)g(x)\,\mathrm{d}x=\frac{1}{\pi}\left[\frac{a_0}{2}\int_{-\pi}^{\pi}g(x)\,\mathrm{d}x+\sum_{k=1}^{n}\left(a_k\int_{-\pi}^{\pi}g(x)\cos kx\,\mathrm{d}x+b_k\int_{-\pi}^{\pi}g(x)\sin kx\,\mathrm{d}x\right)\right]=\frac{1}{2}a_0\alpha_0+\sum_{k=1}^{n}(a_k\alpha_k+b_k\beta_k).$$
-特别地,在上式中分别取$g(x)=S_n(x),f(x)$,注意到$S_n(x)$的Fourier展开是它自身,可以得到
-$$\frac{1}{\pi}\int_{-\pi}^{\pi}S_n(x)^2\,\mathrm{d}x=\frac{1}{2}a_0^2+\sum_{k=1}^{n}(a_k^2+b_k^2),$$
-$$\frac{1}{\pi}\int_{-\pi}^{\pi}S_n(x)f(x)\,\mathrm{d}x=\frac{1}{2}a_0^2+\sum_{k=1}^{n}(a_k^2+b_k^2),$$
-由此立得$Bessel$不等式.
-
-\begin{ti}
-\textbf{定理7.4(Riemann-Lebesgue)}  设$f$在$[a,b]$中可积或广义绝对可积,则
-$$\lim_{\lambda\to\infty}\int_a^b f(x)\cos(\lambda x)\,\mathrm{d}x=\lim_{\lambda\to\infty}\int_a^b f(x)\sin(\lambda x)\,\mathrm{d}x=0.$$
-\end{ti}
-
-\textbf{证明}:先设$f$为阶梯函数或分段线性函数,则通过直接计算(分部积分)可知$\displaystyle\int_a^b f(x)\cos(\lambda x)\,\mathrm{d}x=O\left(\frac{1}{\lambda}\right)$,$\displaystyle\int_a^b f(x)\sin(\lambda x)\,\mathrm{d}x=O\left(\frac{1}{\lambda}\right)$,故极限为$0$.对一般的可积函数$f$,用阶梯函数(或分段线性函数)逼近$f$,使$\sup|f-\varphi|$任意小,由三角不等式即可完成证明.对广义绝对可积函数,用可积函数逼近即可.
-
-\begin{ti}
-\textbf{定理7.5(Dirichlet收敛定理)}  设$f$是周期为$2\pi$的分段可导函数,$x\in[-\pi,\pi]$,则$f$的Fourier展开在$x$处收敛到
-$$\frac{f(x+0)+f(x-0)}{2}$$
-特别地,在$f$的连续点处,Fourier级数收敛到$f(x)$.
-\end{ti}
-
-\textbf{证明}:由$Dirichlet$核的计算,Fourier级数的部分和可写为
-$$S_n(x)=\frac{1}{\pi}\int_0^{\pi}\frac{f(x+u)+f(x-u)}{2}\cdot\frac{\sin\left(n+\frac{1}{2}\right)u}{2\sin\frac{u}{2}}\,\mathrm{d}u.$$
-由$Dirichlet$核的定义可知$\sigma_n(u)$在$[0,\pi]$中的积分等于$\dfrac{\pi}{2}$.于是上式可以改写为
-$$S_n(x)=\frac{f(x+0)+f(x-0)}{2}+E_n(x),$$
-其中
-$$E_n(x)=\frac{1}{\pi}\int_0^{\pi}\frac{f(x+u)-f(x+0)}{2\sin\frac{u}{2}}\sin\left(n+\frac{1}{2}\right)u\,\mathrm{d}u+\frac{1}{\pi}\int_0^{\pi}\frac{f(x-u)-f(x-0)}{2\sin\frac{u}{2}}\sin\left(n+\frac{1}{2}\right)u\,\mathrm{d}u.$$
-如果$f$分段可导,则$\dfrac{f(x+u)-f(x+0)}{2\sin\frac{u}{2}}$和$\dfrac{f(x-u)-f(x-0)}{2\sin\frac{u}{2}}$关于$u$均为分段连续函数,从而应用$Riemann-Lebesgue$引理即得欲证结论.特别地,在$f$的连续点处,$f(x+0)=f(x-0)=f(x)$,故收敛到$f(x)$.
-
-\begin{ti}
-\textbf{定理7.6(一致收敛)}  设$f$是以$2\pi$为周期的连续函数,如果$f$可以写成两个单调函数之差,则其$Fourier$级数一致收敛于$f$自身.特别地,$Lipschitz$周期函数的$Fourier$级数一致收敛于自身.
-\end{ti}
-
-\textbf{证明}:设$f$为$(-\pi,\pi)$中的有界单调函数,则由单调函数的$Fourier$系数估计(引理9.4.5):$|na_n|\leq\dfrac{2}{\pi}|f(\pi-0)-f(-\pi+0)|$,$|nb_n|\leq\dfrac{2}{\pi}|f(\pi-0)-f(-\pi+0)|$,知$|a_n|+|b_n|=O\left(\dfrac{1}{n}\right)$,故级数$\displaystyle\sum(|a_n|+|b_n|)$收敛.由$Weierstrass$判别法,$f$的$Fourier$级数在$\mathbb{R}$上一致收敛;由$Dirichlet$收敛定理,$f$的$Fourier$级数收敛到$\dfrac{f(x+0)+f(x-0)}{2}$,而$f$连续,故其和为$f$.一般地,$f$可以写成两个单调递增函数之差,分别对两个单调函数应用上述结论,即得$f$的$Fourier$级数一致收敛于$f$自身.特别地,$Lipschitz$周期函数可以写成两个单调函数之差,故其$Fourier$级数一致收敛于自身.
-
-\begin{ti}
-\textbf{定理7.7(Parseval恒等式)}  设$f\in R[-\pi,\pi]$,其Fourier展开为$f(x)\sim\dfrac{a_0}{2}+\displaystyle\sum_{n=1}^{\infty}\bigl(a_n\cos(nx)+b_n\sin(nx)\bigr)$,则
-$$\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)^2\,\mathrm{d}x=\frac{a_0^2}{2}+\sum_{n=1}^{\infty}\bigl(a_n^2+b_n^2\bigr)$$.
-\end{ti}
-
-\textbf{证明}:因为改变个别点的函数值不影响积分,我们不妨设$f(-\pi)=f(\pi)$.取$f$的分段线性逼近$\{f_n\}$,使之满足教材(6.5)式和(6.6)式.不难看出,此时也有
-$$\lim_{n\to\infty}\frac{1}{\pi}\int_{-\pi}^{\pi}f_n^2(x)\,\mathrm{d}x=\frac{1}{\pi}\int_{-\pi}^{\pi}f^2(x)\,\mathrm{d}x.$$
-注意到$f_n$的$Fourier$展开一致收敛于自身:
-$$f_n(x)=\frac{a_{n,0}}{2}+\sum_{k=1}^{\infty}(a_{n,k}\cos kx+b_{n,k}\sin kx).$$
-上式两边乘$f_n(x)$以后仍然一致收敛,逐项积分可得
-$$\frac{1}{\pi}\int_{-\pi}^{\pi}f_n^2(x)\,\mathrm{d}x=\frac{1}{2}a_{n,0}^2+\sum_{k=1}^{\infty}(a_{n,k}^2+b_{n,k}^2).$$
-同理,乘$f(x)$再积分可得
-$$\frac{1}{\pi}\int_{-\pi}^{\pi}f_n(x)f(x)\,\mathrm{d}x=\frac{1}{2}a_{n,0}a_0+\sum_{k=1}^{\infty}(a_{n,k}a_k+b_{n,k}b_k).$$
-利用平均值不等式$ab\leq\dfrac{a^2+b^2}{2}$可得
-$$\frac{1}{\pi}\int_{-\pi}^{\pi}f_n(x)f(x)\,\mathrm{d}x\leq\frac{1}{2}\left[\frac{1}{2}a_{n,0}^2+\sum_{k=1}^{\infty}(a_{n,k}^2+b_{n,k}^2)\right]+\frac{1}{2}\left[\frac{1}{2}a_0^2+\sum_{k=1}^{\infty}(a_k^2+b_k^2)\right].$$
-令$n\to\infty$,可得
-$$\frac{1}{\pi}\int_{-\pi}^{\pi}f^2(x)\,\mathrm{d}x\leq\frac{1}{2}\left[\frac{1}{\pi}\int_{-\pi}^{\pi}f^2(x)\,\mathrm{d}x+\frac{1}{2}a_0^2+\sum_{k=1}^{\infty}(a_k^2+b_k^2)\right],$$
-即$\dfrac{1}{\pi}\displaystyle\int_{-\pi}^{\pi}f^2(x)\,\mathrm{d}x\leq\dfrac{1}{2}a_0^2+\displaystyle\sum_{k=1}^{\infty}(a_k^2+b_k^2)$.结合$Bessel$不等式就得到了欲证的$Parseval$恒等式.
-
-\begin{ti}
-\textbf{定理7.8(Fourier系数的唯一性)}  设函数$f,g$在$[-\pi,\pi]$上连续且具有相同的Fourier系数,则$f\equiv g$.
-\end{ti}
-
-\textbf{证明}:设$h=f-g$,则$h\in C^0[-\pi,\pi]$且其Fourier系数全为零.由$Parseval$恒等式,$\dfrac{1}{\pi}\displaystyle\int_{-\pi}^{\pi}h(x)^2\,\mathrm{d}x=0$.因$h^2$为连续非负函数,故$h\equiv 0$,即$f\equiv g$.
 \BookEnd
