@@ -63,13 +63,15 @@
     \fancyhf{}
     \fancyhead[LE]{\small\color{bookgray}\nouppercase{\leftmark}}
     \fancyhead[RO]{\small\color{bookgray}数学分析习题整理}
-    \fancyfoot[LE,RO]{\color{bookblue}\thepage}
+    \fancyfoot[C]{\color{bookblue}\thepage}
+    \fancyfoot[R]{\small\bfseries Chen\;\; github.com/mathlover-1/math-analysis}
     \renewcommand{\headrulewidth}{0.4pt}
     \renewcommand{\footrulewidth}{0pt}
 }
 \fancypagestyle{plain}{%
     \fancyhf{}
     \fancyfoot[C]{\color{bookblue}\thepage}
+    \fancyfoot[R]{\small\bfseries Chen\;\; github.com/mathlover-1/math-analysis}
     \renewcommand{\headrulewidth}{0pt}
     \renewcommand{\footrulewidth}{0pt}
 }
@@ -140,15 +142,22 @@
     \endgroup
 }
 
-\newcommand{\booknotetitle}[1]{%
+\fancypagestyle{plainnowm}{%
+    \fancyhf{}
+    \fancyfoot[C]{\color{bookblue}\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+\newcommand{\booknotetitle}[2][plain]{%
     \clearpage
     \phantomsection
-    \addcontentsline{toc}{chapter}{#1}
-    \markboth{#1}{}
-    \thispagestyle{plain}
+    \addcontentsline{toc}{chapter}{#2}
+    \markboth{#2}{}
+    \thispagestyle{#1}
     \vspace*{1.2cm}
     \begin{center}
-        {\sffamily\heiti\bfseries\fontsize{26}{34}\selectfont\color{bookblue}#1\par}
+        {\sffamily\heiti\bfseries\fontsize{26}{34}\selectfont\color{bookblue}#2\par}
         \vspace{0.8em}
         {\color{bookteal}\rule{4.5cm}{0.8pt}\par}
     \end{center}
@@ -481,3 +490,5 @@
     \endgroup
 }
 \makeatother
+
+% 页脚右下方常态化水印(署名 + 仓库地址,加粗黑色),已在 main/plain 分页样式中定义,所有页面均生效.
