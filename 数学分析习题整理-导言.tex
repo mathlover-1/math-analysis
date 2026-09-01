@@ -64,14 +64,12 @@
     \fancyhead[LE]{\small\color{bookgray}\nouppercase{\leftmark}}
     \fancyhead[RO]{\small\color{bookgray}数学分析习题整理}
     \fancyfoot[C]{\color{bookblue}\thepage}
-    \fancyfoot[R]{\small\bfseries Chen\;\; github.com/mathlover-1/math-analysis}
     \renewcommand{\headrulewidth}{0.4pt}
     \renewcommand{\footrulewidth}{0pt}
 }
 \fancypagestyle{plain}{%
     \fancyhf{}
     \fancyfoot[C]{\color{bookblue}\thepage}
-    \fancyfoot[R]{\small\bfseries Chen\;\; github.com/mathlover-1/math-analysis}
     \renewcommand{\headrulewidth}{0pt}
     \renewcommand{\footrulewidth}{0pt}
 }
@@ -422,6 +420,7 @@
     \let\cleardoublepage\clearpage
     \begin{titlepage}
         \thispagestyle{empty}
+        \fnwmNo% 关水印须放在 titlepage 内部:\\begin{titlepage} 会先清页送出正文最后一页,提前关会让该页漏打水印。
         \noindent\hspace*{-\parindent}\begin{tikzpicture}[remember picture,overlay]
             % ---------- 底色:对角渐变 ----------
             \shade[top color=bookblue, bottom color=bookteal!48!bookblue,
@@ -491,4 +490,25 @@
 }
 \makeatother
 
-% 页脚右下方常态化水印(署名 + 仓库地址,加粗黑色),已在 main/plain 分页样式中定义,所有页面均生效.
+% ==================== 水印（仅水印版使用） ====================
+% 所有浅色内容页 右上角页顶空白条内 水平水印 "@小红书 aaa批发-"。
+% 位置:右缘距纸右 \fnwmInsetX、文本基线距纸顶 \fnwmInsetY;字形在页眉(奇数页上沿约16mm)上方,不碰页眉/正文。
+% 封面/封底由母文件中 \fnwmNo 临时关闭(见 数学分析习题整理.tex);单章独立编译无封面,默认全开。
+% 可调参数:颜色 \fnwmColor、字号字重 \fnwmFont、\fnwmInsetX(右缘距纸右)、\fnwmInsetY(文本基线距纸顶)。
+\usepackage{eso-pic}
+\newif\iffnwmShow\fnwmShowtrue
+\newcommand{\fnwmNo}{\fnwmShowfalse}
+\newcommand{\fnwmYes}{\fnwmShowtrue}
+\newcommand{\fnwmColor}{black!55}
+\newcommand{\fnwmFont}{\small\sffamily\bfseries}
+\newcommand{\fnwmInsetX}{9mm}   % 右缘距纸右
+\newcommand{\fnwmInsetY}{6mm}   % 文本基线距纸顶(字形顶约在其上3mm≈距顶3mm,不裁切;底约7mm,在页眉上沿16mm之上)
+\AddToShipoutPictureBG{%
+    \iffnwmShow
+        \AtPageUpperLeft{%
+            \hspace{\dimexpr\paperwidth-\fnwmInsetX\relax}%
+            \raisebox{-\fnwmInsetY}{\llap{\color{\fnwmColor}\fnwmFont @小红书 aaa批发-}}%
+        }%
+    \fi
+}
+% ========================================================
