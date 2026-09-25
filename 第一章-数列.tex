@@ -55,7 +55,7 @@ $\because\displaystyle\lim_{n\to\infty}\dfrac{a_{n+1}^2-a_n^2}{2(n+1)-2n}=\lim_{
 
 且$b_n=2n$为严格单调递增且发散到$+\infty$的数列, \\
 
-由\textit{Stolz}定理,$\quad\displaystyle\lim_{n\to\infty}\dfrac{a_n^2}{2n}=1,$ \\
+由\textit{$Stolz$}定理,$\quad\displaystyle\lim_{n\to\infty}\dfrac{a_n^2}{2n}=1,$ \\
 
 $\therefore\displaystyle\lim_{n\to\infty}\dfrac{a_n}{\sqrt{2n}}=1.$ \\
 
@@ -86,7 +86,7 @@ $\because 1-(x_1+x_2)\geq 0,\text{即证}\quad 4x_1x_2\leq (x_1+x_2)^2\quad\text
 
 $\text{下面使用向前向后证明法},$ \\
 
-$\text{向前:}\quad n\rightarrow 2n,$ \\
+$\text{向后:}\quad n\rightarrow 2n,$ \\
 
 $\begin{cases}
     &\dfrac{\displaystyle\prod_{i=1}^n x_i}{(\displaystyle\sum_{i=1}^n x_i)^n}\leq
@@ -105,7 +105,7 @@ $\left[\dfrac{A'B'}{(1-A')(1-B')}\right]^n\leq\dfrac{(A'+B')^{2n}}{(2-A'-B')^{2n
 
 即$\dfrac{\displaystyle\prod_{i=1}^{2n} x_i}{\displaystyle\prod_{i=1}^{2n} (1-x_i)}\leq\dfrac{(\displaystyle\sum_{i=1}^{2n} x_i)^{2n}}{(2n-\displaystyle\sum_{i=1}^{2n} x_i)^{2n}}=\dfrac{(\displaystyle\sum_{i=1}^{2n} x_i)^{2n}}{[\displaystyle\sum_{i=1}^{2n} (1-x_i)]^{2n}},$ \\
  
-向后:$n\rightarrow n-1$,  假设对$n$成立, $\because\dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n-1} x_i\leq\dfrac{1}{2}\quad\text{由}x_n\text{的任意性},$ \\
+向前:$n\rightarrow n-1$,  假设对$n$成立, $\because\dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n-1} x_i\leq\dfrac{1}{2}\quad\text{由}x_n\text{的任意性},$ \\
 
 不妨取$x_n=\dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n-1} x_i,$ \\
 
@@ -141,7 +141,7 @@ $\therefore\dfrac{\displaystyle\prod_{i=1}^{n-1} x_i}{(\displaystyle\sum_{i=1}^{
 又$\displaystyle\{a_n\}$单调递增,所以由单调收敛定理,$\displaystyle\{a_n\}$收敛. \\
 
 \begin{ti}
-【题5】设已知$\displaystyle\lim_{n\to\infty}a_n=a\quad$,证明$\displaystyle\lim_{n\to\infty}\frac{1}{2^n}\sum_{k=0}^{n}\binom{n}{k}a_k=a $
+【题5】设数列$\{a_n\}_{n=0}^{\infty}$满足$\displaystyle\lim_{n\to\infty}a_n=a$,证明$\displaystyle\lim_{n\to\infty}\frac{1}{2^n}\sum_{k=0}^{n}\binom{n}{k}a_k=a $
 \end{ti}
 
 \textbf{证明}:$\;\because 2^n=\displaystyle\sum_{k=0}^{n}\binom{n}{k},$ \\
@@ -184,7 +184,7 @@ $\therefore\displaystyle\lim_{n\to\infty}\dfrac{(n+1)-n}{\dfrac{1}{a_{n+1}}-\dfr
 
 $\therefore\displaystyle\lim_{n\to\infty}\dfrac{n}{\dfrac{1}{a_n}}=1,\;\text{即}\displaystyle\lim_{n\to\infty}na_n=1.$ \\
 
-\textbf{注}:本题与题2类似,直接用Stolz公式并不好做,取倒数的动机为如果$\displaystyle\lim_{n\to\infty}na_n=1$ 
+\textbf{注}:本题与题2类似,直接用$Stolz$公式并不好做,取倒数的动机为如果$\displaystyle\lim_{n\to\infty}na_n=1$ 
 
 这就说明$a_n$的衰减速度与$\dfrac{1}{n}$相同,则$b_n=\dfrac{1}{a_n}$就是线性增长,便于研究.
 
@@ -196,15 +196,9 @@ $\therefore\displaystyle\lim_{n\to\infty}\dfrac{n}{\dfrac{1}{a_n}}=1,\;\text{即
 
 设$\varepsilon_n=e-(1+\dfrac{1}{1!}+\dfrac{1}{2!}+...+\dfrac{1}{n!}),$ \\
 
-先证明一个引理:$\;\varepsilon_n<\dfrac{1}{n!n},$ \\
+先证明一个引理:$\;0<\varepsilon_n<\dfrac{1}{n!n}$,其中$n\geq1$.由级数展开及几何级数求和,\\
 
-$n!\varepsilon_n=n!\displaystyle\sum_{k=n+1}^{\infty}\dfrac{1}{k!}=\dfrac{1}{n+1}+\dfrac{1}{(n+1)(n+2)}+...,$ \\
-
-$\dfrac{1}{n}-\dfrac{1}{n+1}=\dfrac{1}{n(n+1)},\dfrac{1}{n(n+1)}-\dfrac{1}{(n+1)(n+2)}=\dfrac{2}{n(n+1)(n+2)}...,$  \\
-
-这样归纳下去,可得$\forall m\in\mathbb{N}^+ ,\dfrac{1}{n}>\dfrac{1}{n+1}+\dfrac{1}{(n+1)(n+2)}+...+\dfrac{1}{(n+1)(n+2)...(n+m)}\rlap{,}$ \\
-
-从而$\varepsilon_n<\dfrac{1}{n!n},$\\
+$n!\varepsilon_n=\displaystyle\sum_{j=1}^{\infty}\dfrac{1}{(n+1)(n+2)\cdots(n+j)}<\sum_{j=1}^{\infty}\dfrac{1}{(n+1)^j}=\dfrac{1}{n},$ \\
 
 $\because q\in\mathbb{N}^+,\,e=(1+\dfrac{1}{1!}+...+\dfrac{1}{q!})+\varepsilon_q=\dfrac{p}{q},$ \\
 
@@ -230,11 +224,11 @@ $\therefore\displaystyle\lim_{n \to \infty}\dfrac{a_n}{n}=\lim_{n\to\infty}\dfra
 
 \textbf{证明}: 由于$n^2$是单调递增的正无穷大量, \\
 
-由Stolz公式,$\displaystyle\lim_{n\to\infty}x_n=\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=0}^{n+1}ln\binom{n+1}{k}-\displaystyle\sum_{k=0}^{n}ln\binom{n}{k}}{2n+1}$ \\
+由$Stolz$公式,$\displaystyle\lim_{n\to\infty}x_n=\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=0}^{n+1}ln\binom{n+1}{k}-\displaystyle\sum_{k=0}^{n}ln\binom{n}{k}}{2n+1}$ \\
 
 $=\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k = 0}^{n}ln\frac{n+1}{n+1-k}}{2n+1},$又由于$2n+1$也是单调递增的正无穷大量, \\
 
-再由Stolz公式,$\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k = 0}^{n}\ln\frac{n+1}{n+1-k}}{2n+1}=\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=0}^{n}\ln\frac{n+1}{n+1-k}-\displaystyle\sum_{k=0}^{n-1}\ln\frac{n}{n-k}}{2}$ \\
+再由$Stolz$公式,$\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k = 0}^{n}\ln\frac{n+1}{n+1-k}}{2n+1}=\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=0}^{n}\ln\frac{n+1}{n+1-k}-\displaystyle\sum_{k=0}^{n-1}\ln\frac{n}{n-k}}{2}$ \\
 
 $=\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=1}^{n}\ln\frac{n+1}{n+1-k}-\displaystyle\sum_{k=0}^{n-1}\ln\frac{n}{n-k}}{2}$ \\
 

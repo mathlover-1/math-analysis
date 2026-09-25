@@ -236,13 +236,11 @@ $\therefore\displaystyle f(x_2)=f(x_1+(k_n-1)t_n+r_n)=f(x_1+r_n)\to f(x_1),$ \\
 
 \textbf{证明}:对$n$进行归纳,$n=1$时显然成立, \\
 
-假设$n=k-1$时结论成立,$\;n=k$时,设$g(x)=f(x+1)-f(x),$ \\
+假设$n-1$时结论成立,$\;n\geq2$时,设$g(x)=f(x+1)-f(x),$ \\
 
 则$g(0)+g(1)+...+g(n-1)=0,\;\therefore\,g(0),g(1),...g(n-1)$不能恒正或恒负, \\
 
-$\therefore\exists\,k_1,k_2\in\{0,1,...,n-1\},\;\text{s.t.}\,g(k_1)\geq 0,g(k_2)\leq 0,k_1\neq k_2,$ \\
-
-$\therefore\exists\,x_0\text{介于}k_1,k_2\text{之间},\;\text{s.t.}\,g(x_0)=0,$ \\
+由$g$的连续性及上式,可取$\displaystyle x_0\in[0,n-1)$使$\displaystyle g(x_0)=0$;否则$g$在$[0,n-1)$上恒正或恒负,与上式矛盾,\\
 
 记$\displaystyle\phi(x)=\begin{cases}
     \raisebox{0.45ex}[0pt][0pt]{$\displaystyle x$}&\raisebox{0.45ex}[0pt][0pt]{$\displaystyle\quad x\in[0,x_0]$} \\
@@ -250,7 +248,7 @@ $\therefore\exists\,x_0\text{介于}k_1,k_2\text{之间},\;\text{s.t.}\,g(x_0)=0
 \end{cases}$,并令$\displaystyle h(x)=f(\phi(x))$,
 \\
 
-因为$\displaystyle f(x_0)=f(x_0+1)$,所以$\displaystyle h\in C[0,n-1]$, \\
+因为$\displaystyle f(x_0)=f(x_0+1)$,所以$\displaystyle h\in C[0,n-1]$;又$\displaystyle x_0<n-1$,故$\displaystyle h(0)=f(0)=f(n)=h(n-1)$, \\
 
 由归纳假设,$\displaystyle h$至少有$\displaystyle n-1$对不同的$\displaystyle(x_i,y_i)$,满足$\displaystyle h(x_i)=h(y_i)$且$\displaystyle x_i-y_i\in\mathbb{Z}\setminus\{0\}$, \\
 

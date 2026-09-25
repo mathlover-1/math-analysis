@@ -215,25 +215,15 @@ $\therefore\displaystyle\lim_{n\to\infty}\dfrac{\ln{a_n}}{n}\text{有意义,且}
 
 由题意可得$\forall\,x\in[a,b],\;\exists\,\delta(x)>0,\;\text{s.t.}\,\forall\,y\in(x-\delta(x),x+\delta(x))\cap[a,b]$时$f(y)\equiv f(x)$.\\
 
-由有限覆盖定理,$\displaystyle [a,b]\subset\bigcup_{i=1}^{n}(x_i-\delta(x_i),x_i+\delta(x_i))$. \\
+令$A=\{t\in[a,b]\mid f\text{在}[a,t]\text{上恒等于}f(a)\}$,则$a\in A$.取$s=\sup A$. \\
 
-下面对$n$进行归纳,$\;n=1$时易得$f$为常值函数. \\
+任意$t\in[a,s)$,由上确界的定义可取$r\in A$使$t<r\leq s$,故$f(t)=f(a)$. \\
 
-假设$n=k$时,$f$为常值函数,$\;n=k+1$时,不妨设$a\in(x_1-\delta(x_1),x_1+\delta(x_1))$.\\
+若$s=a$则$s\in A$显然;若$s>a$,由$f$在$s$处局部常值,可取$t<s$且充分接近$s$,从而$f(s)=f(t)=f(a)$.因此$s\in A$. \\
 
-若$x_1+\delta(x_1)>b,$则易见$f$为常值函数,否则,不妨设$x_1+\delta(x_1)\in\left(x_2-\delta(x_2),x_2+\delta(x_2)\right)$,\\
+若$s<b$,则由$f$在$s$处局部常值,可取$y\in(s,b]$使$f$在$[s,y]$上恒等于$f(s)$,这与$s=\sup A$矛盾.故$s=b$,闭区间上的结论得证. \\
 
-则$\displaystyle\left(x_1-\delta(x_1),x_1+\delta(x_1)\right)\bigcup\left(x_2-\delta(x_2),x_2+\delta(x_2)\right)$ \\
-
-$=\left(\min\left\{x_1-\delta(x_1),x_2-\delta(x_2)\right\},\max\left\{x_1+\delta(x_1),x_2+\delta(x_2)\right\}\right)$,\\
-
-记此区间为$(min,max)$,则$f\;|_{(min,max)}\equiv f(x_1)$.\\
-
-对$\displaystyle (min,max),\left\{x_i-\delta(x_i),x_i+\delta(x_i)\right\}_{i=2}^{k}$用归纳假设,可得$f$在$[a,b]$上为常值函数. \\
-
-由数学归纳法可知,闭区间上的局部常值函数为常值函数. \\
-
-对于开区间,利用开区间的性质和反证法即可得到,此处省略证明. \\
+对于开区间,任取其中两点$x<y$,限制在内部闭区间$[x,y]$上应用上述结论,即得$f(x)=f(y)$.其余类型区间同理. \\
 
 综上,区间上的局部常值函数为常值函数.
 \BookEnd

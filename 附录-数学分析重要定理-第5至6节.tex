@@ -95,10 +95,6 @@ $$\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}$$
 $$[f(g)]'(x_0)=f'(g(x_0))g'(x_0)$$.
 \end{ti}
 
-\textbf{证明}:记$y_0=g(x_0)$.沿用微分定义中的记号,我们知道$R_f(y,y_0)=o(y-y_0)\,(y\to y_0)$.根据可导函数在$x_0$附近有界,$g(x)-y_0=O(x-x_0)\,(x\to x_0)$.于是利用复合函数的极限可得$R_f(g(x),y_0)=o(x-x_0)\,(x\to x_0)$.这说明
-$$f(g(x))=f(y_0)+f'(y_0)(g(x)-y_0)+R_f(g(x),y_0)=f(y_0)+f'(y_0)g'(x_0)(x-x_0)+o(x-x_0),$$
-因此$f(g)$在$x_0$处可微(可导),其导数为$f'(y_0)g'(x_0)$.
-
 \begin{ti}
 \textbf{定理5.4(反函数求导法则)}  设$f$在$x_0$附近连续且有反函数$g$.如果$f$在$x_0$处可导,且导数$f'(x_0)\neq 0$,则$g$在$y_0=f(x_0)$处可导,且
 $$g'(y_0)=\left[f'(x_0)\right]^{-1}$$.
@@ -118,7 +114,7 @@ $$df(x_0):\mathbb{R} \rightarrow \mathbb{R} ,t\rightarrow \alpha t$$
 \end{ti}
 
 \begin{ti}
-\textbf{定理5.7(Fermat引理)}  设$x_0$为函数$f$在$I$中的极值点.如果$f$在$x_0$处可导,且$x_0$为$I$的内点,则$f'(x_0)=0$.
+\textbf{定理5.7($Fermat$引理)}  设$x_0$为函数$f$在$I$中的极值点.如果$f$在$x_0$处可导,且$x_0$为$I$的内点,则$f'(x_0)=0$.
 \end{ti}
 
 \textbf{证明}:不妨设$x_0$为$f$的极大值点(不然可考虑$-f$).由于$x_0$为$I$的内点,故存在$\delta>0$,使得$(x_0-\delta,x_0+\delta)\subset I$.取$\delta$充分小,使得$f(x)\leq f(x_0)$对一切$x\in(x_0-\delta,x_0+\delta)$成立.特别地,当$x\in(x_0-\delta,x_0)$时,
@@ -128,24 +124,22 @@ $$f'(x_0)=f'_+(x_0)=\lim_{x\to x_0^+}\frac{f(x)-f(x_0)}{x-x_0}\leq 0.$$
 这说明$f'(x_0)=0$.
 
 \begin{ti}
-\textbf{定理5.8(Rolle中值定理)}  设函数$f$在$[a,b]$上连续,在$(a,b)$内可导,且$f(a)=f(b)$,则存在$\xi\in(a,b)$,使得$f'(\xi)=0$.
+\textbf{定理5.8($Rolle$中值定理)}  设函数$f$在$[a,b]$上连续,在$(a,b)$内可导,且$f(a)=f(b)$,则存在$\xi\in(a,b)$,使得$f'(\xi)=0$.
 \end{ti}
 
 \textbf{证明}:根据最值定理,$f$有最大值和最小值.如果二者相等,则$f$为常值函数,定理自然成立;否则由$f(a)=f(b)$可知最大值和最小值中至少有一个是被$f$在内点$\xi\in(a,b)$处所取得.由$Fermat$定理,$f'(\xi)=0$.
 
 \begin{ti}
-\textbf{定理5.9(Lagrange中值定理)}  设函数$f$在$[a,b]$上连续,在$(a,b)$内可导,则存在$\xi\in(a,b)$,使得
+\textbf{定理5.9($Lagrange$中值定理)}  设函数$f$在$[a,b]$上连续,在$(a,b)$内可导,则存在$\xi\in(a,b)$,使得
 $$f(b)-f(a)=f'(\xi)(b-a)$$.
 \end{ti}
 
 \textbf{证明}:记$\nu=\dfrac{f(b)-f(a)}{b-a}$,$g(x)=f(x)-\nu x$,则$g(b)=g(a)$.根据$Rolle$定理,存在$\xi\in(a,b)$,使得$g'(\xi)=0$.此时$f'(\xi)=\nu$,即$f(b)-f(a)=f'(\xi)(b-a)$.
 
 \begin{ti}
-\textbf{定理5.10(Cauchy中值定理)}  设函数$f,g$在$[a,b]$上连续,在$(a,b)$内可导,且$g'(x)\neq 0$,则存在$\xi\in(a,b)$,使得
+\textbf{定理5.10($Cauchy$中值定理)}  设函数$f,g$在$[a,b]$上连续,在$(a,b)$内可导,且$g'(x)\neq 0$,则存在$\xi\in(a,b)$,使得
 $$\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}$$.
 \end{ti}
-
-\textbf{证明}:由$g'$处处非零和$Rolle$定理可知$g(b)\neq g(a)$.记$\nu=\dfrac{f(b)-f(a)}{g(b)-g(a)}$,$h(x)=f(x)-\nu g(x)$,则$h(a)=h(b)$.根据$Rolle$定理,存在$\xi\in(a,b)$,使得$h'(\xi)=0$.此时$f'(\xi)=\nu g'(\xi)$,整理以后即得欲证等式.
 
 \begin{ti}
 \textbf{定义5.11(凸函数)}  设函数$f$定义在区间$I$上.如果对任意的$x,y\in I$和任意的$t\in[0,1]$,均有
@@ -154,17 +148,12 @@ $$f((1-t)x+ty)\leq(1-t)f(x)+tf(y)$$
 \end{ti}
 
 \begin{ti}
-\textbf{定理5.12(Jensen不等式)}  设函数$f$为区间$I$上的凸函数.对任意的$x_1,\ldots,x_n\in I$以及满足$\displaystyle\sum_{i=1}^{n}\lambda_i=1$的非负实数$\lambda_i$,有
+\textbf{定理5.12($Jensen$不等式)}  设函数$f$为区间$I$上的凸函数.对任意的$x_1,\ldots,x_n\in I$以及满足$\displaystyle\sum_{i=1}^{n}\lambda_i=1$的非负实数$\lambda_i$,有
 $$f\left(\sum_{i=1}^{n}\lambda_i x_i\right)\leq\sum_{i=1}^{n}\lambda_i f(x_i)$$.
 \end{ti}
 
-\textbf{证明}:对$n$用数学归纳法.$n=1$是显然的,$n=2$由凸函数定义直接得到.假设不等式对$n=k$成立.当$n=k+1$时,不妨设$0<\lambda_{k+1}<1$,此时$\displaystyle\sum_{i=1}^{k}\frac{\lambda_i}{1-\lambda_{k+1}}=1$.由归纳假设,有
-$$f\left(\sum_{i=1}^{k+1}\lambda_i x_i\right)=f\left((1-\lambda_{k+1})\sum_{i=1}^{k}\frac{\lambda_i}{1-\lambda_{k+1}}x_i+\lambda_{k+1}x_{k+1}\right)$$
-$$\leq(1-\lambda_{k+1})\sum_{i=1}^{k}\frac{\lambda_i}{1-\lambda_{k+1}}f(x_i)+\lambda_{k+1}f(x_{k+1})=\sum_{i=1}^{k+1}\lambda_i f(x_i).$$
-这说明不等式对$n=k+1$也成立,从而定理得证.
-
 \begin{ti}
-\textbf{定理5.13(L'Hospital法则)} \\
+\textbf{定理5.13($\text{L'Hospital}$法则)} \\
 (1)(之一)设$f,g$在$(a,b)$中可导,且$g'$处处非零.如果$\displaystyle\lim_{x\to a^+}f(x)=\lim_{x\to a^+}g(x)=0$,且$\displaystyle\lim_{x\to a^+}\dfrac{f'(x)}{g'(x)}=\alpha$,其中$\alpha$为实数或$\pm\infty$,则$\displaystyle\lim_{x\to a^+}\dfrac{f(x)}{g(x)}=\alpha$.\\
 (2)(之二)设$f,g$在$(a,b)$中可导,且$g'$处处非零.如果$\displaystyle\lim_{x\to a^+}g(x)=\infty$,且$\displaystyle\lim_{x\to a^+}\dfrac{f'(x)}{g'(x)}=\alpha$,其中$\alpha$为实数或$\pm\infty$,则$\displaystyle\lim_{x\to a^+}\dfrac{f(x)}{g(x)}=\alpha$.
 \end{ti}
@@ -186,31 +175,26 @@ $$\left\lvert\dfrac{f(x)}{g(x)}\right\rvert<\varepsilon,$$这说明$\displaystyl
 \romannum{3}  当$\alpha=\pm\infty$时与$\alpha=0$情形的证明类似.
 
 \begin{ti}
-\textbf{定理5.14(Taylor公式,带Peano余项)}  设函数$f$在$x_0$处有$n$阶导数,则当$x\to x_0$时
+\textbf{定理5.14($Taylor$公式,带$Peano$余项)}  设函数$f$在$x_0$处有$n$阶导数,则当$x\to x_0$时
 $$f(x)=\sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^{k}+o\bigl((x-x_0)^{n}\bigr),$$
 其中我们约定$f^{(0)}=f$,$(x-x_0)^{0}=1$.
 \end{ti}
 
-\textbf{证明}:记$R_n(x)=f(x)-\displaystyle\sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$.\\
-由$f$在$x_0$处$n$阶可导,对$\dfrac{R_n(x)}{(x-x_0)^n}$反复应用$L'Hospital$法则($n-1$次),可得
-$$\lim_{x\to x_0}\frac{R_n(x)}{(x-x_0)^n}=\lim_{x\to x_0}\frac{R_n^{(n-1)}(x)}{n!(x-x_0)}=\frac{1}{n!}\lim_{x\to x_0}\left[\frac{f^{(n-1)}(x)-f^{(n-1)}(x_0)}{x-x_0}-f^{(n)}(x_0)\right]=0,$$
-其中最后一个等号用到$f^{(n)}(x_0)$的存在性.
-
 \begin{ti}
-\textbf{定理5.15(Taylor公式,带Lagrange余项)}  设$f$为$n$阶可导函数,则
+\textbf{定理5.15($Taylor$公式,带$Lagrange$余项)}  设$n\geq1$,$f$在包含$x_0$与$x$的某个开区间内$n$阶可导,则
 $$f(x)=\sum_{k=0}^{n-1}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^{k}+\frac{f^{(n)}(\xi)}{n!}(x-x_0)^{n},$$
 其中$\xi=x_0+\theta(x-x_0)$,$\theta\in(0,1)$.
 \end{ti}
 
-\textbf{证明}:考虑以$t$为变量的函数$F(t)=\displaystyle\sum_{k=0}^{n-1}\frac{f^{(k)}(t)}{k!}(x-t)^k$.对$t$求导可得
-$$F'(t)=\sum_{k=0}^{n-1}\left[\frac{f^{(k+1)}(t)}{k!}(x-t)^k-\frac{f^{(k)}(t)}{(k-1)!}(x-t)^{k-1}\right]=\frac{f^{(n)}(t)}{(n-1)!}(x-t)^{n-1}.$$
-根据$F$的构造,我们有$F(x)-F(x_0)=f(x)-\displaystyle\sum_{k=0}^{n-1}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$.\\
-由$Lagrange$微分中值定理,存在$\xi=x_0+\theta(x-x_0)\,(\theta\in(0,1))$,使得
-$$f(x)-\sum_{k=0}^{n-1}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k=F'(\xi)(x-x_0)=\frac{f^{(n)}(\xi)}{n!}(x-x_0)^n.$$
+\textbf{证明}:当$x=x_0$时结论显然成立.当$x\neq x_0$时,令$F(t)=\displaystyle\sum_{k=0}^{n-1}\frac{f^{(k)}(t)}{k!}(x-t)^k$,$G(t)=(x-t)^n$.逐项求导并将相邻项抵消,得到
+$$F'(t)=\frac{f^{(n)}(t)}{(n-1)!}(x-t)^{n-1},\qquad G'(t)=-n(x-t)^{n-1}.$$
+由$Cauchy$微分中值定理,存在$x_0$与$x$之间的$\xi$,使得
+$$\frac{F(x)-F(x_0)}{G(x)-G(x_0)}=\frac{F'(\xi)}{G'(\xi)}=-\frac{f^{(n)}(\xi)}{n!}.$$
+注意$F(x)=f(x)$,$G(x)=0$,$G(x_0)=(x-x_0)^n$,整理即得结论.
 
 \subsection{一元函数的积分}
 \begin{ti}
-\textbf{定理5.16(Newton-Leibniz公式)}  设函数$f$在$[a,b]$上连续,且函数$F$为$f$的一个原函数,则
+\textbf{定理5.16($Newton\text{-}Leibniz$公式)}  设函数$f$在$[a,b]$上连续,且函数$F$为$f$的一个原函数,则
 $$\int_a^b f(x)\,\mathrm{d}x=F(b)-F(a)$$.
 \end{ti}
 
@@ -228,7 +212,7 @@ $$\int_a^b f(\varphi(x))\varphi'(x)\,\mathrm{d}x=\int_{\varphi(a)}^{\varphi(b)}f
 \end{ti}
 
 \begin{ti}
-\textbf{定理5.19(Wallis公式)} $\displaystyle\lim_{n\to\infty}\dfrac{1}{2n+1}\left[\dfrac{(2n)!!}{(2n-1)!!}\right]^{2}=\dfrac{\pi}{2}.$
+\textbf{定理5.19($Wallis$公式)} $\displaystyle\lim_{n\to\infty}\dfrac{1}{2n+1}\left[\dfrac{(2n)!!}{(2n-1)!!}\right]^{2}=\dfrac{\pi}{2}.$
 \end{ti}
 \textbf{证明}:当$m$为非负整数时,记$\displaystyle I_m=\int_0^{\frac{\pi}{2}}\sin^{m}x\,\mathrm{d}x$,则$I_0=\dfrac{\pi}{2}$,$I_1=1$.当$m\geq 2$时,利用分部积分可得
 $$I_m=\int_0^{\frac{\pi}{2}}\sin^{m}x\,\mathrm{d}x=(m-1)\int_0^{\frac{\pi}{2}}\sin^{m-2}x\cos^{2}x\,\mathrm{d}x=(m-1)(I_{m-2}-I_m),$$
@@ -244,7 +228,7 @@ $$\frac{n\pi}{2n+1}<\frac{1}{2n+1}\left[\frac{(2n)!!}{(2n-1)!!}\right]^{2}<\frac
 $$\lim_{n\to\infty}\frac{1}{2n+1}\left[\frac{(2n)!!}{(2n-1)!!}\right]^{2}=\frac{\pi}{2}.$$
 
 \begin{ti}
-\textbf{定理5.20(Stirling公式)} $n!=\sqrt{2\pi n}\left(\dfrac{n}{e}\right)^n e^{\delta_n},\;0<\delta_n<\dfrac{1}{12n}$.
+\textbf{定理5.20($Stirling$公式)} $n!=\sqrt{2\pi n}\left(\dfrac{n}{e}\right)^n e^{\delta_n},\;0<\delta_n<\dfrac{1}{12n}$.
 \end{ti}
 \textbf{证明}:首先易得$\dfrac{1}{k+1}<\ln(1+\dfrac{1}{k})<\dfrac{1}{k},\;\forall k\geq 1$,上式可以改写为
 $$\dfrac{1}{k+1}<\int_{k}^{k+1} \dfrac{1}{x}\,dx<\dfrac{1}{k},$$
@@ -276,11 +260,11 @@ $$\lim_{n\to\infty}\dfrac{1}{\sqrt{2n+1}}\dfrac{(2n)!!}{(2n-1)!!}=\lim_{n\to\inf
 n!=\sqrt{2\pi n}\left(\dfrac{n}{e}\right)^n e^{\delta_n},\;0<\delta_n<\dfrac{1}{12n}.
 \end{equation}
 
-\subsection{$Riemann$积分}
+\subsection{\texorpdfstring{$Riemann$}{Riemann}积分}
 \begin{ti}
-\textbf{定义5.21(Riemann可积)}  设$f$为$[a,b]$中的有界函数.如果存在实数$I$,使得任给$\varepsilon>0$,均存在$\delta>0$,当分割$P$的模满足$\left\lVert P\right\rVert<\delta$时,均有
+\textbf{定义5.21($Riemann$可积)}  设$f$为$[a,b]$中的有界函数.如果存在实数$I$,使得任给$\varepsilon>0$,均存在$\delta>0$,当分割$P$的模满足$\left\lVert P\right\rVert<\delta$时,均有
 $$\left\lvert\sum_{i=1}^{n}f(\xi_i)\Delta x_i-I\right\rvert<\varepsilon,\quad \forall\,\xi_i\in[x_{i-1},x_i],$$
-则称$f$在$[a,b]$中\textbf{Riemann可积}(简称可积),记为$f\in R[a,b]$. $I$称为$f$在$[a,b]$中的\textbf{Riemann积分}(简称积分),记为
+则称$f$在$[a,b]$中\textbf{$Riemann$可积}(简称可积),记为$f\in R[a,b]$. $I$称为$f$在$[a,b]$中的\textbf{$Riemann$积分}(简称积分),记为
 $$\int_a^b f(x)\,\mathrm{d}x=I=\lim_{\left\lVert P\right\rVert\to 0}\sum_{i=1}^{n}f(\xi_i)\Delta x_i.$$
 \end{ti}
 
@@ -300,7 +284,7 @@ $$\sum_{i\leq n}\left\lvert I_i\right\rvert\leq\varepsilon,\quad \forall\,n\geq 
 \end{ti}
 
 \begin{ti}
-\textbf{定理5.24(Lebesgue可积性判别法)}  设函数$f$在$[a,b]$上有界,则$f$在$[a,b]$上Riemann可积当且仅当$f$的间断点集为零测集.
+\textbf{定理5.24($Lebesgue$可积性判别法)}  设函数$f$在$[a,b]$上有界,则$f$在$[a,b]$上$Riemann$可积当且仅当$f$的间断点集为零测集.
 \end{ti}
 
 \begin{ti}
@@ -324,7 +308,7 @@ $$\lim_{n\to\infty}\int_a^b f_n(x)g(x)\,\mathrm{d}x=\int_a^b f(x)g(x)\,\mathrm{d
 \end{ti}
 
 \begin{ti}
-\textbf{命题5.28(Riemann-Lebesgue引理)}  设$f\in R[a,b]$,则
+\textbf{命题5.28($Riemann\text{-}Lebesgue$引理)}  设$f\in R[a,b]$,则
 $$\lim_{\lambda\to+\infty}\int_a^b f(x)\sin(\lambda x)\,\mathrm{d}x=0,\qquad \lim_{\lambda\to+\infty}\int_a^b f(x)\cos(\lambda x)\,\mathrm{d}x=0.$$
 \end{ti}
 
@@ -351,22 +335,65 @@ $$\leq M\int_a^x|g_n(t)-g(t)|\,\mathrm{d}t+M\int_a^x|f_n(t)-f(t)|\,\mathrm{d}t<\
 $$\int_a^b f(x)g(x)\,\mathrm{d}x=g(a)\int_a^{\xi}f(x)\,\mathrm{d}x+g(b)\int_{\xi}^{b}f(x)\,\mathrm{d}x$$.
 \end{ti}
 
-\textbf{证明}:记$F(x)=\displaystyle\int_a^x f(t)\,\mathrm{d}t$,则$F$在$[a,b]$上连续.先设$g$单调递减且$g(b)=0$(否则考虑$g-g(b)$).任取$[a,b]$的分割$P:a=x_0<x_1<\cdots<x_n=b$,利用$g$的单调性、$F$的连续性以及$Abel$求和,可以逐步选取中值点,使得存在$\xi_P\in[a,b]$,满足
-$$\int_a^b f(x)g(x)\,\mathrm{d}x=F(b)g(b)-F(a)g(a)-F(\xi_P)[g(b)-g(a)].$$
-取一列分割$\{P_n\}$,使$\left\lVert P_n\right\rVert\to 0$,得数列$\{\xi_n\}\subset[a,b]$.根据$Bolzano$定理,$\{\xi_n\}$存在收敛子列,不妨设它自身收敛于$\xi\in[a,b]$,则
-$$\int_a^b f(x)g(x)\,\mathrm{d}x=F(b)g(b)-F(a)g(a)-F(\xi)[g(b)-g(a)]$$
-$$\phantom{\int_a^b f(x)g(x)\,\mathrm{d}x}=g(a)[F(\xi)-F(a)]+g(b)[F(b)-F(\xi)]$$
-$\displaystyle=g(a)\int_a^{\xi}f(x)\,\mathrm{d}x+g(b)\int_{\xi}^{b}f(x)\,\mathrm{d}x.$\\
-
-证毕.
+\textbf{证明}:记$F(x)=\displaystyle\int_a^x f(t)\,\mathrm{d}t$,则$F(a)=0$且$F$在$[a,b]$上连续.若$g$为常数,结论显然.先设$g$单调递减.对分割$P:a=x_0<\cdots<x_m=b$,令$g_P(t)=g(x_{i-1})$($t\in(x_{i-1},x_i]$),并记
+$$A_P=\int_a^b f(t)g_P(t)\,\mathrm{d}t=\sum_{i=1}^m g(x_{i-1})[F(x_i)-F(x_{i-1})].$$
+由有限求和分部公式,
+$$A_P=g(b)F(b)+\sum_{i=1}^m[g(x_{i-1})-g(x_i)]F(x_i).$$
+后一个和式中的权重非负,总和为$g(a)-g(b)$.由$F$的连续性及介值定理,存在$\xi_P\in[a,b]$,使它等于$[g(a)-g(b)]F(\xi_P)$.又由单调性,
+$$\int_a^b|g_P(t)-g(t)|\,\mathrm{d}t\leq\lVert P\rVert\,[g(a)-g(b)],$$
+故当$\lVert P\rVert\to0$时,$A_P\to\int_a^b fg$.从$\{\xi_P\}$中取收敛子列,再用$F$的连续性,得$\int_a^bfg=g(b)F(b)+[g(a)-g(b)]F(\xi)$,即所求公式.若$g$单调递增,对$-g$应用上述结论即可.
 
 \begin{ti}
-\textbf{推论5.31(Bonnet)}  设$f\in R[a,b]$,$g$为非负函数.\\
+\textbf{推论5.31($Bonnet$)}  设$f\in R[a,b]$,$g$为非负函数.\\
 (1)如果$g$在$[a,b]$中单调递减,则存在$\zeta\in[a,b]$,使得
 $$\int_a^b f(x)g(x)\,\mathrm{d}x=g(a)\int_a^{\zeta}f(x)\,\mathrm{d}x;$$
 (2)如果$g$在$[a,b]$中单调递增,则存在$\eta\in[a,b]$,使得
 $$\int_a^b f(x)g(x)\,\mathrm{d}x=g(b)\int_{\eta}^{b}f(x)\,\mathrm{d}x.$$
 \end{ti}
+
+\begin{ti}
+\textbf{命题5.32($Euler\text{-}Poisson$积分)} $\;\displaystyle\int_{0}^{+\infty} e^{-x^2}\,dx=\dfrac{\sqrt{\pi}}{2}$.
+\end{ti}
+
+\textbf{解法一}:先计算积分$\displaystyle I_n=\int_{0}^{+\infty} \dfrac{1}{(1+x^2)^n}\,dx $. \\
+当$n=1$时,$\displaystyle I_1=\left.\arctan x\right|_0^{+\infty}=\dfrac{\pi}{2}.$当$n\geq 2$时,
+$$I_n=\int_{0}^{+\infty} \dfrac{1+x^2-x^2}{(1+x^2)^n}\,dx=I_{n-1}-\int_{0}^{+\infty} \dfrac{x^2}{(1+x^2)^n}\,dx $$
+$$\phantom{I_n=}=I_{n-1}+\dfrac{1}{2(n-1)}\left.\dfrac{x}{(1+x^2)^{n-1}}\right|_0^{+\infty}-\dfrac{1}{2(n-1)}\int_{0}^{+\infty} \dfrac{1}{(1+x^2)^{n-1}}\,dx $$
+$$=\dfrac{2n-3}{2n-2}I_{n-1}.$$
+这说明$I_n=\dfrac{\pi}{2}\dfrac{(2n-3)!!}{(2n-2)!!}$. \\
+
+利用不等式$e^t\geq 1+t$可得$1-x^2\leq e^{-x^2}\leq(1+x^2)^{-1}$.当$n\geq 1$时就有
+$$\int_{0}^{1} (1-x^2)^n\,dx\leq\int_{0}^{1} e^{-nx^2}\,dx\leq\int_{0}^{+\infty} e^{-nx^2}\,dx\leq\int_{0}^{+\infty} \dfrac{1}{(1+x^2)^n}\,dx,$$
+上式左边利用变量代换$x=\cos t$以及分部积分,中间利用$x=\dfrac{t}{\sqrt{n}}$,右边利用上面计算得到的积分,得到
+$$\dfrac{(2n)!!}{(2n+1)!!}\leq\dfrac{1}{\sqrt{n}}\int_{0}^{+\infty} e^{-t^2}\,dt\leq\dfrac{\pi}{2}\dfrac{(2n-3)!!}{(2n-2)!!},$$
+两边乘$\sqrt{n}$,再利用$Wallis$公式不难看出,当$n\to\infty$时,左右极限均为$\dfrac{\sqrt{\pi}}{2}$,这说明
+$$\int_{0}^{+\infty} e^{-t^2}\,dt=\dfrac{\sqrt{\pi}}{2} .$$
+
+\textbf{解法二}:利用重积分与极坐标变换.\\
+$$I^2=\left(\int_{0}^{+\infty}  e^{-x^2}\,dx \right)\left(\int_{0}^{+\infty}  e^{-y^2}\,dy \right)=\iint\limits_{\substack{x\in[0,+\infty) \\ y\in[0,+\infty)}} e^{-(x^2+y^2)}\,dxdy$$
+$$=\iint\limits_{\substack{r\in[0,+\infty) \\ \theta\in[0,\frac{\pi}{2}]}}re^{-r^2}\,drd\theta=\dfrac{\pi}{2}\int_{0}^{+\infty} re^{-r^2}\,dr=\dfrac{\pi}{4}.$$
+于是有
+$$I=\dfrac{\sqrt{\pi}}{2}.$$
+
+\begin{ti}
+\textbf{命题5.33}  计算积分 $\displaystyle\int_{0}^{+\infty}\dfrac{\sin^2 x}{x^2}\,\mathrm{d}x$.
+\end{ti}
+
+\textbf{证明}:当 $n\geq 0$ 时,利用等式 $\sin(2n+1)x-\sin(2n-1)x=2\sin x\cos 2nx$ 易得
+\[\int_{0}^{\frac{\pi}{2}}\dfrac{\sin(2n+1)x}{\sin x}\,\mathrm{d}x=\dfrac{\pi}{2}.\tag{1}\]
+再利用等式 $\sin^2 nx-\sin^2(n-1)x=\sin(2n-1)x\sin x$ 可得
+\[\int_{0}^{\frac{\pi}{2}}\dfrac{\sin^2 nx}{\sin^2 x}\,\mathrm{d}x=\sum_{k=1}^{n}\int_{0}^{\frac{\pi}{2}}\dfrac{\sin(2k-1)x}{\sin x}\,\mathrm{d}x=\dfrac{\pi}{2}n.\tag{2}\]
+当 $x\in\left(0,\dfrac{\pi}{2}\right)$ 时,注意到
+\[0<\dfrac{1}{\sin^2 x}-\dfrac{1}{x^2}=1+\dfrac{1}{\tan^2 x}-\dfrac{1}{x^2}<1,\tag{3}\]
+因此有
+\begin{align*}
+\int_0^{+\infty}\dfrac{\sin^2 x}{x^2}\,\mathrm{d}x
+&=\lim_{n\to\infty}\dfrac{1}{n}\int_0^{+\infty}\dfrac{\sin^2 nx}{x^2}\,\mathrm{d}x=\lim_{n\to\infty}\dfrac{1}{n}\int_0^{\frac{\pi}{2}}\dfrac{\sin^2 nx}{x^2}\,\mathrm{d}x\\
+&=\lim_{n\to\infty}\dfrac{1}{n}\int_0^{\frac{\pi}{2}}\sin^2 nx\left(\dfrac{1}{x^2}-\dfrac{1}{\sin^2 x}\right)\mathrm{d}x+\lim_{n\to\infty}\dfrac{1}{n}\int_0^{\frac{\pi}{2}}\dfrac{\sin^2 nx}{\sin^2 x}\,\mathrm{d}x\\
+&=0+\dfrac{\pi}{2}=\dfrac{\pi}{2}.
+\end{align*}
+\textbf{注}:\;注意到 $x^{-2}=(-x^{-1})'$, 利用分部积分和简单的变量替换,由此例不难得出
+\[\int_{0}^{+\infty}\dfrac{\sin^2 x}{x^2}\,\mathrm{d}x=\int_{0}^{+\infty}\dfrac{\sin x}{x}\,\mathrm{d}x=\dfrac{\pi}{2}.\tag{4}\]
 
 \section{多元微分学与多元积分学}
 \subsection{多元函数的微分}
@@ -406,20 +433,11 @@ $$\nabla f(\mathbf{x}_0)=\left(\frac{\partial f}{\partial x_1}(\mathbf{x}_0),\ld
 $$Jh(x^0)=Jg(y^0)\cdot Jf(x^0)$$.
 \end{ti}
 
-\textbf{证明}:由$f$在$x^0$处可微可知,在$x^0$附近成立$f(x)-f(x^0)=Jf(x^0)(x-x^0)+o(\left\lVert x-x^0\right\rVert)$.这说明存在常数$C$,使得$\left\lVert f(x)-f(x^0)\right\rVert\leq C\left\lVert x-x^0\right\rVert$.特别地,当$x\to x^0$时,$f(x)\to f(x^0)$.同理,$g$在$y^0$处可微,故$g(y)-g(y^0)=Jg(y^0)(y-y^0)+o(\left\lVert y-y^0\right\rVert)$.在上式中代入$y=f(x)$可得
-$$h(x)-h(x^0)=Jg(y^0)[f(x)-f(x^0)]+o(\left\lVert f(x)-f(x^0)\right\rVert)$$
-$$=[Jg(y^0)\cdot Jf(x^0)](x-x^0)+o(\left\lVert x-x^0\right\rVert),$$
-这说明$h$在$x^0$处可微,且$Jh(x^0)=Jg(y^0)\cdot Jf(x^0)$.
-
 \begin{ti}
 \textbf{定理6.7(微分中值定理)} 设$D\subset \mathbb{R}^n$为凸域,$f:D\rightarrow\mathbb{R}$在$D$中处处可微,则任给$x,y\in D$,
 存在$\theta\in(0,1)$,使得
 $$f(x)-f(y)=\nabla f(\xi)\cdot(x-y),\;\xi=\theta x+(1-\theta)y$$.
 \end{ti}
-
-\textbf{证明}:令$\sigma(t)=tx+(1-t)y$,由$D$为凸域可知当$t\in[0,1]$时$\sigma(t)\in D$.对一元函数$\varphi(t)=f(\sigma(t))$用微分中值定理可知存在$\theta\in(0,1)$,使得$\varphi(1)-\varphi(0)=\varphi'(\theta)$.由链式法则可得
-$$f(x)-f(y)=\varphi(1)-\varphi(0)=\varphi'(\theta)=\nabla f(\xi)\cdot(x-y),$$
-其中$\xi=\sigma(\theta)=\theta x+(1-\theta)y$.由$f(x)=\varphi(1)$,$f(y)=\varphi(0)$可知欲证结论成立.
 
 \begin{ti}
 \textbf{定理6.8(拟微分中值定理)}  设$D\subset\mathbb{R}^n$为凸域,$f:D\rightarrow\mathbb{R}^m$在$D$中处处可微,则对任意的$x,y\in D$,存在$\xi\in D$,使得
@@ -445,12 +463,11 @@ $$\left\lvert u\cdot[f(x)-f(y)]\right\rvert\leq\left\lVert Jf(\xi)\right\rVert\c
 \textbf{证明}:不失一般性,可设$\mathbf{x}_0=0$,$y_0=0$.以$L$记$f$在$\mathbf{x}_0=0$处的微分,则$L$可逆,且$L^{-1}\circ f$在$\mathbf{x}_0$处的微分为恒同映射.
 如果欲证结论对$L^{-1}f$成立,则对$f$也成立.因此,不妨从一开始就假设$Jf(\mathbf{x}_0)=I_n$.\\
 
-在$\mathbf{x}_0=0$附近,
-$f$是恒同映射的小扰动:$f(x)=x+g(x)$,$Jg(0)=0$,扰动项$g(x)=f(x)-x$为$C^k$映射.因此,存在$\delta>0$使得$\left\lVert Jg(x)\right\rVert\leq\dfrac{1}{2}$对一切$x\in B_\delta(0)\subset D$成立.
-由\textbf{定理6.9}可知
-$$\left\lVert g(x_1)-g(x_2)\right\rVert\leq\dfrac{1}{2}\left\lVert x_1-x_2\right\rVert,\forall x_1,x_2\in B_\delta(0).$$
-给定$y\in B_{\delta/2}(0)$,我们在$B_\delta(0)$中解方程$f(x)=y$,即$x=y-g(x)$.
-记$\varphi(x)=y-g(x)$,则$\varphi$为$B_\delta(0)$到自身的压缩映射.根据压缩映射原理,方程在$B_\delta(0)$中有唯一解,记为$x_y$.令$U=f^{-1}(B_{\delta/2}(0))\cap B_\delta(0)$,$V=B_{\delta/2}(0)$,则$f|_U:U\to V$是一一映射,其逆映射$h(y)=x_y$满足$y-g(h(y))=h(y)$. \\
+在$\mathbf{x}_0=0$附近,$f$是恒同映射的小扰动:$f(x)=x+g(x)$,$Jg(0)=0$,且$g(0)=0$.取$\delta>0$,使闭球$\overline B_\delta(0)\subset D$,并使$\left\lVert Jg(x)\right\rVert\leq\dfrac{1}{2}$在该闭球上成立.由\textbf{定理6.8}可知
+$$\left\lVert g(x_1)-g(x_2)\right\rVert\leq\dfrac{1}{2}\left\lVert x_1-x_2\right\rVert,\quad x_1,x_2\in\overline B_\delta(0).$$
+给定$y\in V=B_{\delta/2}(0)$,解$f(x)=y$等价于解$x=y-g(x)$.记$\varphi_y(x)=y-g(x)$,则当$x\in\overline B_\delta(0)$时,
+$$\lVert\varphi_y(x)\rVert\leq\lVert y\rVert+\tfrac12\lVert x\rVert<\delta.$$
+故$\varphi_y$是完备空间$\overline B_\delta(0)$到自身的压缩映射.由压缩映射原理,它有唯一不动点$x_y\in B_\delta(0)$.令$U=f^{-1}(V)\cap B_\delta(0)$,则$U$为开邻域,$f|_U:U\to V$为一一且满的映射,其逆映射$h(y)=x_y$满足$y-g(h(y))=h(y)$. \\
 
 (1)$h:V\to U$是连续映射:当$y_1,y_2\in V$时,
 $$\left\lVert h(y_1)-h(y_2)\right\rVert\leq\left\lVert y_1-y_2\right\rVert+\frac{1}{2}\left\lVert h(y_1)-h(y_2)\right\rVert,$$
@@ -463,10 +480,10 @@ $$\phantom{h(y)-h(y_0)}=(y-y_0)-Jg(h(y_0))\cdot(h(y)-h(y_0))+o(\left\lVert h(y)-
 
 \begin{ti}
 \textbf{定理6.10(隐映射定理)}  设$W\subset \mathbb{R}^{m+n}$为开集,$W$中的点用$(x,y)$表示,
-其中$x=(x_1,x_2,...,x_n),y=(y_1,y_2,...,y_m).f:W\rightarrow\mathbb{R}^m\text{为}C^k$映射,用分量表示为
+其中$x=(x_1,x_2,...,x_n),y=(y_1,y_2,...,y_m)$.设$k\geq1$,$f:W\rightarrow\mathbb{R}^m$为$C^k$映射,用分量表示为
 $$f(x,y)=(f_1(x,y),f_2(x,y),...,f_m(x,y)).$$
 设$(x^0,y^0)\in W,\text{且}det J_yf(x^0,y^0)\neq 0,\text{其中}J_yf(x,y)=\left(\dfrac{\partial f_i}{\partial y_j}(x,y)\right)_{m\times m}$.
-则存在$x^0$的开邻域$V\subset\mathbb{R}^n$以及唯一的$C^k$映射$\psi:V\rightarrow\mathbb{R}^m,$使得 \\
+则存在$x^0$的开邻域$V\subset\mathbb{R}^n$及$y^0$的开邻域$Y\subset\mathbb{R}^m$,使得对每个$x\in V$,方程$f(x,y)=f(x^0,y^0)$在$Y$中恰有一个解$y=\psi(x)$,且$\psi:V\to Y$为$C^k$映射.于是 \\
 (1)$y^0=\psi(x^0),f(x,\psi(x))=f(x^0,y^0),\forall\,x\in V$; \\
 (2)$J\psi(x)=-[J_yf(x,\psi(x))]^{-1}J_xf(x,\psi(x)),\text{其中}J_xf(x,y)=\left(\dfrac{\partial f_i}{\partial x_j}(x,y)\right)_{m\times n}$.
 \end{ti}
@@ -484,17 +501,13 @@ $$f(\mathbf{x}_0)\geq f(\mathbf{x})\;\text{或}\;f(\mathbf{x}_0)\leq f(\mathbf{x
 \begin{ti}
 \textbf{定理6.13(极值的充分条件)}  设函数$f$在$\mathbf{x}_0$的某邻域内二阶连续可微,且$\nabla f(\mathbf{x}_0)=\mathbf{0}$,
 记$Hesse$矩阵$\nabla^2 f=\left(\dfrac{\partial^2 f}{\partial x_i\partial x_j}\right)_{n\times n}$.\\
-(1)如果$\nabla^2 f$正定,则$\mathbf{x}_0$为严格极小值点;\\
-(2)如果$\nabla^2 f$负定,则$\mathbf{x}_0$为严格极大值点;\\
-(3)如果$\nabla^2 f$不定,则$\mathbf{x}_0$不是极值点.
+(1)如果$\nabla^2 f(\mathbf{x}_0)$正定,则$\mathbf{x}_0$为严格极小值点;\\
+(2)如果$\nabla^2 f(\mathbf{x}_0)$负定,则$\mathbf{x}_0$为严格极大值点;\\
+(3)如果$\nabla^2 f(\mathbf{x}_0)$不定,则$\mathbf{x}_0$不是极值点.
 \end{ti}
 
-\textbf{证明}:设$u=x-\mathbf{x}_0$,对一元函数$\varphi(t)=f(\mathbf{x}_0+tu)$应用$Taylor$公式可得
-$$f(x)=\varphi(1)=\varphi(0)+\varphi'(0)+\frac{1}{2}\varphi''(\theta)=f(\mathbf{x}_0)+\frac{1}{2}(x-\mathbf{x}_0)\nabla^2 f(\xi)(x-\mathbf{x}_0)^T,$$
-其中$\xi=\mathbf{x}_0+\theta u$,$\theta\in(0,1)$.由$\nabla^2 f$的连续性,当$x$充分接近$\mathbf{x}_0$时,$\nabla^2 f(\xi)$与$\nabla^2 f(\mathbf{x}_0)$保持同号性.因此,若$\nabla^2 f(\mathbf{x}_0)$正定,则对充分接近$\mathbf{x}_0$的$x\neq\mathbf{x}_0$有$f(x)>f(\mathbf{x}_0)$,即$\mathbf{x}_0$为严格极小值点;若$\nabla^2 f(\mathbf{x}_0)$负定,则$\mathbf{x}_0$为严格极大值点;若$\nabla^2 f(\mathbf{x}_0)$不定,则可选取方向$u$,使$\dfrac{1}{2}(x-\mathbf{x}_0)\nabla^2 f(\xi)(x-\mathbf{x}_0)^T$可正可负,故$\mathbf{x}_0$不是极值点.
-
 \begin{ti}
-\textbf{定理6.14(Lagrange乘数法)}  设$U\subset\mathbb{R}^n$为开集,$f:U\to\mathbb{R}$为可微函数,$\Phi:U\to\mathbb{R}^m\,(n>m)$为$C^k\,(k\geq 1)$映射.记$\Sigma=\Phi^{-1}(0)=\left\{\mathbf{x}\in U\;|\;\Phi(\mathbf{x})=0\right\}$.设$\mathbf{x}_0\in\Sigma$为$f$的条件极值点.如果$J\Phi(\mathbf{x}_0)$的秩为$m$,则存在$\lambda^0\in\mathbb{R}^m$,使得
+\textbf{定理6.14($Lagrange$乘数法)}  设$U\subset\mathbb{R}^n$为开集,$f:U\to\mathbb{R}$为可微函数,$\Phi:U\to\mathbb{R}^m\,(n>m)$为$C^k\,(k\geq 1)$映射.记$\Sigma=\Phi^{-1}(0)=\left\{\mathbf{x}\in U\;|\;\Phi(\mathbf{x})=0\right\}$.设$\mathbf{x}_0\in\Sigma$为$f$的条件极值点.如果$J\Phi(\mathbf{x}_0)$的秩为$m$,则存在$\lambda^0\in\mathbb{R}^m$,使得
 $$\nabla f(\mathbf{x}_0)-\lambda^0\cdot J\Phi(\mathbf{x}_0)=0$$.
 \end{ti}
 
@@ -508,10 +521,10 @@ $$J_zf(\mathbf{x}_0)=J_yf(\mathbf{x}_0)\cdot(J_y\Phi)^{-1}(\mathbf{x}_0)\cdot J_
 
 \subsection{多元函数的积分}
 \begin{ti}
-\textbf{定义6.15(二重Riemann积分)}  设函数$f$在有界闭区域$D\subset\mathbb{R}^2$上有界.对$D$的任意分割$P=\{D_1,\ldots,D_n\}$,记
+\textbf{定义6.15(二重$Riemann$积分)}  设函数$f$在有界闭区域$D\subset\mathbb{R}^2$上有界.对$D$的任意分割$P=\{D_1,\ldots,D_n\}$,记
 $$S(P)=\sum_{i=1}^{n}M_i\,\sigma(D_i),\qquad s(P)=\sum_{i=1}^{n}m_i\,\sigma(D_i)$$
 其中$\displaystyle M_i=\sup_{D_i}f$,$\displaystyle m_i=\inf_{D_i}f$, $\sigma(D_i)$为$D_i$的面积.
-如果$\displaystyle\inf_P S(P)=\sup_P s(P)$,则称$f$在$D$上\textbf{Riemann可积},
+如果$\displaystyle\inf_P S(P)=\sup_P s(P)$,则称$f$在$D$上\textbf{$Riemann$可积},
 该公共值记为$\displaystyle\iint_D f(x,y)\,\mathrm{d}x\mathrm{d}y$.
 \end{ti}
 
@@ -530,7 +543,7 @@ $$\iint_D f(x,y)\,\mathrm{d}x\mathrm{d}y=\iint_{D'}f(\Phi(u,v))\left\lvert\det D
 \end{ti}
 
 \begin{ti}
-\textbf{定义6.18(第一型曲线积分)}  设$\sigma:[\alpha,\beta]\rightarrow\mathbb{R}^n$为参数曲线,$f$是定义在$\sigma$上的有界函数.
+\textbf{定义6.18(第一型曲线积分)}  设$\sigma:[\alpha,\beta]\rightarrow\mathbb{R}^n$为可求长的参数曲线,$s(t)$表示从$\sigma(\alpha)$到$\sigma(t)$的弧长,$f$是定义在曲线迹上的有界函数.
 任给$[\alpha,\beta]$的分割$\pi:\alpha=t_0<t_1<\cdots<t_m=\beta$,取$\xi_i\in[t_{i-1},t_i]$,考虑和$\displaystyle\sum_{i=1}^{m}f(\sigma(\xi_i))\Delta s_i$,其中$\Delta s_i=s(t_i)-s(t_{i-1})$.如果极限
 $$\lim_{\left\lVert\pi\right\rVert\to 0}\sum_{i=1}^{m}f(\sigma(\xi_i))\Delta s_i$$
 存在且与$\{\xi_i\}$的选取无关,则称此极限为$f$在$\sigma$上的\textbf{第一型曲线积分},记为$\displaystyle\int_\sigma f\,\mathrm{d}s$.当$\sigma$为分段$C^1$曲线时,
@@ -554,75 +567,21 @@ $$\iint_S P\,\mathrm{d}y\wedge\mathrm{d}z+Q\,\mathrm{d}z\wedge\mathrm{d}x+R\,\ma
 \end{ti}
 
 \begin{ti}
-\textbf{定理6.22(Green公式)}  设$\Omega$为平面有界区域,其边界由有限条$C^1$曲线组成,边界的定向为诱导定向.如果$P,Q$为$\Omega$上的$C^1$函数,则
+\textbf{定理6.22($Green$公式)}  设$\Omega$为平面有界区域,其边界由有限条分段$C^1$的简单闭曲线组成,边界的定向为诱导定向.如果$P,Q$在包含$\overline\Omega$的开集上为$C^1$函数,则
 $$\iint_\Omega\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm{d}x\mathrm{d}y=\oint_{\partial\Omega}P\,\mathrm{d}x+Q\,\mathrm{d}y$$.
 \end{ti}
 
-\textbf{证明}:我们只证明这个定理的一个特殊情形,一般的情形可以借助单位分解定理转化为这种特殊情形.先做一些预备工作.\\
-设$\varphi:D\to\Omega$为$C^2$的可逆映射,记为$\varphi(u,v)=(x(u,v),y(u,v)),\,(u,v)\in D$,它可以看成$\mathbb{R}^2$内的一个坐标变换.
-假设$\varphi$是保持定向的,且$\varphi(\partial D)=\partial\Omega$.按照第二型曲线积分的定义,有
-$$\oint_{\partial D}\overline P\,\mathrm{d}u+\overline Q\,\mathrm{d}v=\oint_{\partial\Omega}P\,\mathrm{d}x+Q\,\mathrm{d}y,$$
-其中$\overline P=Px_u+Qy_u$,$\overline Q=Px_v+Qy_v$;又根据复合求导的链式法则,有
-$$\iint_D\left(\frac{\partial\overline Q}{\partial u}-\frac{\partial\overline P}{\partial v}\right)\mathrm{d}u\mathrm{d}v=\iint_\Omega\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm{d}x\mathrm{d}y.$$
-将上面两式结合起来我们就发现,要说明$Green$公式在$\Omega$上成立,只要说明它在$D$上成立即可,反之亦然.\\
-因此,证明$Green$公式的想法就是将一般的区域变为较为简单的区域,然后在较为简单的区域上考虑问题.
-为此设$\sigma(t)=(x(t),y(t))$为$\partial\Omega$的一段$C^2$参数曲线,$t\in[\alpha,\beta]$.设$t_0\in(\alpha,\beta)$,且$x'(t_0)\neq 0$.
-通过适当的平移变换以及保定向的正交变换,不妨设$(x(t_0),y(t_0))=(0,0)$,$(x'(t_0),y'(t_0))=(1,0)$.因为$x'(t_0)>0$,由反函数定理,在$t=t_0$附近$t$可以表示为$x$的函数,从而曲线$\sigma$可以表示为
-$$\sigma(x)=(x,\varphi(x)),\quad x\in[-a,a].$$
-由于$\varphi(0)=0$,存在$0<\varepsilon<\dfrac{a}{2}$,使得$|\varphi(x)|<\dfrac{a}{2}$对一切$x\in[-\varepsilon,\varepsilon]$成立.现在我们再作一个假设:设$P,Q$在$B_\varepsilon=\{x^2+y^2<\varepsilon^2\}$之外恒为零.
-这样,我们就只需在简单区域$\Omega\cap B_\varepsilon$中考虑$Green$公式即可.由于$(1,0)$是原点处的切向,按照右手法则,$(0,-1)$应是原点处的单位外法向,因此区域位于$\varphi(x)$图像的上方.\\
-为了简化区域,进一步考虑坐标变换$\varphi(x,y)=(x,y-\varphi(x)),\,(x,y)\in[-a,a]\times[-a,a]$.
-这是保持定向的坐标变换,$\varphi(x,\varphi(x))=(x,0)$,即$\varphi$将$\sigma$变为了$x$轴,且$\varphi(\Omega\cap B_\varepsilon(0))\subset[-a,a]\times[-a,a]$.
-由于边界诱导定向要求法向量$(0,-1)$方向向外,因此$\varphi(B_\varepsilon(0)\cap\Omega)$实际上包含于上半平面.由于$P,Q$在$B_\varepsilon$之外恒为零,我们现在只要在矩形$I=[-a,a]\times[0,a]$上验证$Green$公式就可以了.
-矩形$I$由四条边组成,其中$(x,0)\,(x\in[-a,a])$代表原来的曲线$\sigma$,而$P,Q$在其余三条边附近均为零.因此
-$$\oint_{\partial I}P\,\mathrm{d}x+Q\,\mathrm{d}y=\int_{-a}^{a}P(x,0)\,\mathrm{d}x,$$
-且
-$$\iint_I\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm{d}x\mathrm{d}y=\int_0^{a}[Q(a,y)-Q(-a,y)]\,\mathrm{d}y-\int_{-a}^{a}[P(x,a)-P(x,0)]\,\mathrm{d}x$$
-$$\phantom{\iint_I\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm{d}x\mathrm{d}y}=\int_{-a}^{a}P(x,0)\,\mathrm{d}x,$$
-这说明$Green$公式在$I$上成立.\\
-\textbf{注}: 在证明过程中,我们假设了边界是$C^2$曲线,这个条件可以减弱.一般地,利用光滑逼近可以证明,当区域边界由有限条分段$C^1$的连续曲线组成时,$Green$公式仍然成立.
 
 \begin{ti}
-\textbf{定理6.23(Gauss公式)}  设$\Omega$为$\mathbb{R}^3$中的有界区域,其边界由有限个$C^1$曲面组成,曲面的定向为诱导定向(即外侧方向).如果$P,Q,R$为$\Omega$上的连续可微函数,则
+\textbf{定理6.23($Gauss$公式)}  设$\Omega$为$\mathbb{R}^3$中的有界区域,其边界由有限个分段$C^1$的闭曲面组成,曲面的定向为诱导定向(即外侧方向).如果$P,Q,R$在包含$\overline\Omega$的开集上为$C^1$函数,则
 $$\iiint_\Omega\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\mathrm{d}x\mathrm{d}y\mathrm{d}z=\iint_{\partial\Omega}P\,\mathrm{d}y\wedge\mathrm{d}z+Q\,\mathrm{d}z\wedge\mathrm{d}x+R\,\mathrm{d}x\wedge\mathrm{d}y$$.
 \end{ti}
 
-\textbf{证明}:和$Green$公式一样,我们证明一个特殊情形:在某个边界点的一个小邻域之外$P,Q$和$R$均恒为零.证明的思路也是类似的,先说明$Gauss$公式在坐标变换下具有形式不变性,然后利用坐标变换将问题变为矩形区域内的$Gauss$公式.\\
-为此,设$\varphi:\widetilde\Omega\to\Omega$为$C^2$的保定向坐标变换,\\
-记为$\varphi(u,v,w)=(x(u,v,w),y(u,v,w),z(u,v,w)),\,(u,v,w)\in\widetilde\Omega$.利用复合求导的链式法则以及第二型曲面积分的定义不难得到
-$$\iint_{\partial\widetilde\Omega}\overline P\,\mathrm{d}v\wedge\mathrm{d}w+\overline Q\,\mathrm{d}w\wedge\mathrm{d}u+\overline R\,\mathrm{d}u\wedge\mathrm{d}v$$
-$$\phantom{\iint_{\partial\widetilde\Omega}\overline P\,\mathrm{d}v\wedge\mathrm{d}w+\overline Q\,\mathrm{d}w\wedge\mathrm{d}u+\overline R\,\mathrm{d}u\wedge\mathrm{d}v}=\iint_{\partial\Omega}P\,\mathrm{d}y\wedge\mathrm{d}z+Q\,\mathrm{d}z\wedge\mathrm{d}x+R\,\mathrm{d}x\wedge\mathrm{d}y,$$
-其中$\overline P=P\dfrac{\partial(y,z)}{\partial(v,w)}+Q\dfrac{\partial(z,x)}{\partial(v,w)}+R\dfrac{\partial(x,y)}{\partial(v,w)}$,而$\overline Q,\overline R$类似地定义(分别将$(v,w)$换成$(w,u)$和$(u,v)$).这是坐标变换下第二型曲面积分的变换公式.为了得到重积分的变量替换公式,注意到直接的计算表明
-$$\frac{\partial}{\partial u}\left(\frac{\partial(y,z)}{\partial(v,w)}\right)+\frac{\partial}{\partial v}\left(\frac{\partial(y,z)}{\partial(w,u)}\right)$$
-$$\phantom{\frac{\partial}{\partial u}\left(\frac{\partial(y,z)}{\partial(v,w)}\right)}+\frac{\partial}{\partial w}\left(\frac{\partial(y,z)}{\partial(u,v)}\right)=0,$$
-在上式中将$(y,z)$换成$(z,x)$或$(x,y)$也成立.\\
-利用这些等式以及$\varphi$保持定向可知,$x_uy_vz_w$的符号不变,再由重积分的变量替换公式就得到
-$$\iiint_{\widetilde\Omega}\left(\frac{\partial\overline P}{\partial u}+\frac{\partial\overline Q}{\partial v}+\frac{\partial\overline R}{\partial w}\right)\mathrm{d}u\mathrm{d}v\mathrm{d}w=\iiint_\Omega\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\mathrm{d}x\mathrm{d}y\mathrm{d}z.$$
-结合上面两个公式,我们就知道要说明$Gauss$公式在$\Omega$上成立,只要说明它在$\widetilde\Omega$上成立即可,反之亦然.\\
-通过平移以及适当的保定向的正交变换,我们可以假设$(x_0,y_0,z_0)=(0,0,0)$,$P,Q,R$在$B_\varepsilon(0)$外恒为零,且$\partial\Omega\cap B_\varepsilon(0)$为$C^1$函数$\varphi(x,y)$的图像,其中$\varphi(0,0)=0$,$\nabla\varphi(0,0)=(0,0)$.此时,在原点$(0,0,0)$处的单位外法向是$(0,0,1)$,因此区域$\Omega\cap B_\varepsilon(0)$位于图像的下方.与$Green$公式的证明类似,通过适当的保定向的坐标变换,我们将该区域变为矩形区域$I=[-a,a]^2\times[-a,0]$的一部分,在这个变换下边界$\partial\Omega\cap B_\varepsilon(0)$变为$[-a,a]^2\times\{0\}$的一部分,而$P,Q,R$在经过变换后在矩形$[-a,a]^2\times[-a,0]$的其他几个边界面附近恒为零.我们只要在这个矩形区域上验证$Gauss$公式成立就行了.经过这些预备以后我们得到
-$$\iint_{\partial I}P\,\mathrm{d}y\wedge\mathrm{d}z+Q\,\mathrm{d}z\wedge\mathrm{d}x+R\,\mathrm{d}x\wedge\mathrm{d}y=\int_{[-a,a]^2}R(x,y,0)\,\mathrm{d}x\mathrm{d}y,$$
-以及
-$$\iiint_I\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\mathrm{d}x\mathrm{d}y\mathrm{d}z=\int_{[-a,a]^2}R(x,y,0)\,\mathrm{d}x\mathrm{d}y,$$
-这说明$Gauss$公式在我们的假设下成立.\\
-注 当区域的边界是分片$C^1$时,$Gauss$公式仍然成立,证明的方法也可以推广到一般的欧氏空间$\mathbb{R}^n$中.
-
 \begin{ti}
-\textbf{定理6.24(Stokes公式)}  设$\Sigma$为定向曲面,$\Omega$为曲面上的有界区域,其边界赋以诱导定向.如果$P,Q,R$为$\Omega$附近的连续可微函数,则
+\textbf{定理6.24($Stokes$公式)}  设$\Sigma$为定向曲面,$\Omega$为曲面上的有界区域,其边界赋以诱导定向.如果$P,Q,R$为$\Omega$附近的连续可微函数,则
 $$\iint_\Omega\left[\left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\mathrm{d}y\wedge\mathrm{d}z+\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)\mathrm{d}z\wedge\mathrm{d}x+\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm{d}x\wedge\mathrm{d}y\right]$$
 $$=\oint_{\partial\Omega}P\,\mathrm{d}x+Q\,\mathrm{d}y+R\,\mathrm{d}z$$.
 \end{ti}
 
-\textbf{证明}:和前面一样,我们只证明一个特殊情形:假定$\varphi:D\to\mathbb{R}^3$为定向曲面的$C^2$参数表示,且$\varphi(\widetilde\Omega)=\Omega$,
-其中$\widetilde\Omega$为$D\subset\mathbb{R}^2$中的有界区域.根据诱导定向的定义,$\partial\widetilde\Omega$的定向也是平面上的诱导定向.\\
-记$\varphi(u,v)=(x(u,v),y(u,v),z(u,v))$,为了方便起见,将$Stokes$公式的左右两边分别记为$I,II$.则
-$$II=\oint_{\partial\widetilde\Omega}S\,\mathrm{d}u+T\,\mathrm{d}v,$$
-其中$S=Px_u+Qy_u+Rz_u$,$T=Px_v+Qy_v+Rz_v$.再由$Green$公式可得
-$$II=\iint_{\widetilde\Omega}(T_u-S_v)\,\mathrm{d}u\mathrm{d}v.$$
-根据复合求导的链式法则,计算表明
-$$T_u-S_v=\frac{\partial(y,z)}{\partial(u,v)}\left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)+\frac{\partial(z,x)}{\partial(u,v)}\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)+\frac{\partial(x,y)}{\partial(u,v)}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right).$$
-根据第二型曲面积分的定义可得
-$$I=\iint_{\widetilde\Omega}(T_u-S_v)\,\mathrm{d}u\mathrm{d}v.$$
-于是$I=II$,$Stokes$公式成立.\\
-注 曲面是分片$C^1$时,$Stokes$公式仍然成立.
 
 \BookEnd

@@ -53,7 +53,7 @@ $F(x_0,y_0)=0,$且$F(x,y)$对每一个$x\in(x_0-a,x_0+a)$关于$y$严格单调,�
 
 令$\displaystyle\eta=\min\{\eta_0,\delta-|x^*-x_0|\}>0$,当$\displaystyle|x-x^*|<\eta$时, \\
 
-唯一零点$\displaystyle f(x)$位于$\displaystyle(f(x_*)-\rho,f(x_*)+\rho)$内,故$\displaystyle|f(x)-f(x_*)|<\rho<\varepsilon$, \\
+唯一零点$\displaystyle f(x)$位于$\displaystyle(f(x^*)-\rho,f(x^*)+\rho)$内,故$\displaystyle|f(x)-f(x^*)|<\rho<\varepsilon$, \\
 
 所以$\displaystyle f$在$\displaystyle(x_0-\delta,x_0+\delta)$上连续,命题得证.
 
@@ -195,7 +195,8 @@ $\therefore\,\vec{n}=(\cos\theta,\sin\theta)$, $ds=rd\theta$, \\
 又$u\in C^2(D)$,$\quad\therefore\dfrac{\partial u}{\partial \vec{n} }=\nabla u\cdot\vec{n}=\dfrac{\partial u}{\partial x}\cos\theta+\dfrac{\partial u}{\partial y}\sin\theta$,\\
 
 $\therefore\displaystyle\int_{\partial B_r(a)}\dfrac{\partial u}{\partial \vec{n} }ds$
-$=\displaystyle\int_0^{2\pi}[\dfrac{\partial u}{\partial x}(a_1+r\cos\theta,a_2+r\sin\theta)\cdot\cos\theta+\dfrac{\partial u}{\partial y}(a_1+r\cos\theta,a_2+r\sin\theta)\sin\theta] rd\theta$ \\
+$=\displaystyle\int_0^{2\pi}\dfrac{\partial u}{\partial x}(a_1+r\cos\theta,a_2+r\sin\theta)\,r\cos\theta\,d\theta$ \\
+$\quad+\displaystyle\int_0^{2\pi}\dfrac{\partial u}{\partial y}(a_1+r\cos\theta,a_2+r\sin\theta)\,r\sin\theta\,d\theta$ \\
 
 $=\displaystyle\int_0^{2\pi}[\dfrac{\partial u}{\partial x}\cdot(r\cos\theta)+\dfrac{\partial u}{\partial y}\cdot(r\sin\theta)]d\theta$
 $=\displaystyle\int_0^{2\pi}[\dfrac{\partial u}{\partial x}\cdot y'(\theta)-\dfrac{\partial u}{\partial y}\cdot x'(\theta)]d\theta$ \\
@@ -213,7 +214,7 @@ $\therefore\displaystyle\int_{\partial B_r(a)}\dfrac{\partial u}{\partial \vec{n
 证明:$u\equiv0$
 \end{ti}
 
-\textbf{微分学视角}:假设$u$不恒为$0$,存在$x^0\in int\Omega$,$\;\text{s.t.}\,u(x^0)>0$, \\
+\textbf{微分学视角}:假设$u$不恒为$0$.不妨设$u$的最大值大于$0$,否则对$-u$作同样论证.由边界条件,存在$x^0\in int\Omega$,$\;\text{s.t.}\,u(x^0)>0$, \\
 
 且$\displaystyle u(x^0)=\max_{\Omega}u$,则$\nabla u(x^0)=0$,且$\nabla^2 u(x^0)\leq 0$, \\
 

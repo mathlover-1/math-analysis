@@ -176,7 +176,7 @@ $\therefore\displaystyle\sum_{i=1}^{n}\dfrac{k_i}{f'(t_i)}=\sum_{i=1}^{n}(x_i-x_
 
 \begin{ti}
 【题5】$\;f\text{在}[a,b]\text{上连续},(a,b)\text{上二阶可导},f(a)=f(b)=0,\displaystyle\int_{a}^{b}f(x)\,dx=0,$ \\
-证明:$\exists\,\zeta\in[a,b],\;\text{s.t.}f(\zeta)=f''(\zeta)$
+证明:$\exists\,\zeta\in(a,b),\;\text{s.t.}f(\zeta)=f''(\zeta)$
 \end{ti}
 
 \textbf{证明}:若$\displaystyle f(x)_{min}=0,\text{则由}\int_{a}^{b}f(x)\,dx=0\Rightarrow f\equiv 0,$ \\
@@ -199,7 +199,7 @@ $\because f\text{在}[a,b]\text{上连续},\text{在}(a,b)\text{上二阶可导}
 
 又$F'(x)=e^{-x}[f''(x)-f(x)],\quad\therefore f''(\zeta)=f(\zeta)$, \\
 
-综上,$\exists\,\zeta\in[a,b],\;\text{s.t.}f(\zeta)=f''(\zeta).$ 
+综上,$\exists\,\zeta\in(a,b),\;\text{s.t.}f(\zeta)=f''(\zeta).$ 
 
 \begin{ti}
 【题6】设$f\text{在}[a,b]\text{上可微,在}(a,b)\text{上二阶可微},$ 证明:$\exists\,\xi\in(a,b),\;\text{s.t.}\,f'(b)-f'(a)=f''(\xi)(b-a)$
@@ -392,6 +392,50 @@ $\therefore\,x\in[0,x_0]\text{时},\left\lvert f(x)\right\rvert\leq\displaystyle
 
 由$x_0$的任意性可知,$f\equiv 0$,证毕.
 
+\begin{ti}
+【题12】设函数$f$在$(-1,1)$内有定义,在$x=0$处可导,且$f(0)=0$.证明:$\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}f(\dfrac{k}{n^2})=\dfrac{f'(0)}{2}$.
+\end{ti}
+
+\textbf{证明}:由题目假设与$Taylor$展开式,有$f(x)=f(0)+f'(0)x+\alpha(x)x,$ \\
+
+其中$\alpha(x)\text{是}x\text{的函数},\alpha(0)=0,\alpha(x)=o(1)(x\to 0)$. \\
+
+$\therefore\forall\,\varepsilon>0,\;\exists\,\delta>0,\;\text{s.t.}\left\lvert x\right\rvert<\delta\text{时,有}\left\lvert \alpha(x)\right\rvert<\varepsilon$. \\
+
+对任意$n\in\mathbb{N}^+,k\leq n,$总有$f(\dfrac{k}{n^2})=f'(0)\dfrac{k}{n^2}+\alpha(\dfrac{k}{n^2})\dfrac{k}{n^2}$, \\
+
+取$N>\delta^{-1}$,对上述给定的$\varepsilon>0,\,$当$n>N,k\leq n$时,有$\left\lvert \alpha(\dfrac{k}{n^2})\right\rvert<\varepsilon$, \\
+
+从而$n>N$时,$\displaystyle\left\lvert \sum_{k=1}^{n}f(\dfrac{k}{n^2})-f'(0)\sum_{k=1}^{n}\dfrac{k}{n^2}\right\rvert\leq\varepsilon\sum_{k=1}^{n}\dfrac{k}{n^2}$, \\
+
+即$\displaystyle\left\lvert \sum_{k=1}^{n}f(\dfrac{k}{n^2})-\dfrac{1}{2} f'(0)(1+\dfrac{1}{n})\right\rvert\leq\dfrac{\varepsilon}{2}(1+\dfrac{1}{n})$, \\
+
+令$n\to+\infty$,对上式取极限可得$\displaystyle\varlimsup_{n\to\infty}\left\lvert \sum_{k=1}^{n}f(\dfrac{k}{n^2})-\dfrac{1}{2}f'(0)\right\rvert\leq\dfrac{\varepsilon}{2}$, \\
+
+由$\varepsilon$的任意性可知,$\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}f(\dfrac{k}{n^2})=\dfrac{f'(0)}{2}$,得证.
+
+\begin{ti}
+【题13】设$f$为$\mathbb{R}$上的凸函数,且对$\forall\,x,y\in\mathbb{R}\text{成立}f(x+y)+f(x-y)-2f(x)\leq y^2$. 
+证明:$f$可导且对$\forall\,x,y\in\mathbb{R}$成立$\left\lvert f'(x)-f'(y)\right\rvert\leq\left\lvert x-y\right\rvert $.
+\end{ti}
+
+\textbf{证明}:$\;(\mathrm{i})\;$由于$f$为凸函数,因此其左导数和右导数均存在,且$f'_{-}(x)\leq f'_{+}(x)$. \\
+
+由题意可得$\forall\,x\in\mathbb{R},y>0,\;\text{有}\dfrac{f(x+y)-f(x)}{y}\leq\dfrac{f(x)-f(x-y)}{y}+y$, \\
+
+令$y\to 0^+$可得$f'_{+}(x)\leq f'_{-}(x)$,从而$f'_{+}(x)= f'_{-}(x)$,即$f$可导. \\
+
+$(\mathrm{ii})\;$不妨设$x\geq y$,由于凸函数导数单调递增,于是$f'(x)\geq f'(y)$, \\
+
+从而相当于要证明$G$为凹函数,其中$G(t)=f(t)-\dfrac{t^2}{2},t\in\mathbb{R} $. \\
+
+$\forall\,t,s\in\mathbb{R},G(t)+G(s)=f(t)+f(s)-\dfrac{t^2+s^2}{2}$ \\
+
+$=f(\dfrac{t+s}{2}+\dfrac{t-s}{2})+f(\dfrac{t+s}{2}-\dfrac{t-s}{2})-\dfrac{t^2+s^2}{2}$ \\
+
+$\leq 2f(\dfrac{t+s}{2})+\left(\dfrac{t-s}{2}\right)^2-\dfrac{t^2+s^2}{2}=2G(\dfrac{t+s}{2})$. \\
+
+从而$G$确实是凹函数,得证.
 
 
 \BookEnd

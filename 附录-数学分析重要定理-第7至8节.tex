@@ -55,9 +55,9 @@
 }
 \setcounter{section}{6}   % 从§7开始编号
 % ==================== 附录:数学分析重要定理(第七至八节) ====================
-% 本文件为附录的后半部分:§7 级数 与 §8 Fourier分析.
-% 前半部分(§1-§6)见 附录-数学分析重要定理-第1至6节.tex.
-% 两文件均可独立编译;主文件中按顺序 input 两者即可.
+% 本文件为附录的后段:§7 级数 与 §8 Fourier分析.
+% 前两段分别见 附录-数学分析重要定理-第1至4节.tex 和 附录-数学分析重要定理-第5至6节.tex.
+% 三文件均可独立编译;主文件中按顺序 input 三者即可.
 % ========================================================================
 \section{级数}
 \subsection{数项级数}
@@ -76,63 +76,49 @@ $a_n$称为通项或一般项,$S_n=\displaystyle\sum_{k=1}^{n}a_k$称为级数�
 \end{ti}
 
 \begin{ti}
-\textbf{命题7.4(级数的线性运算)}  设级数$\displaystyle\sum_{n=1}^{\infty}a_n$和$\displaystyle\sum_{n=1}^{\infty}b_n$都收敛,$\lambda,\mu\in\mathbb{R}$,则$\displaystyle\sum_{n=1}^{\infty}(\lambda a_n+\mu b_n)$也收敛,且
-$$\sum_{n=1}^{\infty}(\lambda a_n+\mu b_n)=\lambda\sum_{n=1}^{\infty}a_n+\mu\sum_{n=1}^{\infty}b_n.$$
+\textbf{定理7.4($Dirichlet$)}  设数列$\{a_n\}$单调地趋于$0$,级数$\displaystyle\sum_{n=1}^{\infty}b_n$的部分和有界,则级数$\displaystyle\sum_{n=1}^{\infty}a_nb_n$收敛.
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.5(Dirichlet)}  设数列$\{a_n\}$单调地趋于$0$,级数$\displaystyle\sum_{n=1}^{\infty}b_n$的部分和有界,则级数$\displaystyle\sum_{n=1}^{\infty}a_nb_n$收敛.
+\textbf{定理7.5($Abel$)}  设$\{a_n\}$为有界的单调数列,$\displaystyle\sum_{n=1}^{\infty}b_n$收敛,则级数$\displaystyle\sum_{n=1}^{\infty}a_nb_n$收敛.
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.6(Abel)}  设$\{a_n\}$为有界的单调数列,$\displaystyle\sum_{n=1}^{\infty}b_n$收敛,则级数$\displaystyle\sum_{n=1}^{\infty}a_nb_n$收敛.
+\textbf{推论7.6($Leibniz$)}  设$a_n$单调地趋于$0$,则级数$\displaystyle\sum_{n=1}^{\infty}(-1)^{n}a_n$收敛.
 \end{ti}
 
 \begin{ti}
-\textbf{推论7.7(Leibniz)}  设$a_n$单调地趋于$0$,则级数$\displaystyle\sum_{n=1}^{\infty}(-1)^{n}a_n$收敛.
-\end{ti}
-
-\begin{ti}
-\textbf{命题7.8(Abel变换)}  设$\{a_i\}$,$\{b_i\}$为两组实数,如果$b_i=B_i-B_{i-1}$,则
+\textbf{命题7.7($Abel$变换)}  设$\{a_i\}$,$\{b_i\}$为两组实数,如果$b_i=B_i-B_{i-1}$,则
 $$\sum_{i=1}^{n}a_i b_i=\sum_{i=1}^{n-1}(a_i-a_{i+1})B_i+a_n B_n-a_1 B_0.$$
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.9(Cauchy收敛准则)}  级数$\displaystyle\sum_{n=1}^{\infty}a_n$收敛当且仅当对任意的$\varepsilon>0$,存在$N$,使得当$m>n>N$时,
-$$\left\lvert\sum_{k=n+1}^{m}a_k\right\rvert<\varepsilon$$.
-\end{ti}
-
-\begin{ti}
-\textbf{定义7.10(绝对收敛与条件收敛)}  如果级数$\displaystyle\sum_{n=1}^{\infty}\left\lvert a_n\right\rvert$收敛,则称$\displaystyle\sum_{n=1}^{\infty}a_n$\textbf{绝对收敛};
+\textbf{定义7.8(绝对收敛与条件收敛)}  如果级数$\displaystyle\sum_{n=1}^{\infty}\left\lvert a_n\right\rvert$收敛,则称$\displaystyle\sum_{n=1}^{\infty}a_n$\textbf{绝对收敛};
 如果$\displaystyle\sum_{n=1}^{\infty}a_n$收敛而$\displaystyle\sum_{n=1}^{\infty}\left\lvert a_n\right\rvert$发散,则称其\textbf{条件收敛}.
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.11}  如果级数$\displaystyle\sum_{n=1}^{\infty}a_n$绝对收敛,则它必收敛.
+\textbf{定理7.9(比较判别法)}  设$\displaystyle\sum a_n$和$\displaystyle\sum b_n$为正项级数,如果存在$M>0,N\geq 1$,使得当$n>N$时$a_n\leq Mb_n$,则$\displaystyle\sum b_n$收敛时$\displaystyle\sum a_n$也收敛;$\displaystyle\sum a_n$发散时$\displaystyle\sum b_n$也发散.
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.12(比较判别法)}  设$\displaystyle\sum a_n$和$\displaystyle\sum b_n$为正项级数,如果存在$M>0,N\geq 1$,使得当$n>N$时$a_n\leq Mb_n$,则$\displaystyle\sum b_n$收敛时$\displaystyle\sum a_n$也收敛;$\displaystyle\sum a_n$发散时$\displaystyle\sum b_n$也发散.
-\end{ti}
-
-\begin{ti}
-\textbf{定理7.13(比值判别法)}  设$a_n>0$,且$\displaystyle\lim_{n\to\infty}\dfrac{a_{n+1}}{a_n}=r$.\\
+\textbf{定理7.10(比值判别法)}  设$a_n>0$,且$\displaystyle\lim_{n\to\infty}\dfrac{a_{n+1}}{a_n}=r$.\\
 (1)当$r<1$时级数$\displaystyle\sum a_n$收敛;\\
 (2)当$r>1$时级数$\displaystyle\sum a_n$发散.
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.14(根值判别法)}  设$a_n\geq 0$,且$\displaystyle\lim_{n\to\infty}\sqrt[n]{a_n}=r$.\\
+\textbf{定理7.11(根值判别法)}  设$a_n\geq 0$,且$\displaystyle\lim_{n\to\infty}\sqrt[n]{a_n}=r$.\\
 (1)当$r<1$时级数$\displaystyle\sum a_n$收敛;\\
 (2)当$r>1$时级数$\displaystyle\sum a_n$发散.
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.15(积分判别法)}  设函数$f$在$[1,+\infty)$上非负单调递减,则级数$\displaystyle\sum_{n=1}^{\infty}f(n)$与广义积分$\displaystyle\int_1^{+\infty}f(x)\,\mathrm{d}x$同敛散.
+\textbf{定理7.12(积分判别法)}  设函数$f$在$[1,+\infty)$上非负单调递减,则级数$\displaystyle\sum_{n=1}^{\infty}f(n)$与广义积分$\displaystyle\int_1^{+\infty}f(x)\,\mathrm{d}x$同敛散.
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.16(Kummer)}  设$\displaystyle\sum a_n$,$\displaystyle\sum b_n$为正项级数,如果$n$充分大时, \\
+\textbf{定理7.13($Kummer$)}  设$\displaystyle\sum a_n$,$\displaystyle\sum b_n$为正项级数,如果$n$充分大时, \\
 (1)$\dfrac{1}{b_n}\cdot\dfrac{a_n}{a_{n+1}}-\dfrac{1}{b_{n+1}}\geq\lambda>0$,则$\displaystyle\sum a_n$收敛; \\
 (2)$\dfrac{1}{b_n}\cdot\dfrac{a_n}{a_{n+1}}-\dfrac{1}{b_{n+1}}\leq 0$且$\displaystyle\sum b_n$发散,则$\displaystyle\sum a_n$发散.
 \end{ti}
@@ -143,7 +129,27 @@ $$S_{n+1}\leq S_N+\frac{1}{\lambda}\sum_{k=N}^{n}\left(\frac{a_k}{b_k}-\frac{a_{
 (2)由已知条件可得$\dfrac{a_n}{b_n}\leq\dfrac{a_{n+1}}{b_{n+1}}$,即$\dfrac{a_n}{b_n}$关于$n$单调递增,从而$a_n\geq\dfrac{a_N}{b_N}b_n$,由比较判别法立得欲证结论.
 
 \begin{ti}
-\textbf{定义7.17(无穷乘积)}  设$\{p_n\}$为一列实数,称形式乘积$\displaystyle\prod_{n=1}^{\infty}p_n=p_1p_2\cdots p_n\cdots$为\textbf{无穷乘积},记$P_n=p_1p_2\cdots p_n$,称为\textbf{部分乘积}.如果数列$\{P_n\}$的极限存在,且极限为实数或正负无穷,则此极限称为无穷乘积的值,记为$\displaystyle\prod_{n=1}^{\infty}p_n=\lim_{n\to\infty}P_n$.当极限为非零实数时,称无穷乘积是\textbf{收敛}的,否则就称它是发散的.
+\textbf{命题7.14($Sapagof$判别法)} 设正数数列$\{a_n\}$单调递减,则$\displaystyle\lim_{n\to\infty}a_n=0$的充分必要条件是正项级数$\displaystyle\sum_{n=1}^{\infty}\left(1-\dfrac{a_{n+1}}{a_n}\right)$发散.
+\end{ti}
+
+\textbf{注}:本命题有几种等价形式: \\
+(1) 设$\{a_n\}$是单调递增的正数数列,则该数列与级数$\displaystyle\sum_{n=1}^{\infty}\left(1-\dfrac{a_n}{a_{n+1}}\right)$同敛散.\\
+(2) 若正项级数$\displaystyle\sum_{n=1}^{\infty}a_n$的部分和数列为$\{S_n\}$,则$\displaystyle\sum_{n=1}^{\infty}a_n\text{与}\sum_{n=1}^{\infty}\dfrac{a_n}{S_n}$同敛散.
+
+\begin{ti}
+\textbf{命题7.15($\text{Du Bois-Reymond}$定理)} 对于一个给定的收敛正项级数$\displaystyle\sum_{n=1}^{\infty}a_n$,一定存在一个收敛正项级数$\displaystyle\sum_{n=1}^{\infty}b_n$,
+使得$\displaystyle\lim_{n\to\infty}\dfrac{a_n}{b_n}=0$.
+\end{ti}
+
+\begin{ti}
+\textbf{命题7.16($Carleman$不等式)} 设$\displaystyle\sum_{n=1}^{\infty}a_n$为收敛的正项级数,则成立
+$$\sum_{n=1}^{\infty}\sqrt[n]{a_1a_2\cdots a_n}\leq e\sum_{n=1}^{\infty}a_n $$,
+其中右边的系数$e$不能再改进.
+\end{ti}
+
+\begin{ti}
+\textbf{定义7.17(无穷乘积)}  设$\{p_n\}$为一列实数,称形式乘积$\displaystyle\prod_{n=1}^{\infty}p_n=p_1p_2\cdots p_n\cdots$为\textbf{无穷乘积},记$P_n=p_1p_2\cdots p_n$,称为\textbf{部分乘积}.
+如果数列$\{P_n\}$的极限存在,且极限为实数或正负无穷,则此极限称为无穷乘积的值,记为$\displaystyle\prod_{n=1}^{\infty}p_n=\lim_{n\to\infty}P_n$.当极限为非零实数时,称无穷乘积是\textbf{收敛}的,否则就称它是发散的.
 \end{ti}
 
 \begin{ti}
@@ -155,12 +161,12 @@ $$S_{n+1}\leq S_N+\frac{1}{\lambda}\sum_{k=N}^{n}\left(\frac{a_k}{b_k}-\frac{a_{
 
 
 \begin{ti}
-\textbf{定义7.19(级数的乘积)}  设级数$\displaystyle\sum_{n=0}^{\infty}a_n$与$\displaystyle\sum_{n=0}^{\infty}b_n$绝对收敛,定义它们的乘积为级数$\displaystyle\sum_{n=0}^{\infty}c_n$,其中$c_n=\displaystyle\sum_{i+j=n}a_i b_j$,$n\geq 0$.这种乘积称为\textbf{Cauchy乘积}.则乘积级数$\displaystyle\sum_{n=0}^{\infty}c_n$也绝对收敛,且
+\textbf{定义7.19(级数的乘积)}  设级数$\displaystyle\sum_{n=0}^{\infty}a_n$与$\displaystyle\sum_{n=0}^{\infty}b_n$绝对收敛,定义它们的乘积为级数$\displaystyle\sum_{n=0}^{\infty}c_n$,其中$c_n=\displaystyle\sum_{i+j=n}a_i b_j$,$n\geq 0$.这种乘积称为\textbf{$Cauchy$乘积}.则乘积级数$\displaystyle\sum_{n=0}^{\infty}c_n$也绝对收敛,且
 $$\sum_{n=0}^{\infty}c_n=\left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right)$$.
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.20(Mertens)}  如果$\displaystyle\sum_{n=0}^{\infty}a_n$和$\displaystyle\sum_{n=0}^{\infty}b_n$收敛,且至少其中一个级数绝对收敛,则它们的乘积级数也收敛,且
+\textbf{定理7.20($Mertens$)}  如果$\displaystyle\sum_{n=0}^{\infty}a_n$和$\displaystyle\sum_{n=0}^{\infty}b_n$收敛,且至少其中一个级数绝对收敛,则它们的乘积级数也收敛,且
 $$\sum_{n=0}^{\infty}c_n=\left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right)$$.
 \end{ti}
 
@@ -171,11 +177,11 @@ $$|\delta_n|\leq\sum_{k=0}^{N_0}|a_k||B_{n-k}-B|+(|a_{N_0+1}|+|a_{N_0+2}|+\cdots
 这说明$\delta_n\to 0$,因而$C_n=A_nB+\delta_n\to AB$.
 
 \begin{ti}
-\textbf{引理7.21(Abel)}  设级数$\displaystyle\sum_{n=0}^{\infty}C_n$收敛,则$\displaystyle\lim_{x\to 1^-}\sum_{n=0}^{\infty}C_n x^n=\sum_{n=0}^{\infty}C_n$.
+\textbf{引理7.21($Abel$)}  设级数$\displaystyle\sum_{n=0}^{\infty}C_n$收敛,则$\displaystyle\lim_{x\to 1^-}\sum_{n=0}^{\infty}C_n x^n=\sum_{n=0}^{\infty}C_n$.
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.22(Abel)}  设级数$\displaystyle\sum_{n=0}^{\infty}a_n$,$\displaystyle\sum_{n=0}^{\infty}b_n$以及它们的乘积$\displaystyle\sum_{n=0}^{\infty}c_n$均收敛,则
+\textbf{定理7.22($Abel$)}  设级数$\displaystyle\sum_{n=0}^{\infty}a_n$,$\displaystyle\sum_{n=0}^{\infty}b_n$以及它们的乘积$\displaystyle\sum_{n=0}^{\infty}c_n$均收敛,则
 $$\sum_{n=0}^{\infty}c_n=\left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right)$$.
 \end{ti}
 
@@ -192,7 +198,7 @@ $$a_n=\dfrac{a_n+|a_n|}{2}-\dfrac{|a_n|-a_n}{2}$$
 以及正项级数$\displaystyle\sum\dfrac{a_n+|a_n|}{2}$与$\displaystyle\sum\dfrac{|a_n|-a_n}{2}$的收敛性可知,重排后的级数也绝对收敛,且其和不变.
 
 \begin{ti}
-\textbf{定理7.24(Riemann重排定理)}  如果级数$\displaystyle\sum a_n$条件收敛,则可以将它重排为一个收敛级数,使得重排后的级数和为任意指定的实数.
+\textbf{定理7.24($Riemann$重排定理)}  如果级数$\displaystyle\sum a_n$条件收敛,则可以将它重排为一个收敛级数,使得重排后的级数和为任意指定的实数.
 \end{ti}
 
 \textbf{证明}:设$\xi\in\mathbb{R}$,我们将找到$\displaystyle\sum a_n$的一个重排,使得它的和为$\xi$.首先我们注意到,如果$\displaystyle\sum a_n$条件收敛,则$\displaystyle\sum|a_n|$发散,由$|a_n|=a_n^++a_n^-$,$a_n=a_n^+-a_n^-$即知,级数$\displaystyle\sum a_n^+$和$\displaystyle\sum a_n^-$均发散到$+\infty$,这两个级数的部分和分别记为$S_n^+$和$S_n^-$.因为当$n$充分大时$S_n^+>\xi$,故可取最小的正整数$m_1$,使得$S_{m_1}^+>\xi$,此时成立$\xi\geq S_{m_1-1}^+$.因为$n$充分大时,$S_{m_1}^+-S_n^-<\xi$,故可取最小的正整数$n_1$,使得$S_{m_1}^+-S_{n_1}^-<\xi$,同理有$\xi\leq S_{m_1}^+-S_{n_1-1}^-$.下面再取最小的正整数$m_2$,使得$S_{m_2}^+-S_{n_1}^->\xi\geq S_{m_2-1}^+-S_{n_1}^-$,以及最小的正整数$n_2$,使得$S_{m_2}^+-S_{n_2}^-<\xi\leq S_{m_2}^+-S_{n_2-1}^-$.如此继续下去,我们得到递增数列$m_1<m_2<\cdots$和$n_1<n_2<\cdots$,使得
@@ -208,7 +214,7 @@ $$a_1^++\cdots+a_{m_1}^+-a_1^--\cdots-a_{n_1}^-+a_{m_1+1}^++\cdots+a_{m_2}^+-a_{
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.26(一致收敛的Cauchy准则)}  定义在$I$中的函数列$\{f_n\}$一致收敛当且仅当对任意的$\varepsilon>0$,存在$N=N(\varepsilon)$,使得当$m,n>N,x\in I$时,$\left\lvert f_m(x)-f_n(x)\right\rvert<\varepsilon$.
+\textbf{定理7.26(一致收敛的$Cauchy$准则)}  定义在$I$中的函数列$\{f_n\}$一致收敛当且仅当对任意的$\varepsilon>0$,存在$N=N(\varepsilon)$,使得当$m,n>N,x\in I$时,$\left\lvert f_m(x)-f_n(x)\right\rvert<\varepsilon$.
 \end{ti}
 
 \begin{ti}
@@ -241,7 +247,7 @@ $$\left\lvert f_n(x_1)-f_n(x_2)\right\rvert<\varepsilon\quad(n=1,2,...),$$
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.31(Ascoli引理)} 设函数序列$f_1(x),f_2(x),...,f_n(x),...$在有限闭区间$[a,b]$上是一致有界和等度连续的,则可以选取它的一个子序列
+\textbf{定理7.31($Ascoli$引理)} 设函数序列$f_1(x),f_2(x),...,f_n(x),...$在有限闭区间$[a,b]$上是一致有界和等度连续的,则可以选取它的一个子序列
 $$f_{n_1}(x),f_{n_2}(x),...,f_{n_k}(x),...,$$
 使该子序列在区间$I$上是一致收敛的.
 \end{ti}
@@ -275,7 +281,7 @@ $$\left\lvert g_k(x)-g_l(x)\right\rvert<\varepsilon.$$
 这对任意$x\in[a,b]$都成立,所以$\{g_k\}$在$[a,b]$上一致收敛.得证.
 
 \begin{ti}
-\textbf{定理7.32(Dini)}  设$\{f_n\}$为$[a,b]$中的一列非负连续函数,且对每个$x\in[a,b]$,$\{f_n(x)\}$关于$n$单调递减趋于$0$,则函数列$\{f_n\}$一致收敛于$0$.
+\textbf{定理7.32($Dini$)}  设$\{f_n\}$为$[a,b]$中的一列非负连续函数,且对每个$x\in[a,b]$,$\{f_n(x)\}$关于$n$单调递减趋于$0$,则函数列$\{f_n\}$一致收敛于$0$.
 \end{ti}
 
 \textbf{证明}:任给$\varepsilon>0$,我们要证明存在$N$,使得当$n>N,x\in[a,b]$时,$0\leq f_n(x)<\varepsilon$.即要证$n$充分大以后$A_n=\{x\in[a,b]\;|\;f_n(x)\geq\varepsilon\}$为空集.因为$f_n$关于$n$单调递减,因此
@@ -320,7 +326,7 @@ $$|[f_m(x)-f_m(c)]-[f_n(x)-f_n(c)]|=|[f'_m(\xi)-f'_n(\xi)](x-c)|\leq(b-a)\vareps
 $$g_n(x)=\begin{cases}\dfrac{f_n(x)-f_n(x_0)}{x-x_0},&x\neq x_0,\\[2mm] f'_n(x_0),&x=x_0.\end{cases}$$
 由$f_n$可导可知$g_n$为连续函数.类似于刚才的论证,由微分中值定理,有$|g_m(x)-g_n(x)|=|f'_m(\xi)-f'_n(\xi)|\leq\varepsilon$,这说明$\{g_n\}$一致收敛,其极限为
 $$\widehat{g}(x)=\begin{cases}\dfrac{f(x)-f(x_0)}{x-x_0},&x\neq x_0,\\[2mm] g(x_0),&x=x_0.\end{cases}$$
-根据前节定理7.28,$\;\widehat{g}$为连续函数.特别地,$f$在$x_0$处可导且导数为$g(x_0)$.
+根据前节定理,$\;\widehat{g}$为连续函数.特别地,$f$在$x_0$处可导且导数为$g(x_0)$.
 
 \begin{ti}
 \textbf{推论7.37}  设$\{f_n\}$为$[a,b]$中一列可导函数,$c\in[a,b]$.如果$\displaystyle\sum_{n=1}^{\infty}f_n(c)$收敛,$\displaystyle\sum_{n=1}^{\infty}f'_n(x)$一致收敛,则$\displaystyle\sum_{n=1}^{\infty}f_n(x)$一致收敛,其和函数可导,且
@@ -328,7 +334,7 @@ $$\left(\sum_{n=1}^{\infty}f_n(x)\right)'=\sum_{n=1}^{\infty}f'_n(x).$$
 \end{ti}
 
 \begin{ti}
-\textbf{引理7.38(Abel)}  设幂级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$在$x=x_1\,(x_1\neq 0)$处收敛,则它在区间$|x|<|x_1|$中绝对收敛.因此,幂级数在$x=x_2$处发散意味着在$|x|>|x_2|$中均发散.
+\textbf{引理7.38($Abel$)}  设幂级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$在$x=x_1\,(x_1\neq 0)$处收敛,则它在区间$|x|<|x_1|$中绝对收敛.因此,幂级数在$x=x_2$处发散意味着在$|x|>|x_2|$中均发散.
 \end{ti}
 
 \textbf{证明}:设$\displaystyle\sum_{n=0}^{\infty}a_n x_1^n$收敛,则存在$M>0$,使得$|a_n x_1^n|\leq M$均成立.这说明
@@ -336,17 +342,15 @@ $$\sum_{n=0}^{\infty}|a_n x^n|=\sum_{n=0}^{\infty}|a_n x_1^n|\left|\frac{x}{x_1}
 因此当$|x|<|x_1|$时,$\displaystyle\sum_{n=0}^{\infty}a_n x^n$绝对收敛.
 
 \begin{ti}
-\textbf{定理7.39(Cauchy-Hadamard)}  对幂级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$,记$\rho=\displaystyle\lim_{n\to\infty}\sqrt[n]{\left\lvert a_n\right\rvert}$,则\\
+\textbf{定理7.39($Cauchy\text{-}Hadamard$)}  对幂级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$,记$\rho=\displaystyle\limsup_{n\to\infty}\sqrt[n]{\left\lvert a_n\right\rvert}$,则\\
 (1)$\rho=0$时,幂级数在$(-\infty,\infty)$中绝对收敛;\\
 (2)$\rho=+\infty$时,幂级数仅在$x=0$处收敛;\\
 (3)$0<\rho<\infty$时,幂级数在$\left\lvert x\right\rvert<\dfrac{1}{\rho}$中绝对收敛,在$\left\lvert x\right\rvert>\dfrac{1}{\rho}$之外发散.此时,称$\dfrac{1}{\rho}$为\textbf{收敛半径}.
 \end{ti}
 
-\textbf{证明}:注意到$\displaystyle\lim_{n\to\infty}\sqrt[n]{|a_n x^n|}=\rho|x|$,由数项级数的根值判别法即可得到定理结论.
-
 
 \begin{ti}
-\textbf{定理7.40(Abel连续性定理)}  设幂级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$的收敛半径为$R\,(0<R<\infty)$.如果$\displaystyle\sum_{n=0}^{\infty}a_n R^n$收敛,则
+\textbf{定理7.40($Abel$连续性定理)}  设幂级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$的收敛半径为$R\,(0<R<\infty)$.如果$\displaystyle\sum_{n=0}^{\infty}a_n R^n$收敛,则
 $$\lim_{x\to R^-}\sum_{n=0}^{\infty}a_n x^n=\sum_{n=0}^{\infty}a_n R^n;$$
 如果$\displaystyle\sum_{n=0}^{\infty}a_n(-R)^n$收敛,则
 $$\lim_{x\to -R^+}\sum_{n=0}^{\infty}a_n x^n=\sum_{n=0}^{\infty}a_n(-R)^n.$$
@@ -354,14 +358,14 @@ $$\lim_{x\to -R^+}\sum_{n=0}^{\infty}a_n x^n=\sum_{n=0}^{\infty}a_n(-R)^n.$$
 
 \textbf{证明}:设$\displaystyle\sum a_nR^n$收敛.当$x\in[0,R]$时,$\displaystyle\sum a_nx^n=\sum a_nR^n\left(\dfrac{x}{R}\right)^n$,其中$\left(\dfrac{x}{R}\right)^n$关于$n$单调且$\leq 1$,由数项级数的$Abel$判别法,$\displaystyle\sum a_nx^n$在$[0,R]$上一致收敛,故$\displaystyle\lim_{x\to R^-}\sum a_nx^n=\sum a_nR^n$.对$x\in[-R,0]$的情形同理,即得另一等式.
 
-\section{Fourier分析}
+\section{\texorpdfstring{$Fourier$}{Fourier}分析}
 \begin{ti}
-\textbf{定义8.1(Fourier系数与Fourier级数)}  设$f$在$[-\pi,\pi]$中Riemann可积或广义绝对可积.令
+\textbf{定义8.1($Fourier$系数与$Fourier$级数)}  设$f$在$[-\pi,\pi]$中$Riemann$可积或广义绝对可积.令
 $$a_0=\dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)\,\mathrm{d}x,a_n=\dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos(nx)\,\mathrm{d}x,$$
 $$b_n=\dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin(nx)\,\mathrm{d}x,\quad n=1,2,\ldots,$$
-$a_0,a_n,b_n$称为$f$的\textbf{Fourier系数},形式和
+$a_0,a_n,b_n$称为$f$的\textbf{$Fourier$系数},形式和
 $$\dfrac{a_0}{2}+\sum_{n=1}^{\infty}\bigl(a_n\cos(nx)+b_n\sin(nx)\bigr)$$
-称为$f$的\textbf{Fourier级数}或Fourier展开,记为
+称为$f$的\textbf{$Fourier$级数}或$Fourier$展开,记为
 $$\displaystyle f(x)\sim\dfrac{a_0}{2}+\sum_{n=1}^{\infty}\bigl(a_n\cos(nx)+b_n\sin(nx)\bigr).$$
 \end{ti}
 
@@ -377,21 +381,21 @@ $$a_n=O\left(\frac{1}{n^2}\right),\quad b_n=O\left(\frac{1}{n^2}\right)\quad(n\t
 \end{ti}
 
 \begin{ti}
-\textbf{定理8.4(Bessel不等式)}  设函数$f$在$[-\pi,\pi]$上平方可积,则
+\textbf{定理8.4($Bessel$不等式)}  设$f\in R[-\pi,\pi]$,则
 $$\dfrac{a_0^2}{2}+\sum_{n=1}^{\infty}\bigl(a_n^2+b_n^2\bigr)\leq\dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)^2\,\mathrm{d}x$$.
 \end{ti}
 
-\textbf{证明}:任取$g\in R[-\pi,\pi]$,设其$Fourier$系数为$\{\alpha_n,\beta_n\}$,记$S_n(x)=\dfrac{a_0}{2}+\displaystyle\sum_{k=1}^{n}(a_k\cos kx+b_k\sin kx)$为$f$的Fourier级数的部分和,则
+\textbf{证明}:任取$g\in R[-\pi,\pi]$,设其$Fourier$系数为$\{\alpha_n,\beta_n\}$,记$S_n(x)=\dfrac{a_0}{2}+\displaystyle\sum_{k=1}^{n}(a_k\cos kx+b_k\sin kx)$为$f$的$Fourier$级数的部分和,则
 $$\dfrac{1}{\pi}\int_{-\pi}^{\pi}S_n(x)g(x)\,\mathrm{d}x=\dfrac{1}{\pi}\left[\dfrac{a_0}{2}\int_{-\pi}^{\pi}g(x)\,\mathrm{d}x\right.$$
 $$\phantom{\dfrac{1}{\pi}\int_{-\pi}^{\pi}S_n(x)g(x)\,\mathrm{d}x=}\left.+\sum_{k=1}^{n}\left(a_k\int_{-\pi}^{\pi}g(x)\cos kx\,\mathrm{d}x+b_k\int_{-\pi}^{\pi}g(x)\sin kx\,\mathrm{d}x\right)\right]$$
 $$=\dfrac{1}{2}a_0\alpha_0+\sum_{k=1}^{n}(a_k\alpha_k+b_k\beta_k).$$
-特别地,在上式中分别取$g(x)=S_n(x),f(x)$,注意到$S_n(x)$的Fourier展开是它自身,可以得到
+特别地,在上式中分别取$g(x)=S_n(x),f(x)$,注意到$S_n(x)$的$Fourier$展开是它自身,可以得到
 $$\dfrac{1}{\pi}\int_{-\pi}^{\pi}S_n(x)^2\,\mathrm{d}x=\dfrac{1}{2}a_0^2+\sum_{k=1}^{n}(a_k^2+b_k^2),$$
 $$\dfrac{1}{\pi}\int_{-\pi}^{\pi}S_n(x)f(x)\,\mathrm{d}x=\dfrac{1}{2}a_0^2+\sum_{k=1}^{n}(a_k^2+b_k^2),$$
-由此立得$Bessel$不等式.
+由$\int_{-\pi}^{\pi}(f-S_n)^2\,\mathrm{d}x\geq0$得$\dfrac{a_0^2}{2}+\sum_{k=1}^n(a_k^2+b_k^2)\leq\dfrac{1}{\pi}\int_{-\pi}^{\pi}f^2\,\mathrm{d}x$.令$n\to\infty$即得结论.
 
 \begin{ti}
-\textbf{定理8.5(Dini判别法)}  设$f$如前.如果存在$\delta>0$,使得$f$在$x$处的左极限$f(x-0)$和右极限$f(x+0)$均存在,且积分
+\textbf{定理8.5($Dini$判别法)}  设$f$如前.如果存在$\delta>0$,使得$f$在$x$处的左极限$f(x-0)$和右极限$f(x+0)$均存在,且积分
 $$\int_0^{\delta}\frac{|f(x+u)-f(x+0)|}{u}\,\mathrm{d}u,\qquad \int_0^{\delta}\frac{|f(x-u)-f(x-0)|}{u}\,\mathrm{d}u$$
 绝对收敛,则$f$的$Fourier$展开在$x$处收敛于$\dfrac{f(x+0)+f(x-0)}{2}$.
 \end{ti}
@@ -399,34 +403,41 @@ $$\int_0^{\delta}\frac{|f(x+u)-f(x+0)|}{u}\,\mathrm{d}u,\qquad \int_0^{\delta}\f
 \textbf{证明}:其证明基本上是应用$Riemann-Lebesgue$引理.
 
 \begin{ti}
-\textbf{定理8.6(Dirichlet收敛定理)}  设$f$是周期为$2\pi$的分段可导函数,$x\in[-\pi,\pi]$,则$f$的Fourier展开在$x$处收敛到
+\textbf{定理8.6($Dirichlet$收敛定理)}  设$f$以$2\pi$为周期,在一个周期内仅有有限个分段点,且每段内为$C^1$函数,$f$及$f'$在各段端点处均有有限的单侧极限.则对每个$x\in[-\pi,\pi]$,$f$的$Fourier$展开在$x$处收敛到
 $$\dfrac{f(x+0)+f(x-0)}{2}$$
-特别地,在$f$的连续点处,Fourier级数收敛到$f(x)$.
+特别地,在$f$的连续点处,$Fourier$级数收敛到$f(x)$.
 \end{ti}
 
-\textbf{证明}:由$Dirichlet$核的计算,Fourier级数的部分和可写为
-$$S_n(x)=\dfrac{1}{\pi}\int_0^{\pi}\dfrac{f(x+u)+f(x-u)}{2}\cdot\dfrac{\sin\left(n+\dfrac{1}{2}\right)u}{2\sin\dfrac{u}{2}}\,\mathrm{d}u.$$
-由$Dirichlet$核的定义可知$\sigma_n(u)$在$[0,\pi]$中的积分等于$\dfrac{\pi}{2}$.于是上式可以改写为
+\textbf{证明}:由$Dirichlet$核的计算,$Fourier$级数的部分和可写为
+$$S_n(x)=\dfrac{1}{\pi}\int_0^{\pi}\bigl[f(x+u)+f(x-u)\bigr]\cdot\dfrac{\sin\left(n+\dfrac{1}{2}\right)u}{2\sin\dfrac{u}{2}}\,\mathrm{d}u.$$
+记$D_n(u)=\dfrac{\sin\left(n+\frac12\right)u}{2\sin(u/2)}$.由$\displaystyle\int_0^\pi D_n(u)\,\mathrm{d}u=\dfrac{\pi}{2}$,上式可以改写为
 $$S_n(x)=\dfrac{f(x+0)+f(x-0)}{2}+E_n(x),$$
 其中
 $$E_n(x)=\dfrac{1}{\pi}\int_0^{\pi}\dfrac{f(x+u)-f(x+0)}{2\sin\dfrac{u}{2}}\sin\left(n+\dfrac{1}{2}\right)u\,\mathrm{d}u$$
 $$\phantom{E_n(x)=}+\dfrac{1}{\pi}\int_0^{\pi}\dfrac{f(x-u)-f(x-0)}{2\sin\dfrac{u}{2}}\sin\left(n+\dfrac{1}{2}\right)u\,\mathrm{d}u.$$
-如果$f$分段可导,则$\dfrac{f(x+u)-f(x+0)}{2\sin\dfrac{u}{2}}$和$\dfrac{f(x-u)-f(x-0)}{2\sin\dfrac{u}{2}}$关于$u$均为分段连续函数,从而应用$Riemann-Lebesgue$引理即得欲证结论.特别地,在$f$的连续点处,$f(x+0)=f(x-0)=f(x)$,故收敛到$f(x)$.
+由所设的分段$C^1$及端点单侧导数有限条件,$f(x\pm u)-f(x\pm0)=O(u)$($u\to0+$),故上述两个差商在$u=0$附近有界,在$[0,\pi]$上分段连续.应用$Riemann-Lebesgue$引理即得$E_n(x)\to0$.在$f$的连续点处,$f(x+0)=f(x-0)=f(x)$,故收敛到$f(x)$.
 
 \begin{ti}
-\textbf{定理8.7(Weierstrass逼近定理)}  设$f\in C^0[-\pi,\pi]$,$f(-\pi)=f(\pi)$.则任给$\varepsilon>0$,存在三角多项式$T(x)$,使得$|f(x)-T(x)|<\varepsilon$在$[-\pi,\pi]$中处处成立.
+\textbf{定理8.7($Weierstrass$逼近定理)}  设$f\in C^0[-\pi,\pi]$,$f(-\pi)=f(\pi)$.则任给$\varepsilon>0$,存在三角多项式$T(x)$,使得$|f(x)-T(x)|<\varepsilon$在$[-\pi,\pi]$中处处成立.
 \end{ti}
 
-\textbf{证明}:首先,连续函数$f$可以用分段线性函数一致逼近,即存在周期为$2\pi$的连续分段线性函数列$\{f_n\}$,使得$f_n$在$[-\pi,\pi]$中一致收敛于$f$.其次,分段线性函数$f_n$的$Fourier$展开一致收敛于$f_n$自身(由$Dirichlet$收敛定理或命题8.4的系数估计与$Weierstrass$判别法).取$n$充分大,使$|f(x)-f_n(x)|<\dfrac{\varepsilon}{2}$处处成立;再取$f_n$的$Fourier$展开的充分多项的部分和$T$,使$|f_n(x)-T(x)|<\dfrac{\varepsilon}{2}$处处成立,则$|f(x)-T(x)|<\varepsilon$在$[-\pi,\pi]$中处处成立.
+\textbf{证明}:首先,连续函数$f$可以用分段线性函数一致逼近,即存在周期为$2\pi$的连续分段线性函数列$\{f_n\}$,使得$f_n$在$[-\pi,\pi]$中一致收敛于$f$.其次,由命题8.3的系数估计与$Weierstrass$判别法,各$f_n$的$Fourier$展开一致收敛;再由$Dirichlet$收敛定理,其和为$f_n$.取$n$充分大,使$|f(x)-f_n(x)|<\dfrac{\varepsilon}{2}$处处成立;再取$f_n$的$Fourier$展开的充分多项的部分和$T$,使$|f_n(x)-T(x)|<\dfrac{\varepsilon}{2}$处处成立,则$|f(x)-T(x)|<\varepsilon$在$[-\pi,\pi]$中处处成立.
 
 \begin{ti}
-\textbf{定理8.8(一致收敛)}  设$f$是以$2\pi$为周期的连续函数,如果$f$可以写成两个单调函数之差,则其$Fourier$级数一致收敛于$f$自身.特别地,$Lipschitz$周期函数的$Fourier$级数一致收敛于自身.
+\textbf{定理8.8(一致收敛)}  设$f$是以$2\pi$为周期的连续函数,如果$f$在$[-\pi,\pi]$上可以写成两个单调函数之差(即在一个周期内有界变差),则其$Fourier$级数一致收敛于$f$自身.特别地,$Lipschitz$周期函数的$Fourier$级数一致收敛于自身.
 \end{ti}
 
-\textbf{证明}:设$f$为$(-\pi,\pi)$中的有界单调函数,则由单调函数的$Fourier$系数估计(引理9.4.5):$|na_n|\leq\dfrac{2}{\pi}|f(\pi-0)-f(-\pi+0)|$,$|nb_n|\leq\dfrac{2}{\pi}|f(\pi-0)-f(-\pi+0)|$,知$|a_n|+|b_n|=O\left(\dfrac{1}{n}\right)$,故级数$\displaystyle\sum(|a_n|+|b_n|)$收敛.由$Weierstrass$判别法,$f$的$Fourier$级数在$\mathbb{R}$上一致收敛;由$Dirichlet$收敛定理,$f$的$Fourier$级数收敛到$\dfrac{f(x+0)+f(x-0)}{2}$,而$f$连续,故其和为$f$.一般地,$f$可以写成两个单调递增函数之差,分别对两个单调函数应用上述结论,即得$f$的$Fourier$级数一致收敛于$f$自身.特别地,$Lipschitz$周期函数可以写成两个单调函数之差,故其$Fourier$级数一致收敛于自身.
+\textbf{证明}:记$D_n(u)=\dfrac{\sin(n+\frac12)u}{2\sin(u/2)}$.由核的积分式和$\int_0^\pi D_n(u)\,\mathrm{d}u=\pi/2$可得
+$$S_n(f)(x)-f(x)=\frac{1}{\pi}\int_0^\pi h_x(u)D_n(u)\,\mathrm{d}u,\quad h_x(u)=f(x+u)+f(x-u)-2f(x).$$
+先注意存在与$n$无关的常数$C$,使$\left|\int_0^vD_n(u)\,\mathrm{d}u\right|\leq C$对所有$0\leq v\leq\pi$成立.事实上,写$D_n(u)=\dfrac{\sin(n+\frac12)u}{u}\dfrac{u}{2\sin(u/2)}$;后一因子在$[0,\pi]$上连续可微,而前一因子的原函数由在$u=(n+\frac12)^{-1}$处分段估计并分部积分可得一致有界,再作一次分部积分即得此界.\\
+记$\operatorname{Var}_I f$为$f$在区间$I$上的总变差,$V=\operatorname{Var}_{[-\pi,\pi]}f$.因为$f$连续且有界变差,累积变差函数的跳跃量等于$f$在该点的跳跃量,故它连续.把$f$按周期延拓,并记$\omega_V(\delta)=\sup_{|I|\leq\delta}\operatorname{Var}_I f$,则累积变差函数的一致连续性给出$\omega_V(\delta)\to0$($\delta\to0+$).对$h_x(0)=0$在$[0,\delta]$上应用有限求和分部公式并取极限,由前述核原函数的统一界得到
+$$\left|\int_0^\delta h_x(u)D_n(u)\,\mathrm{d}u\right|\leq C\operatorname{Var}_{[0,\delta]}h_x\leq2C\omega_V(\delta),$$
+右端与$x,n$无关.固定$\delta>0$后,令$q_x(u)=h_x(u)/(2\sin(u/2))$.在$[\delta,\pi]$上,分母的倒数有界且有界变差,而$\lVert h_x\rVert_\infty\leq4\lVert f\rVert_\infty$,$\operatorname{Var}_{[\delta,\pi]}h_x\leq2V$,故$\lVert q_x\rVert_\infty+\operatorname{Var}_{[\delta,\pi]}q_x\leq C_\delta$,其中$C_\delta$与$x,n$无关.再次用有限求和分部公式及$\left|\int_s^t\sin(n+\frac12)u\,\mathrm{d}u\right|\leq2/(n+\frac12)$,得到
+$$\sup_x\left|\int_\delta^\pi h_x(u)D_n(u)\,\mathrm{d}u\right|\leq\frac{C_\delta}{n+\frac12}\longrightarrow0.$$
+先令$n\to\infty$,再令$\delta\to0+$,即得$\sup_x|S_n(f)(x)-f(x)|\to0$.最后,若$f$的$Lipschitz$常数为$L$,则在$[-\pi,\pi]$上$f(t)=[f(t)+Lt]-Lt$为两个单调函数之差,故适用上述结论.
 
 \begin{ti}
-\textbf{定理8.9(Fejér)}  设$f$连续且以$2\pi$为周期,则$\{\sigma_n(f)\}$一致收敛于$f$,其中$\sigma_n(f)$为$f$的$Fourier$级数部分和的算术平均:
+\textbf{定理8.9($\text{Fejér}$)}  设$f$连续且以$2\pi$为周期,则$\{\sigma_n(f)\}$一致收敛于$f$,其中$\sigma_n(f)$为$f$的$Fourier$级数部分和的算术平均:
 $$\sigma_n(f)(x)=\frac{1}{n+1}\sum_{k=0}^{n}S_k(x),$$
 $S_k(x)$为$f$的$Fourier$级数的第$k$个部分和.
 \end{ti}
@@ -442,39 +453,33 @@ $$|\sigma_n(f)(x)-f(x)|\leq\frac{1}{2\pi}\int_{-\pi}^{\pi}F_n(u)|f(x+u)-f(x)|\,\
 当$n$充分大时,上式右端第二项小于$\dfrac{\varepsilon}{2}$,故$|\sigma_n(f)(x)-f(x)|<\varepsilon$对一切$x$成立,即$\{\sigma_n(f)\}$一致收敛于$f$.
 
 \begin{ti}
-\textbf{推论8.10(Dirichlet-Jordan)}  设$f$可积,如果$f$在区间$[x_0-h,x_0+h]$中是单调函数,则其$Fourier$级数在$x_0$处收敛于
+\textbf{推论8.10($Dirichlet\text{-}Jordan$)}  设$f$可积,如果$f$在区间$[x_0-h,x_0+h]$中是单调函数,则其$Fourier$级数在$x_0$处收敛于
 $$\frac{f(x_0+0)+f(x_0-0)}{2}.$$
 \end{ti}
 
 \begin{ti}
-\textbf{定理8.11(Parseval恒等式)}  设$f\in R[-\pi,\pi]$,其Fourier展开为$f(x)\sim\dfrac{a_0}{2}+\displaystyle\sum_{n=1}^{\infty}\bigl(a_n\cos(nx)+b_n\sin(nx)\bigr)$,则
+\textbf{定理8.11($Parseval$恒等式)}  设$f\in R[-\pi,\pi]$,其$Fourier$展开为$f(x)\sim\dfrac{a_0}{2}+\displaystyle\sum_{n=1}^{\infty}\bigl(a_n\cos(nx)+b_n\sin(nx)\bigr)$,则
 $$\dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)^2\,\mathrm{d}x=\dfrac{a_0^2}{2}+\sum_{n=1}^{\infty}\bigl(a_n^2+b_n^2\bigr)$$.
 \end{ti}
 
-\textbf{证明}:因为改变个别点的函数值不影响积分,我们不妨设$f(-\pi)=f(\pi)$.取$f$的分段线性逼近$\{f_n\}$,使之满足教材(6.5)式和(6.6)式.不难看出,此时也有
-$$\lim_{n\to\infty}\dfrac{1}{\pi}\int_{-\pi}^{\pi}f_n^2(x)\,\mathrm{d}x=\dfrac{1}{\pi}\int_{-\pi}^{\pi}f^2(x)\,\mathrm{d}x.$$
-注意到$f_n$的$Fourier$展开一致收敛于自身:
-$$f_n(x)=\dfrac{a_{n,0}}{2}+\sum_{k=1}^{\infty}(a_{n,k}\cos kx+b_{n,k}\sin kx).$$
-上式两边乘$f_n(x)$以后仍然一致收敛,逐项积分可得
-$$\dfrac{1}{\pi}\int_{-\pi}^{\pi}f_n^2(x)\,\mathrm{d}x=\dfrac{1}{2}a_{n,0}^2+\sum_{k=1}^{\infty}(a_{n,k}^2+b_{n,k}^2).$$
-同理,乘$f(x)$再积分可得
-$$\dfrac{1}{\pi}\int_{-\pi}^{\pi}f_n(x)f(x)\,\mathrm{d}x=\dfrac{1}{2}a_{n,0}a_0+\sum_{k=1}^{\infty}(a_{n,k}a_k+b_{n,k}b_k).$$
-利用平均值不等式$ab\leq\dfrac{a^2+b^2}{2}$可得
-$$\dfrac{1}{\pi}\int_{-\pi}^{\pi}f_n(x)f(x)\,\mathrm{d}x\leq\dfrac{1}{2}\left[\dfrac{1}{2}a_{n,0}^2+\sum_{k=1}^{\infty}(a_{n,k}^2+b_{n,k}^2)\right]+\dfrac{1}{2}\left[\dfrac{1}{2}a_0^2+\sum_{k=1}^{\infty}(a_k^2+b_k^2)\right].$$
-令$n\to\infty$,可得
-$$\dfrac{1}{\pi}\int_{-\pi}^{\pi}f^2(x)\,\mathrm{d}x\leq\dfrac{1}{2}\left[\dfrac{1}{\pi}\int_{-\pi}^{\pi}f^2(x)\,\mathrm{d}x+\dfrac{1}{2}a_0^2+\sum_{k=1}^{\infty}(a_k^2+b_k^2)\right],$$
-即$\dfrac{1}{\pi}\displaystyle\int_{-\pi}^{\pi}f^2(x)\,\mathrm{d}x\leq\dfrac{1}{2}a_0^2+\displaystyle\sum_{k=1}^{\infty}(a_k^2+b_k^2)$.结合$Bessel$不等式就得到了欲证的$Parseval$恒等式.
+\textbf{证明}:记$S_n$为$f$的第$n$个$Fourier$部分和.由三角函数的正交性,对任意次数不超过$n$的三角多项式$T$,有
+$$\int_{-\pi}^{\pi}(f-T)^2\,\mathrm{d}x=\int_{-\pi}^{\pi}(f-S_n)^2\,\mathrm{d}x+\int_{-\pi}^{\pi}(S_n-T)^2\,\mathrm{d}x.$$
+因此$S_n$是此类多项式中平方积分误差最小的一个.下面说明任给$\varepsilon>0$,存在三角多项式$T$,使$\int_{-\pi}^{\pi}(f-T)^2<\varepsilon$.设$|f|\leq M$.由$f$的$Riemann$可积性,可取分割$P$,使$\sum_i\operatorname{osc}_{I_i}(f)|I_i|$任意小.在每个小区间$I_i$上取$f$的一个值构成阶梯函数$s$,则
+$$\int_{-\pi}^{\pi}(f-s)^2\,\mathrm{d}x\leq2M\sum_i\operatorname{osc}_{I_i}(f)|I_i|.$$
+只在阶梯函数有限个跳跃点附近的总长度很小的区间内将其改成线性连接,并在$-\pi,\pi$附近同样连接两端,可得连续的周期分段线性函数$g$,使$\int(s-g)^2$任意小.由定理8.7,可取三角多项式$T$使$\lVert g-T\rVert_\infty$任意小.利用$(f-T)^2\leq3[(f-s)^2+(s-g)^2+(g-T)^2]$,即得所需逼近.于是对充分大的$n$有$\int(f-S_n)^2<\varepsilon$,从而$\int(f-S_n)^2\to0$.最后由正交性,
+$$\frac{1}{\pi}\int_{-\pi}^{\pi}f^2\,\mathrm{d}x-\left[\frac{a_0^2}{2}+\sum_{k=1}^n(a_k^2+b_k^2)\right]=\frac{1}{\pi}\int_{-\pi}^{\pi}(f-S_n)^2\,\mathrm{d}x\longrightarrow0,$$
+即得$Parseval$恒等式.
 
 \begin{ti}
-\textbf{推论8.12(广义Parseval恒等式)}  设$f,g\in R[-\pi,\pi]$,其$Fourier$系数分别为$\{a_n,b_n\}$,$\{\alpha_n,\beta_n\}$,则
+\textbf{推论8.12(广义$Parseval$恒等式)}  设$f,g\in R[-\pi,\pi]$,其$Fourier$系数分别为$\{a_n,b_n\}$,$\{\alpha_n,\beta_n\}$,则
 $$\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)g(x)\,\mathrm{d}x=\frac{a_0\alpha_0}{2}+\sum_{n=1}^{\infty}(a_n\alpha_n+b_n\beta_n).$$
 \end{ti}
 
 \textbf{证明}:分别对$f+g$和$f-g$应用$Parseval$恒等式,然后二者相减即可.
 
 \begin{ti}
-\textbf{定理8.13(Fourier系数的唯一性)}  设函数$f,g$在$[-\pi,\pi]$上连续且具有相同的Fourier系数,则$f\equiv g$.
+\textbf{定理8.13($Fourier$系数的唯一性)}  设函数$f,g$在$[-\pi,\pi]$上连续且具有相同的$Fourier$系数,则$f\equiv g$.
 \end{ti}
 
-\textbf{证明}:设$h=f-g$,则$h\in C^0[-\pi,\pi]$且其Fourier系数全为零.由$Parseval$恒等式,$\dfrac{1}{\pi}\displaystyle\int_{-\pi}^{\pi}h(x)^2\,\mathrm{d}x=0$.因$h^2$为连续非负函数,故$h\equiv 0$,即$f\equiv g$.
+\textbf{证明}:设$h=f-g$,则$h\in C^0[-\pi,\pi]$且其$Fourier$系数全为零.由$Parseval$恒等式,$\dfrac{1}{\pi}\displaystyle\int_{-\pi}^{\pi}h(x)^2\,\mathrm{d}x=0$.因$h^2$为连续非负函数,故$h\equiv 0$,即$f\equiv g$.
 \BookEnd
