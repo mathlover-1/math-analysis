@@ -32,7 +32,7 @@
 
 $\exists\,\xi\in(a,b),\;\text{s.t.}\,\dfrac{1}{a^{p-1}}-\dfrac{1}{b^{p-1}}=\dfrac{p-1}{\xi^p}(b-a)>(p-1)\dfrac{b-a}{b^p}$. \\
 
-$\because\,\displaystyle\sum_{n=1}^{\infty}a_n$为正项级数,$\;\therefore\,S_n$单调递增,即$S_n>S_{n-1}$. \\
+$\because\,\displaystyle\sum_{n=1}^{\infty}a_n$为正项级数,$\quad\therefore\,S_n$单调递增,即$S_n>S_{n-1}$. \\
 
 代入$a=S_{n-1},b=S_n$,得到$(p-1)\dfrac{S_n-S_{n-1}}{S_n^p}<\dfrac{1}{S_{n-1}^{p-1}}-\dfrac{1}{S_n^{p-1}}$, \\
 
@@ -46,14 +46,14 @@ $\therefore\,\displaystyle\sum_{n=1}^{\infty}\dfrac{a_n}{S_n^p}<\dfrac{1}{S_1^{p
 
 \textbf{证明}:由题意可知$\{a_n\}$为正无穷大量.下面分类讨论. \\
 
-$\mathrm{I}$ 若$\{a_n\}$单调递增,则$\dfrac{2n-1}{a_1+a_2+\cdots+a_{2n-1}}<\dfrac{2n-1}{a_n+a_{n+1}+\cdots+a_{2n-1}}<\dfrac{2n-1}{na_n}$, \\
+$(\mathrm{I})$  若$\{a_n\}$单调递增,则$\dfrac{2n-1}{a_1+a_2+\cdots+a_{2n-1}}<\dfrac{2n-1}{a_n+a_{n+1}+\cdots+a_{2n-1}}<\dfrac{2n-1}{na_n}$, \\
 
 同理$\dfrac{2n}{a_1+a_2+\cdots+a_{2n}}<\dfrac{2n}{na_n},\quad\therefore\dfrac{2n-1}{a_1+a_2+\cdots+a_{2n-1}}+\dfrac{2n}{a_1+a_2+\cdots+a_{2n}}<\dfrac{4}{a_n}$, \\
 
 从而$\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{a_1+a_2+\cdots+a_n}\leq 4\sum_{n=1}^{\infty}\dfrac{1}{a_n}$,
 从而$\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{a_1+a_2+\cdots+a_n}$收敛. \\
 
-$\mathrm{II}$ 对于一般的$\{a_n\}$,先证明一个引理:正无穷大量子列一定有最小数. \\
+$(\mathrm{II})$  对于一般的$\{a_n\}$,先证明一个引理:正无穷大量子列一定有最小数. \\
 
 $\because\,\displaystyle\lim_{n\to\infty}a_n=+\infty,\;\therefore\exists\,N,n>N\text{时},a_n>a_1$, 从而$\min\left\{a_1,a_2,...,a_N\right\}$为$\{a_n\}$中最小数. \\
 
@@ -61,10 +61,15 @@ $\because\,\displaystyle\lim_{n\to\infty}a_n=+\infty,\;\therefore\exists\,N,n>N\
 
 $\because\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{a_n}$是正项级数,$\quad\therefore$重排后$\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{b_n}$仍收敛, \\
 
-由$\mathrm{I}$的情况可知$\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{b_1+b_2+\cdots+b_n}$收敛,\\
+由$(\mathrm{I})$的情况可知$\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{b_1+b_2+\cdots+b_n}$收敛,\\
 又对$\forall\,n\geq 1$,有$\dfrac{n}{b_1+b_2+\cdots+b_n}\geq\dfrac{n}{a_1+a_2+\cdots+a_n}$, \\
 
 $\therefore\text{由比较判别法可知}\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{a_1+a_2+\cdots+a_n}$收敛.
+
+\textbf{注记}:上述证明过程中得到的不等式$\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{a_1+a_2+\cdots+a_n}\leq 4\sum_{n=1}^{\infty}\dfrac{1}{a_n}$
+中的系数$4$实际上不是最优的,可以得到最优常数为$2$,并且不存在反方向的不等式控制
+(即不存在正常数$l$,使得$\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{a_1+a_2+\cdots+a_n}\geq l\sum_{n=1}^{\infty}\dfrac{1}{a_n}$).
+有关讨论见\href{https://math.stackexchange.com/questions/599999}{该题在 Mathematics Stack Exchange 的页面}.
 
 \begin{ti}
 【题3】设$\displaystyle\sum_{n=1}^{\infty}a_n$为收敛的正项级数,证明:$\displaystyle\sum_{n=1}^{\infty}\sqrt[n]{a_1a_2\cdots a_n} $收敛.
