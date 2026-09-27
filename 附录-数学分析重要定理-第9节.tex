@@ -1,0 +1,230 @@
+\ifdefined\BookMaster
+\def\BookEnd{}
+\else
+\documentclass[a4paper,12pt,fleqn,openany,twoside,fontset=windows]{ctexbook}
+\input{数学分析习题整理-导言.tex}
+\begin{document}
+\mainmatter
+\pagestyle{main}
+\setcounter{chapter}{8}
+\def\BookEnd{\end{document}}
+\fi
+
+% 附录第九节取材于参考资料第一本《数学分析》第二版第十五章。
+% 本文件可独立编译;整书中接在附录第七至八节之后。
+\renewcommand{\thesection}{\S\arabic{section}}
+\titleformat{\section}[block]
+  {\normalfont\heiti\bfseries\Large\color{bookblue}}
+  {\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{3.2em plus 0.4em}{1em}
+\renewcommand{\thesubsection}{\S\arabic{section}.\arabic{subsection}}
+\titleformat{\subsection}[block]
+  {\normalfont\heiti\bfseries\large\color{bookblue}}
+  {\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{2.4em plus 0.3em}{0.8em}
+\makeatletter\@fleqnfalse\makeatother
+\makeatletter
+\@addtoreset{equation}{section}
+\renewcommand{\theequation}{\arabic{equation}}
+\makeatother
+\renewtcolorbox{ti}{
+    enhanced,
+    breakable,
+    colback=booklight!55!white,
+    colframe=bookteal!35!white,
+    boxrule=0.45pt,
+    boxsep=0pt,
+    left=10pt,
+    right=10pt,
+    top=9pt,
+    bottom=9pt,
+    before skip=16.8pt,
+    after skip=16.8pt,
+    arc=2pt,
+    outer arc=2pt,
+    before upper={\parindent=0pt}
+}
+\setcounter{section}{8}
+
+\section{含参变量积分}
+\subsection{含参变量的积分}
+
+\begin{ti}
+\textbf{定义9.1(含参变量的积分)}  设$f(x,y)$定义在$[a,b]\times[c,d]$中,且对每个固定的$y\in[c,d]$,$f(x,y)$关于$x$在$[a,b]$中$Riemann$可积.定义
+$$I(y)=\int_a^b f(x,y)\,\mathrm{d}x,\qquad y\in[c,d],$$
+称$I(y)$为\textbf{含参变量的积分},其中$y$为参数.
+\end{ti}
+
+\begin{ti}
+\textbf{引理9.2(连续性)}  设$f(x,y)$在$[a,b]\times[c,d]$中连续,则$I(y)$在$[c,d]$中连续.
+\end{ti}
+
+\textbf{证明}:由于$f$在矩形$[a,b]\times[c,d]$上一致连续,任给$\varepsilon>0$,存在$\delta>0$,当$y_1,y_2\in[c,d]$且$|y_1-y_2|<\delta$时,对一切$x\in[a,b]$均有$|f(x,y_1)-f(x,y_2)|<\varepsilon$.因此
+$$|I(y_1)-I(y_2)|=\left|\int_a^b[f(x,y_1)-f(x,y_2)]\,\mathrm{d}x\right|
+\leq\int_a^b|f(x,y_1)-f(x,y_2)|\,\mathrm{d}x
+\leq(b-a)\varepsilon.$$
+故$I(y)$连续.
+
+\begin{ti}
+\textbf{定理9.3(积分号下求导)}  设$f_y(x,y)$在$[a,b]\times[c,d]$中连续,则$I(y)$关于$y$可导,且
+$$I'(y)=\int_a^b f_y(x,y)\,\mathrm{d}x.$$
+在端点处的导数按单侧导数理解.
+\end{ti}
+
+\textbf{证明}:令$\psi(y)=\displaystyle\int_a^b f_y(x,y)\,\mathrm{d}x$.由引理9.2,$\psi$在$[c,d]$中连续.任取$y_1,y_2\in[c,d]$,交换矩形上的积分次序,并对$f(x,y)$应用微积分基本定理,得到
+$$\begin{aligned}
+\int_{y_1}^{y_2}\psi(y)\,\mathrm{d}y
+&=\int_{y_1}^{y_2}\mathrm{d}y\int_a^b f_y(x,y)\,\mathrm{d}x
+=\int_a^b\mathrm{d}x\int_{y_1}^{y_2}f_y(x,y)\,\mathrm{d}y\\
+&=\int_a^b[f(x,y_2)-f(x,y_1)]\,\mathrm{d}x
+=I(y_2)-I(y_1).
+\end{aligned}$$
+于是$I'(y)=\psi(y)$.
+
+\begin{ti}
+\textbf{定理9.4(变动积分限的求导公式)}  设$f(x,y)$在$[a,b]\times[c,d]$中连续,$f_y(x,y)$也在该矩形中连续;$a(y),b(y)$在$[c,d]$中可导,且$a\leq a(y),b(y)\leq b$.若
+$$F(y)=\int_{a(y)}^{b(y)}f(x,y)\,\mathrm{d}x,$$
+则
+$$F'(y)=\int_{a(y)}^{b(y)}f_y(x,y)\,\mathrm{d}x
++f(b(y),y)b'(y)-f(a(y),y)a'(y).$$
+\end{ti}
+
+\subsection{含参变量的广义积分}
+
+\begin{ti}
+\textbf{定义9.5(广义积分的一致收敛)}  设$f(x,y)$定义在$[a,+\infty)\times[c,d]$中,且对每个$y\in[c,d]$,广义积分
+$$I(y)=\int_a^{+\infty}f(x,y)\,\mathrm{d}x$$
+收敛.若任给$\varepsilon>0$,存在与$y$无关的$A_0>a$,使任意$A'>A>A_0$及任意$y\in[c,d]$均满足
+$$\left|\int_A^{A'}f(x,y)\,\mathrm{d}x\right|<\varepsilon,$$
+则称该广义积分关于$y\in[c,d]$\textbf{一致收敛}.等价地,可要求$\displaystyle\left|\int_A^{+\infty}f(x,y)\,\mathrm{d}x\right|<\varepsilon$对所有$A>A_0$及$y\in[c,d]$成立.
+\end{ti}
+
+\begin{ti}
+\textbf{命题9.6($Weierstrass$判别法)}  如果存在函数$G(x)$,使
+$$|f(x,y)|\leq G(x),\qquad (x,y)\in[a,+\infty)\times[c,d],$$
+且$\displaystyle\int_a^{+\infty}G(x)\,\mathrm{d}x$收敛,则$\displaystyle\int_a^{+\infty}f(x,y)\,\mathrm{d}x$关于$y\in[c,d]$一致收敛.
+\end{ti}
+
+\textbf{证明}:任给$\varepsilon>0$,可取$A_0>a$,使任意$A'>A>A_0$均有$\displaystyle\int_A^{A'}G(x)\,\mathrm{d}x<\varepsilon$.于是对所有$y\in[c,d]$,
+$$\left|\int_A^{A'}f(x,y)\,\mathrm{d}x\right|
+\leq\int_A^{A'}|f(x,y)|\,\mathrm{d}x
+\leq\int_A^{A'}G(x)\,\mathrm{d}x<\varepsilon.$$
+由定义9.5即得结论.
+
+\begin{ti}
+\textbf{引理9.7(一致收敛积分的连续性)}  设$f(x,y)$在$[a,+\infty)\times[c,d]$中连续,且$I(y)=\displaystyle\int_a^{+\infty}f(x,y)\,\mathrm{d}x$关于$y\in[c,d]$一致收敛,则$I(y)$在$[c,d]$中连续.
+\end{ti}
+
+\textbf{证明}:任给$\varepsilon>0$,由一致收敛性可取$A>a$,使
+$$\left|\int_A^{+\infty}f(x,y)\,\mathrm{d}x\right|<\varepsilon,\qquad y\in[c,d].$$
+$f$在$[a,A]\times[c,d]$上一致连续,故当$|y_1-y_2|$充分小时,对一切$x\in[a,A]$有$|f(x,y_1)-f(x,y_2)|<\varepsilon/(A-a)$.于是
+$$\begin{aligned}
+|I(y_1)-I(y_2)|
+&\leq\left|\int_A^{+\infty}f(x,y_1)\,\mathrm{d}x\right|
++\left|\int_A^{+\infty}f(x,y_2)\,\mathrm{d}x\right|\\
+&\quad+\int_a^A|f(x,y_1)-f(x,y_2)|\,\mathrm{d}x
+<3\varepsilon.
+\end{aligned}$$
+这说明$I(y)$连续.
+
+\begin{ti}
+\textbf{定理9.8(积分号下积分)}  在引理9.7的条件下,可以交换关于$y$的积分与关于$x$的广义积分:
+$$\int_a^{+\infty}\mathrm{d}x\int_c^d f(x,y)\,\mathrm{d}y
+=\int_c^d I(y)\,\mathrm{d}y
+=\int_c^d\mathrm{d}y\int_a^{+\infty}f(x,y)\,\mathrm{d}x.$$
+\end{ti}
+
+\textbf{证明}:由一致收敛性,任给$\varepsilon>0$,存在$A_0>a$,当$A>A_0$时,
+$$\left|\int_A^{+\infty}f(x,y)\,\mathrm{d}x\right|<\varepsilon,\qquad y\in[c,d].$$
+对有限区间$[a,A]$交换积分次序,再估计截断误差:
+$$\begin{aligned}
+\left|\int_c^d I(y)\,\mathrm{d}y-\int_a^A\mathrm{d}x\int_c^d f(x,y)\,\mathrm{d}y\right|
+&=\left|\int_c^d\mathrm{d}y\int_A^{+\infty}f(x,y)\,\mathrm{d}x\right|\\
+&\leq(d-c)\varepsilon.
+\end{aligned}$$
+令$A\to+\infty$即得等式.
+
+\begin{ti}
+\textbf{定理9.9(广义积分的积分号下求导)}  设$f(x,y)$关于$x$在每个闭区间中可积,$f_y(x,y)$在$[a,+\infty)\times[c,d]$中连续.若
+$$\psi(y)=\int_a^{+\infty}f_y(x,y)\,\mathrm{d}x$$
+关于$y\in[c,d]$一致收敛,且存在$y_0\in[c,d]$使$\displaystyle\int_a^{+\infty}f(x,y_0)\,\mathrm{d}x$收敛,则$I(y)=\displaystyle\int_a^{+\infty}f(x,y)\,\mathrm{d}x$关于$y\in[c,d]$一致收敛,并且
+$$I'(y)=\psi(y)=\int_a^{+\infty}f_y(x,y)\,\mathrm{d}x.$$
+\end{ti}
+
+\textbf{证明}:由假设,任给$\varepsilon>0$,可取$A_0>a$,当$A'>A>A_0$时,对所有$y\in[c,d]$有
+$$\left|\int_A^{A'}f(x,y_0)\,\mathrm{d}x\right|<\varepsilon,\qquad
+\left|\int_A^{A'}f_y(x,y)\,\mathrm{d}x\right|<\varepsilon.$$
+对任意$y_1\in[c,d]$,按参数从$y_0$积分并交换有限矩形上的积分次序,得到
+$$\begin{aligned}
+\left|\int_A^{A'}f(x,y_1)\,\mathrm{d}x\right|
+&\leq\left|\int_A^{A'}f(x,y_0)\,\mathrm{d}x\right|
++\left|\int_{y_0}^{y_1}\mathrm{d}y\int_A^{A'}f_y(x,y)\,\mathrm{d}x\right|\\
+&\leq\varepsilon+(d-c)\varepsilon.
+\end{aligned}$$
+因此$I(y)$一致收敛.再由定理9.8,任取$y_1,y_2\in[c,d]$有
+$$\int_{y_1}^{y_2}\psi(y)\,\mathrm{d}y
+=\int_a^{+\infty}\mathrm{d}x\int_{y_1}^{y_2}f_y(x,y)\,\mathrm{d}y
+=I(y_2)-I(y_1).$$
+由引理9.7,$\psi$连续,故$I'(y)=\psi(y)$.
+
+\begin{ti}
+\textbf{定理9.10(非负广义积分的换序)}  设$f(x,y)$在$(a,+\infty)\times(c,+\infty)$中连续且非负.若
+$$\varphi(y)=\int_a^{+\infty}f(x,y)\,\mathrm{d}x,\qquad
+\psi(x)=\int_c^{+\infty}f(x,y)\,\mathrm{d}y$$
+分别为连续函数,且$\displaystyle\int_c^{+\infty}\varphi(y)\,\mathrm{d}y$与$\displaystyle\int_a^{+\infty}\psi(x)\,\mathrm{d}x$中至少一个收敛,则另一个也收敛,并且
+$$\int_c^{+\infty}\mathrm{d}y\int_a^{+\infty}f(x,y)\,\mathrm{d}x
+=\int_a^{+\infty}\mathrm{d}x\int_c^{+\infty}f(x,y)\,\mathrm{d}y.$$
+\end{ti}
+
+\textbf{证明}:设左边的积分收敛.取$a<a_n<A_n$,其中$a_n\downarrow a,A_n\uparrow+\infty$,并记
+$$\varphi_n(y)=\int_{a_n}^{A_n}f(x,y)\,\mathrm{d}x.$$
+在任意闭区间$[c+\eta,M]\subset(c,+\infty)$中,$\varphi_n$连续且单调递增到连续函数$\varphi$,故由$Dini$定理,$\varphi_n$在该区间上一致收敛.因此在有限矩形上先交换积分次序,再取极限,可得
+$$\int_{c+\eta}^{M}\varphi(y)\,\mathrm{d}y
+=\lim_{n\to\infty}\int_{a_n}^{A_n}\mathrm{d}x\int_{c+\eta}^{M}f(x,y)\,\mathrm{d}y.$$
+对$\psi$作同样的截断.由于$f\geq0$,让截断端点趋于边界后,两种积分次序所得的值均为有限矩形积分的上确界;由左边的积分收敛知此值有限.
+
+\subsection{特殊函数}
+
+\begin{ti}
+\textbf{定义9.11($\mathrm{B}$函数与$\Gamma$函数)}  对$p,q,s>0$,定义
+$$\mathrm{B}(p,q)=\int_0^1x^{p-1}(1-x)^{q-1}\,\mathrm{d}x,\qquad
+\Gamma(s)=\int_0^{+\infty}x^{s-1}e^{-x}\,\mathrm{d}x.$$
+\end{ti}
+
+\begin{ti}
+\textbf{命题9.12(基本性质)}  对$p,q,s>0$,有
+$$\mathrm{B}(p,q)=\mathrm{B}(q,p),\qquad
+\Gamma(s+1)=s\Gamma(s),\qquad \Gamma(1)=1.$$
+特别地,正整数$n$满足$\Gamma(n)=(n-1)!$.此外,
+$$\mathrm{B}(p,q)=\int_0^{+\infty}\frac{y^{p-1}}{(1+y)^{p+q}}\,\mathrm{d}y.$$
+\end{ti}
+
+\textbf{证明}:在$\mathrm{B}$的定义式中分别作$x=1-t$与$x=y/(1+y)$的代换,即得前后两式.再令$x=\sin^2\theta$可得$\mathrm{B}(\frac12,\frac12)=\pi$.分部积分得
+$$\Gamma(s+1)=\int_0^{+\infty}x^se^{-x}\,\mathrm{d}x
+=\left[-x^se^{-x}\right]_0^{+\infty}
++s\int_0^{+\infty}x^{s-1}e^{-x}\,\mathrm{d}x=s\Gamma(s).$$
+又$\Gamma(1)=\displaystyle\int_0^{+\infty}e^{-x}\,\mathrm{d}x=1$,递推即得整数情形.
+
+\begin{ti}
+\textbf{定理9.13($\mathrm{B}$函数与$\Gamma$函数的关系)}  对任意$p,q>0$,有
+$$\mathrm{B}(p,q)=\frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}.$$
+特别地,$\displaystyle\Gamma\left(\frac12\right)=\sqrt{\pi}$.
+\end{ti}
+
+\textbf{证明}:由命题9.12中的积分表示和$\Gamma$函数的伸缩代换,对$y\geq0$有
+$$\frac{1}{(1+y)^{p+q}}
+=\frac{1}{\Gamma(p+q)}
+\int_0^{+\infty}x^{p+q-1}e^{-(1+y)x}\,\mathrm{d}x.$$
+将其代入$\mathrm{B}(p,q)$,因被积函数非负,可按定理9.10交换积分次序.再令$t=xy$,得到
+$$\begin{aligned}
+\mathrm{B}(p,q)
+&=\frac{1}{\Gamma(p+q)}
+\int_0^{+\infty}x^{p+q-1}e^{-x}
+\left(\int_0^{+\infty}y^{p-1}e^{-xy}\,\mathrm{d}y\right)\mathrm{d}x\\
+&=\frac{\Gamma(p)}{\Gamma(p+q)}
+\int_0^{+\infty}x^{q-1}e^{-x}\,\mathrm{d}x
+=\frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}.
+\end{aligned}$$
+取$p=q=\dfrac12$,由$\mathrm{B}\left(\dfrac12,\dfrac12\right)=\pi$及$\Gamma(1)=1$即得$\Gamma\left(\dfrac12\right)=\sqrt{\pi}$.
+
+\BookEnd

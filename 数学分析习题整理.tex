@@ -11,8 +11,8 @@
 
 第二版在保留第一版全部内容的基础上,主要做了如下修订: 
 
-(1)增设正文第六章(级数)与第七章($Fourier$分析),第一版受限于笔者知识的局限性,仅整理了大一年级对应数学分析内容的习题;
-目前第六章与第七章仍在编写中,相关题目将结合后续学习与修订逐步补充; 
+(1)增设正文第六章(级数)、第七章($Fourier$分析)与第八章(含参变量积分),第一版受限于笔者知识的局限性,仅整理了大一年级对应数学分析内容的习题;
+目前第六章与第七章仍在编写中,第八章的题目暂留空,相关内容将结合后续学习与修订逐步补充;
 
 (2)新增附录"数学分析重要定理",面向分析基础并不十分扎实或者在学习过程中偶然忘记了某个定理的细节的人,这次修订按照课程学习顺序整理教材中的重要定义,命题与定理,并为核心定理补充了证明,便于系统复习与查阅; 
 
@@ -33,7 +33,7 @@ xxxx年x月xx日\par}
 本书是笔者在南京大学一年级数学分析学习过程中积攒形成的习题整理,
 题目主要来源于谢惠民等老师编著的数学分析习题课讲义,笔者在大一期间遇到的数学分析课堂例题和南京大学数学分析期中与期末考试卷. 
 
-本书按照数列,实数系基本定理,函数,一元微分学与一元积分学,多元微分学与多元积分学,级数以及$Fourier$分析的顺序编排. 
+本书按照数列,实数系基本定理,函数,一元微分学与一元积分学,多元微分学与多元积分学,级数,$Fourier$分析以及含参变量积分的顺序编排.第八章目前仅设章节标题,附录第九节先整理这一主题的基础结论.
 
 选题侧重较有难度,方法典型或思路新颖的题目,并保留推导过程与解题思路,便于日后复习,补充和查阅. 
 
@@ -62,6 +62,8 @@ xxxx年x月xx日\par}
 \textbf{第六章\quad 级数}. 本章仍在编写中,拟讨论数项级数的收敛性判别,函数项级数的一致收敛性,幂级数与$Taylor$展开等相关问题.\\
 
 \textbf{第七章\quad $Fourier$分析}. 本章仍在编写中,拟讨论$Fourier$级数的收敛性,正交系,$Parseval$等式及$Fourier$变换的基本性质等相关问题.\\
+
+\textbf{第八章\quad 含参变量积分}. 本章目前为占位章节,题目待补充;对应的基本定义与定理见附录第九节.\\
 
 \end{booknotelongbody}
 \pagestyle{main}
@@ -126,6 +128,13 @@ xxxx年x月xx日\par}
     \item $\displaystyle C^\alpha[a,b]$表示$\text{Hölder}$指数为$\displaystyle\alpha$的函数类,即存在$\displaystyle M>0$,使任意$\displaystyle s,t\in[a,b]$均满足$\displaystyle|f(t)-f(s)|\leq M|t-s|^\alpha$.
 \end{itemize}
 
+\textbf{含参变量积分}
+
+\begin{itemize}[leftmargin=2\ccwd,itemsep=0.5em,topsep=0.4em]
+    \item $\displaystyle I(y)=\int_a^b f(x,y)\,\mathrm{d}x$表示以$\displaystyle y$为参数的积分;积分区间随参数变化时,记为$\displaystyle F(y)=\int_{a(y)}^{b(y)}f(x,y)\,\mathrm{d}x$.
+    \item $\displaystyle\mathrm{B}(p,q)$与$\displaystyle\Gamma(s)$分别表示$\displaystyle B$函数与$\displaystyle\Gamma$函数,定义及适用范围见附录第九节.
+\end{itemize}
+
 \textbf{曲线,曲面与方向}
 
 \begin{itemize}[leftmargin=2\ccwd,itemsep=0.5em,topsep=0.4em]
@@ -161,9 +170,11 @@ xxxx年x月xx日\par}
 \input{第五章-多元微分学与多元积分学.tex}
 \input{第六章-级数.tex}
 \input{第七章-Fourier分析.tex}
+\input{第八章-含参变量积分.tex}
 \input{附录-数学分析重要定理-第1至4节.tex}
 \input{附录-数学分析重要定理-第5至6节.tex}
 \input{附录-数学分析重要定理-第7至8节.tex}
+\input{附录-数学分析重要定理-第9节.tex}
 \backmatter
 \booknotetitle{参考资料}
 \begin{booknotebody}
