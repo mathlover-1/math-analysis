@@ -301,6 +301,47 @@ $\displaystyle\therefore\lim_{\varepsilon\to0}I_2=-4\pi u(p)$,又$\displaystyle 
 
 $\therefore\,I_1 = 4\pi u(p)$,即$\displaystyle u(p) = \dfrac{1}{4\pi}\int_{\partial \Omega} \left( \dfrac{\boldsymbol{r} \cdot \boldsymbol{n}}{r^3} u + \dfrac{1}{r} \dfrac{\partial u}{\partial \boldsymbol{n}} \right) d\sigma$.
 
+\begin{ti}
+【题11】($Poincar\acute{e}$(庞加莱)不等式) 设$\varphi,\psi\text{是}[a,b]$上的连续函数,$f$在区域$D=\left\{(x,y)\,|\,a\leq x\leq b,\,\varphi(x)\leq y\leq\psi(x)\right\}$上连续可微,
+且有$f(x,\varphi(x))=0,\forall\,x\in[a,b]$. 证明:存在$M>0$,使得$\displaystyle\iint\limits_{D}f^2(x,y)\,dxdy\leq M\displaystyle\iint\limits_{D}f_y^2(x,y)\,dxdy$.
+\end{ti}
 
+\textbf{证明}:$\quad f^2(x,y)=\left[f(x,y)-f(x,\varphi(x))\right]^2=\left(\displaystyle\int_{\varphi(x)}^{y} \dfrac{\partial f}{\partial t}(x,t)\,dt\right)^2$, \\
+
+由$Cauchy$不等式可知,$\left(\displaystyle\int_{\varphi(x)}^{y} \dfrac{\partial f}{\partial t}(x,t)\,dt\right)^2\leq (y-\varphi(x))\displaystyle\int_{\varphi(x)}^{y}\left(\dfrac{\partial f}{\partial t}(x,t)\right)^2 dt$. \\
+
+因此$\displaystyle\iint\limits_{D}f^2(x,y)\,dxdy=\displaystyle\int_{a}^{b}\,dx\int_{\varphi(x)}^{\psi(x)}f^2(x,y)\,dy$ $\leq\displaystyle\int_{a}^{b}\,dx\int_{\varphi(x)}^{\psi(x)}(y-\varphi(x))\,dy\int_{\varphi(x)}^{y}\left(\dfrac{\partial f}{\partial t}(x,t)\right)^2 dt$ \\
+
+$=\displaystyle\int_{a}^{b}\,dx\int_{\varphi(x)}^{\psi(x)}\left(\dfrac{\partial f}{\partial t}(x,t)\right)^2 dt\int_{t}^{\psi(x)}(y-\varphi(x))\,dy$ \\
+
+$\leq\displaystyle\int_{a}^{b}\,dx\int_{\varphi(x)}^{\psi(x)}\left(\dfrac{\partial f}{\partial t}(x,t)\right)^2 dt\int_{\varphi(x)}^{\psi(x)}(y-\varphi(x))\,dy$ \\
+
+$=\displaystyle\int_{a}^{b}\,dx\int_{\varphi(x)}^{\psi(x)}\dfrac{1}{2}\left(\psi(x)-\varphi(x)\right)^2\left(\dfrac{\partial f}{\partial t}(x,t)\right)^2\,dt$ \\
+
+$\leq M\displaystyle\int_{a}^{b}\,dx\int_{\varphi(x)}^{\psi(x)}\left(\dfrac{\partial f}{\partial t}(x,t)\right)^2\,dt=M\displaystyle\iint\limits_{D}f_y^2(x,y)\,dxdy$, \\
+
+这里$M=\max_{a\leq x\leq b}\dfrac{1}{2}(\psi(x)-\varphi(x))^2>0$,证毕.
+
+\begin{ti}
+【题12】 设$D$是$Oxy$平面上有限条逐段光滑曲线围成的区域,$f$在$\overline{D} $上有二阶连续偏导数且满足方程
+$\dfrac{\partial^2 f}{\partial x^2}+\dfrac{\partial^2 f}{\partial y^2}=2a\dfrac{\partial f}{\partial x}+2b\dfrac{\partial f}{\partial y}+cf$,
+其中$a,b,c$为常数且$c\geq 0$. 证明:若$f$在$\partial D$上恒为$0$,则$f$在$D$上恒为$0$.
+\end{ti}
+
+\textbf{证明}: 设$P=-f\cdot\left(\dfrac{\partial f}{\partial y}-bf\right),\,Q=f\cdot\left(\dfrac{\partial f}{\partial x}-af\right),$ \\
+
+则$P,Q\,\text{在}\overline{D} $上有一阶连续偏导数,且 \\
+
+$\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}=\left(\dfrac{\partial f}{\partial x}\right)^2+\left(\dfrac{\partial f}{\partial y}\right)^2+f\cdot\left(\dfrac{\partial^2 f}{\partial x^2}+\dfrac{\partial^2 f}{\partial y^2}-2a\dfrac{\partial f}{\partial x}-2b\dfrac{\partial f}{\partial y}\right)$ \\
+
+\phantom{$\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}$}$=\left(\dfrac{\partial f}{\partial x}\right)^2+\left(\dfrac{\partial f}{\partial y}\right)^2+cf^2$. \\
+
+若$f$在$\partial D$上恒为零,则$P,Q\,$在$\partial D$上恒为零.根据$Green$公式,有 \\
+
+$0=\displaystyle\oint_{\partial D}Pdx+Qdy=\iint\limits_{D}\left(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\right)dxdy=\iint\limits_{D}\left[\left(\dfrac{\partial f}{\partial x}\right)^2+\left(\dfrac{\partial f}{\partial y}\right)^2+cf^2\right]dxdy$, \\
+
+$\because\,c\geq 0\;,\quad\therefore\,\dfrac{\partial f}{\partial x}\equiv 0,\,\dfrac{\partial f}{\partial y}\equiv 0$, \\
+
+$\therefore\,f\,|_{D}\equiv C,\;\text{又}f\,|_{\partial D}\equiv 0,\;\text{从而}f\text{在}D$上恒为零,得证.
 
 \BookEnd

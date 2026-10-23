@@ -29,7 +29,7 @@
 【题1】 设$a_n=\left[\dfrac{(2n-1)!!}{(2n)!!}\right]^2$,证明:$\{a_n\}$收敛于0.
 \end{ti}
 
-\textbf{证明}:在不使用斯特林公式的情况下,对任意$\displaystyle n\geq1$,有 \\
+\textbf{证明}:  对任意$\displaystyle n\geq1$,有 \\
 
 $\displaystyle\prod_{k=1}^{n}\dfrac{(2k-1)(2k+1)}{(2k)^2}=\dfrac{1\cdot3^2\cdot5^2\cdots(2n-1)^2(2n+1)}{2^2\cdot4^2\cdots(2n)^2}=(2n+1)a_n,$ \\
 
@@ -37,27 +37,27 @@ $\displaystyle\prod_{k=1}^{n}\dfrac{(2k-1)(2k+1)}{(2k)^2}=\dfrac{1\cdot3^2\cdot5
 
 故$\displaystyle 0<(2n+1)a_n<1$,从而$\displaystyle 0<a_n<\dfrac{1}{2n+1}\to0,$ \\
 
-由夹逼准则,$\displaystyle\lim_{n\to\infty}a_n=0.$
+由夹逼准则,$\displaystyle\lim_{n\to\infty}a_n=0.$ \\
+
+\textbf{注}:实际上这题有更强的结果——$Wallis$公式,见附录第五节\ifdefined\BookMaster\hyperlink{thm:wallis}{定理5.19}\else 定理5.19\fi.
 
 \begin{ti}
-【题2】 $a_1> 0,\quad a_{n+1}=a_n+\dfrac{1}{a_n}\quad \text{证明}:\displaystyle\lim_{n\to\infty}\dfrac{a_n}{\sqrt{2n}}=1$
+【题2】 $a_1>0,\,a_{n+1}=a_n+\dfrac{1}{a_n},\,\text{证明}:\displaystyle\lim_{n\to\infty}\dfrac{a_n}{\sqrt{2n}}=1$
 \end{ti}
 
 \textbf{证明}: 易得$a_n> 0$,且$a_{n+1}> a_n,$ \\
 
-若$\{a_n\}$收敛,设收敛于$a,\;a\in\mathbb{R},\text{则}a=a+\dfrac{1}{a}$,无解, \\
+若$\displaystyle\{a_n\}$有上界,则由单调收敛定理$\{a_n\}$必收敛,设收敛于$\alpha(\alpha>a_1>0)$, \\
 
-若$\displaystyle\{a_n\}$有上界,则由单调收敛定理必收敛,与上面的结论矛盾. \\
+则$\alpha=\alpha+\dfrac{1}{\alpha}$,矛盾.  故$\displaystyle\{a_n\}$无上界; \\
 
-故$\displaystyle\{a_n\}$无上界;又$\displaystyle\{a_n\}$单调递增,所以$\displaystyle a_n\to+\infty$,则$\displaystyle\lim_{n\to\infty}\dfrac{1}{a_n}=0,$ \\
+又$\displaystyle\{a_n\}$单调递增,所以$\displaystyle a_n\to+\infty$,则$\displaystyle\lim_{n\to\infty}\dfrac{1}{a_n}=0,$ \\
 
 $\because\displaystyle\lim_{n\to\infty}\dfrac{a_{n+1}^2-a_n^2}{2(n+1)-2n}=\lim_{n\to\infty}\dfrac{\frac{1}{a_n^2}+2}{2}=1,$ \\
 
 且$b_n=2n$为严格单调递增且发散到$+\infty$的数列, \\
 
-由\textit{$Stolz$}定理,$\quad\displaystyle\lim_{n\to\infty}\dfrac{a_n^2}{2n}=1,$ \\
-
-$\therefore\displaystyle\lim_{n\to\infty}\dfrac{a_n}{\sqrt{2n}}=1.$ \\
+由\textit{$Stolz$}定理,$\quad\displaystyle\lim_{n\to\infty}\dfrac{a_n^2}{2n}=1,$ $\quad\therefore\displaystyle\lim_{n\to\infty}\dfrac{a_n}{\sqrt{2n}}=1.$ \\
 
 \textbf{一点思考}:关于为什么要平方,我的思考是:若有$\displaystyle\lim_{n\to\infty}(b_{n+1}-b_n)=0,$ \\
 
@@ -86,7 +86,7 @@ $\because 1-(x_1+x_2)\geq 0,\text{即证}\quad 4x_1x_2\leq (x_1+x_2)^2\quad\text
 
 $\text{下面使用向前向后证明法},$ \\
 
-$\text{向后:}\quad n\rightarrow 2n,$ \\
+$\text{向前:}\quad n\rightarrow 2n,$ \\
 
 $\begin{cases}
     &\dfrac{\displaystyle\prod_{i=1}^n x_i}{(\displaystyle\sum_{i=1}^n x_i)^n}\leq
@@ -105,7 +105,7 @@ $\left[\dfrac{A'B'}{(1-A')(1-B')}\right]^n\leq\dfrac{(A'+B')^{2n}}{(2-A'-B')^{2n
 
 即$\dfrac{\displaystyle\prod_{i=1}^{2n} x_i}{\displaystyle\prod_{i=1}^{2n} (1-x_i)}\leq\dfrac{(\displaystyle\sum_{i=1}^{2n} x_i)^{2n}}{(2n-\displaystyle\sum_{i=1}^{2n} x_i)^{2n}}=\dfrac{(\displaystyle\sum_{i=1}^{2n} x_i)^{2n}}{[\displaystyle\sum_{i=1}^{2n} (1-x_i)]^{2n}},$ \\
  
-向前:$n\rightarrow n-1$,  假设对$n$成立, $\because\dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n-1} x_i\leq\dfrac{1}{2}\quad\text{由}x_n\text{的任意性},$ \\
+向后:$n\rightarrow n-1$,  假设对$n$成立, $\because\dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n-1} x_i\leq\dfrac{1}{2}\quad\text{由}x_n\text{的任意性},$ \\
 
 不妨取$x_n=\dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n-1} x_i,$ \\
 
@@ -115,15 +115,14 @@ $\therefore\dfrac{\displaystyle\prod_{i=1}^n x_i}{(S_n)^n}\leq\dfrac{\displaysty
 
 $\therefore\dfrac{\displaystyle\prod_{i=1}^{n-1} x_i\cdot\dfrac{S_{n-1}}{n-1}}{S_{n-1}^n\cdot\frac{n^n}{(n-1)^n}}\leq\dfrac{\displaystyle\prod_{i=1}^{n-1} (1-x_i)\cdot(1-\dfrac{S_{n-1}}{n-1})}{n^n(1-\dfrac{S_{n-1}}{n-1})^n},$ \\
 
-$\therefore\dfrac{\displaystyle\prod_{i=1}^{n-1} x_i}{(\dfrac{S_{n-1}}{n-1})^{n-1}}\leq\dfrac{\displaystyle\prod_{i=1}^{n-1} (1-x_i)}{(1-\dfrac{S_{n-1}}{n-1})^{n-1}},$ \\
-
-$\therefore\dfrac{\displaystyle\prod_{i=1}^{n-1} x_i}{(\displaystyle\sum_{i=1}^{n-1} x_i)^{n-1}}\leq\dfrac{\displaystyle\prod_{i=1}^{n-1} (1-x_i)}{\left[\displaystyle\sum_{i=1}^{n-1} (1-x_i)\right]^{n-1}},$ \\
+$\therefore\dfrac{\displaystyle\prod_{i=1}^{n-1} x_i}{(\dfrac{S_{n-1}}{n-1})^{n-1}}\leq\dfrac{\displaystyle\prod_{i=1}^{n-1} (1-x_i)}{(1-\dfrac{S_{n-1}}{n-1})^{n-1}},\;$ 
+即$\dfrac{\displaystyle\prod_{i=1}^{n-1} x_i}{(\displaystyle\sum_{i=1}^{n-1} x_i)^{n-1}}\leq\dfrac{\displaystyle\prod_{i=1}^{n-1} (1-x_i)}{\left[\displaystyle\sum_{i=1}^{n-1} (1-x_i)\right]^{n-1}},$ \\
 
 又$n=2$时命题成立, \\
 由向前-向后归纳法可知 $\dfrac{\displaystyle\prod_{i=1}^{n} x_i}{(\displaystyle\sum_{i=1}^{n} x_i)^n}\leq\dfrac{\displaystyle\prod_{i=1}^{n} (1-x_i)}{\left[\displaystyle\sum_{i=1}^{n} (1-x_i)\right]^n}.$
 
 \begin{ti}
-【题4】设$a_n=\sqrt{1+\sqrt{2+\sqrt{...+\sqrt{n}}}}\quad $证明:$\{a_n\}$收敛
+【题4】设$a_n=\sqrt{1+\sqrt{2+\sqrt{...+\sqrt{n}}}},\,$证明:$\{a_n\}$收敛
 \end{ti}
 
 \textbf{证明}: 易得$\{a_n\}$单调递增, \\
@@ -141,26 +140,24 @@ $\therefore\dfrac{\displaystyle\prod_{i=1}^{n-1} x_i}{(\displaystyle\sum_{i=1}^{
 又$\displaystyle\{a_n\}$单调递增,所以由单调收敛定理,$\displaystyle\{a_n\}$收敛. \\
 
 \begin{ti}
-【题5】设数列$\{a_n\}_{n=0}^{\infty}$满足$\displaystyle\lim_{n\to\infty}a_n=a$,证明$\displaystyle\lim_{n\to\infty}\frac{1}{2^n}\sum_{k=0}^{n}\binom{n}{k}a_k=a $
+【题5】设数列$\displaystyle\{a_n\}_{n=0}^{\infty}$满足$\displaystyle\lim_{n\to\infty}a_n=a$,证明$\displaystyle\lim_{n\to\infty}\frac{1}{2^n}\sum_{k=0}^{n}\binom{n}{k}a_k=a $
 \end{ti}
 
-\textbf{证明}:$\;\because 2^n=\displaystyle\sum_{k=0}^{n}\binom{n}{k},$ \\
+\textbf{证明}: $\left\lvert \dfrac{1}{2^n}\displaystyle\sum_{k=0}^{n}\binom{n}{k}a_k-a \right\rvert =\left\lvert \dfrac{1}{2^n}\displaystyle\sum_{k=0}^{n}\binom{n}{k}(a_k-a) \right\rvert$ $\leq\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{n}\binom{n}{k}\left\lvert a_k-a\right\rvert,$ \\
 
-$\therefore\left\lvert \dfrac{1}{2^n}\displaystyle\sum_{k=0}^{n}\binom{n}{k}a_k-a \right\rvert =\left\lvert \dfrac{1}{2^n}\displaystyle\sum_{k=0}^{n}\binom{n}{k}(a_k-a) \right\rvert$ $\leq\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{n}\binom{n}{k}\left\lvert a_k-a\right\rvert,$ \\
-
-$\because\displaystyle\lim_{n\to\infty}a_n=a\;\therefore\text{对}\forall\varepsilon>0,\;\exists N_1\;\text{s.t.}\;n>N_1\text{时},\;\left\lvert a_n-a\right\rvert<\varepsilon,$ \\
+$\because\displaystyle\lim_{n\to\infty}a_n=a\quad\therefore\text{对}\forall\varepsilon>0,\;\exists N_1,\;\text{s.t.}\,n>N_1\text{时},\;\left\lvert a_n-a\right\rvert<\varepsilon,$ \\
 
 $\therefore\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{n}\binom{n}{k}\left\lvert a_k-a\right\rvert=\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{N_1}\binom{n}{k}\left\lvert a_k-a\right\rvert+\dfrac{1}{2^n}\displaystyle\sum_{k=N_1+1}^{n}\binom{n}{k}\left\lvert a_k-a\right\rvert$ \\
 
-$<\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{N_1}\binom{n}{k}\left\lvert a_k-a\right\rvert+\dfrac{\varepsilon}{2^n}\displaystyle\sum_{k=N_1+1}^{n}\binom{n}{k}$ \\
+\phantom{$\therefore\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{n}\binom{n}{k}\left\lvert a_k-a\right\rvert$} $<\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{N_1}\binom{n}{k}\left\lvert a_k-a\right\rvert+\dfrac{\varepsilon}{2^n}\displaystyle\sum_{k=N_1+1}^{n}\binom{n}{k}$\\ 
 
-$<\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{N_1}\binom{n}{k}\left\lvert a_k-a\right\rvert+\varepsilon,$ \\
+\phantom{$\therefore\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{n}\binom{n}{k}\left\lvert a_k-a\right\rvert$} $<\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{N_1}\binom{n}{k}\left\lvert a_k-a\right\rvert+\varepsilon,$ \\
 
 又$\displaystyle\binom{n}{k} =\dfrac{n!}{k!(n-k)!}\leq\dfrac{n!}{(n-k)!}\leq n^k,\;\text{令}M=\max\{\left\lvert a_0-a\right\rvert,\left\lvert a_1-a\right\rvert,...,\left\lvert a_{N_1}-a\right\rvert  \},$ \\
 
 $\therefore\dfrac{1}{2^n}\displaystyle\sum_{k=0}^{N_1}\binom{n}{k}\left\lvert a_k-a\right\rvert\leq\dfrac{M}{2^n}\displaystyle\sum_{k=0}^{N_1}n^k<\dfrac{M\cdot n^{N_1+1}}{2^n},$ \\
 
-$\because\displaystyle\lim_{n\to\infty}\dfrac{n^{\alpha}}{2^n}=0\;\therefore\forall\varepsilon,\;\exists N_2,\;\text{s.t.}\;n>N_2\text{时},\dfrac{n^{N_1+1}}{2^n}<\varepsilon,$ \\
+$\because\displaystyle\lim_{n\to\infty}\dfrac{n^{\alpha}}{2^n}=0\quad\therefore\forall\varepsilon,\;\exists N_2,\;\text{s.t.}\;n>N_2\text{时},\dfrac{n^{N_1+1}}{2^n}<\varepsilon,$ \\
 
 $\therefore\forall\varepsilon>0,\;\exists N=\max\{N_1,N_2\},\; n>N\text{时},$ $\left\lvert \dfrac{1}{2^n}\displaystyle\sum_{k=0}^{n}\binom{n}{k}a_k-a \right\rvert<(M+1)\varepsilon,$ \\
 
@@ -224,15 +221,13 @@ $\therefore\displaystyle\lim_{n \to \infty}\dfrac{a_n}{n}=\lim_{n\to\infty}\dfra
 
 \textbf{证明}: 由于$n^2$是单调递增的正无穷大量, \\
 
-由$Stolz$公式,$\displaystyle\lim_{n\to\infty}x_n=\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=0}^{n+1}ln\binom{n+1}{k}-\displaystyle\sum_{k=0}^{n}ln\binom{n}{k}}{2n+1}$ \\
+由$Stolz$公式,$\;\displaystyle\lim_{n\to\infty}x_n=\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=0}^{n+1}ln\binom{n+1}{k}-\displaystyle\sum_{k=0}^{n}ln\binom{n}{k}}{2n+1}$ \\
 
 $=\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k = 0}^{n}ln\frac{n+1}{n+1-k}}{2n+1},$又由于$2n+1$也是单调递增的正无穷大量, \\
 
-再由$Stolz$公式,$\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k = 0}^{n}\ln\frac{n+1}{n+1-k}}{2n+1}=\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=0}^{n}\ln\frac{n+1}{n+1-k}-\displaystyle\sum_{k=0}^{n-1}\ln\frac{n}{n-k}}{2}$ \\
+再由$Stolz$公式,$\;\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k = 0}^{n}\ln\frac{n+1}{n+1-k}}{2n+1}=\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=0}^{n}\ln\frac{n+1}{n+1-k}-\displaystyle\sum_{k=0}^{n-1}\ln\frac{n}{n-k}}{2}$ \\
 
-$=\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=1}^{n}\ln\frac{n+1}{n+1-k}-\displaystyle\sum_{k=0}^{n-1}\ln\frac{n}{n-k}}{2}$ \\
-
-$=\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=0}^{n-1}\ln\frac{n+1}{n-k}-\displaystyle\sum_{k=0}^{n-1}\ln\frac{n}{n-k}}{2}$ \\
+$=\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=1}^{n}\ln\frac{n+1}{n+1-k}-\displaystyle\sum_{k=0}^{n-1}\ln\frac{n}{n-k}}{2}$ $=\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\sum_{k=0}^{n-1}\ln\frac{n+1}{n-k}-\displaystyle\sum_{k=0}^{n-1}\ln\frac{n}{n-k}}{2}$ \\
 
 $=\displaystyle\lim_{n\to\infty}\dfrac{n\ln\dfrac{n+1}{n}}{2},$ \\
 

@@ -22,7 +22,7 @@
 
 $\exists\,\delta_x>0,\;\text{s.t.}\,\forall\,x\in O_{\delta_x}(x_0)\cap[a,b],\text{都有}f(x)f(x_0)>0,$ \\
 
-又$\displaystyle\bigcup_{x\in[a,b]}O_{\delta_x}(x)\text{构成}[a,b]$的一个开覆盖,那么,由$Lebesgue$定理, \\
+又$\displaystyle\bigcup_{x\in[a,b]}O_{\delta_x}(x)\text{构成}[a,b]$的一个开覆盖,那么,由$Lebesgue$数引理, \\
 
 $\exists\,\zeta>0,\;\text{s.t.}\,x',x''\in[a,b]\text{且}\left\lvert x'-x''\right\rvert<\zeta\text{时},x',x''\text{可被包在同一个}O_{\delta}(x)$里, \\
 
@@ -268,6 +268,26 @@ $\therefore\displaystyle f(x_2)=f(x_1+(k_n-1)t_n+r_n)=f(x_1+r_n)\to f(x_1),$ \\
 
 由数学归纳法可知,至少有$\displaystyle n$对不同的$\displaystyle(x,y)$使得$\displaystyle f(x)=f(y)$,同时$\displaystyle x-y$为非$\displaystyle0$整数.
 
+\begin{ti}
+【题11】 设$\displaystyle\lim_{x\to 0}f(x)=0,\,\lim_{x\to 0}\dfrac{[f(2x)-f(x)]}{x}=0,$ 证明:$\displaystyle\lim_{x\to 0}\dfrac{f(x)}{x}=0$.
+\end{ti}
 
+\textbf{证明}:由$\displaystyle\lim_{x\to 0}\dfrac{f(2x)-f(x)}{x}=0$,于是对$\forall\,\varepsilon>0,\;\exists\,\delta>0,$使得当$0<|t|<\delta$时, \\
+
+$\displaystyle\left\lvert f(2t)-f(t)\right\rvert<\varepsilon|t|,$ 任取$0<|x|<\delta$,对任意$k\in\mathbb{N}$,令$\displaystyle t=\dfrac{x}{2^{k+1}}$, \\
+
+则$0<|t|<\delta$,故$\displaystyle\left\lvert f\left(\dfrac{x}{2^k}\right)-f\left(\dfrac{x}{2^{k+1}}\right)\right\rvert<\dfrac{\varepsilon|x|}{2^{k+1}},$ \\
+
+于是对任意$n\in\mathbb{N}^+$,$\displaystyle f(x)-f\left(\dfrac{x}{2^n}\right)=\sum_{k=0}^{n-1}\left[f\left(\dfrac{x}{2^k}\right)-f\left(\dfrac{x}{2^{k+1}}\right)\right],$ \\
+
+从而$\displaystyle\left\lvert f(x)-f\left(\dfrac{x}{2^n}\right)\right\rvert\leq\sum_{k=0}^{n-1}\left\lvert f\left(\dfrac{x}{2^k}\right)-f\left(\dfrac{x}{2^{k+1}}\right)\right\rvert<\varepsilon|x|\sum_{k=0}^{n-1}\dfrac{1}{2^{k+1}}<\varepsilon|x|.$ \\
+
+又$\displaystyle\lim_{n\to\infty}\dfrac{x}{2^n}=0$,且$\displaystyle\lim_{u\to0}f(u)=0$, \\
+
+$\displaystyle\therefore\,\lim_{n\to\infty}f\left(\dfrac{x}{2^n}\right)=0,$ 令$n\to\infty$,得$\displaystyle|f(x)|\leq\varepsilon|x|$, \\
+
+因此$\displaystyle\forall\,\varepsilon>0,\;\exists\,\delta>0,$当$0<|x|<\delta$时,$\displaystyle\left\lvert\dfrac{f(x)}{x}\right\rvert\leq\varepsilon,$ \\
+
+故$\displaystyle\lim_{x\to 0}\dfrac{f(x)}{x}=0.$
 
 \BookEnd

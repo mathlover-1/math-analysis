@@ -382,7 +382,15 @@ $$[a_n,b_n]\subset(\xi-\delta,\xi+\delta)\subset U_{\alpha_0},$$
 这与$[a_n,b_n]$只能包含于无限个$U_{\alpha}$之并相矛盾.
 
 \begin{ti}
-\textbf{定理3.3($Bolzano$)}有界数列必有收敛子列
+\textbf{引理3.3($Lebesgue$数引理)}  设$K\subset\mathbb{R}^n$为非空紧集,$\{U_\alpha\}_{\alpha\in\varGamma}$为$K$的一个开覆盖.则存在$\delta>0$,使得$K$的任意非空子集$A$只要满足$\operatorname{diam}A<\delta$,就包含于某个$U_\alpha$中.其中$\operatorname{diam}A=\sup\{\lVert x-y\rVert:x,y\in A\}$,这样的$\delta$称为该开覆盖的一个\textbf{$Lebesgue$数}.
+\end{ti}
+
+\textbf{证明}:对每个$x\in K$,选取包含$x$的覆盖成员$U_{\alpha(x)}$.由其开性,可取$r_x>0$,使$B_{2r_x}(x)\subset U_{\alpha(x)}$.由紧性,开覆盖$\{B_{r_x}(x):x\in K\}$有有限子覆盖$B_{r_{x_1}}(x_1),\ldots,B_{r_{x_m}}(x_m)$.令$\delta=\min_{1\leq i\leq m}r_{x_i}>0$.任取非空$A\subset K$,满足$\operatorname{diam}A<\delta$,并取$y\in A$.存在$i$,使$y\in B_{r_{x_i}}(x_i)$.对任意$z\in A$,有
+$$\lVert z-x_i\rVert\leq\lVert z-y\rVert+\lVert y-x_i\rVert<\delta+r_{x_i}\leq2r_{x_i}.$$
+故$A\subset B_{2r_{x_i}}(x_i)\subset U_{\alpha(x_i)}$,结论成立.
+
+\begin{ti}
+\textbf{定理3.4($Bolzano$)}有界数列必有收敛子列
 \end{ti}
 
 \textbf{证明}:设$\{a_n\}$为有界数列,不妨设$a_n$均包含于$[a,b]$.\\

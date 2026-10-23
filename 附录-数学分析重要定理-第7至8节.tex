@@ -142,18 +142,22 @@ $$S_{n+1}\leq S_N+\frac{1}{\lambda}\sum_{k=N}^{n}\left(\frac{a_k}{b_k}-\frac{a_{
 \end{ti}
 
 \begin{ti}
-\textbf{命题7.16($Carleman$不等式)} 设$\displaystyle\sum_{n=1}^{\infty}a_n$为收敛的正项级数,则成立
-$$\sum_{n=1}^{\infty}\sqrt[n]{a_1a_2\cdots a_n}\leq e\sum_{n=1}^{\infty}a_n $$,
+\hypertarget{thm:carleman}{\textbf{命题7.16($Carleman$不等式)}} 设$\displaystyle\sum_{n=1}^{\infty}a_n$为收敛的正项级数,则成立
+$$\sum_{n=1}^{\infty}\sqrt[n]{a_1a_2\cdots a_n}\leq e\sum_{n=1}^{\infty}a_n ,$$
 其中右边的系数$e$不能再改进.
 \end{ti}
 
 \begin{ti}
-\textbf{定义7.17(无穷乘积)}  设$\{p_n\}$为一列实数,称形式乘积$\displaystyle\prod_{n=1}^{\infty}p_n=p_1p_2\cdots p_n\cdots$为\textbf{无穷乘积},记$P_n=p_1p_2\cdots p_n$,称为\textbf{部分乘积}.
+\textbf{命题7.17($Du Bois-Reymond$判别法)} 设级数$\displaystyle\sum_{n=2}^{\infty}(a_n-a_{n-1})$绝对收敛,$\displaystyle\sum_{n=1}^{\infty}b_n$收敛,则$\displaystyle\sum_{n=1}^{\infty}a_nb_n$收敛.
+\end{ti}
+
+\begin{ti}
+\textbf{定义7.18(无穷乘积)}  设$\{p_n\}$为一列实数,称形式乘积$\displaystyle\prod_{n=1}^{\infty}p_n=p_1p_2\cdots p_n\cdots$为\textbf{无穷乘积},记$P_n=p_1p_2\cdots p_n$,称为\textbf{部分乘积}.
 如果数列$\{P_n\}$的极限存在,且极限为实数或正负无穷,则此极限称为无穷乘积的值,记为$\displaystyle\prod_{n=1}^{\infty}p_n=\lim_{n\to\infty}P_n$.当极限为非零实数时,称无穷乘积是\textbf{收敛}的,否则就称它是发散的.
 \end{ti}
 
 \begin{ti}
-\textbf{命题7.18(无穷乘积的收敛判别法)}  设$p_n$均大于零,记$p_n=1+a_n$,则\\
+\textbf{命题7.19(无穷乘积的收敛判别法)}  设$p_n$均大于零,记$p_n=1+a_n$,则\\
 (1)无穷乘积$\displaystyle\prod_{n=1}^{\infty}p_n$收敛当且仅当级数$\displaystyle\sum_{n=1}^{\infty}\ln p_n$收敛;\\
 (2)如果$n$充分大时$a_n$不变号,则无穷乘积$\displaystyle\prod_{n=1}^{\infty}p_n$收敛当且仅当级数$\displaystyle\sum_{n=1}^{\infty}a_n$收敛;\\
 (3)如果级数$\displaystyle\sum_{n=1}^{\infty}a_n$和$\displaystyle\sum_{n=1}^{\infty}a_n^2$均收敛,则无穷乘积$\displaystyle\prod_{n=1}^{\infty}p_n$也收敛.
@@ -161,12 +165,12 @@ $$\sum_{n=1}^{\infty}\sqrt[n]{a_1a_2\cdots a_n}\leq e\sum_{n=1}^{\infty}a_n $$,
 
 
 \begin{ti}
-\textbf{定义7.19(级数的乘积)}  设级数$\displaystyle\sum_{n=0}^{\infty}a_n$与$\displaystyle\sum_{n=0}^{\infty}b_n$绝对收敛,定义它们的乘积为级数$\displaystyle\sum_{n=0}^{\infty}c_n$,其中$c_n=\displaystyle\sum_{i+j=n}a_i b_j$,$n\geq 0$.这种乘积称为\textbf{$Cauchy$乘积}.则乘积级数$\displaystyle\sum_{n=0}^{\infty}c_n$也绝对收敛,且
+\textbf{定义7.20(级数的乘积)}  设级数$\displaystyle\sum_{n=0}^{\infty}a_n$与$\displaystyle\sum_{n=0}^{\infty}b_n$绝对收敛,定义它们的乘积为级数$\displaystyle\sum_{n=0}^{\infty}c_n$,其中$c_n=\displaystyle\sum_{i+j=n}a_i b_j$,$n\geq 0$.这种乘积称为\textbf{$Cauchy$乘积}.则乘积级数$\displaystyle\sum_{n=0}^{\infty}c_n$也绝对收敛,且
 $$\sum_{n=0}^{\infty}c_n=\left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right)$$.
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.20($Mertens$)}  如果$\displaystyle\sum_{n=0}^{\infty}a_n$和$\displaystyle\sum_{n=0}^{\infty}b_n$收敛,且至少其中一个级数绝对收敛,则它们的乘积级数也收敛,且
+\textbf{定理7.21($Mertens$)}  如果$\displaystyle\sum_{n=0}^{\infty}a_n$和$\displaystyle\sum_{n=0}^{\infty}b_n$收敛,且至少其中一个级数绝对收敛,则它们的乘积级数也收敛,且
 $$\sum_{n=0}^{\infty}c_n=\left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right)$$.
 \end{ti}
 
@@ -177,28 +181,16 @@ $$|\delta_n|\leq\sum_{k=0}^{N_0}|a_k||B_{n-k}-B|+(|a_{N_0+1}|+|a_{N_0+2}|+\cdots
 这说明$\delta_n\to 0$,因而$C_n=A_nB+\delta_n\to AB$.
 
 \begin{ti}
-\textbf{引理7.21($Abel$)}  设级数$\displaystyle\sum_{n=0}^{\infty}C_n$收敛,则$\displaystyle\lim_{x\to 1^-}\sum_{n=0}^{\infty}C_n x^n=\sum_{n=0}^{\infty}C_n$.
-\end{ti}
-
-\begin{ti}
 \textbf{定理7.22($Abel$)}  设级数$\displaystyle\sum_{n=0}^{\infty}a_n$,$\displaystyle\sum_{n=0}^{\infty}b_n$以及它们的乘积$\displaystyle\sum_{n=0}^{\infty}c_n$均收敛,则
 $$\sum_{n=0}^{\infty}c_n=\left(\sum_{n=0}^{\infty}a_n\right)\left(\sum_{n=0}^{\infty}b_n\right)$$.
 \end{ti}
 
-\textbf{证明}:当$x\in[0,1)$时,级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$和$\displaystyle\sum_{n=0}^{\infty}b_n x^n$绝对收敛,它们的乘积级数为$\displaystyle\sum_{n=0}^{\infty}c_n x^n$.根据$Cauchy$定理,有
+\textbf{证明}:当$x\in[0,1)$时,级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$和$\displaystyle\sum_{n=0}^{\infty}b_n x^n$绝对收敛,它们的乘积级数为$\displaystyle\sum_{n=0}^{\infty}c_n x^n$.根据定义7.20中的$Cauchy$乘积结论,有
 $$\sum_{n=0}^{\infty}c_n x^n=\left(\sum_{n=0}^{\infty}a_n x^n\right)\left(\sum_{n=0}^{\infty}b_n x^n\right).$$
-令$x\to 1^-$,由上述$Abel$引理即得欲证结论.
+令$x\to 1^-$,由后文的$Abel$连续性定理7.41即得欲证结论(收敛半径大于$1$时,由定理7.27可得端点处的连续性).
 
 \begin{ti}
-\textbf{定理7.23(重排定理)}  绝对收敛级数的项可以任意重排而不改变其和.
-\end{ti}
-
-\textbf{证明}:设级数$\displaystyle\sum a_n$绝对收敛.如果$a_n$为正项级数,则由基本判别法不难看出,将它的各项重新排列后不会影响其敛散性,如果收敛的话重排也不改变级数的和.对于一般的级数,由等式
-$$a_n=\dfrac{a_n+|a_n|}{2}-\dfrac{|a_n|-a_n}{2}$$
-以及正项级数$\displaystyle\sum\dfrac{a_n+|a_n|}{2}$与$\displaystyle\sum\dfrac{|a_n|-a_n}{2}$的收敛性可知,重排后的级数也绝对收敛,且其和不变.
-
-\begin{ti}
-\textbf{定理7.24($Riemann$重排定理)}  如果级数$\displaystyle\sum a_n$条件收敛,则可以将它重排为一个收敛级数,使得重排后的级数和为任意指定的实数.
+\textbf{定理7.23($Riemann$重排定理)}  如果级数$\displaystyle\sum a_n$条件收敛,则可以将它重排为一个收敛级数,使得重排后的级数和为任意指定的实数.
 \end{ti}
 
 \textbf{证明}:设$\xi\in\mathbb{R}$,我们将找到$\displaystyle\sum a_n$的一个重排,使得它的和为$\xi$.首先我们注意到,如果$\displaystyle\sum a_n$条件收敛,则$\displaystyle\sum|a_n|$发散,由$|a_n|=a_n^++a_n^-$,$a_n=a_n^+-a_n^-$即知,级数$\displaystyle\sum a_n^+$和$\displaystyle\sum a_n^-$均发散到$+\infty$,这两个级数的部分和分别记为$S_n^+$和$S_n^-$.因为当$n$充分大时$S_n^+>\xi$,故可取最小的正整数$m_1$,使得$S_{m_1}^+>\xi$,此时成立$\xi\geq S_{m_1-1}^+$.因为$n$充分大时,$S_{m_1}^+-S_n^-<\xi$,故可取最小的正整数$n_1$,使得$S_{m_1}^+-S_{n_1}^-<\xi$,同理有$\xi\leq S_{m_1}^+-S_{n_1-1}^-$.下面再取最小的正整数$m_2$,使得$S_{m_2}^+-S_{n_1}^->\xi\geq S_{m_2-1}^+-S_{n_1}^-$,以及最小的正整数$n_2$,使得$S_{m_2}^+-S_{n_2}^-<\xi\leq S_{m_2}^+-S_{n_2-1}^-$.如此继续下去,我们得到递增数列$m_1<m_2<\cdots$和$n_1<n_2<\cdots$,使得
@@ -206,6 +198,13 @@ $$S_{m_k}^+-S_{n_{k-1}}^->\xi\geq S_{m_k-1}^+-S_{n_{k-1}}^-,\qquad S_{m_k}^+-S_{
 对任意$k$均成立.由$a_n\to 0$即知,下面的级数
 $$a_1^++\cdots+a_{m_1}^+-a_1^--\cdots-a_{n_1}^-+a_{m_1+1}^++\cdots+a_{m_2}^+-a_{n_1+1}^--\cdots-a_{n_2}^-+\cdots$$
 收敛到$\xi$.注意$a_n^+$和$a_n^-$在这个级数中都依次出现了,因此它可以看成是原级数$\displaystyle\sum a_n$的一个重排.
+
+\begin{ti}
+\textbf{命题7.24}  设级数$\displaystyle\sum_{n=1}^{\infty}a_n=s$条件收敛,$\displaystyle\sum_{n=1}^{\infty}a_{f(n)}=t\text{是}\sum_{n=1}^{\infty}a_n$的一个重排.
+若$t\neq s$,则$\forall\,N,\;\exists\,n,\;\text{s.t.}\,\left\lvert n-f(n)\right\rvert>N$.
+\end{ti}
+
+\textbf{注}:上述命题表明,对条件收敛级数作重排的时候,如果每一项的新位置与原有位置之差不超过某个界限的话,则级数的和不会改变.
 
 \subsection{函数项级数}
 \begin{ti}
@@ -218,11 +217,19 @@ $$a_1^++\cdots+a_{m_1}^+-a_1^--\cdots-a_{n_1}^-+a_{m_1+1}^++\cdots+a_{m_2}^+-a_{
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.27(一致收敛与连续性)}  设$\{f_n\}$在区间$I$中一致收敛于$f$.如果每一个$f_n$均为连续函数,则$f$也是连续函数.
+\textbf{定理7.27($Weierstrass$判别法)}  设函数$f_n$定义在区间$I$上.如果存在非负常数$M_n$,使$|f_n(x)|\leq M_n$对一切$x\in I$成立,且数项级数$\displaystyle\sum_{n=1}^{\infty}M_n$收敛,则函数项级数$\displaystyle\sum_{n=1}^{\infty}f_n(x)$在$I$上绝对收敛且一致收敛;级数$\displaystyle\sum_{n=1}^{\infty}|f_n(x)|$也一致收敛.此判别法也称为\textbf{$M$判别法}.
+\end{ti}
+
+\textbf{证明}:由比较判别法,对每个$x\in I$,级数$\displaystyle\sum_{n=1}^{\infty}|f_n(x)|$收敛.任给$\varepsilon>0$,由$\displaystyle\sum M_n$收敛,存在与$x$无关的$N$,使当$q\geq p>N$时,
+$$\left|\sum_{n=p}^{q}f_n(x)\right|\leq\sum_{n=p}^{q}|f_n(x)|\leq\sum_{n=p}^{q}M_n<\varepsilon,\qquad x\in I.$$
+对部分和函数列应用定理7.26的一致收敛$Cauchy$准则,即得$\displaystyle\sum f_n(x)$一致收敛.将$f_n$换为$|f_n|$,同一估计也证明$\displaystyle\sum|f_n(x)|$一致收敛.
+
+\begin{ti}
+\textbf{定理7.28(一致收敛与连续性)}  设$\{f_n\}$在区间$I$中一致收敛于$f$.如果每一个$f_n$均为连续函数,则$f$也是连续函数.
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.28(极限交换)}  设$\{f_n\}$在$x_0$的一个空心邻域中一致收敛于$f$.如果$f_n$在$x_0$处的函数极限为$a_n$,则数列极限$\displaystyle\lim_{n\to\infty}a_n$以及函数极限$\displaystyle\lim_{x\to x_0}f(x)$均存在,且这两个极限相等,即
+\textbf{定理7.29(极限交换)}  设$\{f_n\}$在$x_0$的一个空心邻域中一致收敛于$f$.如果$f_n$在$x_0$处的函数极限为$a_n$,则数列极限$\displaystyle\lim_{n\to\infty}a_n$以及函数极限$\displaystyle\lim_{x\to x_0}f(x)$均存在,且这两个极限相等,即
 $$\lim_{n\to\infty}\lim_{x\to x_0}f_n(x)=\lim_{x\to x_0}\lim_{n\to\infty}f_n(x).$$
 \end{ti}
 
@@ -231,7 +238,7 @@ $$|f(x)-\alpha|\leq|f(x)-f_N(x)|+|f_N(x)-a_N|+|a_N-\alpha|<\frac{\varepsilon}{3}
 即$\displaystyle\lim_{x\to x_0}f(x)=\alpha$.
 
 \begin{ti}
-\textbf{定义7.29(一致有界)} 设在区间$I$上给定一个函数序列
+\textbf{定义7.30(一致有界)} 设在区间$I$上给定一个函数序列
 $$f_1(x),f_2(x),...,f_n(x),...,$$
 如果存在常数$K>0$,使得不等式
 $$\left\lvert f_n(x)\right\rvert\leq K\quad(x\in I)$$
@@ -239,7 +246,7 @@ $$\left\lvert f_n(x)\right\rvert\leq K\quad(x\in I)$$
 \end{ti}
 
 \begin{ti}
-\textbf{定义7.30(等度连续)} 设在区间$I$上给定一个函数序列
+\textbf{定义7.31(等度连续)} 设在区间$I$上给定一个函数序列
 $$f_1(x),f_2(x),...,f_n(x),...,$$
 如果对任意的正数$\varepsilon$,存在正数$\delta=\delta(\varepsilon)$,使得只要$x_1,x_2\in I$和$\left\lvert x_1-x_2\right\rvert<\delta$,就有
 $$\left\lvert f_n(x_1)-f_n(x_2)\right\rvert<\varepsilon\quad(n=1,2,...),$$
@@ -247,7 +254,7 @@ $$\left\lvert f_n(x_1)-f_n(x_2)\right\rvert<\varepsilon\quad(n=1,2,...),$$
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.31($Ascoli$引理)} 设函数序列$f_1(x),f_2(x),...,f_n(x),...$在有限闭区间$[a,b]$上是一致有界和等度连续的,则可以选取它的一个子序列
+\textbf{定理7.32($Ascoli$引理)} 设函数序列$f_1(x),f_2(x),...,f_n(x),...$在有限闭区间$[a,b]$上是一致有界和等度连续的,则可以选取它的一个子序列
 $$f_{n_1}(x),f_{n_2}(x),...,f_{n_k}(x),...,$$
 使该子序列在区间$I$上是一致收敛的.
 \end{ti}
@@ -281,7 +288,7 @@ $$\left\lvert g_k(x)-g_l(x)\right\rvert<\varepsilon.$$
 这对任意$x\in[a,b]$都成立,所以$\{g_k\}$在$[a,b]$上一致收敛.得证.
 
 \begin{ti}
-\textbf{定理7.32($Dini$)}  设$\{f_n\}$为$[a,b]$中的一列非负连续函数,且对每个$x\in[a,b]$,$\{f_n(x)\}$关于$n$单调递减趋于$0$,则函数列$\{f_n\}$一致收敛于$0$.
+\textbf{定理7.33($Dini$)}  设$\{f_n\}$为$[a,b]$中的一列非负连续函数,且对每个$x\in[a,b]$,$\{f_n(x)\}$关于$n$单调递减趋于$0$,则函数列$\{f_n\}$一致收敛于$0$.
 \end{ti}
 
 \textbf{证明}:任给$\varepsilon>0$,我们要证明存在$N$,使得当$n>N,x\in[a,b]$时,$0\leq f_n(x)<\varepsilon$.即要证$n$充分大以后$A_n=\{x\in[a,b]\;|\;f_n(x)\geq\varepsilon\}$为空集.因为$f_n$关于$n$单调递减,因此
@@ -292,11 +299,11 @@ $$f_k(x_0)=\lim_{i\to\infty}f_k(x_{n_i})\geq\varepsilon.$$
 上式对每一个$k\geq 1$均成立,但这和$\{f_n(x_0)\}$收敛于零相矛盾.
 
 \begin{ti}
-\textbf{推论7.33}  设$f_n(x)$为非负连续函数,如果函数项级数$\displaystyle\sum_{n=1}^{\infty}f_n(x)$在闭区间中收敛于连续函数$f$,则必一致收敛于$f$.
+\textbf{推论7.34}  设$f_n(x)$为非负连续函数,如果函数项级数$\displaystyle\sum_{n=1}^{\infty}f_n(x)$在闭区间中收敛于连续函数$f$,则必一致收敛于$f$.
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.34(逐项积分)}  设$f_n\in R[a,b]$,如果$\{f_n\}$一致收敛于$f$,则$f\in R[a,b]$,且
+\textbf{定理7.35(逐项积分)}  设$f_n\in R[a,b]$,如果$\{f_n\}$一致收敛于$f$,则$f\in R[a,b]$,且
 $$\lim_{n\to\infty}\int_a^b f_n(x)\,\mathrm{d}x=\int_a^b \lim_{n\to\infty}f_n(x)\,\mathrm{d}x=\int_a^b f(x)\,\mathrm{d}x$$.
 \end{ti}
 
@@ -310,12 +317,12 @@ $$\left\lvert\int_a^b f_n(x)\,\mathrm{d}x-\int_a^b f(x)\,\mathrm{d}x\right\rvert
 这说明$\displaystyle\lim_{n\to\infty}\int_a^b f_n(x)\,\mathrm{d}x=\int_a^b f(x)\,\mathrm{d}x$.
 
 \begin{ti}
-\textbf{推论7.35}  设$\displaystyle\sum_{n=1}^{\infty}f_n(x)$在$[a,b]$中一致收敛于$f$.如果$f_n$均为可积函数,则$f$也是可积函数,且
+\textbf{推论7.36}  设$\displaystyle\sum_{n=1}^{\infty}f_n(x)$在$[a,b]$中一致收敛于$f$.如果$f_n$均为可积函数,则$f$也是可积函数,且
 $$\sum_{n=1}^{\infty}\int_a^b f_n(x)\,\mathrm{d}x=\int_a^b\sum_{n=1}^{\infty}f_n(x)\,\mathrm{d}x=\int_a^b f(x)\,\mathrm{d}x.$$
 \end{ti}
 
 \begin{ti}
-\textbf{定理7.36(逐项求导)}  设$\{f_n\}$为$[a,b]$中的一列可导函数,$c\in[a,b]$.如果$\{f_n(c)\}$收敛,$\{f'_n\}$一致收敛于$g$,
+\textbf{定理7.37(逐项求导)}  设$\{f_n\}$为$[a,b]$中的一列可导函数,$c\in[a,b]$.如果$\{f_n(c)\}$收敛,$\{f'_n\}$一致收敛于$g$,
 则$\{f_n\}$一致收敛于可导函数$f$,且$f'=g$.
 \end{ti}
 
@@ -326,15 +333,15 @@ $$|[f_m(x)-f_m(c)]-[f_n(x)-f_n(c)]|=|[f'_m(\xi)-f'_n(\xi)](x-c)|\leq(b-a)\vareps
 $$g_n(x)=\begin{cases}\dfrac{f_n(x)-f_n(x_0)}{x-x_0},&x\neq x_0,\\[2mm] f'_n(x_0),&x=x_0.\end{cases}$$
 由$f_n$可导可知$g_n$为连续函数.类似于刚才的论证,由微分中值定理,有$|g_m(x)-g_n(x)|=|f'_m(\xi)-f'_n(\xi)|\leq\varepsilon$,这说明$\{g_n\}$一致收敛,其极限为
 $$\widehat{g}(x)=\begin{cases}\dfrac{f(x)-f(x_0)}{x-x_0},&x\neq x_0,\\[2mm] g(x_0),&x=x_0.\end{cases}$$
-根据前节定理,$\;\widehat{g}$为连续函数.特别地,$f$在$x_0$处可导且导数为$g(x_0)$.
+根据定理7.28(一致收敛与连续性),$\;\widehat{g}$为连续函数.特别地,$f$在$x_0$处可导且导数为$g(x_0)$.
 
 \begin{ti}
-\textbf{推论7.37}  设$\{f_n\}$为$[a,b]$中一列可导函数,$c\in[a,b]$.如果$\displaystyle\sum_{n=1}^{\infty}f_n(c)$收敛,$\displaystyle\sum_{n=1}^{\infty}f'_n(x)$一致收敛,则$\displaystyle\sum_{n=1}^{\infty}f_n(x)$一致收敛,其和函数可导,且
+\textbf{推论7.38}  设$\{f_n\}$为$[a,b]$中一列可导函数,$c\in[a,b]$.如果$\displaystyle\sum_{n=1}^{\infty}f_n(c)$收敛,$\displaystyle\sum_{n=1}^{\infty}f'_n(x)$一致收敛,则$\displaystyle\sum_{n=1}^{\infty}f_n(x)$一致收敛,其和函数可导,且
 $$\left(\sum_{n=1}^{\infty}f_n(x)\right)'=\sum_{n=1}^{\infty}f'_n(x).$$
 \end{ti}
 
 \begin{ti}
-\textbf{引理7.38($Abel$)}  设幂级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$在$x=x_1\,(x_1\neq 0)$处收敛,则它在区间$|x|<|x_1|$中绝对收敛.因此,幂级数在$x=x_2$处发散意味着在$|x|>|x_2|$中均发散.
+\textbf{引理7.39($Abel$)}  设幂级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$在$x=x_1\,(x_1\neq 0)$处收敛,则它在区间$|x|<|x_1|$中绝对收敛.因此,幂级数在$x=x_2$处发散意味着在$|x|>|x_2|$中均发散.
 \end{ti}
 
 \textbf{证明}:设$\displaystyle\sum_{n=0}^{\infty}a_n x_1^n$收敛,则存在$M>0$,使得$|a_n x_1^n|\leq M$均成立.这说明
@@ -342,7 +349,7 @@ $$\sum_{n=0}^{\infty}|a_n x^n|=\sum_{n=0}^{\infty}|a_n x_1^n|\left|\frac{x}{x_1}
 因此当$|x|<|x_1|$时,$\displaystyle\sum_{n=0}^{\infty}a_n x^n$绝对收敛.
 
 \begin{ti}
-\textbf{定理7.39($Cauchy\text{-}Hadamard$)}  对幂级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$,记$\rho=\displaystyle\limsup_{n\to\infty}\sqrt[n]{\left\lvert a_n\right\rvert}$,则\\
+\textbf{定理7.40($Cauchy\text{-}Hadamard$)}  对幂级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$,记$\rho=\displaystyle\limsup_{n\to\infty}\sqrt[n]{\left\lvert a_n\right\rvert}$,则\\
 (1)$\rho=0$时,幂级数在$(-\infty,\infty)$中绝对收敛;\\
 (2)$\rho=+\infty$时,幂级数仅在$x=0$处收敛;\\
 (3)$0<\rho<\infty$时,幂级数在$\left\lvert x\right\rvert<\dfrac{1}{\rho}$中绝对收敛,在$\left\lvert x\right\rvert>\dfrac{1}{\rho}$之外发散.此时,称$\dfrac{1}{\rho}$为\textbf{收敛半径}.
@@ -350,13 +357,99 @@ $$\sum_{n=0}^{\infty}|a_n x^n|=\sum_{n=0}^{\infty}|a_n x_1^n|\left|\frac{x}{x_1}
 
 
 \begin{ti}
-\textbf{定理7.40($Abel$连续性定理)}  设幂级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$的收敛半径为$R\,(0<R<\infty)$.如果$\displaystyle\sum_{n=0}^{\infty}a_n R^n$收敛,则
+\textbf{定理7.41($Abel$连续性定理)}  设幂级数$\displaystyle\sum_{n=0}^{\infty}a_n x^n$的收敛半径为$R\,(0<R<\infty)$.如果$\displaystyle\sum_{n=0}^{\infty}a_n R^n$收敛,则
 $$\lim_{x\to R^-}\sum_{n=0}^{\infty}a_n x^n=\sum_{n=0}^{\infty}a_n R^n;$$
 如果$\displaystyle\sum_{n=0}^{\infty}a_n(-R)^n$收敛,则
 $$\lim_{x\to -R^+}\sum_{n=0}^{\infty}a_n x^n=\sum_{n=0}^{\infty}a_n(-R)^n.$$
 \end{ti}
 
-\textbf{证明}:设$\displaystyle\sum a_nR^n$收敛.当$x\in[0,R]$时,$\displaystyle\sum a_nx^n=\sum a_nR^n\left(\dfrac{x}{R}\right)^n$,其中$\left(\dfrac{x}{R}\right)^n$关于$n$单调且$\leq 1$,由数项级数的$Abel$判别法,$\displaystyle\sum a_nx^n$在$[0,R]$上一致收敛,故$\displaystyle\lim_{x\to R^-}\sum a_nx^n=\sum a_nR^n$.对$x\in[-R,0]$的情形同理,即得另一等式.
+\textbf{证明}:设$\displaystyle\sum a_nR^n$收敛,记$b_n=a_nR^n$.任给$\varepsilon>0$,由数项级数的$Cauchy$准则,存在$N$,使得当$q\geq p>N$时,$\left|\sum_{n=p}^{q}b_n\right|<\varepsilon$.固定这样的$p$,令$B_k=\displaystyle\sum_{n=p}^{k}b_n$,则$|B_k|<\varepsilon$对所有$k\geq p$成立.对任意$t\in[0,1]$,由命题7.7的$Abel$变换,
+$$\sum_{n=p}^{q}b_nt^n=B_qt^q+\sum_{n=p}^{q-1}B_n(t^n-t^{n+1}).$$
+由于$t^n-t^{n+1}\geq0$,故
+$$\left|\sum_{n=p}^{q}b_nt^n\right|\leq\varepsilon\left[t^q+\sum_{n=p}^{q-1}(t^n-t^{n+1})\right]=\varepsilon t^p\leq\varepsilon.$$
+这个尾和估计与$t$无关.令$t=x/R$,由定理7.26可知$\displaystyle\sum a_nx^n$在$[0,R]$上一致收敛.其部分和为连续函数,由定理7.28,和函数在$[0,R]$上连续,从而得到$x\to R^-$时的等式.若$\displaystyle\sum a_n(-R)^n$收敛,则取$b_n=a_n(-R)^n,t=-x/R$,同理可得该幂级数在$[-R,0]$上一致收敛且和函数连续,从而得到$x\to-R^+$时的等式.
+
+\begin{ti}
+\hypertarget{thm:shoulian}{\textbf{定义7.42(准一致收敛)}} 如果函数列$\{f_n(x)\}$在$[a,b]$上收敛于$f(x)$,且对每个$\varepsilon>0$和每个$N$,存在$N'>N$,
+使得对于每个$x\in[a,b]$,有正整数$n_x\in[N,N']$,满足$\left\lvert f_{n_x}(x)-f(x)\right\rvert <\varepsilon$,则称函数列$\{f_n(x)\}$在区间$[a,b]$上准一致收敛
+\end{ti}
+
+\begin{ti}
+\hypertarget{thm:lewin}{\textbf{引理7.43($Lewin$)}}  设$\{A_n\}$为单调下降的有界闭集序列,且其交为空集,又定义数列
+$$\alpha_n=\sup\{m(E)\,|\,E\text{\ 为含于\ }A_n\text{\ 中的初等集}\},\quad n=1,2,\ldots,$$
+则$\displaystyle\lim_{n\to\infty}\alpha_n=0.$
+\end{ti}
+
+\textbf{证明}:这个结论本身是非常直观的,但需要细致的分析,并且最后要用非空有界闭集的下降序列必有非空交的定理.先说明证明中要用到的记号.
+
+称有限个互不相交的有界区间的并集为\textbf{初等集},称初等集$E$中的区间长度之和为$E$的\textbf{测度},记为$m(E)$;称有限个互不相交的有界闭区间的并集为\textbf{闭初等集}.就区间$[a,b]$内的初等集而言,它们的并、交与差仍为初等集;又若$E$和$F$为初等集,则$m(E\cup F)\leq m(E)+m(F)$,且当$E$与$F$不交时成立等号.这些都可以推广到有限个初等集上去.不难证明:对于一个初等集$E$以及给定的$\varepsilon>0$,存在一个闭初等集$F\subset E$,满足条件$m(F)>m(E)-\varepsilon$.
+
+用反证法.设结论不真,则单调减少的正数数列$\{\alpha_n\}$的极限大于$0$,因此存在$\delta>0$,使得对于每个$n$成立$\alpha_n>\delta$.
+
+对每个$n$,根据$\alpha_n$的定义,存在闭初等集$E_n\subset A_n$,使得
+$$m(E_n)>\alpha_n-\dfrac{\delta}{2^n}.$$
+这样得到的有界闭集序列$\{E_n\}$未必单调下降,为此再令
+$$H_n=\bigcap_{k=1}^{n}E_k,\quad n=1,2,\ldots,$$
+就得到单调下降的有界闭集序列$\{H_n\}$.从$H_n\subset E_n\subset A_n,\forall\,n\in\mathbb{N}$就有
+$$\bigcap_{n=1}^{\infty}A_n\supset\bigcap_{n=1}^{\infty}H_n.$$
+引理的条件是上式左边为空集$\varnothing$,因此只要证明每个$H_n$非空,然后从非空有界闭集的下降序列有非空交的定理知右边的非空,就引出矛盾.
+
+考虑$A_n-H_n$中的任一初等集$E$,则从$H_n$为$E_1,E_2,\ldots,E_n$之交知道有
+$$E=E-H_n=E-\bigcap_{k=1}^{n}E_k=\bigcup_{k=1}^{n}(E-E_k).$$
+记$F_i=E-E_i,i=1,2,\ldots,n$.则对于每个$i$有
+$$m(F_i)+m(E_i)=m(F_i\cup E_i)\leq\alpha_i,$$
+利用$m(E_i)>\alpha_i-\dfrac{\delta}{2^i}$可知
+$$m(F_i)<\dfrac{\delta}{2^i},\quad\forall\,i=1,2,\ldots,n.$$
+将这个结果代入$E=\displaystyle\bigcup_{k=1}^{n}(E-E_k)$就得到$m(E)<\delta$.这表明$A_n-H_n$中的任一初等集的测度小于$\delta$.
+
+从$\alpha_n$的定义和$\alpha_n>\delta,\forall\,n$可见,如果$H_n=\varnothing$,则可以取到一个初等集$E\subset A_n$,使得$m(E)>\delta$.由此推出每个$H_n\neq\varnothing$,从而在上述包含关系中引出矛盾.这表明一开始的假设错了,只能有$\displaystyle\lim_{n\to\infty}\alpha_n=0$.
+
+\textbf{注}:这个引理与$Arzel\grave{a}$原来的引理比较,可以认为有了很大的改进.从概念上看,初等集只是有限个区间的并,这在数学分析中是容易接受的.
+此外,还可以将引理的结论等价地叙述为更容易理解的事实:若单调下降的有界数集之交为空集,则其中所含的任意初等集的长度一定趋于$0$.
+
+\begin{ti}
+\hypertarget{thm:arzela}{\textbf{定理7.44($Arzel\grave{a}$控制收敛定理)}}  设$\{f_n\}$是$[a,b]$上收敛于极限函数$f$的可积函数列.若$f$也在$[a,b]$上可积,且$\{f_n\}$在$[a,b]$上一致有界,即存在$M>0$,使得对于每个$n$和每个$x\in[a,b]$同时满足$\left\lvert f_n(x)\right\rvert\leq M$,则成立
+$$\lim_{n\to\infty}\int_a^b f_n(x)\,\mathrm{d}x=\int_a^b f(x)\,\mathrm{d}x.$$
+\end{ti}
+
+\textbf{证明}:这个定理自$Arzel\grave{a}$于1885年发表以来,已经出现过十余种证明.下面给出的是$Lewin$于1986年给出的初等证明(见《美国数学月刊》1986年第93卷395--396页),
+它只用到阶梯函数的下积分,闭集降列定理与初等集的测度,其证明的关键一步是上面的引理7.43.为便于阅读,先作两点准备.
+
+(1)下积分的表示.若$f\in R[a,b]$,$s$为$[a,b]$上的阶梯函数(即分段常值函数),则
+$$\int_a^b f(x)\,\mathrm{d}x=\sup_{s\leq f}\left\{\int_a^b s(x)\,\mathrm{d}x\right\},$$
+其中记号$s\leq f$是指满足条件$s(x)\leq f(x),\forall x\in[a,b]$.右边就是$Darboux$下积分的值,由定积分的定义直接可以证明这个等式.
+
+(2)闭集降列定理.设$\{A_n\}$是区间$[a,b]$内的非空有界闭集列,且单调下降,即$A_1\supset A_2\supset\cdots\supset A_n\supset\cdots$,则它们的交非空:
+$$\bigcap_{n=1}^{\infty}A_n\neq\varnothing.$$
+这里先要给出实数集合$A$为闭集的定义:如果点$a$的每个邻域中含有$A$中的点,就有$a\in A$.然后用实数系中的某个基本定理就可以证明所需的结论.
+
+准备就绪,下面转入定理的证明.对给定的正数$\varepsilon>0$,定义集合序列
+$$A_n=\{x\in[a,b]\,|\,\exists\,i\geq n,\ \text{使得}\ \left\lvert f_i(x)-f(x)\right\rvert\geq\varepsilon\},\quad n=1,2,\ldots$$
+则从$f_n$于$[a,b]$上处处收敛于$f$可知$\{A_n\}$为单调下降的有界闭集序列,且
+$$\bigcap_{n=1}^{\infty}A_n=\varnothing.$$
+
+仍按引理7.43中的记号定义数列
+$$\alpha_n=\sup\{m(E)\,|\,E\text{\ 为含于\ }A_n\text{\ 中的初等集}\},\quad n=1,2,\ldots$$
+显然数列$\{\alpha_n\}$为单调下降的非负数列.由上面的引理7.43可知$\alpha_n\to 0$.因此存在$N$,使得对$n>N$和$A_n$中的每个初等集$E$,成立$m(E)<\varepsilon$.
+
+以下只需要证明对于$n>N$的每个$n$,积分$\displaystyle\int_a^b\left\lvert f_n-f\right\rvert\leq K\varepsilon$,其中$K$是一个确定常数.
+
+利用(1),只需要对$n>N$和在$[a,b]$上满足条件$0\leq s(x)\leq\left\lvert f_n(x)-f(x)\right\rvert$的每个阶梯函数$s(x)$,证明$\displaystyle\int_a^b s(x)\,\mathrm{d}x<K\varepsilon$即可.
+
+对于满足这个条件的阶梯函数$s$,定义两个集合
+$$E=\{x\in[a,b]\,|\,s(x)\geq\varepsilon\},\qquad F=[a,b]-E,$$
+显然$E$与$F$都是初等集.
+
+由于$E\subset A_n$,因此$m(E)<\varepsilon$;而对于$x\in F$,则有$s(x)<\varepsilon$.再利用$\{f_n\}$为一致有界就得到
+$$\int_a^b s(x)\,\mathrm{d}x=\int_E s(x)\,\mathrm{d}x+\int_F s(x)\,\mathrm{d}x\leq 2M\cdot m(E)+\varepsilon\cdot(b-a)\leq\varepsilon(2M+b-a).$$
+从(1)知对$n>N$有
+$$\int_a^b\left\lvert f_n-f\right\rvert\leq\varepsilon(2M+b-a).$$
+利用$\varepsilon$的任意性和不等式$\left\lvert\int_a^b f_n-\int_a^b f\right\rvert\leq\int_a^b\left\lvert f_n-f\right\rvert$,可见已经得到所要的结论:
+$$\lim_{n\to\infty}\int_a^b f_n(x)\,\mathrm{d}x=\int_a^b f(x)\,\mathrm{d}x.$$
+
+\textbf{注}:在定理7.44的条件中必须假定极限函数的可积性,这一点在一致收敛条件下的逐项积分定理中是不需要的,因为一致收敛条件可以将函数列的可积性“传递”给极限函数.
+但是只要略微修改上述证明中的集合$A_n$的定义就可以证明,即使没有极限函数$f$的可积条件,积分值所成的数列$\displaystyle\left\{\int_a^b f_n(x)\,\mathrm{d}x\right\}$必是基本数列,因此一定收敛.
+这强烈地表明,逐项积分不能进行的原因是积分定义不够广泛.由此即可引向实变函数论中的$Lebesgue$积分定义和$Lebesgue$控制积分收敛定理,在那里不需要事先假定极限函数的可积性.
 
 \section{\texorpdfstring{$Fourier$}{Fourier}分析}
 \begin{ti}
@@ -421,7 +514,7 @@ $$\phantom{E_n(x)=}+\dfrac{1}{\pi}\int_0^{\pi}\dfrac{f(x-u)-f(x-0)}{2\sin\dfrac{
 \textbf{定理8.7($Weierstrass$逼近定理)}  设$f\in C^0[-\pi,\pi]$,$f(-\pi)=f(\pi)$.则任给$\varepsilon>0$,存在三角多项式$T(x)$,使得$|f(x)-T(x)|<\varepsilon$在$[-\pi,\pi]$中处处成立.
 \end{ti}
 
-\textbf{证明}:首先,连续函数$f$可以用分段线性函数一致逼近,即存在周期为$2\pi$的连续分段线性函数列$\{f_n\}$,使得$f_n$在$[-\pi,\pi]$中一致收敛于$f$.其次,由命题8.3的系数估计与$Weierstrass$判别法,各$f_n$的$Fourier$展开一致收敛;再由$Dirichlet$收敛定理,其和为$f_n$.取$n$充分大,使$|f(x)-f_n(x)|<\dfrac{\varepsilon}{2}$处处成立;再取$f_n$的$Fourier$展开的充分多项的部分和$T$,使$|f_n(x)-T(x)|<\dfrac{\varepsilon}{2}$处处成立,则$|f(x)-T(x)|<\varepsilon$在$[-\pi,\pi]$中处处成立.
+\textbf{证明}:首先,连续函数$f$可以用分段线性函数一致逼近,即存在周期为$2\pi$的连续分段线性函数列$\{f_n\}$,使得$f_n$在$[-\pi,\pi]$中一致收敛于$f$.其次,由命题8.3的系数估计与定理7.27($Weierstrass$判别法),各$f_n$的$Fourier$展开一致收敛;再由$Dirichlet$收敛定理,其和为$f_n$.取$n$充分大,使$|f(x)-f_n(x)|<\dfrac{\varepsilon}{2}$处处成立;再取$f_n$的$Fourier$展开的充分多项的部分和$T$,使$|f_n(x)-T(x)|<\dfrac{\varepsilon}{2}$处处成立,则$|f(x)-T(x)|<\varepsilon$在$[-\pi,\pi]$中处处成立.
 
 \begin{ti}
 \textbf{定理8.8(一致收敛)}  设$f$是以$2\pi$为周期的连续函数,如果$f$在$[-\pi,\pi]$上可以写成两个单调函数之差(即在一个周期内有界变差),则其$Fourier$级数一致收敛于$f$自身.特别地,$Lipschitz$周期函数的$Fourier$级数一致收敛于自身.

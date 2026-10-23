@@ -437,5 +437,56 @@ $\leq 2f(\dfrac{t+s}{2})+\left(\dfrac{t-s}{2}\right)^2-\dfrac{t^2+s^2}{2}=2G(\df
 
 从而$G$确实是凹函数,得证.
 
+\begin{ti}
+【题14】 设$\varphi\text{在}[0,\dfrac{\pi}{2}]$上可积,满足$\displaystyle\lim_{x\to\frac{\pi}{2}^-}\varphi(x)=0$.
+求证:$\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\int_{0}^{\frac{\pi}{2}} \sin^n x\,\varphi(x) \,dx }{\displaystyle\int_{0}^{\frac{\pi}{2}} \sin^n x  \,dx }=0$.
+\end{ti}
 
+\textbf{证明}:记$ M=\displaystyle\int_{0}^{\frac{\pi}{2}} \left\lvert \varphi(x)\right\rvert  \,dx $.由于$\sin x\text{在}[0,\dfrac{\pi}{2}]$上单调递增,对任意$\varepsilon\in(0,\dfrac{\pi}{4})$, \\
+
+$\left\lvert \dfrac{\displaystyle\int_{0}^{\frac{\pi}{2}}\sin^n x\,\varphi(x)  \,dx }{\displaystyle\int_{0}^{\frac{\pi}{2}}\sin^n x  \,dx }\right\rvert\leq\dfrac{\displaystyle\int_{0}^{\frac{\pi}{2}-2\varepsilon}\sin^n x\left\lvert \varphi(x)\right\rvert \,dx}{\displaystyle\int_{0}^{\frac{\pi}{2}}\sin^n x\,dx}+\dfrac{\displaystyle\int_{\frac{\pi}{2}-2\varepsilon}^{\frac{\pi}{2}}\sin^n x\left\lvert \varphi(x)\right\rvert\,dx}{\displaystyle\int_{0}^{\frac{\pi}{2}}\sin^n x\,dx }$ \\
+
+$\leq\dfrac{M\sin^n (\frac{\pi}{2}-2\varepsilon)}{\displaystyle\int_{0}^{\frac{\pi}{2}}\sin^n x  \,dx}+\sup_{\frac{\pi}{2}-2\varepsilon\leq x\leq\frac{\pi}{2}}\left\lvert \varphi(x)\right\rvert \;$ $\leq\dfrac{M\sin^n(\frac{\pi}{2}-2\varepsilon)}{\displaystyle\int_{\frac{\pi}{2}-\varepsilon}^{\frac{\pi}{2}}\sin^n x\,dx }$+$\sup_{\frac{\pi}{2}-2\varepsilon\leq x\leq\frac{\pi}{2}}\left\lvert \varphi(x)\right\rvert$ \\
+
+$\leq\dfrac{M\sin^n(\frac{\pi}{2}-2\varepsilon)}{\varepsilon\sin^n(\frac{\pi}{2}-\varepsilon)}+\sup_{\frac{\pi}{2}-2\varepsilon\leq x\leq\frac{\pi}{2}}\left\lvert \varphi(x)\right\rvert$. \\
+
+$\therefore\,\displaystyle\varlimsup_{n\to\infty}\left\lvert \dfrac{\displaystyle\int_{0}^{\frac{\pi}{2}} \sin^n x\,\varphi(x) \,dx }{\displaystyle\int_{0}^{\frac{\pi}{2}} \sin^n x  \,dx }\right\rvert \leq\sup_{\frac{\pi}{2}-2\varepsilon\leq x\leq\frac{\pi}{2}}\left\lvert \varphi(x)\right\rvert $. \\
+
+令$\varepsilon\to 0^+$即得$\displaystyle\lim_{n\to\infty}\dfrac{\displaystyle\int_{0}^{\frac{\pi}{2}} \sin^n x\,\varphi(x) \,dx }{\displaystyle\int_{0}^{\frac{\pi}{2}} \sin^n x  \,dx }=0$.
+
+\begin{ti}
+【题15】 设$f:[0,+\infty)\rightarrow [0,+\infty)$是连续函数,且满足$\displaystyle\lim_{x\to +\infty}f(x)\displaystyle\int_{0}^{x}f(t)\,dt=a\in(0,+\infty)$.
+求证:$\displaystyle\lim_{x\to +\infty}\sqrt{x}f(x)$存在且为正数.
+\end{ti}
+
+\textbf{证明}:记$F(x)=\displaystyle\int_{0}^{x}f(t)\,dt$,则$F$非负且单调递增且$F'=f$. \\
+
+由$L'Hospital$法则,$\;\displaystyle\lim_{x\to +\infty}\dfrac{F^2(x)}{x}=2\lim_{x\to +\infty}f(x)F(x)=2a$. \\
+
+于是$\displaystyle\lim_{x\to +\infty}\dfrac{F(x)}{\sqrt{x}}=\sqrt{2a}$. \\
+
+$\therefore\,\displaystyle\lim_{x\to +\infty}\sqrt{x}f(x)=\lim_{x\to +\infty}\dfrac{f(x)F(x)}{\dfrac{F(x)}{\sqrt{x}}}=\sqrt{\dfrac{a}{2}}$,命题得证.
+
+\begin{ti}
+【题16】设$\varphi$为$\mathbb{R}$上周期为$1$的函数,且在$[0,1]$上可积,$f$在$[0,1]$上可积.\\
+证明:$\;\displaystyle\lim_{n\to\infty}\displaystyle\int_{0}^{1}f(x)\varphi(nx)\,dx=\displaystyle\int_{0}^{1}f(x)\,dx\displaystyle\int_{0}^{1}\varphi(x)\,dx$.
+\end{ti}
+
+\textbf{证明}: 记$a_n=\displaystyle\int_{0}^{1}f(x)\varphi(nx)\,dx$,将区间$[0,1]$进行$n$等分, \\
+
+记$I_k=\left[\dfrac{k-1}{n},\dfrac{k}{n}\right](k=1,2,...,n),M_k=\sup_{x\in I_k}f(x),m_k=\inf_{x\in I_k}f(x)$, \\
+
+$\because\,f\in R[0,1],\quad\therefore\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}(M_k-m_k)\dfrac{1}{n}=0$, 且$\displaystyle\lim_{n\to\infty}\dfrac{1}{n}\sum_{k=1}^{n}f\left(\dfrac{k-1}{n}\right)=\displaystyle\int_{0}^{1}f(x)\,dx$. \\
+
+$\therefore\,a_n=\displaystyle\int_{0}^{1}f(x)\varphi(nx)\,dx=\dfrac{1}{n}\displaystyle\int_{0}^{n}f\left(\dfrac{x}{n}\right)\varphi(x)\,dx$ \\
+
+$=\dfrac{1}{n}\displaystyle\sum_{k=1}^{n}\displaystyle\int_{k-1}^{k}f\left(\dfrac{x}{n}\right)\varphi(x)\,dx=\dfrac{1}{n}\displaystyle\sum_{k=1}^{n}\displaystyle\int_{0}^{1}f\left(\dfrac{x+k-1}{n}\right)\varphi(x+k-1)\,dx$ \\
+
+$=\dfrac{1}{n}\displaystyle\sum_{k=1}^{n}\displaystyle\int_{0}^{1}\left(f\left(\dfrac{x+k-1}{n}\right)-f\left(\dfrac{k-1}{n}\right)\right)\varphi(x)\,dx+\dfrac{1}{n}\displaystyle\sum_{k=1}^{n}f\left(\dfrac{k-1}{n}\right)\displaystyle\int_{0}^{1}\varphi(x)\,dx$. \\
+
+$\because\,\left\lvert \dfrac{1}{n}\displaystyle\sum_{k=1}^{n}\displaystyle\int_{0}^{1}\left(f\left(\dfrac{x+k-1}{n}\right)-f\left(\dfrac{k-1}{n}\right)\right)\varphi(x)\,dx\right\rvert\leq\displaystyle\sum_{k=1}^{n}(M_k-m_k)\dfrac{1}{n}\displaystyle\int_{0}^{1}\left\lvert \varphi(x)\right\rvert\,dx$, \\
+
+$\therefore\,\displaystyle\lim_{n\to\infty}\left\lvert \dfrac{1}{n}\displaystyle\sum_{k=1}^{n}\displaystyle\int_{0}^{1}\left(f\left(\dfrac{x+k-1}{n}\right)-f\left(\dfrac{k-1}{n}\right)\right)\varphi(x)\,dx\right\rvert=0$. \\
+
+$\therefore\,\displaystyle\lim_{n\to\infty}\displaystyle\int_{0}^{1}f(x)\varphi(nx)\,dx=\displaystyle\int_{0}^{1}f(x)\,dx\displaystyle\int_{0}^{1}\varphi(x)\,dx$.得证.
 \BookEnd

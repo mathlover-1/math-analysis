@@ -44,7 +44,7 @@ $\therefore\,\displaystyle\sum_{n=1}^{\infty}\dfrac{a_n}{S_n^p}<\dfrac{1}{S_1^{p
 【题2】 若正项级数$\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{a_n}$收敛,证明:$\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{a_1+a_2+\cdots+a_n}$也收敛
 \end{ti}
 
-\textbf{证明}:由题意可知$\{a_n\}$为正无穷大量.下面分类讨论. \\
+\textbf{解法一}:由题意可知$\{a_n\}$为正无穷大量.下面分类讨论. \\
 
 $(\mathrm{I})$  若$\{a_n\}$单调递增,则$\dfrac{2n-1}{a_1+a_2+\cdots+a_{2n-1}}<\dfrac{2n-1}{a_n+a_{n+1}+\cdots+a_{2n-1}}<\dfrac{2n-1}{na_n}$, \\
 
@@ -62,14 +62,29 @@ $\because\,\displaystyle\lim_{n\to\infty}a_n=+\infty,\;\therefore\exists\,N,n>N\
 $\because\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{a_n}$是正项级数,$\quad\therefore$重排后$\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{b_n}$仍收敛, \\
 
 由$(\mathrm{I})$的情况可知$\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{b_1+b_2+\cdots+b_n}$收敛,\\
+
 又对$\forall\,n\geq 1$,有$\dfrac{n}{b_1+b_2+\cdots+b_n}\geq\dfrac{n}{a_1+a_2+\cdots+a_n}$, \\
 
-$\therefore\text{由比较判别法可知}\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{a_1+a_2+\cdots+a_n}$收敛.
+$\therefore\text{由比较判别法可知}\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{a_1+a_2+\cdots+a_n}$收敛. \\
+
+\textbf{解法二}: 由$Cauchy$不等式,$\displaystyle\left(\sum_{k=1}^{n}\sqrt{k}\right)^2=\left(\sum_{k=1}^{n}\sqrt{a_k}\cdot\sqrt{\dfrac{k}{a_k}}\right)^2\leq S_n\cdot\sum_{k=1}^{n}\dfrac{k}{a_k}$, \\
+
+又$\displaystyle\sum_{k=1}^{n}\sqrt{k}\geq\displaystyle\int_{0}^{n}\sqrt{t}\,dt=\dfrac{2}{3}n^{\frac{3}{2}}$, $\quad\therefore\,\displaystyle \dfrac{n}{S_n}\leq\dfrac{9}{4}\cdot\dfrac{1}{n^2}\sum_{k=1}^{n}\dfrac{k}{a_k}$, \\
+
+$\therefore\,\displaystyle\sum_{n=1}^{N}\dfrac{n}{S_n}\leq\sum_{n=1}^{N}\dfrac{9}{4n^2}\sum_{k=1}^{n}\dfrac{k}{a_k}=\sum_{k=1}^{N}\sum_{n=k}^{N}\dfrac{9}{4n^2}\cdot\dfrac{k}{a_k}$, \\
+
+又$\displaystyle\sum_{n=k}^{N}\dfrac{1}{n^2}\leq\dfrac{1}{k^2}+\displaystyle\int_{k}^{N}\dfrac{1}{t^2}\,dt=-\dfrac{1}{N}+\dfrac{1}{k}+\dfrac{1}{k^2}\leq\dfrac{1}{k}+\dfrac{1}{k^2}$, \\
+
+$\therefore\,\displaystyle\sum_{n=1}^{N}\dfrac{n}{S_n}\leq\dfrac{9}{4}\sum_{k=1}^{N}\dfrac{1}{a_k}+\dfrac{9}{4}\sum_{k=1}^{N}\dfrac{1}{ka_k}\leq\dfrac{9}{2}\sum_{k=1}^{N}\dfrac{1}{a_k}$, \\
+
+令$N\rightarrow 0,$可得$\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{S_n}\leq\dfrac{9}{2}\sum_{n=1}^{\infty}\dfrac{1}{a_n},\text{从而}\sum_{n=1}^{\infty}\dfrac{n}{a_1+a_2+\cdots a_n}$收敛. \\
 
 \textbf{注记}:上述证明过程中得到的不等式$\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{a_1+a_2+\cdots+a_n}\leq 4\sum_{n=1}^{\infty}\dfrac{1}{a_n}$
-中的系数$4$实际上不是最优的,可以得到最优常数为$2$,并且不存在反方向的不等式控制
+和\\
+$\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{a_1+a_2+\cdots+a_n}\leq \dfrac{9}{2}\sum_{n=1}^{\infty}\dfrac{1}{a_n}$
+中的系数$4$以及$\dfrac{9}{2}$实际上不是最优的.最优常数为$2$,并且不存在反方向的不等式控制
 (即不存在正常数$l$,使得$\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{a_1+a_2+\cdots+a_n}\geq l\sum_{n=1}^{\infty}\dfrac{1}{a_n}$).
-有关讨论见\href{https://math.stackexchange.com/questions/599999}{该题在 Mathematics Stack Exchange 的页面}.
+有关讨论见\href{https://math.stackexchange.com/questions/599999}{ Mathematics Stack Exchange }.
 
 \begin{ti}
 【题3】设$\displaystyle\sum_{n=1}^{\infty}a_n$为收敛的正项级数,证明:$\displaystyle\sum_{n=1}^{\infty}\sqrt[n]{a_1a_2\cdots a_n} $收敛.
@@ -85,7 +100,7 @@ $\therefore\text{由比较判别法可知}\displaystyle\sum_{n=1}^{\infty}\dfrac
 
 其中用到了不等式$\left(\dfrac{n+1}{e}\right)^n<n!$, 由比较判别法可知$\displaystyle\sum_{n=1}^{\infty}\sqrt[n]{a_1a_2\cdots a_n}$收敛. \\
 
-\textbf{注}:本题实际上是$Carleman$不等式的结果(见附录命题7.16),并且根据几何平均值-调和平均值不等式可知,上一题是这题的一个推论. \\
+\textbf{注}:本题实际上是$Carleman$不等式的结果(见附录第七节\ifdefined\BookMaster\hyperlink{thm:carleman}{命题7.16}\else 命题7.16\fi),并且根据几何平均值-调和平均值不等式可知,上一题是这题的一个推论. \\
 
 \textbf{另解}:上面过程中二重求和的顺序交换也可利用裂项法改写为: \\
 
@@ -107,10 +122,355 @@ $\because\,a_n=\sin a_{n-1}=a_{n-1}-\dfrac{1}{6}a_{n-1}^3+o(a_{n-1}^3),\,a_n\sim
 
 $\therefore\,\displaystyle\lim_{n\to\infty}\left(\dfrac{1}{a_n^2}-\dfrac{1}{a_{n-1}^2}\right)=\lim_{n\to\infty}\dfrac{2a_{n-1}\left[\frac{1}{6}a_{n-1}^3+o(a_{n-1}^3)\right]}{a_{n-1}^4}=\dfrac{1}{3}$, \\
 
-由$Stolz$公式,$\displaystyle\lim_{n\to\infty}\dfrac{\frac{1}{a_n^2}}{\frac{n}{3}}=\lim_{n\to\infty}3\cdot\left(\dfrac{1}{a_n^2}-\dfrac{1}{a_{n-1}^2}\right)=1$, \\
+由$Stolz$公式,$\;\displaystyle\lim_{n\to\infty}\dfrac{\frac{1}{a_n^2}}{\frac{n}{3}}=\lim_{n\to\infty}3\cdot\left(\dfrac{1}{a_n^2}-\dfrac{1}{a_{n-1}^2}\right)=1$, \\
 
 从而$n\to\infty$时,$\dfrac{1}{a_n^2}\sim \dfrac{n}{3},\,\text{即}a_n\sim \sqrt{\dfrac{3}{n}}$,   从而$\displaystyle\dfrac{1}{a_n^p}\sim 3^{-\frac{p}{2}}n^{\frac{p}{2}}$,级数$\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{a_n^p}\text{与}\sum_{n=1}^{\infty}n^{\frac{p}{2}}$同敛散. \\
 
 $\displaystyle\therefore\,p<-2\text{时},\sum_{n=1}^{\infty}n^{\frac{p}{2}}\text{收敛},\,\sum_{n=1}^{\infty}\dfrac{1}{a_n^p}\text{收敛}\;$; $\;\displaystyle p\geq-2\text{时},\sum_{n=1}^{\infty}n^{\frac{p}{2}}\text{发散},\,\sum_{n=1}^{\infty}\dfrac{1}{a_n^p}\text{发散}$. \\
 
+\begin{ti}
+【题5】 设$\{na_n\}$单调递减趋于$0$,$\displaystyle\sum_{n=1}^{\infty}a_n$收敛.
+证明:$\displaystyle\lim_{n\to\infty}(nlnn)a_n=0$.
+\end{ti}
+
+\textbf{证明}:\quad$\displaystyle\because\,\sum_{n=1}^{\infty}a_n\text{收敛},\quad\therefore\,\forall\,\varepsilon>0,\exists\,N,\,\forall\,m,n>N,\text{有}\left\lvert \sum_{k=n}^{m}a_k\right\rvert<\varepsilon$, \\
+
+又$\{nan\}$单调递减趋于$0$,于是$0<\displaystyle\sum_{k=n}^{m}a_k<\varepsilon$, \\
+
+$\displaystyle\therefore\,\varepsilon>\sum_{k=n}^{m}a_k=\sum_{k=n}^{m}\dfrac{ka_k}{k}\geq ma_m\sum_{k=n}^{m}\dfrac{1}{k}$, \\
+
+$\because\,ln(1+x)\geq x(x>-1),\quad\therefore\,\dfrac{1}{k}\leq ln(1+\dfrac{1}{k})=ln\dfrac{k+1}{k}$, \\
+
+$\displaystyle\therefore\,\varepsilon\geq ma_m\sum_{k=n}^{m}ln\dfrac{k+1}{k}=ma_m\ln\dfrac{m+1}{n}>ma_m\ln\dfrac{m}{n}$, \\
+
+于是$m>N^2$时,取$n=\lfloor \sqrt{m}\rfloor,$则$ma_m\ln m<2\varepsilon$. \\
+
+$\therefore\,\forall\,\varepsilon>0,\;\exists\,N',\;\text{s.t.}\,n>N'\text{时},(n\ln n)a_n<2\varepsilon$,即$\displaystyle\lim_{n\to\infty}(n\ln n)a_n=0$,得证.
+
+\begin{ti}
+【题6】 设正项级数$\sum a_n$的通项$a_n$单调减少,且已知级数收敛,证明:$\displaystyle\lim_{n\to\infty}na_n=0$.
+\end{ti}
+
+\textbf{证明}:令$\displaystyle S_n=\sum_{k=1}^{n}a_k,\,\text{则由题目条件可得}\lim_{n\to\infty}S_n=S$,于是$\displaystyle\lim_{n\to\infty}(S_{2n}-S_n)=0$. \\
+
+又$\displaystyle S_{2n}-S_n=\sum_{k=n+1}^{2n}a_k>na_{2n},a_{2n}>0,\;\Rightarrow\displaystyle\lim_{n\to\infty}(2n)a_{2n}=0$. \\
+
+再考虑奇子列,$\quad\because\,a_{2n+1}<a_{2n},\quad\therefore\,\displaystyle\lim_{n\to\infty}(2n)a_{2n+1}=0$, \\
+
+$\therefore\,\displaystyle\lim_{n\to\infty}(2n+1)a_{2n+1}=\lim_{n\to\infty}\dfrac{2n+1}{2n}\cdot(2n)a_{2n+1}=0$. \\
+
+综上,$\;\displaystyle\lim_{n\to\infty}na_n=0$. \\
+
+\textbf{另解}:$\quad\because\,a_n\text{单调递减},\;\sum a_n\text{收敛},\quad\therefore\text{于是}a_n\text{单调递减趋于0}$, \\
+
+由$Cauchy$凝聚判别法可知$\displaystyle\sum_{k=0}^{\infty}2^k a_{2^k}$收敛, 即$\forall\,\varepsilon>0,\;\exists\,K,\;k\geq K\text{时},\,2^ka_{2^k}<\dfrac{\varepsilon}{2},$ \\
+
+$\because\,\forall\,n>2^K,\;\exists\,k\geq K,\;\text{s.t.}\,2^k\leq n\leq 2^{k+1}-1$, \\
+
+$\therefore\,na_n=\dfrac{n}{2^k}\cdot 2^ka_n<2\cdot 2^ka_n\leq 2\cdot 2^ka_{2^k}<\varepsilon$, \\
+
+即$\forall\,\varepsilon>0,\;\exists\,N=2^K,\;\text{s.t.}\,n>N\text{时},\,na_n<\varepsilon$, \\
+
+于是$\displaystyle\lim_{n\to\infty}na_n=0$. \\
+
+\textbf{注记}:本题与本章题2是十分相似共通的.本题的两种做法本质上都是利用单调性把点的问题转化为块上的问题,解法一中块为$[n,2n]$,解法二中块为$[2^k,2^{k+1}-1]$,
+都是与$n$同阶的,块长与$n$成比例的倍增块. \\
+
+\phantom{\textbf{注记}}事实上,本章的题2虽然不能直接用$Cauchy$凝聚判别法,但也可以用这样的二进制块$[2^k,2^{k+1}-1]$,分块使用$Cauchy$不等式放缩得到结果,读者可自行尝试证明.
+
+\begin{ti}
+【题7】 设正项级数$\displaystyle\sum_{n=1}^{\infty}a_n$通项单调减少趋于$0$,且已知数列$\displaystyle\left\{\sum_{k=1}^{n}(a_k-a_n)\right\}$有界,证明:$\displaystyle\sum_{n=1}^{\infty}a_n$收敛.
+\end{ti}
+
+\textbf{证明}:$\quad\because\,a_n\text{单调递减},\quad\therefore\,a_k-a_n\geq 0,\text{又}S_n=\displaystyle\sum_{k=1}^{n}(a_k-a_n)$有界, \\
+
+$\displaystyle\therefore\,S_n\text{收敛},\quad\therefore\,\lim_{n\to\infty}(S_{2n}-S_n)=0$, \\
+
+又$\displaystyle S_{2n}-S_n=\sum_{k=1}^{2n}(a_k-a_{2n})-\sum_{k=1}^{n}(a_k-a_n)=n(a_n-a_{2n})+\sum_{k=n+1}^{2n}a_k-na_{2n}$, \\
+
+且$\displaystyle a_n-a_{2n}\geq 0,\;\sum_{k=n+1}^{2n}a_k-na_{2n}\geq 0$, \\
+
+由夹逼法则可知,$\;\displaystyle \lim_{n\to\infty} n(a_n-a_{2n})=0,\;\lim_{n\to\infty}\left(\sum_{k=n+1}^{2n}a_k-na_{2n}\right)= 0$. \\
+
+取$n=2^m$,$\quad\displaystyle\therefore\,\lim_{m\to\infty}2^m(a_{2^m}-a_{2^{m+1}})=0$,令$b_m=a_{2^m}$, \\
+
+$\displaystyle\therefore\,\lim_{m\to\infty}\dfrac{b_m-b_{m+1}}{2^m}=0,\;\text{由}Stolz\text{公式可知},\lim_{m\to\infty}2^mb_m=0$, \\
+
+记$c_m=2^mb_m,\,\text{则}\displaystyle\lim_{m\to\infty}c_m=0.\quad\text{令}T_n=\displaystyle\sum_{k=1}^{n}a_k$, \\
+
+$\therefore\,T_{2^m}-T_{2^{m-1}}=2^{m-1}a_{2^m}+e_m=\frac{1}{2}c_m+e_m$,其中$e_m\geq 0,\text{且}e_m=o(1)$, \\
+
+$\displaystyle\therefore\,T_{2^M}-T_1=\dfrac{1}{2}\sum_{m=1}^{M}c_m+\sum_{m=1}^{M}e_m$,又由题目条件可知$T_{2^M}=S_{2^M}+c_M$, \\
+
+而$S_n\text{有界},\displaystyle\lim_{m\to\infty}c_m=0$,$\quad\therefore\,T_{2^M}=T_1+\dfrac{1}{2}\displaystyle\sum_{m=1}^{M}c_m+\displaystyle\sum_{m=1}^{M}e_m\,\text{是有界的}$, \\
+
+从而$\displaystyle\sum_{m=1}^{\infty}c_m$不可能是发散的,由$\displaystyle\sum c_n$是正项级数可得$\displaystyle\sum_{m=1}^{\infty}c_m$收敛. \\
+
+又$\because\,a_n$单调递减,由$Cauchy$凝聚判别法可知,$\displaystyle\sum_{n=1}^{\infty}a_n$收敛,得证.
+
+\begin{ti}
+【题8】 设正项级数$\displaystyle\sum_{n=1}^{\infty}a_n$收敛,且数列$\left\{a_n-a_{n+1}\right\}$严格单调减少,
+证明:$\displaystyle\lim_{n\to\infty}\left(\dfrac{1}{a_{n+1}}-\dfrac{1}{a_n}\right)=+\infty$.
+\end{ti}
+
+\textbf{证明}:令$\displaystyle b_n=a_n-a_{n+1},\;\because\,\sum_{n=1}^{\infty}a_n\text{收敛},\;\therefore\,\lim_{n\to\infty}a_n=0$, \\
+
+$\displaystyle\therefore\,\lim_{n\to\infty}b_n=0,\,\text{又}\{b_n\}\text{严格单调减少},\;\therefore b_n>0$. \\
+
+又$a_{n+j}=a_n-(b_n+b_{n+1}+\cdots+b_{n+j-1})\geq a_n-jb_n,\,\text{令}m_n=\lfloor \dfrac{a_n}{2b_n}\rfloor $, \\
+
+则$0\leq j\leq m_n\text{时},jb_n\leq\dfrac{a_n}{2},\;\text{于是}a_{n+j}\geq\dfrac{a_n}{2}$, \\
+
+$\displaystyle\therefore\,\sum_{k=n}^{\infty}a_k\geq\sum_{j=0}^{m_n}a_{n+j}\geq\dfrac{a_n}{2}\cdot(m_n+1)>\dfrac{a_n}{2}\cdot\dfrac{a_n}{2b_n}=\dfrac{a_n^2}{4b_n}$, \\
+
+$\displaystyle\because\,\sum_{n=1}^{\infty}a_n\text{收敛},\quad\therefore\,R_n=\sum_{k=n}^{\infty}a_k\rightarrow 0,\quad\therefore\,\lim_{n\to\infty}\dfrac{b_n}{a_n^2}=+\infty$, \\
+
+又$\displaystyle\because\,b_n>0,\quad\therefore\,a_n>a_{n+1}$, $\quad\therefore\,\dfrac{1}{a_{n+1}}-\dfrac{1}{a_n}=\dfrac{b_n}{a_na_{n+1}}>\dfrac{b_n}{a_n^2}$, \\
+
+$\displaystyle\therefore\,\lim_{n\to\infty}\left(\dfrac{1}{a_{n+1}}-\dfrac{1}{a_n}\right)=+\infty$,得证.
+
+\begin{ti}
+【题9】 试构造两个发散的正项级数$\displaystyle\sum_{n=1}^{\infty}a_n\text{与}\sum_{n=1}^{\infty}b_n,$它们的通项单调减少,但级数$\displaystyle\sum_{n=1}^{\infty}\min\{a_n,b_n\}$收敛.
+\end{ti}
+
+\textbf{解}:令$A_k=2^{-k^2}$,并将正整数分为若干段,其中第$k$段长度$L_k=2^{k^2}$,设第$k$段为$U_k$, \\
+
+取$\begin{cases}
+& a_n=A_k,\;b_n=A_{k+1},\quad n\in U_k\text{且}k\text{为奇数} \\
+& a_n=A_{k+1},\,b_n=A_k,\quad n\in U_k\text{且}k\text{为偶数} \\
+\end{cases}$ \\
+
+$\because\,A_k\text{单调递减},\quad\therefore\,a_n,b_n\text{均单调减少}$, \\
+
+又$\displaystyle\because\,L_kA_k=1,\quad\therefore\,\sum_{n\in U_{2m-1}}a_n=1,\,\sum_{n\in U_{2m}}b_n=1,\,\forall\,m\in\mathbb{N}^+$, \\
+
+$\displaystyle\therefore\,\sum_{n=1}^{\infty}a_n>\sum_{m=1}^{\infty}\sum_{n\in U_{2m-1}}a_n=+\infty,\text{同理}\sum_{n=1}^{\infty}b_n=+\infty$, \\
+
+又$\forall\,k\geq 1,n\in U_k,\,\text{都有}\min\{a_n,b_n\}=A_{k+1}$, \\
+
+$\displaystyle\therefore\,\sum_{n=1}^{\infty}\min\{a_n,b_n\}=\sum_{k=1}^{\infty}\sum_{n\in U_k}A_{k+1}=\sum_{k=1}^{\infty}L_kA_{k+1}=\dfrac{1}{2}\sum_{k=1}^{\infty}\left(\dfrac{1}{4}\right)^k$收敛. \\
+
+于是我们找到了符合题目要求的正项级数$\displaystyle\sum_{n=1}^{\infty}a_n,\;\sum_{n=1}^{\infty}b_n$.
+
+\begin{ti}
+【题10】 设$\{b_n\}$是单调递减的非负数列,证明:级数$\displaystyle\sum_{n=1}^{\infty}b_n\sin{nx}\text{在}(-\infty,+\infty)$上一致收敛的充分必要条件为$b_n=o(\frac{1}{n})$.
+\end{ti}
+
+\textbf{证明}:简记$S_{n,p}=b_n\sin{nx}+b_{n+1}\sin{(n+1)x}+\cdots+b_p\sin{px}(p>n)$, \\
+
+先证\textbf{必要性}:由一致收敛性可得$\forall\,\varepsilon>0,\;\exists\,N,\;\forall\,p>n>N,x\in \mathbb{R},\;\left\lvert S_{n,p}\right\rvert<\varepsilon$, \\
+
+取$p=2n-1,x=\dfrac{\pi}{4n},\;\therefore\,\forall\,n\leq k\leq 2n-1,\;kx\in[\dfrac{\pi}{4},\dfrac{\pi}{2}],\;$, 又$b_n\geq 0,b_n$单调递减, \\
+
+$\;\therefore\,S_{n,2n-1}>b_n[\sin{nx}+\sin{(n+1)x}+\cdots+\sin{(2n-1)x}]>nb_n\sin{\frac{\pi}{4}}$, \\
+
+$\therefore\,\text{对}\forall\,n>N,nb_n<\sqrt{2}\varepsilon,\quad\therefore\,\displaystyle\lim_{n\to\infty}nb_n=0,\text{即}b_n=o(\frac{1}{n})$. \\
+
+再证\textbf{充分性}:由三角函数的周期性和对称性,只需要证明级数在$[0,\pi]$上收敛即可. \\
+
+令$\displaystyle\mu_m=\max_{m\geq n}\{mb_m\},\,\text{则}\mu_n\text{单调递减且}\mu_n\rightarrow 0$,下面对$x$分情况讨论: \\
+
+\ding{172} $x\leq\dfrac{\pi}{p}:\quad\text{此时}\,\forall\,n\leq k\leq p,\;b_k\sin{kx}\geq 0,\,\text{又}x\geq 0\text{时},\,\sin{x}\leq x,$ \\
+
+$\therefore\,S_{n,p}\leq nb_nx+(n+1)b_{n+1}x+\cdots+pb_px\leq p\mu_nx\leq \pi\mu_n$, \\
+
+\ding{173} $x\geq\dfrac{\pi}{n}:\quad\because\,2\sin{\frac{x}{2}}\left(\sin{x}+\sin{2x}+\cdots+\sin{nx}\right)=\cos{\frac{x}{2}}-\cos{\frac{2n+1}{2}x}$, \\
+
+$\therefore\,\left\lvert \sin{x}+\sin{2x}+\cdots+\sin{nx}\right\rvert\leq\dfrac{1}{\left\lvert \sin{\frac{x}{2}}\right\rvert },\;\text{记}T_k=\sin{x}+\sin{2x}+\cdots+\sin{kx},$ \\
+
+$\because\,\theta\in[0,\dfrac{\pi}{2}]\text{时},\sin{\theta}\geq\dfrac{2}{\pi}\theta,\quad\therefore\,\left\lvert T_k\right\rvert \leq\dfrac{\pi}{x}\leq n$, \\
+
+$\therefore\,S_{n,p}=b_n\sin{nx}+\cdots+b_p\sin{px}=b_n(T_n-T_{n-1})+\cdots+b_p(T_p-T_{p-1})$ \\
+
+\phantom{$\therefore\,S_{n,p}=$}$=-b_nT_{n-1}+(b_n-b_{n+1})T_n+\cdots+(b_{p-1}-b_p)T_{p-1}+b_pT_p$, \\
+
+$\therefore\,\left\lvert S_{n,p}\right\rvert\leq b_n\left\lvert T_{n-1}\right\rvert+\left\lvert (b_n-b_{n+1})T_n\right\rvert+\cdots+\left\lvert (b_{p-1}-b_p)T_{p-1}\right\rvert+\left\lvert b_pT_p\right\rvert $ \\
+
+\phantom{$\therefore\,\left\lvert S_{n,p}\right\rvert$}$\leq nb_n+n\left(\left\lvert b_n-b_{n+1}\right\rvert+\cdots+\left\lvert b_{p-1}-b_p\right\rvert+\left\lvert b_p\right\rvert \right)$, \\
+
+$\because\,b_n$单调递减且非负,$\quad\therefore\,\left\lvert S_{n,p}\right\rvert\leq nb_n+n(b_n-b_{n+1}+\cdots+b_{p-1}-b_p+b_p)$, \\
+
+$\therefore\,\left\lvert S_{n,p}\right\rvert\leq 2nb_n\leq 2\mu_n$. \\
+
+\ding{174} $x\in(\dfrac{\pi}{p},\dfrac{\pi}{n}):\quad$对$S_{n,p}$作分划$S_{n,p}=S_{n,k}+S_{k+1,p}$, \\
+
+其中$k=\lfloor \dfrac{\pi}{x}\rfloor,\;\text{易得}\dfrac{\pi}{k+1}\leq x\leq\dfrac{\pi}{k},\text{且}n\leq k<p$, \\
+
+对$S_{n,k}\text{和}S_{k+1,p}$分别使用上面两种情况的结论, \\
+
+$\therefore\,\left\lvert S_{n,p}\right\rvert\leq\left\lvert S_{n,k}\right\rvert+\left\lvert S_{k+1},p\right\rvert\leq\pi\mu_n+2\mu_{k+1}\leq(\pi+2)\mu_n$. \\
+
+合并\ding{172}$\sim$\ding{174},可得$\left\lvert S_{n,p}\right\rvert\leq(\pi+2)\mu_n\text{对}\forall\,x\in[0,\pi]$成立, \\
+
+于是$\forall\,\varepsilon>0,\;\exists\,N,\;\forall\,p\geq n>N,x\in[0,\pi],\;\text{都有}\left\lvert S_{n,p}\right\rvert<\varepsilon$, \\
+
+由$Cauchy$准则可见级数$\displaystyle\sum_{n=1}^{\infty}b_n\sin{nx}$一致收敛. \\
+
+\textbf{注记}: 利用本题方法可以得到$\displaystyle\sum_{n=1}^{\infty}\dfrac{\sin{nx}}{n}$的部分和函数在$(-\infty,+\infty)$上一致有界.\\
+由$Dirchlet$判别法可知,若$nb_n$单调递减收敛于$0$,则函数项级数$\displaystyle\sum_{n=1}^{\infty}b_n\sin{nx}\text{在}(-\infty,+\infty)$上一致收敛.
+可以看出本题的结果是这个结论的更精细的结果.
+
+\begin{ti}
+【题11】 讨论$\displaystyle\sum_{n=1}^{\infty}\dfrac{\sin{x}\sin{nx}}{\sqrt{n+x}}\text{在}(-\infty,+\infty)$上的一致收敛性.
+\end{ti}
+
+\textbf{解}: 令$a_n(x)=\dfrac{1}{\sqrt{n+x}},\,b_n(x)=\sin{x}\sin{nx}$, \\
+
+则对每个$x\in(0,+\infty)$,$a_n(x)$关于$n$单调递减, \\
+
+又$\left\lvert a_n(x)\right\rvert\leq\dfrac{1}{\sqrt{n}},\quad\therefore\,a_n(x)$一致收敛于$0$. \\
+
+又$\displaystyle\sum_{k=1}^{n}b_k(x)=\sum_{k=1}^{n}\sin{x}\sin{kx}=\sum_{k=1}^{n}\left[\cos{(k-1)x}-\cos{(k+1)x}\right]$ \\
+
+\phantom{$\displaystyle\sum_{k=1}^{n}b_k(x)=\sum_{k=1}^{n}\sin{x}\sin{kx}=$}$=1+\cos{x}-\cos{nx}-\cos{(n+1)x}$, \\
+
+$\therefore\,\left\lvert B_n(x)\right\rvert=\left\lvert \displaystyle\sum_{k=1}^{n}b_k(x)\right\rvert\leq 1+\left\lvert \cos{x}\right\rvert+\left\lvert \cos{nx}\right\rvert+\left\lvert \cos{(n+1)x}\right\rvert\leq 4$, \\
+
+$\therefore\,\displaystyle\sum_{k=1}^{n}b_k(x)\text{在}(-\infty,+\infty)$上一致有界, \\
+
+由$Dirchlet$判别法可知$\displaystyle\sum_{n=1}^{\infty}\dfrac{\sin{x}\sin{nx}}{\sqrt{n+x}}\text{在}(-\infty,+\infty)$上一致收敛.
+
+\begin{ti}
+【题12】 证明:函数项级数$\displaystyle\sum_{n=0}^{\infty}\int_{0}^{x}t^n\sin{\pi t}\,dt$在$[0,1]$上一致收敛.
+\end{ti}
+
+\textbf{证明}:令$u_n(x)=\displaystyle\int_{0}^{x}t^n\sin{\pi t}\,dt$, \\
+
+易得$\forall\,x\in[0,1],n\in\mathbb{N}^+,\,u_n(x)\geq 0,\text{且}u_n(x)\leq u_n(1)$, \\
+
+$\therefore\,\text{由}Weierstrass$判别法可知,只需要证明$\displaystyle\sum_{n=0}^{\infty}u_n(1)$收敛即可.记$a_n=u_n(1)$, \\
+
+$\therefore\,a_n=\displaystyle\int_{0}^{1}t^n\sin{\pi t}\,dt=-\dfrac{\cos{\pi t}}{\pi}\Big|_{0}^{1}-\int_{0}^{1}-\dfrac{\cos{\pi t}}{\pi}\cdot nt^{n-1}\,dt$ \\
+
+\phantom{$\therefore\,a_n$}$=\dfrac{1}{\pi}+\dfrac{n}{\pi}\displaystyle\int_{0}^{1}t^{n-1}\cos{\pi t}\,dt$ $=\dfrac{1}{\pi}+\dfrac{n}{\pi}\left[\dfrac{\sin{\pi t}}{\pi}\Big|_{0}^{1}-\displaystyle\int_{0}^{1}(n-1)t^{n-2}\cdot\dfrac{\sin{\pi t}}{\pi}\,dt\right]$ \\
+
+\phantom{$\therefore\,a_n$}$=\dfrac{1}{\pi}-\dfrac{n(n-1)}{\pi^2}a_{n-2}$, \\
+
+$\therefore\,a_n=\dfrac{\pi}{(n+1)(n+2)}-\dfrac{\pi^2}{(n+1)(n+2)}a_{n+2}\leq\dfrac{\pi}{(n+1)(n+2)}$, \\
+
+$\therefore\,\displaystyle\sum_{n=0}^{\infty}a_n\leq\sum_{n=0}^{\infty}\dfrac{\pi}{(n+1)(n+2)}=\pi,\quad\therefore\,\sum_{n=0}^{\infty}a_n$收敛. \\
+
+$\therefore\,\displaystyle\sum_{n=0}^{\infty}\int_{0}^{x}t^n\sin{\pi t}\,dt$在$[0,1]$上一致收敛,得证.
+
+\begin{ti}
+【题13】(\textbf{$Bendixon$判别法}) 设$\displaystyle\sum_{n=1}^{\infty}u_n(x)\text{为}[a,b]$上的可微函数项级数,且$\displaystyle\sum_{n=1}^{\infty}u_n'(x)$的部分和函数列在$[a,b]$上一致有界.
+证明:如果$\displaystyle\sum_{n=1}^{\infty}u_n(x)$在$[a,b]$上收敛,则必在$[a,b]$上一致收敛.
+\end{ti}
+
+\textbf{证明}: 由题目条件可知,$\exists\,C>0,\;\text{s.t.}\,\left\lvert \displaystyle\sum_{k=1}^{n}u_k'(x)\right\rvert\leq C,\;\text{对}\forall\,n\in\mathbb{N}^+,x\in[a,b]$成立, \\
+
+对每个给定的$\varepsilon>0$,取区间$[a,b]$的等距分划$a=x_0<x_1<\cdots<x_m=b,$ \\
+
+$\text{其中}m\text{充分大,使得}\Delta x_i=\dfrac{b-a}{m}<\dfrac{\varepsilon}{4C}$, \\
+
+$\because\,\displaystyle\sum_{n=1}^{\infty}u_n(x)\text{在}[a,b]\text{上处处收敛},\;\text{由}Cauchy\text{准则}$, \\
+
+$\exists\,N,\;\text{s.t.}\,\forall\,m,n>N,\forall\,x\in\{x_0,x_1,\cdots,x_m\},\,\text{都有}\left\lvert \displaystyle\sum_{k=n+1}^{m}u_k(x_i)\right\rvert<\dfrac{\varepsilon}{2}$, \\
+
+对$\forall\,x\in[a,b],\text{不妨设}x\in[x_{i-1},x_i],$于是可以做出估计: \\
+
+$\displaystyle\left\lvert \sum_{k=n+1}^{m}u_k(x)\right\rvert=\left\lvert \sum_{k=n+1}^{m}u_k(x_i)+\sum_{k=n+1}^{m}(u_k(x)-u_k(x_i))\right\rvert $ \\
+
+\phantom{$\displaystyle\left\lvert \sum_{k=n+1}^{m}u_k(x)\right\rvert$}$\leq\displaystyle\left\lvert \sum_{k=n+1}^{m}u_k(x_i)\right\rvert+\left\lvert \sum_{k=n+1}^{m}u_k'(\xi_i)\right\rvert\cdot\left\lvert x-x_i\right\rvert $ \\
+
+\phantom{$\displaystyle\left\lvert \sum_{k=n+1}^{m}u_k(x)\right\rvert$}$<\dfrac{\varepsilon}{2}+2C\left\lvert x-x_i\right\rvert\leq\dfrac{\varepsilon}{2}+\dfrac{\varepsilon}{2}=\varepsilon$, \\
+
+由$Cauchy$准则,$\,\displaystyle\sum_{n=1}^{\infty}u_n(x)\text{在}[a,b]$上一致收敛.
+
+\begin{ti}
+【题14】 证明:区间$I$上的连续函数列的极限函数必有处处稠密的连续点.
+\end{ti}
+
+\textbf{证明}: 先证明一个引理:设$[a,b]\subset I,$有一列连续函数列$f_n(x)$收敛到$f(x)$, \\
+
+则$\forall\,\varepsilon>0,$存在非空开区间$J\subset [a,b]$,使得$w_f(J)\leq\varepsilon$. \\
+
+证明如下:对$n\in\mathbb{N}^+,\text{定义}E_n=\left\{x\in[a,b]\,|\,\forall\,m,k\geq n,\,\left\lvert f_m(x)-f_k(x)\right\rvert\leq\dfrac{\varepsilon}{3}\right\}$, \\
+
+$\because\,f_m-f_k\text{连续},\quad\therefore\,\left\{x\in[a,b]\,|\,\left\lvert f_m(x)-f_k(x)\right\rvert\leq\dfrac{\varepsilon}{3}\right\}$为闭集, \\
+
+$\displaystyle\therefore\,E_n=\bigcap_{m,k\geq n}\left\{x\in[a,b]\,|\,\left\lvert f_m(x)-f_k(x)\right\rvert\leq\dfrac{\varepsilon}{3}\right\}$也是闭集, \\
+
+又对每个固定的$x,f_n(x)$收敛,$\;\therefore\,f_n(x)$是$Cauchy$列, \\
+
+$\therefore\,\forall\,x\in[a,b],\;\exists\,N(x),\;\text{s.t.}\,m,k\geq N(x)\text{时},\left\lvert f_m(x)-f_k(x)\right\rvert\leq\dfrac{\varepsilon}{3}$, \\
+
+$\therefore\,\forall\,x\in[a,b],\;x\in E_{N(x)},\quad\therefore\,[a,b]=\displaystyle\bigcup_{n=1}^{\infty}E_n$, \\
+
+由$Baire$纲定理的推论,上面的$E_n$中至少存在一个$E_N$包含非空开区间$J_0$, \\
+
+$\forall\,x\in J_0,\,m,k\geq N,\;\text{有}\left\lvert f_m(x)-f_k(x)\right\rvert\leq\dfrac{\varepsilon}{3}$, \\
+
+取$m=N,\text{令}k\rightarrow\infty,\;\therefore\left\lvert f_N(x)-f(x)\right\rvert\leq\dfrac{\varepsilon}{3}$, \\
+
+又$\because\,f_N$为连续函数,$\quad\therefore\,\exists\,\text{开区间}J_1\subset J_0,\;\text{s.t.}\,w_{f_N}(J_1)\leq\dfrac{\varepsilon}{3}$, \\
+
+$\therefore\,\forall\,x,y\in J_1,\;\left\lvert f(x)-f(y)\right\rvert\leq\left\lvert f(x)-f_N(x)\right\rvert+\left\lvert f_N(x)-f_N(y)\right\rvert+\left\lvert f_N(y)-f(y)\right\rvert<\varepsilon$. \\
+
+利用上述引理,任取区间$I$上的非空开区间$U$,再取闭区间$K_0\subset U$, \\
+
+由引理,取$\varepsilon=1,$存在开区间$J_1\subset K_0,\,\text{s.t.}\,w_f(J_1)\leq 1$, \\
+
+再取非空闭区间$K_1\subset J_1,\,\text{s.t.}\,\left\lvert K_1\right\rvert\leq 1,\,\text{取}\varepsilon=\frac{1}{2},\text{存在开区间}J_2\subset K_1,\,\text{s.t.}\,w_f(J_2)\leq\frac{1}{2},$ \\
+
+以此类推地做下去,可得闭区间套$K_0\supset K_1\supset K_2\supset \cdots,$ \\
+
+$\text{满足}\left\lvert K_n\right\rvert\leq\dfrac{1}{n},w_f(J_k)\leq\dfrac{1}{k},K_n\subset J_n$, \\
+
+由闭区间套定理可知$\exists\,x_0\in U,x_0=\displaystyle\bigcap_{n=1}^{\infty}K_n$, \\
+
+$\forall\,\eta>0,\;\exists\,K,\;k>K\text{时},\,w_f(J_k)\leq\dfrac{1}{k}<\eta$, \\
+
+又$\forall\,y\in J_k,\left\lvert f(y)-f(x_0)\right\rvert\leq w_f(J_k)<\eta,x_0\in J_k$,即$J_k$是包含$x_0$的开区间, \\
+
+$\therefore\,f$在$x_0$处连续,即区间$I$上任意非空开区间中都包含$f$的连续点, \\
+
+所以$f$的连续点集为稠密集,得证. 
+
+\begin{ti}
+【题15】 证明:区间$[a,b]$上的连续函数列的极限函数在$[a,b]$上连续的充要条件是函数列在$[a,b]$上准一致收敛.
+(准一致收敛的定义见附录第七节\ifdefined\BookMaster\hyperlink{thm:shoulian}{定义7.42}\else 定义7.42\fi)
+\end{ti}
+
+\textbf{证明}:设连续函数列$\{f_n\}$在$[a,b]$上收敛于$f$. \\
+
+\textbf{必要性}:$\;\forall\,x_0\in[a,b],\quad\because\,\displaystyle\lim_{n\to\infty}f_n(x_0)=f(x_0)$, \\
+
+$\therefore\,\forall\,\varepsilon>0,N\in\mathbb{Z}^+,\;\exists\,n_0>N,\;\text{s.t.}\,\left\lvert f_{n_0}(x_0)-f(x_0)\right\rvert<\dfrac{\varepsilon}{3}$, \\
+
+$\because\,f_{n_0}(x),f(x)\text{在}[a,b]\text{上连续},\quad\therefore\,\exists\,\delta_0>0,x\in U_{\delta_0}(x_0)\cap[a,b]\text{时},\left\lvert f_{n_0}(x)-f(x)\right\rvert<\varepsilon$, \\
+
+又$\displaystyle [a,b]=\bigcup_{x\in[a,b]}U_{\delta}(x)\cap[a,b],$由有限覆盖定理,$\displaystyle[a,b]=\bigcup_{m=1}^{k}U_{\delta_m}(x_m)\cap[a,b]$, \\
+
+且$\forall\,x\in U_{\delta_m}(x_m)\cap[a,b],\;\exists\,n_k,\;\text{s.t.}\,\left\lvert f_{n_m}(x)-f(x)\right\rvert<\varepsilon$, \\
+
+取$N'=\max\{n_1,n_2,\cdots,n_k\},\;\therefore\,\forall\,x\in[a,b],\;\exists\,n_x\in[N,N'],\;\text{s.t.}\,\left\lvert f_{n_x}(x)-f(x)\right\rvert<\varepsilon$, \\
+
+$\therefore\,f_n(x)$在$[a,b]$上准一致收敛. \\
+
+\textbf{充分性}:$\;\text{对}\forall\,x_0\in[a,b],\,\text{考虑}\left\lvert f(x)-f(x_0)\right\rvert\leq\left\lvert f(x)-f_n(x)\right\rvert+\left\lvert f_n(x)-f_n(x_0)\right\rvert+\left\lvert f_n(x_0)-f(x_0)\right\rvert $, \\
+
+$\because\,\displaystyle\lim_{n\to\infty}f_n(x_0)=f(x_0),\quad\therefore\,\forall\,\varepsilon>0,\;\exists\,N,\;n>N\text{时},\left\lvert f_n(x_0)-f(x_0)\right\rvert<\varepsilon$, \\
+
+又$f_n$准一致收敛,  $\therefore\,\text{对}\varepsilon\text{和}N,\,\exists\,N',\,\text{s.t.}\forall\,x\in[a,b],\,\exists\,n_x\in[N,N'],\text{s.t.}\left\lvert f_{n_x}-f(x)\right\rvert<\varepsilon$, \\
+
+又$N$和$N'$中只有有限项,  $\;\therefore\,\exists\,\delta>0,\;$ \\
+
+$\forall\,x\in U_{\delta}(x_0)\cap[a,b],n\in[N,N'],\;\left\lvert f_n(x)-f_n(x_0)\right\rvert<\varepsilon$, \\
+
+$\therefore\,$对于$x\in U_{\delta}(x_0)\cap[a,b],$就有$n_x\in[N,N']$,使得上式右边三项均小于$\varepsilon$, \\
+
+$\therefore\,\forall\,x\in U_{\delta}(x_0)\cap[a,b],\;\left\lvert f(x)-f(x_0)\right\rvert<3\varepsilon$, \\
+
+$\therefore\,f$在$[a,b]$上连续,得证.
+
+% 本章末条:使【拓展16】与其"证明"同处一页(避免题目框留在页脚、证明翻页).
+\newpage
+\begin{ti}
+【拓展16】(\textbf{$Arzel\grave{a}$控制收敛定理}) 设$\{f_n\}$是$[a,b]$上收敛于极限函数$f$的可积函数列.若$f$也在$[a,b]$上可积,且$\{f_n\}$在$[a,b]$上一致有界,
+即存在$M>0$,使得对于每个$n$和每个$x\in[a,b]$同时满足$\left\lvert f_n(x)\right\rvert\leq M$,则$\displaystyle\lim_{n\to\infty}\int_a^b f_n(x)\,\mathrm{d}x=\int_a^b f(x)\,\mathrm{d}x$.
+\end{ti}
+
+\textbf{证明}:本定理的证明需要用到阶梯函数的下积分表示,闭集降列定理以及初等集的测度等工具,篇幅较长,
+且与本章其余各题所使用的方法差别较大,故不在此处展开,完整证明见附录第七节\ifdefined\BookMaster\hyperlink{thm:arzela}{定理7.44}\else 定理7.44\fi.
 \BookEnd

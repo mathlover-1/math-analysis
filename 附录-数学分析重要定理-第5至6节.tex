@@ -212,7 +212,7 @@ $$\int_a^b f(\varphi(x))\varphi'(x)\,\mathrm{d}x=\int_{\varphi(a)}^{\varphi(b)}f
 \end{ti}
 
 \begin{ti}
-\textbf{定理5.19($Wallis$公式)} $\displaystyle\lim_{n\to\infty}\dfrac{1}{2n+1}\left[\dfrac{(2n)!!}{(2n-1)!!}\right]^{2}=\dfrac{\pi}{2}.$
+\hypertarget{thm:wallis}{\textbf{定理5.19($Wallis$公式)}} $\displaystyle\lim_{n\to\infty}\dfrac{1}{2n+1}\left[\dfrac{(2n)!!}{(2n-1)!!}\right]^{2}=\dfrac{\pi}{2}.$
 \end{ti}
 \textbf{证明}:当$m$为非负整数时,记$\displaystyle I_m=\int_0^{\frac{\pi}{2}}\sin^{m}x\,\mathrm{d}x$,则$I_0=\dfrac{\pi}{2}$,$I_1=1$.当$m\geq 2$时,利用分部积分可得
 $$I_m=\int_0^{\frac{\pi}{2}}\sin^{m}x\,\mathrm{d}x=(m-1)\int_0^{\frac{\pi}{2}}\sin^{m-2}x\cos^{2}x\,\mathrm{d}x=(m-1)(I_{m-2}-I_m),$$
@@ -260,16 +260,23 @@ $$\lim_{n\to\infty}\dfrac{1}{\sqrt{2n+1}}\dfrac{(2n)!!}{(2n-1)!!}=\lim_{n\to\inf
 n!=\sqrt{2\pi n}\left(\dfrac{n}{e}\right)^n e^{\delta_n},\;0<\delta_n<\dfrac{1}{12n}.
 \end{equation}
 
+\begin{ti}
+\textbf{命题5.21($Gronwall$不等式)} 设$a>0,\phi:[0,a]\rightarrow \mathbb{R} $连续,若存在$\alpha\in\mathbb{R},\beta>0$使得
+$$\phi(t)\leq\alpha+\beta\int_{0}^{t}\phi(\tau)\,d\tau,t\in[0,a],$$
+则
+$$\phi(t)\leq\alpha e^{\beta t},t\in[0,a].$$
+\end{ti}
+
 \subsection{\texorpdfstring{$Riemann$}{Riemann}积分}
 \begin{ti}
-\textbf{定义5.21($Riemann$可积)}  设$f$为$[a,b]$中的有界函数.如果存在实数$I$,使得任给$\varepsilon>0$,均存在$\delta>0$,当分割$P$的模满足$\left\lVert P\right\rVert<\delta$时,均有
+\textbf{定义5.22($Riemann$可积)}  设$f$为$[a,b]$中的有界函数.如果存在实数$I$,使得任给$\varepsilon>0$,均存在$\delta>0$,当分割$P$的模满足$\left\lVert P\right\rVert<\delta$时,均有
 $$\left\lvert\sum_{i=1}^{n}f(\xi_i)\Delta x_i-I\right\rvert<\varepsilon,\quad \forall\,\xi_i\in[x_{i-1},x_i],$$
 则称$f$在$[a,b]$中\textbf{$Riemann$可积}(简称可积),记为$f\in R[a,b]$. $I$称为$f$在$[a,b]$中的\textbf{$Riemann$积分}(简称积分),记为
 $$\int_a^b f(x)\,\mathrm{d}x=I=\lim_{\left\lVert P\right\rVert\to 0}\sum_{i=1}^{n}f(\xi_i)\Delta x_i.$$
 \end{ti}
 
 \begin{ti}
-\textbf{定理5.22(可积的充要条件)}  设函数$f$在$[a,b]$上有界,则以下命题等价: \\
+\textbf{定理5.23(可积的充要条件)}  设函数$f$在$[a,b]$上有界,则以下命题等价: \\
 (1) $f$在$[a,b]$中$Riemann$可积; \\
 (2) $f$在$[a,b]$中上积分和下积分相等; \\
 (3) $\displaystyle\lim_{\left\lVert P\right\rVert\to 0}\sum_{i=1}^{n}\omega_i\varDelta x_i=0$; \\
@@ -278,42 +285,42 @@ $$S(P)-s(P)=\sum_{i=1}^{n}\omega_i\varDelta x_i<\varepsilon$$
 \end{ti}
 
 \begin{ti}
-\textbf{定义5.23(零测集)}  设$A\subset\mathbb{R}$.如果任给$\varepsilon>0$,均可找到至多可数个开区间$\{I_i\}$,使得$A$包含于这些区间之并,且
+\textbf{定义5.24(零测集)}  设$A\subset\mathbb{R}$.如果任给$\varepsilon>0$,均可找到至多可数个开区间$\{I_i\}$,使得$A$包含于这些区间之并,且
 $$\sum_{i\leq n}\left\lvert I_i\right\rvert\leq\varepsilon,\quad \forall\,n\geq 1,$$
 即这些区间的长度之和不超过$\varepsilon$,则称$A$为\textbf{零测集}.
 \end{ti}
 
 \begin{ti}
-\textbf{定理5.24($Lebesgue$可积性判别法)}  设函数$f$在$[a,b]$上有界,则$f$在$[a,b]$上$Riemann$可积当且仅当$f$的间断点集为零测集.
+\textbf{定理5.25($Lebesgue$可积性判别法)}  设函数$f$在$[a,b]$上有界,则$f$在$[a,b]$上$Riemann$可积当且仅当$f$的间断点集为零测集.
 \end{ti}
 
 \begin{ti}
-\textbf{命题5.25}  设$f\in C^0[a,b]$,$c\in[a,b]$.定义
+\textbf{命题5.26}  设$f\in C^0[a,b]$,$c\in[a,b]$.定义
 $$g(x)=\int_c^x f(t)\,\mathrm{d}t,\quad x\in[a,b],$$
 则$g'=f$在$[a,b]$中处处成立.
 \end{ti}
 
 \begin{ti}
-\textbf{命题5.26(阶梯逼近)}  设$f\in R[a,b]$,则存在一列阶梯函数$f_n$,使得
+\textbf{命题5.27(阶梯逼近)}  设$f\in R[a,b]$,则存在一列阶梯函数$f_n$,使得
 $$\lim_{n\to\infty}\int_a^b|f_n(x)-f(x)|\,\mathrm{d}x=0,$$
 且每一个$f_n$均介于$f$的上、下确界之间.此外,任给$g\in R[a,b]$,均有
 $$\lim_{n\to\infty}\int_a^b f_n(x)g(x)\,\mathrm{d}x=\int_a^b f(x)g(x)\,\mathrm{d}x.$$
 \end{ti}
 
 \begin{ti}
-\textbf{命题5.27(分段线性逼近)}  设$f\in R[a,b]$,则存在一列连续的分段线性函数$f_n$,使得$f_n(a)=f(a)$,$f_n(b)=f(b)$,且
+\textbf{命题5.28(分段线性逼近)}  设$f\in R[a,b]$,则存在一列连续的分段线性函数$f_n$,使得$f_n(a)=f(a)$,$f_n(b)=f(b)$,且
 $$\lim_{n\to\infty}\int_a^b|f_n(x)-f(x)|\,\mathrm{d}x=0,$$
 并且每一个$f_n$均介于$f$的上、下确界之间.此外,任给$g\in R[a,b]$,均有
 $$\lim_{n\to\infty}\int_a^b f_n(x)g(x)\,\mathrm{d}x=\int_a^b f(x)g(x)\,\mathrm{d}x.$$
 \end{ti}
 
 \begin{ti}
-\textbf{命题5.28($Riemann\text{-}Lebesgue$引理)}  设$f\in R[a,b]$,则
+\textbf{命题5.29($Riemann\text{-}Lebesgue$引理)}  设$f\in R[a,b]$,则
 $$\lim_{\lambda\to+\infty}\int_a^b f(x)\sin(\lambda x)\,\mathrm{d}x=0,\qquad \lim_{\lambda\to+\infty}\int_a^b f(x)\cos(\lambda x)\,\mathrm{d}x=0.$$
 \end{ti}
 
 \begin{ti}
-\textbf{定理5.29(分部积分之二)}  设$f,g\in R[a,b]$,$C_1,C_2\in\mathbb{R}$.当$x\in[a,b]$时,记
+\textbf{定理5.30(分部积分之二)}  设$f,g\in R[a,b]$,$C_1,C_2\in\mathbb{R}$.当$x\in[a,b]$时,记
 $$F(x)=\int_a^x f(t)\,\mathrm{d}t+C_1,\quad G(x)=\int_a^x g(t)\,\mathrm{d}t+C_2,$$
 则有
 $$\int_a^b F(x)g(x)\,\mathrm{d}x=F(x)G(x)\Big|_a^b-\int_a^b f(x)G(x)\,\mathrm{d}x.$$
@@ -331,7 +338,7 @@ $$\leq M\int_a^x|g_n(t)-g(t)|\,\mathrm{d}t+M\int_a^x|f_n(t)-f(t)|\,\mathrm{d}t<\
 上式中其余的项可以类似地作估计.令$n\to\infty$就由上面的等式得到了欲证等式.
 
 \begin{ti}
-\textbf{定理5.30(积分第二中值定理)}  设函数$f$在$[a,b]$上可积,$g$在$[a,b]$上单调,则存在$\xi\in[a,b]$,使得
+\textbf{定理5.31(积分第二中值定理)}  设函数$f$在$[a,b]$上可积,$g$在$[a,b]$上单调,则存在$\xi\in[a,b]$,使得
 $$\int_a^b f(x)g(x)\,\mathrm{d}x=g(a)\int_a^{\xi}f(x)\,\mathrm{d}x+g(b)\int_{\xi}^{b}f(x)\,\mathrm{d}x$$.
 \end{ti}
 
@@ -344,7 +351,7 @@ $$\int_a^b|g_P(t)-g(t)|\,\mathrm{d}t\leq\lVert P\rVert\,[g(a)-g(b)],$$
 故当$\lVert P\rVert\to0$时,$A_P\to\int_a^b fg$.从$\{\xi_P\}$中取收敛子列,再用$F$的连续性,得$\int_a^bfg=g(b)F(b)+[g(a)-g(b)]F(\xi)$,即所求公式.若$g$单调递增,对$-g$应用上述结论即可.
 
 \begin{ti}
-\textbf{推论5.31($Bonnet$)}  设$f\in R[a,b]$,$g$为非负函数.\\
+\textbf{推论5.32($Bonnet$)}  设$f\in R[a,b]$,$g$为非负函数.\\
 (1)如果$g$在$[a,b]$中单调递减,则存在$\zeta\in[a,b]$,使得
 $$\int_a^b f(x)g(x)\,\mathrm{d}x=g(a)\int_a^{\zeta}f(x)\,\mathrm{d}x;$$
 (2)如果$g$在$[a,b]$中单调递增,则存在$\eta\in[a,b]$,使得
@@ -352,7 +359,7 @@ $$\int_a^b f(x)g(x)\,\mathrm{d}x=g(b)\int_{\eta}^{b}f(x)\,\mathrm{d}x.$$
 \end{ti}
 
 \begin{ti}
-\textbf{命题5.32($Euler\text{-}Poisson$积分)} $\;\displaystyle\int_{0}^{+\infty} e^{-x^2}\,dx=\dfrac{\sqrt{\pi}}{2}$.
+\textbf{命题5.33($Euler\text{-}Poisson$积分)} $\;\displaystyle\int_{0}^{+\infty} e^{-x^2}\,dx=\dfrac{\sqrt{\pi}}{2}$.
 \end{ti}
 
 \textbf{解法一}:先计算积分$\displaystyle I_n=\int_{0}^{+\infty} \dfrac{1}{(1+x^2)^n}\,dx $. \\
@@ -376,7 +383,7 @@ $$=\iint\limits_{\substack{r\in[0,+\infty) \\ \theta\in[0,\frac{\pi}{2}]}}re^{-r
 $$I=\dfrac{\sqrt{\pi}}{2}.$$
 
 \begin{ti}
-\textbf{命题5.33}  计算积分 $\displaystyle\int_{0}^{+\infty}\dfrac{\sin^2 x}{x^2}\,\mathrm{d}x$.
+\textbf{命题5.34}  计算积分 $\displaystyle\int_{0}^{+\infty}\dfrac{\sin^2 x}{x^2}\,\mathrm{d}x$.
 \end{ti}
 
 \textbf{证明}:当 $n\geq 0$ 时,利用等式 $\sin(2n+1)x-\sin(2n-1)x=2\sin x\cos 2nx$ 易得
