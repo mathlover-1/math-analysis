@@ -1,0 +1,76 @@
+\ifdefined\BookMaster
+\def\BookEnd{}
+\else
+\documentclass[a4paper,12pt,fleqn,openany,twoside,fontset=windows]{ctexbook}
+\input{数学分析纯习题册-导言.tex}
+\begin{document}
+\mainmatter
+\pagestyle{main}
+\setcounter{chapter}{2}
+\def\BookEnd{\end{document}}
+\fi
+
+\chapter{函数}
+
+\begin{ti}
+【题1】用覆盖定理证明零点存在性定理
+\end{ti}
+
+\exblank{8}% 原解答 8 行 → 留 6 行
+\begin{ti}
+【题2】设$f\in C[a,b),\{x_n\},\{y_n\}\subset[a,b),\,\,\text{满足}:$\\
+
+$\displaystyle\lim_{n\to\infty}x_n=\lim_{n\to\infty}y_n=b,\displaystyle\lim_{n\to\infty}f(x_n)=A<B=\lim_{n\to\infty}f(y_n)$ \\
+
+证明:$\forall\,\eta\in(A,B),\;\exists\,\{z_n\}\subset[a,b),\;\text{s.t.}\,\displaystyle\lim_{n\to\infty}z_n=b,\lim_{n\to\infty}f(z_n)=\eta$
+\end{ti}
+
+\exblank{5}% 原解答 5 行 → 留 4 行
+\begin{ti}
+【题3】设$f$在$(a,b)$上一致连续,证明:存在两个有限的单侧极限$f(a^+),f(b^-)$
+\end{ti}
+
+\exblank{3}% 原解答 3 行 → 留 4 行
+\begin{ti}
+【题4】证明:$f(x)=x\sin{\dfrac{1}{x}}$在$(0,+\infty)$上一致连续
+\end{ti}
+
+\exblank{16}% 原解答 16 行 → 留 8 行
+\begin{ti}
+【题5】设$g\text{是区间}I\text{上的单调函数}$,证明:值域$g(I)$为区间的充要条件为$g\in C^0(I)$
+\end{ti}
+
+\exblank{10}% 原解答 10 行 → 留 8 行
+\begin{ti}
+【题6】设$f$是$(-\infty,+\infty)$上的单调函数,在每一点定义$g(x)=f(x^+)$,证明:$g\text{是}(-\infty,+\infty)$上处处右连续的函数
+\end{ti}
+
+\exblank{7}% 原解答 7 行 → 留 6 行
+\begin{ti}
+【题7】设函数$f$在区间$I$内只有可去间断点,定义$g(x)=\displaystyle\lim_{t\to x}f(t),x\in I,$证明:$g\in C(I)$
+\end{ti}
+
+\exblank{5}% 原解答 5 行 → 留 4 行
+\begin{ti}
+【题8】证明:若$f$在$[0,+\infty)$上连续且有界,则对每个给定的$\lambda$,存在一个数列$\{x_n\}$满足要求: \\
+$\displaystyle(1)\lim_{n\to\infty}x_n=+\infty;\quad(2)\lim_{n\to\infty}[f(x_n+\lambda)-f(x_n)]=0$
+\end{ti}
+
+\exblank{22}% 原解答 22 行 → 留 8 行
+\begin{ti}
+【题9】证明:不等于常数的连续周期函数一定有最小正周期
+\end{ti}
+
+\exblank{14}% 原解答 14 行 → 留 8 行
+\begin{ti}
+【题10】设$f$在区间$[0,n]$连续,$f(0)=f(n),n\in\mathbb{N}^+$,证明:至少有$n$对不同的$(x,y)$使得$f(x)=f(y)$,同时$x-y$为非$0$整数
+\end{ti}
+
+\exblank{18}% 原解答 18 行 → 留 8 行
+\begin{ti}
+【题11】 设$\displaystyle\lim_{x\to 0}f(x)=0,\,\lim_{x\to 0}\dfrac{[f(2x)-f(x)]}{x}=0,$ 证明:$\displaystyle\lim_{x\to 0}\dfrac{f(x)}{x}=0$.
+\end{ti}
+
+\exblank{9}% 原解答 9 行 → 留 8 行
+
+\BookEnd

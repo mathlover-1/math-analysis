@@ -378,7 +378,7 @@ $\displaystyle\left\lvert \sum_{k=n+1}^{m}u_k(x)\right\rvert=\left\lvert \sum_{k
 由$Cauchy$准则,$\,\displaystyle\sum_{n=1}^{\infty}u_n(x)\text{在}[a,b]$上一致收敛.
 
 \begin{ti}
-【题14】 证明:区间$I$上的连续函数列的极限函数必有处处稠密的连续点.
+【拓展14】 证明:区间$I$上的连续函数列的极限函数必有处处稠密的连续点.
 \end{ti}
 
 \textbf{证明}: 先证明一个引理:设$[a,b]\subset I,$有一列连续函数列$f_n(x)$收敛到$f(x)$, \\
@@ -473,4 +473,102 @@ $\therefore\,f$在$[a,b]$上连续,得证.
 
 \textbf{证明}:本定理的证明需要用到阶梯函数的下积分表示,闭集降列定理以及初等集的测度等工具,篇幅较长,
 且与本章其余各题所使用的方法差别较大,故不在此处展开,完整证明见附录第七节\ifdefined\BookMaster\hyperlink{thm:arzela}{定理7.44}\else 定理7.44\fi.
+
+\begin{ti}
+【题17】 设幂级数$\displaystyle\sum_{n=0}^{\infty}a_nx^n$收敛半径为$R>0$. 问:是否成立$\displaystyle\int_{0}^{R}\left(\sum_{n=0}^{\infty}a_nx^n\right)\,dx=\sum_{n=0}^{\infty}\dfrac{a_n}{n+1}R^{n+1}$.
+\end{ti}
+
+\textbf{解}:不成立.取$a_n=(-1)^n n,$则收敛半径$R=1>0$, \\
+
+$\therefore\,\displaystyle\sum_{n=0}^{\infty}a_nx^n=\sum_{n=0}^{\infty}n(-x)^n=\dfrac{-x}{(1+x)^2}$, \\
+
+$\therefore\,\displaystyle\int_{0}^{R}\left(\sum_{n=0}^{\infty}a_nx^n\right)\,dx=\int_{0}^{1}\dfrac{-x}{(1+x)^2}\,dx=-\left(\ln(1+x)+\dfrac{1}{1+x}\right)\Big|_{0}^{1}=\dfrac{1}{2}-\ln{2}$, \\
+
+而$\displaystyle\sum_{n=0}^{\infty}\dfrac{a_n}{n+1}R^{n+1}=\sum_{n=0}^{\infty}(-1)^n\cdot\dfrac{n}{n+1}$发散,故等式不成立. \\
+
+\vspace{16pt}
+\textbf{注记}:等式不成立的根源在于右边的幂级数在$R$处不一定收敛,
+
+若加上$\displaystyle\sum_{n=0}^{\infty}\dfrac{a_n}{n+1}R^{n+1}$收敛的条件,
+则$\left\lvert x\right\rvert<R\text{时},$
+$$\displaystyle\sum_{n=0}^{\infty}\dfrac{a_n}{n+1}x^{n+1}=\sum_{n=0}^{\infty}\int_{0}^{x}a_nt^n\,dt=\int_{0}^{x}\sum_{n=0}^{\infty}a_nt^n\,dt,$$
+由$Abel$连续性定理,
+$$\displaystyle\sum_{n=0}^{\infty}\dfrac{a_n}{n+1}R^{n+1}=\lim_{x\to R^-}\sum_{n=0}^{\infty}\dfrac{a_n}{n+1}x^{n+1}=\lim_{x\to R^-}\int_{0}^{x}\sum_{n=0}^{\infty}a_nt^n\,dt=\int_{0}^{R}\left(\sum_{n=0}^{\infty}a_nt^n\right)\,dt.$$
+
+% ti 环境是 breakable 的，若不换页，题框会被拆到两页（题面留在页脚）
+% 本题内容略多于整页：组内把段间距收到 0（只此一题，行距不变），并给本页加长一行半，
+% 使题面、证明、注记、反例同在一页。
+\begingroup
+\setlength{\parskip}{0pt}
+\newpage
+\enlargethispage{1.5\baselineskip}
+\begin{ti}
+【题18】 设级数$\displaystyle\sum_{n=0}^{\infty}a_n$发散,记$S_n=a_0+a_1+\cdots+a_n$,证明:\\
+(1) 幂级数$\displaystyle\sum_{n=0}a_nx^n\text{和}\sum_{n=0}^{\infty}S_nx^n$有相同的收敛半径.\\
+(2) 若$a_n\geq 0,\displaystyle\lim_{n\to\infty}\dfrac{a_n}{S_n}=0,\text{则}\sum_{n=0}^{\infty}a_nx^n$收敛半径为$1$.
+\end{ti}
+
+\vspace{-6pt}% 本题整页排满，略收题框与证明的间距，给末行留出与页码的余白
+\textbf{证明}:  (1) 设$\displaystyle\sum_{n=0}^{\infty}a_nx^n\text{与}\sum_{n=0}^{\infty}S_nx^n$收敛半径分别为$R_1,R_2$, \\
+
+$\because\,\displaystyle\sum_{n=0}^{\infty}a_n\text{发散},\qquad\therefore\,R_1\leq 1$, \\
+
+$\because\,\displaystyle\sum_{n=0}^{N}a_nx^n=S_0+\sum_{n=1}^{N}(S_n-S_{n-1})x^n=(1-x)\sum_{n=0}^{N-1}S_nx^n+S_Nx^N$,\hfill\hypertarget{eq:18-1}{$(6.1)$} \\
+
+又$\left\lvert x\right\rvert<R_2\text{时},\;\displaystyle\sum_{n=0}^{\infty}S_nx^n\text{收敛},\text{因而}\lim_{n\to\infty}S_nx^n=0$, \\
+
+对固定的$\left\lvert x_0\right\rvert<R_2$,在\hyperlink{eq:18-1}{(6.1)}式中令$N\to\infty$,可得$\displaystyle\sum_{n=0}^{\infty}a_nx_0^n=(1-x_0)\sum_{n=0}^{\infty}S_nx_0^n$, \\
+
+$\therefore\,\displaystyle\sum_{n=0}^{\infty}a_nx_0^n$也收敛,$\qquad\therefore\,R_2\leq R_1$.\hfill\hypertarget{eq:18-2}{$(6.2)$} \\
+
+又$\displaystyle\sum_{n=0}^{\infty}\left\lvert S_nx^n\right\rvert\leq\sum_{n=0}^{\infty}\sum_{k=0}^{n}\left\lvert a_kx^n\right\rvert=\sum_{k=0}^{\infty}\sum_{n=k}^{\infty}\left\lvert a_k\right\rvert\left\lvert x^n\right\rvert$, \\
+
+当$\left\lvert x\right\rvert<R_1\leq 1$时,$\displaystyle\sum_{n=k}^{\infty}\left\lvert x\right\rvert^n=\dfrac{\left\lvert x\right\rvert^k}{1-\left\lvert x\right\rvert }$,且$\displaystyle\sum_{k=0}^{\infty}a_kx^k$绝对收敛, \\
+
+$\therefore\,\left\lvert x\right\rvert<R_1$时,$\displaystyle\sum_{n=0}^{\infty}S_nx^n$也绝对收敛,$\qquad\therefore\,R_2\geq R_1$.\hfill\hypertarget{eq:18-3}{$(6.3)$} \\
+
+综合\hyperlink{eq:18-2}{(6.2)}和\hyperlink{eq:18-3}{(6.3)}两式,可得$R_1=R_2$,得证. \\
+
+\phantom{\textbf{证明}:  }(2) $\because\,a_n\geq 0,\quad\therefore\,S_n$单调递增,$\quad\text{又}\displaystyle\sum_{n=0}^{\infty}a_n$发散,$\quad\therefore\,\displaystyle\lim_{n\to\infty}S_n=+\infty$, \\
+
+又$\displaystyle\lim_{n\to\infty}\dfrac{a_n}{S_n}=0,\quad\therefore\,\lim_{n\to\infty}\dfrac{S_{n-1}}{S_n}=1$, 由幂级数的比较判别法,$R_2=\displaystyle\lim_{n\to\infty}\dfrac{S_{n-1}}{S_n}=1,$ \\
+
+$\therefore\,R_1=R_2=1$,得证. \\
+
+\textbf{注记}:本题$\displaystyle\sum_{n=0}^{\infty}a_n$发散的条件是必要的,去掉则结论不成立. \\
+反例:取$a_n=\dfrac{1}{2^n},\text{则}\displaystyle\sum_{n=0}^{\infty}a_nx^n$收敛半径为$2$,而$S_n=2-(\frac{1}{2})^n,\displaystyle\sum_{n=0}^{\infty}S_nx^n$收敛半径为$1$.
+\endgroup
+
+\begin{ti}
+【题19】 设具有相同单调性的单调函数列$\{f_n\}$在区间$[a,b]$上收敛于$f\in C[a,b]$. 证明:$\{f_n\}$在$[a,b]$上一致收敛.
+\end{ti}
+
+\textbf{证明}:不妨设$f_n$均是单调递增的, 即$\forall\,n\geq 1,x<y,\;\text{都有}f_n(x)\leq f_n(y),$ \\
+
+$\text{令}n\to\infty,\,\text{可得}f(x)\leq f(y)$,即$f$单调递增. \\
+
+$\because\,f\in C[a,b],\qquad\therefore\,f\text{在}[a,b]$上一致连续, \\
+
+$\therefore\,\forall\,\varepsilon>0,\;\exists\,\delta>0,\;\text{s.t.}\,\left\lvert x-y\right\rvert<\delta\text{时},\left\lvert f(x)-f(y)\right\rvert<\dfrac{\varepsilon}{5}$, \\
+
+对$[a,b]$作分划$P:\,a=x_0<x_1<\cdots<x_m=b,\;\text{其中}\left\lVert P\right\rVert=\displaystyle\max_{0\leq k\leq m-1}\left\lvert x_{k+1}-x_k\right\rvert<\delta$, \\
+
+对$\forall\,x\in[a,b],$不妨设$x\in[x_k,x_{k+1}],\,0\leq k\leq m-1$, \\
+
+$\therefore\,\left\lvert f_n(x)-f(x)\right\rvert\leq\left\lvert f_n(x)-f_n(x_k)\right\rvert+\left\lvert f_n(x_k)-f(x_k)\right\rvert+\left\lvert f(x_k)-f(x)\right\rvert $ \\
+
+\phantom{$\therefore\,\left\lvert f_n(x)-f(x)\right\rvert$}$=f_n(x)-f_n(x_k)+f(x)-f(x_k)+\left\lvert f_n(x_k)-f(x_k)\right\rvert $ \\
+
+\phantom{$\therefore\,\left\lvert f_n(x)-f(x)\right\rvert$}$\leq f_n(x_{k+1})-f_n(x_k)+f(x_{k+1})-f(x_k)+\left\lvert f_n(x_k)-f(x_k)\right\rvert $, \\
+
+$\because\,\text{对}\forall\,0\leq i\leq m,\;\forall\,\varepsilon>0,\;\exists\,N_i\in\mathbb{N}^+,\;n>N_i\text{时},\left\lvert f_n(x_i)-f(x_i)\right\rvert<\dfrac{\varepsilon}{5}$, \\
+
+$\therefore\,\text{取}N=\displaystyle\max_{0\leq i\leq m}N_i,\;n>N\text{时},\left\lvert f_n(x_i)-f(x_i)\right\rvert<\dfrac{\varepsilon}{5}\text{对}\forall\,0\leq i\leq m$成立, \\
+
+$\therefore\,n>N\text{时},\left\lvert f_n(x)-f(x)\right\rvert<f(x_{k+1})+\dfrac{\varepsilon}{5}-\left(f(x_k)-\dfrac{\varepsilon}{5}\right)+f(x_{k+1})-f(x_k)+\dfrac{\varepsilon}{5}$ \\
+
+\phantom{$\therefore\,n>N\text{时},\left\lvert f_n(x)-f(x)\right\rvert$}$=\dfrac{3\varepsilon}{5}+2\left[f(x_{k+1})-f(x_k)\right]<\varepsilon$, \\
+
+故由一致收敛的定义可知$f_n\rightrightarrows f$,得证.
+
 \BookEnd

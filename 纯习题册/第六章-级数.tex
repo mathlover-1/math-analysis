@@ -1,0 +1,131 @@
+\ifdefined\BookMaster
+\def\BookEnd{}
+\else
+\documentclass[a4paper,12pt,fleqn,openany,twoside,fontset=windows]{ctexbook}
+\input{数学分析纯习题册-导言.tex}
+\begin{document}
+\mainmatter
+\pagestyle{main}
+\setcounter{chapter}{5}
+\def\BookEnd{\end{document}}
+\fi
+
+\chapter{级数}
+
+
+% 在此处使用 ti 环境添加题目,格式与既有章节完全一致,例如:
+% \begin{ti}
+% 【题1】 题目内容...
+% \end{ti}
+%
+% \textbf{证明}:解答内容...
+%
+% 各章题号独立编号,本章从题1开始;
+% 支持 \textbf{证明}、\textbf{另解}、\textbf{注}、\textbf{注记}、\textbf{一点思考} 等标记.
+% ============================================================
+
+\begin{ti}
+【题1】 设$\displaystyle\sum_{n=1}^{\infty}a_n$为正项级数,$\{S_n\}$为其部分和数列,$p>1$,证明:$\displaystyle\sum_{n=1}^{\infty}\dfrac{a_n}{S_n^p}$总是收敛的.
+\end{ti}
+
+\exblank{6}% 原解答 6 行 → 留 6 行
+\begin{ti}
+【题2】 若正项级数$\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{a_n}$收敛,证明:$\displaystyle\sum_{n=1}^{\infty}\dfrac{n}{a_1+a_2+\cdots+a_n}$也收敛
+\end{ti}
+
+\exblank{23}% 原解答 23 行 → 留 8 行
+\begin{ti}
+【题3】设$\displaystyle\sum_{n=1}^{\infty}a_n$为收敛的正项级数,证明:$\displaystyle\sum_{n=1}^{\infty}\sqrt[n]{a_1a_2\cdots a_n} $收敛.
+\end{ti}
+
+\exblank{13}% 原解答 13 行 → 留 8 行
+\begin{ti}
+【题4】 设$a_1\in(0,\dfrac{\pi}{2}),a_n=\sin a_{n-1}\;(n\geq2)$迭代生成数列$\{a_n\}$,对$p\in\mathbb R$讨论级数$\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{a_n^p}$的敛散性.
+\end{ti}
+
+\exblank{10}% 原解答 10 行 → 留 8 行
+\begin{ti}
+【题5】 设$\{na_n\}$单调递减趋于$0$,$\displaystyle\sum_{n=1}^{\infty}a_n$收敛.
+证明:$\displaystyle\lim_{n\to\infty}(nlnn)a_n=0$.
+\end{ti}
+
+\exblank{7}% 原解答 7 行 → 留 6 行
+\begin{ti}
+【题6】 设正项级数$\sum a_n$的通项$a_n$单调减少,且已知级数收敛,证明:$\displaystyle\lim_{n\to\infty}na_n=0$.
+\end{ti}
+
+\exblank{17}% 原解答 17 行 → 留 8 行
+\begin{ti}
+【题7】 设正项级数$\displaystyle\sum_{n=1}^{\infty}a_n$通项单调减少趋于$0$,且已知数列$\displaystyle\left\{\sum_{k=1}^{n}(a_k-a_n)\right\}$有界,证明:$\displaystyle\sum_{n=1}^{\infty}a_n$收敛.
+\end{ti}
+
+\exblank{14}% 原解答 14 行 → 留 8 行
+\begin{ti}
+【题8】 设正项级数$\displaystyle\sum_{n=1}^{\infty}a_n$收敛,且数列$\left\{a_n-a_{n+1}\right\}$严格单调减少,
+证明:$\displaystyle\lim_{n\to\infty}\left(\dfrac{1}{a_{n+1}}-\dfrac{1}{a_n}\right)=+\infty$.
+\end{ti}
+
+\exblank{8}% 原解答 8 行 → 留 6 行
+\begin{ti}
+【题9】 试构造两个发散的正项级数$\displaystyle\sum_{n=1}^{\infty}a_n\text{与}\sum_{n=1}^{\infty}b_n,$它们的通项单调减少,但级数$\displaystyle\sum_{n=1}^{\infty}\min\{a_n,b_n\}$收敛.
+\end{ti}
+
+\exblank{9}% 原解答 9 行 → 留 8 行
+\begin{ti}
+【题10】 设$\{b_n\}$是单调递减的非负数列,证明:级数$\displaystyle\sum_{n=1}^{\infty}b_n\sin{nx}\text{在}(-\infty,+\infty)$上一致收敛的充分必要条件为$b_n=o(\frac{1}{n})$.
+\end{ti}
+
+\exblank{28}% 原解答 28 行 → 留 8 行
+\begin{ti}
+【题11】 讨论$\displaystyle\sum_{n=1}^{\infty}\dfrac{\sin{x}\sin{nx}}{\sqrt{n+x}}\text{在}(-\infty,+\infty)$上的一致收敛性.
+\end{ti}
+
+\exblank{8}% 原解答 8 行 → 留 6 行
+\begin{ti}
+【题12】 证明:函数项级数$\displaystyle\sum_{n=0}^{\infty}\int_{0}^{x}t^n\sin{\pi t}\,dt$在$[0,1]$上一致收敛.
+\end{ti}
+
+\exblank{9}% 原解答 9 行 → 留 8 行
+\begin{ti}
+【题13】(\textbf{$Bendixon$判别法}) 设$\displaystyle\sum_{n=1}^{\infty}u_n(x)\text{为}[a,b]$上的可微函数项级数,且$\displaystyle\sum_{n=1}^{\infty}u_n'(x)$的部分和函数列在$[a,b]$上一致有界.
+证明:如果$\displaystyle\sum_{n=1}^{\infty}u_n(x)$在$[a,b]$上收敛,则必在$[a,b]$上一致收敛.
+\end{ti}
+
+\exblank{11}% 原解答 11 行 → 留 8 行
+\begin{ti}
+【拓展14】 证明:区间$I$上的连续函数列的极限函数必有处处稠密的连续点.
+\end{ti}
+
+\exblank{24}% 原解答 24 行 → 留 8 行
+\begin{ti}
+【题15】 证明:区间$[a,b]$上的连续函数列的极限函数在$[a,b]$上连续的充要条件是函数列在$[a,b]$上准一致收敛. \\
+
+(准一致收敛:如果函数列$\{f_n(x)\}$在$[a,b]$上收敛于$f(x)$,且对每个$\varepsilon>0$和每个$N$,存在$N'>N$,使得对于每个$x\in[a,b]$,有正整数$n_x\in[N,N']$,满足$\left\lvert f_{n_x}(x)-f(x)\right\rvert<\varepsilon$,则称函数列$\{f_n(x)\}$在区间$[a,b]$上准一致收敛.)
+\end{ti}
+
+\exblank{19}% 原解答 19 行 → 留 8 行
+\begin{ti}
+【拓展16】(\textbf{$Arzel\grave{a}$控制收敛定理}) 设$\{f_n\}$是$[a,b]$上收敛于极限函数$f$的可积函数列.若$f$也在$[a,b]$上可积,且$\{f_n\}$在$[a,b]$上一致有界,
+即存在$M>0$,使得对于每个$n$和每个$x\in[a,b]$同时满足$\left\lvert f_n(x)\right\rvert\leq M$,则$\displaystyle\lim_{n\to\infty}\int_a^b f_n(x)\,\mathrm{d}x=\int_a^b f(x)\,\mathrm{d}x$.
+\end{ti}
+
+\exblank{3}% 原解答 3 行 → 留 4 行
+\begin{ti}
+【题17】 设幂级数$\displaystyle\sum_{n=0}^{\infty}a_nx^n$收敛半径为$R>0$. 问:是否成立$\displaystyle\int_{0}^{R}\left(\sum_{n=0}^{\infty}a_nx^n\right)\,dx=\sum_{n=0}^{\infty}\dfrac{a_n}{n+1}R^{n+1}$.
+\end{ti}
+
+\exblank{9}% 原解答 9 行 → 留 8 行
+\begin{ti}
+【题18】 设级数$\displaystyle\sum_{n=0}^{\infty}a_n$发散,记$S_n=a_0+a_1+\cdots+a_n$,证明:\\
+(1) 幂级数$\displaystyle\sum_{n=0}a_nx^n\text{和}\sum_{n=0}^{\infty}S_nx^n$有相同的收敛半径.\\
+(2) 若$a_n\geq 0,\displaystyle\lim_{n\to\infty}\dfrac{a_n}{S_n}=0,\text{则}\sum_{n=0}^{\infty}a_nx^n$收敛半径为$1$.
+\end{ti}
+
+\exblank{18}% 原解答 18 行 → 留 8 行
+\begin{ti}
+【题19】 设具有相同单调性的单调函数列$\{f_n\}$在区间$[a,b]$上收敛于$f\in C[a,b]$. 证明:$\{f_n\}$在$[a,b]$上一致收敛.
+\end{ti}
+
+\exblank{14}% 原解答 14 行 → 留 8 行
+
+\BookEnd

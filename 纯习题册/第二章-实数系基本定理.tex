@@ -1,0 +1,60 @@
+\ifdefined\BookMaster
+\def\BookEnd{}
+\else
+\documentclass[a4paper,12pt,fleqn,openany,twoside,fontset=windows]{ctexbook}
+\input{数学分析纯习题册-导言.tex}
+\begin{document}
+\mainmatter
+\pagestyle{main}
+\setcounter{chapter}{1}
+\def\BookEnd{\end{document}}
+\fi
+
+\chapter{实数系基本定理}
+\begin{ti}
+【题1】 设$A$是有上界的数集,$\beta=\sup A$  证明:$\exists\{a_n\},\text{s.t.}\;a_n\in A\text{且}\displaystyle\lim_{n\to\infty}a_n=\beta;$ \\
+
+又若$\beta\notin A,$则$\{a_n\}$可以是严格单调递增的
+\end{ti}
+
+\exblank{6}% 原解答 6 行 → 留 6 行
+\begin{ti}
+【题2】 证明:每个数列都有单调子列
+\end{ti}
+
+\exblank{9}% 原解答 9 行 → 留 8 行
+\begin{ti}
+【题3】证明:若$\{x_n\}$无界,但不是无穷大量,则存在两个子列,其中一个子列收敛,另一个子列是无穷大量
+\end{ti}
+
+\exblank{25}% 原解答 25 行 → 留 8 行
+\begin{ti}
+【题4】用闭区间套原理直接证明$Cauchy$收敛准则
+\end{ti}
+
+\exblank{16}% 原解答 16 行 → 留 8 行
+\begin{ti}
+【题5】证明:有限覆盖定理在$\mathbb{Q}$中不成立
+\end{ti}
+
+\exblank{10}% 原解答 10 行 → 留 8 行
+\begin{ti}
+【题6】用有限覆盖定理证明闭区间套原理
+\end{ti}
+
+\exblank{11}% 原解答 11 行 → 留 8 行
+\begin{ti}
+【题7】设正数列$\{a_n\}$满足$a_{m+n}\leq a_ma_n,\,\forall\,n,m\in\mathbb{N}^+$,证明: \\
+若$\{\dfrac{\ln{a_n}}{n}\}$有界,则$\displaystyle\lim_{n\to\infty}\dfrac{\ln{a_n}}{n}=\displaystyle\inf_{n\geq 1}\{\dfrac{\ln{a_n}}{n}\}$
+\end{ti}
+
+\exblank{13}% 原解答 13 行 → 留 8 行
+\begin{ti}
+【题8】证明:区间中的局部常值函数为常值函数(提示:先考虑闭区间)\\
+
+(注:局部常值函数是指对定义域内每个点,存在邻域使得函数在邻域上为常值)
+\end{ti}
+
+\exblank{11}% 原解答 11 行 → 留 8 行
+
+\BookEnd

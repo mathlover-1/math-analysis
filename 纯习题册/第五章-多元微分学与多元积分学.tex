@@ -1,0 +1,92 @@
+\ifdefined\BookMaster
+\def\BookEnd{}
+\else
+\documentclass[a4paper,12pt,fleqn,openany,twoside,fontset=windows]{ctexbook}
+\input{数学分析纯习题册-导言.tex}
+\begin{document}
+\mainmatter
+\pagestyle{main}
+\setcounter{chapter}{4}
+\def\BookEnd{\end{document}}
+\fi
+
+\chapter{多元微分学与多元积分学}
+\begin{ti}
+【题1】若$f(x,y)$是在$\mathbb{R}^2\backslash\{0\}$上连续的$n$次齐次函数(注:$n$次齐次函数是指满足$f(t\mathbf{x})=t^nf(\mathbf{x})$的函数),
+证明:$\left\lvert f(x,y)\right\rvert\leq C(x^2+y^2)^{\frac{n}{2}}$,其中$C$为正常数
+\end{ti}
+
+\exblank{5}% 原解答 5 行 → 留 4 行
+\begin{ti}
+【题2】如果$F(x,y)$在矩形$D=\left\{(x,y)\in\mathbb{R}^2\,|\;\left\lvert x-x_0\right\rvert<a,\left\lvert y-y_0\right\rvert<b\right\}$上连续,
+$F(x_0,y_0)=0,$且$F(x,y)$对每一个$x\in(x_0-a,x_0+a)$关于$y$严格单调,求证:在$(x_0,y_0)$某个邻域内,由$F(x,y)=0$可确定唯一的函数$y=f(x)$,且$f(x)$在$x_0$的一个邻域里连续
+\end{ti}
+
+\exblank{14}% 原解答 14 行 → 留 8 行
+\begin{ti}
+【题3】$D=\left\{u\in\mathbb{R}^n\,|\;\left\lVert u\right\rVert\leq\frac{1}{2}\right\},$ $f\colon D\to\mathbb{R}\text{为}C^1$映射, \\
+$\left\lVert \nabla f(0)\right\rVert=1,\text{且}\left\lVert \nabla f(u)-\nabla f(v)\right\rVert\leq\left\lVert u-v\right\rVert $, \\
+证明:存在唯一的点$\xi$,使得$f(\xi)=\displaystyle\max_{D}f$
+\end{ti}
+
+\exblank{23}% 原解答 23 行 → 留 8 行
+\begin{ti}
+【题4】二元函数$f(x,y)$,定义域为$I=[a,b]\times[c,d]$,$f$关于每个变量单调递增,证明:$f\in R(I)$
+\end{ti}
+
+\exblank{8}% 原解答 8 行 → 留 6 行
+\begin{ti}
+【题5】$\gamma(t):[a,b]\to \mathbb{R}^2,\gamma(t)=(x(t),y(t))$,且 $x(t)\in C^\alpha[a,b],y(t)\in C^\beta[a,b],0<\alpha,\beta<1, \alpha+\beta>1$, 
+证明:$\gamma([a,b])$ 是 $\mathbb{R}^2$ 中零面积集.(注:$x(t)\in C^\alpha[a,b]$指的是$\displaystyle|x(t_1)-x(t_2)|\leq C_x\left\lvert t_1-t_2\right\rvert^{\alpha}$)
+\end{ti}
+
+\exblank{10}% 原解答 10 行 → 留 8 行
+\begin{ti}
+【题6】设 $f\in C^2(\overline{B_1(0)})$,在 $B_1(0)$ 上 $C^2$,设 $f$ 在 $\partial B_1(0)$ 上最小值为 $a$,
+$f(0)=b<a$,考虑映射 $\phi:B_1(0)\to\mathbb{R}^n,\phi(x)=\nabla f(x)$,$\Sigma=\{x\in B_1(0)|\nabla^2 f(x)$半正定$\}$,
+证明:$\phi(\Sigma)$ 中包含一个半径为 $a-b$ 的开球
+\end{ti}
+
+\exblank{11}% 原解答 11 行 → 留 8 行
+\begin{ti}
+【题7】设$D\subset\mathbb{R}^2$为平面区域,$u\in C^2(D)$,满足$\dfrac{\partial^2 u}{\partial x^2}+\dfrac{\partial^2 u}{\partial y^2}=0$,
+证明:对任何$\overline{B_r(a)}\subset D$,都有$\displaystyle\int_{\partial B_r(a)}\dfrac{\partial u}{\partial \vec{n}}ds=0$,
+其中$\vec{n}$为$\partial B_r(a)$的单位外法向量,$\dfrac{\partial u}{\partial \vec{n} }$为方向导数.
+\end{ti}
+
+\exblank{10}% 原解答 10 行 → 留 8 行
+\begin{ti}
+【题8】$\Omega$为有界$C^1$区域,$\displaystyle u\in C^2(\overline\Omega)$,$\displaystyle\Delta u=u$,且$\displaystyle u|_{\partial\Omega}\equiv 0$,
+证明:$u\equiv0$
+\end{ti}
+
+\exblank{12}% 原解答 12 行 → 留 8 行
+\begin{ti}
+【题9】$\Omega\subset \mathbb{R}^3$为有$C^1$边界的有界区域,$\displaystyle u\in C^2(\overline\Omega,\mathbb{R})$,
+$\Delta u = 0$,证明:对任意内点$p \in \Omega$,有:
+$\displaystyle u(p)=\dfrac{1}{4\pi}\int_{\partial\Omega}\left(\dfrac{\boldsymbol{r}\cdot\boldsymbol{n}}{r^3} u + \dfrac{1}{r}\dfrac{\partial u}{\partial \boldsymbol{n}} \right)d\sigma$,
+其中$p = (x_0, y_0, z_0)$,$\boldsymbol{r} = (x - x_0, y - y_0, z - z_0)$,$\boldsymbol{n}$为$\partial\Omega$单位外法向量
+\end{ti}
+
+\exblank{17}% 原解答 17 行 → 留 8 行
+\begin{ti}
+【题10】($Poincar\acute{e}$(庞加莱)不等式) 设$\varphi,\psi\text{是}[a,b]$上的连续函数,$f$在区域$D=\left\{(x,y)\,|\,a\leq x\leq b,\,\varphi(x)\leq y\leq\psi(x)\right\}$上连续可微,
+且有$f(x,\varphi(x))=0,\forall\,x\in[a,b]$. 证明:存在$M>0$,使得$\displaystyle\iint\limits_{D}f^2(x,y)\,dxdy\leq M\displaystyle\iint\limits_{D}f_y^2(x,y)\,dxdy$.
+\end{ti}
+
+\exblank{10}% 原解答 10 行 → 留 8 行
+\begin{ti}
+【题11】 设$D$是$Oxy$平面上有限条逐段光滑曲线围成的区域,$f$在$\overline{D} $上有二阶连续偏导数且满足方程
+$\dfrac{\partial^2 f}{\partial x^2}+\dfrac{\partial^2 f}{\partial y^2}=2a\dfrac{\partial f}{\partial x}+2b\dfrac{\partial f}{\partial y}+cf$,
+其中$a,b,c$为常数且$c\geq 0$. 证明:若$f$在$\partial D$上恒为$0$,则$f$在$D$上恒为$0$.
+\end{ti}
+
+\exblank{8}% 原解答 8 行 → 留 6 行
+\begin{ti}
+【题12】 设$D:x^2+y^2\leq a^2(a>0),f$在$D$上有连续偏导数,且在$D$的边界上$f(x,y)=0$. 
+求证:$\;\displaystyle\left\lvert \iint\limits_{D}f(x,y)\,dxdy\right\rvert\leq\dfrac{\pi a^3}{3}\max_{(x,y)\in D}\left\{\left[\left(\dfrac{\partial f}{\partial x}\right)^2+\left(\dfrac{\partial f}{\partial y}\right)^2\right]^{\frac{1}{2}}\right\}$.
+\end{ti}
+
+\exblank{10}% 原解答 10 行 → 留 8 行
+
+\BookEnd
